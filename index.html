@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aquora - Terms & Privacy</title>
+<style>
+  :root {
+    --bg: #61A88A;
+    --text-main: #1D4354;
+    --text-secondary: #3D6B70;
+    --card-surface: rgba(255,255,255,0.18);
+    --card-solid: #75B99E;
+    --raised: rgba(255,255,255,0.25);
+    --accent: #2D7864;
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1D4354;
+      --text-main: #61A88A;
+      --text-secondary: #7FB8A0;
+      --card-surface: rgba(255,255,255,0.10);
+      --card-solid: #265264;
+      --raised: rgba(255,255,255,0.14);
+      --accent: #50AA8C;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  /* Logo Header */
+  .logo-header {
+    text-align: center;
+    padding: 10px 0 24px;
+  }
+  .logo-header .icon {
+    font-size: 28px;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  .logo-header .name {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  /* Tab Navigation */
+  .tab-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    justify-content: center;
+  }
+  .tab-btn {
+    padding: 10px 28px;
+    border-radius: var(--radius-sm);
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+    color: var(--text-main);
+    background: var(--card-surface);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .tab-btn.active {
+    background: var(--text-main);
+    color: var(--bg);
+  }
+  .tab-btn:hover:not(.active) {
+    background: var(--raised);
+  }
+
+  /* Content Cards */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .card {
+    background: var(--card-surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.2px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0 8px;
+  }
+
+  p, li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+  li { margin-bottom: 4px; }
+
+  .effective-date {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-bottom: 24px;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  a:hover { text-decoration: underline; }
+
+  .footer {
+    text-align: center;
+    padding: 32px 0 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+
+  /* Smooth fade */
+  .tab-content.active {
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Logo -->
+  <div class="logo-header">
+    <span class="icon">&#x1F4A7;</span><span class="name">Aquora</span>
+  </div>
+
+  <p class="effective-date">Effective Date: April 2, 2026</p>
+
+  <!-- Tabs -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('terms', this)">Terms of Service</button>
+    <button class="tab-btn" onclick="switchTab('privacy', this)">Privacy Policy</button>
+  </div>
+
+  <!-- Terms of Service -->
+  <div id="terms" class="tab-content active">
+
+    <div class="card">
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or using Aquora ("the App"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the App.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Description of Service</h2>
+      <p>Aquora is a screen time management application that helps users monitor and control their device usage through features including:</p>
+      <ul>
+        <li>Screen time tracking and reporting</li>
+        <li>App usage limits and blocking</li>
+        <li>Unlocking challenges and quizzes</li>
+        <li>Meditation and mindfulness exercises</li>
+        <li>Reward and token systems</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>3. Screen Time & Family Controls</h2>
+      <p>Aquora uses Apple's Screen Time API and Family Controls framework. The App requires your explicit authorization to access and manage screen time data. You may revoke this access at any time through your device settings.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. Subscriptions & In-App Purchases</h2>
+      <p>Aquora offers auto-renewable subscription plans to unlock premium features. By subscribing, you agree to the following terms:</p>
+
+      <h3>Payment & Billing</h3>
+      <ul>
+        <li>Payment will be charged to your Apple ID account at confirmation of purchase.</li>
+        <li>Subscription prices are displayed in the App before purchase. Prices may vary by region.</li>
+      </ul>
+
+      <h3>Auto-Renewal</h3>
+      <ul>
+        <li>Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current billing period.</li>
+        <li>Your account will be charged for renewal within 24 hours prior to the end of the current period at the same rate.</li>
+      </ul>
+
+      <h3>Free Trial</h3>
+      <ul>
+        <li>If a free trial is offered, any unused portion of the free trial period will be forfeited when you purchase a subscription.</li>
+        <li>After the free trial expires, you will be automatically charged the subscription price unless you cancel at least 24 hours before the trial ends.</li>
+      </ul>
+
+      <h3>Managing & Canceling</h3>
+      <ul>
+        <li>You can manage or cancel your subscription at any time by going to your device's <strong>Settings &gt; [Your Name] &gt; Subscriptions</strong>.</li>
+        <li>Cancellation takes effect at the end of the current billing period. You will retain access to premium features until then.</li>
+      </ul>
+
+      <h3>Refund Policy</h3>
+      <p>Refunds are handled by Apple in accordance with their <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store refund policy</a>.</p>
+
+      <h3>Apple's Terms</h3>
+      <p>Use of the App is also subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement (Standard EULA)</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>5. Tip Jar & Consumable Purchases</h2>
+      <p>Aquora offers optional one-time tip purchases to support development. These are non-refundable consumable in-app purchases processed through Apple's App Store. Tips do not unlock additional features.</p>
+    </div>
+
+    <div class="card">
+      <h2>6. Age Requirement</h2>
+      <p>You must be at least 13 years old to use Aquora. If you are under 18, you must have parental or guardian consent. Parents may use the App's Family Controls features to manage their children's device usage.</p>
+    </div>
+
+    <div class="card">
+      <h2>7. Intellectual Property</h2>
+      <p>All content, design, graphics, and code within the App are the intellectual property of Aquora and its developers. Quiz questions generated by AI are provided for personal use only and may not be redistributed or used commercially.</p>
+    </div>
+
+    <div class="card">
+      <h2>8. User Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Reverse engineer, decompile, or disassemble the App</li>
+        <li>Use the App for any unlawful purpose</li>
+        <li>Attempt to circumvent any security features</li>
+        <li>Redistribute or resell the App or its content</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>9. Disclaimer of Warranties</h2>
+      <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. Screen time management features depend on system-level APIs and may be affected by OS updates.</p>
+    </div>
+
+    <div class="card">
+      <h2>10. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, Aquora and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+    </div>
+
+    <div class="card">
+      <h2>11. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of the App shall be resolved in the jurisdiction where the developer is located.</p>
+    </div>
+
+    <div class="card">
+      <h2>12. Changes to Terms</h2>
+      <p>We reserve the right to modify these terms at any time. Continued use of the App after changes constitutes acceptance of the revised terms.</p>
+    </div>
+
+    <div class="card">
+      <h2>13. Contact</h2>
+      <p>If you have questions about these Terms, please contact us at <a href="mailto:aquora.app@outlook.com">aquora.app@outlook.com</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- Privacy Policy -->
+  <div id="privacy" class="tab-content">
+
+    <div class="card">
+      <h2>1. Introduction</h2>
+      <p>Your privacy is important to us. This Privacy Policy explains how Aquora collects, uses, and protects your information when you use our App.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Information We Collect</h2>
+
+      <h3>Sign In with Apple</h3>
+      <p>If you choose to sign in, we collect your Apple User ID, name, and email address provided by Apple. Your Apple User ID is stored securely in the device Keychain. Your name and email are stored locally on your device only.</p>
+
+      <h3>Screen Time Data</h3>
+      <p>With your explicit permission, we access device usage data through Apple's Screen Time API to provide usage tracking and app limiting features. This data is processed locally on your device and never transmitted externally.</p>
+
+      <h3>User Preferences & Progress</h3>
+      <p>Settings such as your selected app limits, meditation preferences, quiz progress, reward tokens, and streak data are stored locally on your device using UserDefaults and App Groups.</p>
+
+      <h3>User-Generated Content</h3>
+      <p>Journal entries and meditation notes you create are stored locally on your device. We do not access, read, or transmit this content.</p>
+
+      <h3>Subscription Information</h3>
+      <p>Subscription and tip purchase status is managed through Apple's StoreKit framework. We do not have access to your payment information.</p>
+    </div>
+
+    <div class="card">
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To provide screen time tracking and reporting</li>
+        <li>To enforce app usage limits you have configured</li>
+        <li>To track your meditation and quiz progress</li>
+        <li>To manage your reward tokens and achievements</li>
+        <li>To generate personalized quiz questions via AI</li>
+        <li>To deliver a personalized experience</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>4. Data Storage & Security</h2>
+      <p>All user data is stored locally on your device. Data shared between the main app and extensions (Shield, Device Activity Monitor) uses secure App Group containers.</p>
+      <h3>iCloud Sync</h3>
+      <p>Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings.</p>
+      <h3>Keychain</h3>
+      <p>Your Apple User ID is stored in the device Keychain with encryption and is not accessible to other apps.</p>
+    </div>
+
+    <div class="card">
+      <h2>5. Third-Party Services</h2>
+      <p>The App uses the following third-party services:</p>
+      <ul>
+        <li><strong>Apple Sign In</strong> — for authentication (Apple User ID verification)</li>
+        <li><strong>Apple StoreKit</strong> — for subscription and tip purchase management</li>
+        <li><strong>Apple Family Controls</strong> — for screen time management</li>
+        <li><strong>Apple iCloud</strong> — for syncing token and subscription data</li>
+        <li><strong>Google Gemini API</strong> — for generating quiz questions. Only your selected question categories and device language are sent. No personal data, screen time data, or identifiable information is transmitted.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>6. Tracking & Advertising</h2>
+      <p>Aquora does <strong>not</strong> use any analytics, advertising, or tracking SDKs. We do not collect your device advertising identifier (IDFA). We do not track your activity across other apps or websites. The App does not request App Tracking Transparency permission because no tracking occurs.</p>
+    </div>
+
+    <div class="card">
+      <h2>7. Notifications</h2>
+      <p>With your permission, Aquora sends local notifications to remind you about usage limits and challenges. These notifications are generated entirely on your device and do not involve any remote push notification servers.</p>
+    </div>
+
+    <div class="card">
+      <h2>8. Children's Privacy</h2>
+      <p>Aquora does not knowingly collect personal information from children under 13. The App's screen time management features may be used by parents to manage their children's device usage through Family Controls. If we learn that we have collected data from a child under 13 without parental consent, we will take steps to delete that information.</p>
+    </div>
+
+    <div class="card">
+      <h2>9. Data Retention & Deletion</h2>
+      <p>All locally stored data is deleted when you uninstall the App. Data synced to iCloud (token balance, subscription status) may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>. We do not retain any data on external servers.</p>
+    </div>
+
+    <div class="card">
+      <h2>10. Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Revoke screen time and notification permissions at any time via device Settings</li>
+        <li>Delete all locally stored data by uninstalling the App</li>
+        <li>Remove iCloud-synced data through your iCloud settings</li>
+        <li>Revoke Sign In with Apple credentials via <strong>Settings &gt; [Your Name] &gt; Sign-In & Security</strong></li>
+        <li>Request information about data processing by contacting us</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes through the App or by updating the effective date above.</p>
+    </div>
+
+    <div class="card">
+      <h2>12. Contact Us</h2>
+      <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:aquora.app@outlook.com">aquora.app@outlook.com</a>.</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    &copy; 2026 Aquora. All rights reserved.
+  </div>
+
+</div>
+
+<script>
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  if (btn) btn.classList.add('active');
+  else document.querySelector('[onclick*="' + tab + '"]').classList.add('active');
+}
+// Support direct linking via #terms or #privacy
+(function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash === 'terms' || hash === 'privacy') switchTab(hash);
+})()
+</script>
+
+</body>
+</html>
