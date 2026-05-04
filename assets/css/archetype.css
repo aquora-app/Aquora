@@ -65,32 +65,33 @@ body {
   text-rendering: optimizeLegibility;
   min-height: 100vh;
 
-  /* Tri-stop gradient mirrors the share card's diagonal mood:
-     base brand color → archetype color tint mid → lighter base at bottom. */
-  background:
-    linear-gradient(
-      155deg,
-      var(--bg-base) 0%,
-      color-mix(in srgb, var(--archetype-color) 38%, var(--bg-base)) 50%,
-      var(--bg-light) 100%
-    );
-  background-attachment: fixed;
-}
-
-/* Subtle texture/depth overlay so the gradient doesn't read as flat color
-   on big screens. Pure CSS noise via radial gradients at low opacity. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+  /* Two stacked viewport-fixed background layers:
+   *   1. Top halo of archetype color — `at 50% 0%` anchors the gradient peak
+   *      to the top of the viewport, so as the user scrolls the halo stays
+   *      pinned to the top of the screen.
+   *   2. Tri-stop diagonal gradient (brand base → archetype color tint mid →
+   *      lighter base at bottom) mirrors the share card's mood.
+   *
+   * Both `fixed` (the keyword in `background-attachment`) so they paint
+   * relative to the viewport, not the document. Combining into one
+   * `background` shorthand with multiple layers — instead of the previous
+   * body::before pseudo-element approach — sidesteps a known iOS Safari
+   * rendering bug where pseudo-element + position:fixed + body
+   * background-attachment:fixed could un-pin the pseudo-element during
+   * rubber-band scroll.
+   */
   background:
     radial-gradient(
       ellipse 60% 40% at 50% 0%,
       color-mix(in srgb, var(--archetype-color) 22%, transparent) 0%,
       transparent 70%
-    );
-  z-index: 0;
+    ) fixed,
+    linear-gradient(
+      155deg,
+      var(--bg-base) 0%,
+      color-mix(in srgb, var(--archetype-color) 38%, var(--bg-base)) 50%,
+      var(--bg-light) 100%
+    ) fixed;
 }
 
 /* ============================================================
