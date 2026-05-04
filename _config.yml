@@ -1,0 +1,28 @@
+# Jekyll config for Aquora's GitHub Pages site.
+# Served at https://aquora-app.github.io/Aquora/ from the `docs/` folder.
+
+title: Aquora
+description: Decode your phone personality from real screen-time behavior.
+url: https://aquora-app.github.io
+baseurl: /Aquora
+
+# kramdown is GitHub Pages' default — explicit for clarity.
+markdown: kramdown
+
+# Files in /p/ default to the archetype layout, so each stub doesn't need
+# to redeclare it. Keeps stub files down to ~3 lines each.
+defaults:
+  - scope:
+      path: "p"
+    values:
+      layout: archetype
+
+# The legacy Terms/Privacy file (index.html) lives at the root and uses no
+# Jekyll features — Jekyll will serve it unchanged because it has no front
+# matter. No action needed.
+
+# Skip files that don't need processing — keeps the build fast and avoids
+# Jekyll trying to parse README, etc.
+exclude:
+  - README.md
+  - "*.txt"

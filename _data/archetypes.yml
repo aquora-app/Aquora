@@ -1,0 +1,171 @@
+# All 17 personality archetypes (16 + RS fallback) — extracted from
+# Screen Time Control/Models/PersonalityArchetype.swift. Each landing page
+# in /p/ pulls its content from this file by code lookup.
+#
+# When the Swift source-of-truth changes, manually re-sync this file. The
+# data is small enough (~300 lines) that hand-syncing is cheaper than
+# building a Swift→YAML codegen pipeline.
+
+archetypes:
+  # ======================== Day + Conscious ========================
+
+  - code: DCES
+    name: The Graceful Retreater
+    emoji: "☀️"
+    color: "#61A88A"
+    axes: [Day, Conscious, Escaping, Steady]
+    tagline: "You choose your quiet moments on purpose."
+    description: "You pace yourself through the day with a quiet intentionality most people lack. When you reach for your phone to rest, you mean it — it's not an accident. Your rhythm is steady, your retreats are chosen. There's a deep calm in that."
+    nudge: "Could you share what your quiet rituals look like with someone who might be searching for theirs?"
+
+  - code: DCEB
+    name: The Mindful Escapist
+    emoji: "🌷"
+    color: "#D291A5"
+    axes: [Day, Conscious, Escaping, Bursty]
+    tagline: "You know when you need a break — and you take it fully."
+    description: "You know escape isn't weakness — it's a tool. You don't use your phone a little bit often; you use it in deliberate bursts when the day asks for relief. That self-awareness is rare. The question isn't whether you escape, but whether the escape is feeding you."
+    nudge: "When you burst away from the day, what would it feel like to walk instead of scroll, once?"
+
+  - code: DCGS
+    name: The Mindful Steward
+    emoji: "🌿"
+    color: "#509678"
+    axes: [Day, Conscious, Engaged, Steady]
+    tagline: "Your attention is a garden you tend daily."
+    description: "Your attention is a garden you tend daily. You know why you open what you open. You're not impulsive, and you're not hiding. You're among the most rare kind of phone user: one who treats their time like it's worth something."
+    nudge: "What's one small attention practice you could add to your day this week?"
+
+  - code: DCGB
+    name: The Passionate Learner
+    emoji: "🧠"
+    color: "#8C82C8"
+    axes: [Day, Conscious, Engaged, Bursty]
+    tagline: "When you're curious, nothing can stop you."
+    description: "Your curiosity comes in waves — and when the wave is high, you go all in. You know this about yourself. Your bursts aren't reckless; they're focused. The challenge is finding the off-ramp when the wave passes."
+    nudge: "During your next spark, try writing down what pulled you in — it's research about yourself."
+
+  # ======================== Day + Autopilot ========================
+
+  - code: DAES
+    name: The Gentle Wanderer
+    emoji: "🍃"
+    color: "#AAC3B4"
+    axes: [Day, Autopilot, Escaping, Steady]
+    tagline: "You drift softly through days of small escapes."
+    description: "You move through your days gently, phone in hand more often than you realize. The escapes are small — a check here, a scroll there — and mostly invisible to you. There's nothing wrong with the drift; naming it is the first step toward choosing it."
+    nudge: "Tomorrow, could you notice one reach? Just notice. No judgment."
+
+  - code: DAEB
+    name: The Storm Walker
+    emoji: "🌪️"
+    color: "#C88C78"
+    axes: [Day, Autopilot, Escaping, Bursty]
+    tagline: "Your phone is your umbrella when the day floods."
+    description: "When the day gets heavy, you reach hard — big bursts of scrolling, sometimes followed by the emergency button. Your attention responds to stress, not by focusing but by dispersing. The phone is a coping tool, and knowing that is power."
+    nudge: "When you feel the storm rising, could you pause for three slow breaths before the scroll?"
+
+  - code: DAGS
+    name: The Curious Magpie
+    emoji: "🪺"
+    color: "#C3AA82"
+    axes: [Day, Autopilot, Engaged, Steady]
+    tagline: "Shiny things catch you — and that's part of your charm."
+    description: "Beautiful things pull your eye, and your phone shows you a lot of beautiful things. You don't scroll to escape — you scroll because the world is interesting. Steady, curious, a little distracted. A magpie with no apologies."
+    nudge: "Try making a list of the 5 most interesting things you saw today — see what surprises you."
+
+  - code: DAGB
+    name: The Spark Dancer
+    emoji: "⚡️"
+    color: "#E6B464"
+    axes: [Day, Autopilot, Engaged, Bursty]
+    tagline: "Your days move in bright, impulsive bursts."
+    description: "You're brightly, inexplicably drawn in — then out, then in again. Your phone catches sparks of your interest in rapid bursts. There's a wild kind of aliveness in how you use it. The risk is losing track of what you were doing before the spark caught."
+    nudge: "After your next burst, could you give your eyes 5 minutes of sky or tree?"
+
+  # ======================== Night + Conscious ========================
+
+  - code: NCES
+    name: The Quiet Ritualist
+    emoji: "🌒"
+    color: "#555F8C"
+    axes: [Night, Conscious, Escaping, Steady]
+    tagline: "Every night, a private ceremony you've come to know."
+    description: "Your nights have a shape. Some people would call it a bad habit; you know it's a ritual. When you reach for your phone in the dark, you know what you're doing — seeking softness, seeking company, seeking the known. There's grace in the knowing."
+    nudge: "What if one night a week, the ritual was a book instead of a screen? Just to see."
+
+  - code: NCEB
+    name: The Midnight Seeker
+    emoji: "🔍"
+    color: "#646EA0"
+    axes: [Night, Conscious, Escaping, Bursty]
+    tagline: "You're awake, searching for what the day didn't give you."
+    description: "You're awake when most people aren't. And you know why — something's unfinished in the day, and the scrolling is how you reach for it. Your awareness sharpens the question: is your phone meeting you in that searching, or just delaying it?"
+    nudge: "Before the next midnight scroll, could you ask: what am I actually looking for?"
+
+  - code: NCGS
+    name: The Nocturnal Scholar
+    emoji: "📚"
+    color: "#489BB4"
+    axes: [Night, Conscious, Engaged, Steady]
+    tagline: "Your best thinking happens when the world sleeps."
+    description: "The world at night is quieter, and your mind works better in that quiet. You don't scroll to escape — you scroll to explore. Your phone is a portal to late-night learning. Just remember the body still needs sleep."
+    nudge: "Try setting one night a week as a scholarly night — and one as a rest night. See what they ask of you."
+
+  - code: NCGB
+    name: The Inspired Insomniac
+    emoji: "✨"
+    color: "#8264B4"
+    axes: [Night, Conscious, Engaged, Bursty]
+    tagline: "Ideas find you in the dark — your phone is where they land."
+    description: "You're awake because something inspired you, and you're chasing it. The nights find you writing, reading, building, wondering. Your phone is a tool, not a crutch. These are rare nights — protect them. But also: rest."
+    nudge: "Sleep is where inspiration consolidates. Could you try bed at 11:30 once, just as an experiment?"
+
+  # ======================== Night + Autopilot ========================
+
+  - code: NAES
+    name: The Drifting Dreamer
+    emoji: "💭"
+    color: "#7878A0"
+    axes: [Night, Autopilot, Escaping, Steady]
+    tagline: "The nights ask something of you, and you answer with scrolling."
+    description: "The dark asks something of you — loneliness, restlessness, something softer than you'd say out loud. You don't fully know why you're still awake, but you are. The phone is there to meet you. Noticing that pattern is the first gift you can give yourself."
+    nudge: "Next time you reach at 1 AM, could you place a hand on your chest first? Just for a breath."
+
+  - code: NAEB
+    name: The Restless Sleeper
+    emoji: "🌌"
+    color: "#A06482"
+    axes: [Night, Autopilot, Escaping, Bursty]
+    tagline: "Something keeps finding you at 2 AM. Your phone meets you there."
+    description: "You wake at strange hours and reach for the phone before you reach for yourself. The bursts are intense — and the emergency unlock has met you more than once. This isn't a character flaw. It's a pattern your nervous system is trying to tell you about."
+    nudge: "Your body is asking you something at 2 AM. Could you listen to it — just once, without the phone?"
+
+  - code: NAGS
+    name: The Starlight Magpie
+    emoji: "🌟"
+    color: "#6E82B4"
+    axes: [Night, Autopilot, Engaged, Steady]
+    tagline: "Late hours bring strange treasures to your screen."
+    description: "Somehow you drift to your phone late, and it brings you things you didn't know you needed. Maybe curiosity, maybe connection, maybe just moving images. You're not chasing it down; it comes to you. The risk is losing the hours the mornings were going to need."
+    nudge: "Could one night this week be phone-free after midnight? See what the dark brings without a screen."
+
+  - code: NAGB
+    name: The Ember Chaser
+    emoji: "🔥"
+    color: "#D2785A"
+    axes: [Night, Autopilot, Engaged, Bursty]
+    tagline: "When inspiration strikes at night, you chase it everywhere."
+    description: "When the spark catches in the dark, you follow it. You're not on autopilot in any bad way — you're just following what pulls. The bursts are creative, hungry, alive. But dawn always comes. Plan for it."
+    nudge: "Your creative bursts are gifts. Could you save half of them for the morning instead of all for the night?"
+
+  # ======================== Sparse-data Fallback ========================
+
+  - code: RS
+    name: The Returning Self
+    emoji: "🌱"
+    color: "#82B48C"
+    axes: []
+    tagline: "You're finding your own rhythm — and that's enough."
+    description: "You're not a pattern yet — you're still becoming one. Keep using Aquora, keep answering the reflection questions, keep noticing. In a few weeks, the story your behavior tells will be clearer and we'll have more to show you."
+    nudge: "Keep going. Every reflection, every choice adds to the picture. There's no rush."

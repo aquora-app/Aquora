@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+{%- assign code = page.archetype_code -%}
+{%- assign archetype = nil -%}
+{%- for a in site.data.archetypes.archetypes -%}
+  {%- if a.code == code -%}
+    {%- assign archetype = a -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if archetype == nil -%}
+  {%- assign archetype = site.data.archetypes.archetypes[0] -%}
+{%- endif -%}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ archetype.name }} — Aquora Phone Personality</title>
+
+  <meta name="description" content="{{ archetype.tagline }} Decode your phone personality from real screen-time behavior with Aquora.">
+
+  <!-- Open Graph (preview when shared on iMessage / WhatsApp / X / etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ archetype.name }} — {{ archetype.code }}">
+  <meta property="og:description" content="{{ archetype.tagline }}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/p/{{ archetype.code }}/">
+  <meta property="og:site_name" content="Aquora">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ archetype.name }} — {{ archetype.code }}">
+  <meta name="twitter:description" content="{{ archetype.tagline }}">
+
+  <!-- Themeable color used by mobile browsers' address bar / app card -->
+  <meta name="theme-color" content="{{ archetype.color }}">
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/archetype.css">
+</head>
+<body style="--archetype-color: {{ archetype.color }};">
+
+  <main class="archetype-page">
+
+    <!-- Hero: emoji + name + 4-letter code + tagline -->
+    <section class="hero">
+      <div class="emoji" aria-hidden="true">{{ archetype.emoji }}</div>
+      <h1 class="archetype-name">{{ archetype.name }}</h1>
+      <div class="archetype-code" aria-label="Archetype code">{{ archetype.code }}</div>
+
+      {%- if archetype.axes != empty -%}
+      <ul class="axes" aria-label="Axis breakdown">
+        {%- for axis in archetype.axes -%}
+        <li>{{ axis }}</li>
+        {%- endfor -%}
+      </ul>
+      {%- endif -%}
+
+      <blockquote class="tagline">
+        <p>"{{ archetype.tagline }}"</p>
+      </blockquote>
+    </section>
+
+    <!-- Description: the warm, validating paragraph -->
+    <section class="description">
+      <p>{{ archetype.description }}</p>
+    </section>
+
+    <!-- Gentle nudge: actionable suggestion (positions Aquora as helpful, not judgmental) -->
+    <section class="nudge">
+      <h2>A gentle nudge</h2>
+      <p>{{ archetype.nudge }}</p>
+    </section>
+
+    <!-- What is Aquora: explains the product to first-time scanners -->
+    <section class="explainer">
+      <h2>What is Aquora?</h2>
+      <p>
+        Aquora reads your real screen-time behavior and decodes your
+        phone personality from four behavioral axes: <em>Day vs Night</em>,
+        <em>Conscious vs Autopilot</em>, <em>Engaged vs Escaping</em>,
+        and <em>Steady vs Bursty</em>.
+      </p>
+      <p>
+        16 archetypes emerge from how those axes combine. Yours is
+        <strong>{{ archetype.name }}</strong>.
+      </p>
+    </section>
+
+    <!-- Primary CTA -->
+    <section class="cta">
+      <h2>Find out yours</h2>
+      <p class="cta-sub">Free 7-day trial. iOS only.</p>
+      <a href="https://apps.apple.com/app/aquora/id000000000"
+         class="cta-button"
+         aria-label="Download Aquora on the App Store">
+        Download Aquora
+      </a>
+      <p class="cta-fineprint">
+        Aquora uses Apple's Family Controls — your screen-time data
+        never leaves your device.
+      </p>
+    </section>
+
+    <!-- Footer with cross-links and legal -->
+    <footer class="page-footer">
+      <p class="footer-tagline">aquora-app.github.io/Aquora/p/{{ archetype.code }}</p>
+      <nav class="footer-nav">
+        <a href="{{ site.baseurl }}/#privacy">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.baseurl }}/#terms">Terms</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ site.baseurl }}/">Aquora</a>
+      </nav>
+    </footer>
+
+  </main>
+
+</body>
+</html>
