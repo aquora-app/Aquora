@@ -18,19 +18,16 @@
 
   <meta name="description" content="{{ archetype.tagline }} Decode your phone personality from real screen-time behavior with Aquora.">
 
-  <!-- Open Graph (preview when shared on iMessage / WhatsApp / X / etc.) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ archetype.name }} — {{ archetype.code }}">
   <meta property="og:description" content="{{ archetype.tagline }}">
   <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/p/{{ archetype.code }}/">
   <meta property="og:site_name" content="Aquora">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ archetype.name }} — {{ archetype.code }}">
   <meta name="twitter:description" content="{{ archetype.tagline }}">
 
-  <!-- Themeable color used by mobile browsers' address bar / app card -->
   <meta name="theme-color" content="{{ archetype.color }}">
 
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/archetype.css">
@@ -39,11 +36,31 @@
 
   <main class="archetype-page">
 
-    <!-- Hero: emoji + name + 4-letter code + tagline -->
+    <!-- Aquora wordmark — same SVG as the legal page for brand continuity -->
+    <header class="brand">
+      <a href="{{ site.baseurl }}/" class="brand-link" aria-label="Aquora home">
+        <svg class="brand-icon" width="22" height="22" viewBox="20 40 160 120"
+             fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M171.927 127.15C163.791 101.036 143.8 78.3544 117.426 71.2979C117.642 70.0258 117.737 68.6577 117.737 67.2896C117.737 55.5287 109.77 46 99.9304 46C90.1149 46 82.1233 55.5287 82.1233 67.2896C82.1233 68.7057 82.2433 70.0738 82.4593 71.4179C56.1806 78.5465 35.9976 101.228 27.91 127.558C23.2543 142.703 37.2216 157.032 52.5328 152.928L52.7968 152.856C61.1484 150.624 67.004 143.303 67.748 134.687C69.6199 112.845 78.4275 92.5155 90.6189 85.435C96.3786 82.0987 103.554 82.0267 109.314 85.339C121.625 92.4435 130.313 113.013 132.161 134.759C132.881 143.351 138.832 150.624 147.184 152.832C148.984 153.312 150.808 153.552 152.536 153.552C165.735 153.552 176.127 140.639 171.927 127.15Z" fill="currentColor"/>
+          <path d="M119.657 126.862C116.274 124.534 112.122 123.574 108.018 123.454C103.89 123.334 99.8103 123.814 95.8505 124.846C91.0988 126.07 86.563 128.086 82.4112 130.726C78.9074 132.959 75.5236 135.719 73.7716 139.463C72.0197 143.231 72.2837 148.2 75.3556 150.984C78.8354 154.176 84.0191 153.648 88.3629 153.408C94.1706 153.096 99.9783 152.808 105.762 152.208C111.21 151.656 116.849 150.384 121.025 146.616C123.689 144.191 125.537 140.735 125.513 137.135C125.489 133.055 123.017 129.214 119.657 126.862Z" fill="currentColor"/>
+        </svg>
+        <span class="brand-name">Aquora</span>
+      </a>
+      <span class="brand-eyebrow">Phone Personality</span>
+    </header>
+
+    <!-- Hero: glow halo behind emoji + name + code badge + axes + tagline -->
     <section class="hero">
-      <div class="emoji" aria-hidden="true">{{ archetype.emoji }}</div>
+      <div class="emoji-stage" aria-hidden="true">
+        <span class="emoji-glow"></span>
+        <span class="emoji">{{ archetype.emoji }}</span>
+      </div>
+
       <h1 class="archetype-name">{{ archetype.name }}</h1>
-      <div class="archetype-code" aria-label="Archetype code">{{ archetype.code }}</div>
+
+      <div class="archetype-code-row">
+        <span class="archetype-code" aria-label="Archetype code">{{ archetype.code }}</span>
+      </div>
 
       {%- if archetype.axes != empty -%}
       <ul class="axes" aria-label="Axis breakdown">
@@ -54,39 +71,40 @@
       {%- endif -%}
 
       <blockquote class="tagline">
-        <p>"{{ archetype.tagline }}"</p>
+        <p>{{ archetype.tagline }}</p>
       </blockquote>
     </section>
 
-    <!-- Description: the warm, validating paragraph -->
-    <section class="description">
+    <!-- Description -->
+    <section class="card description">
       <p>{{ archetype.description }}</p>
     </section>
 
-    <!-- Gentle nudge: actionable suggestion (positions Aquora as helpful, not judgmental) -->
-    <section class="nudge">
-      <h2>A gentle nudge</h2>
+    <!-- Gentle nudge -->
+    <section class="card nudge">
+      <span class="card-eyebrow">A gentle nudge</span>
       <p>{{ archetype.nudge }}</p>
     </section>
 
-    <!-- What is Aquora: explains the product to first-time scanners -->
-    <section class="explainer">
-      <h2>What is Aquora?</h2>
+    <!-- What is Aquora -->
+    <section class="card explainer">
+      <span class="card-eyebrow">What is Aquora?</span>
       <p>
         Aquora reads your real screen-time behavior and decodes your
-        phone personality from four behavioral axes: <em>Day vs Night</em>,
-        <em>Conscious vs Autopilot</em>, <em>Engaged vs Escaping</em>,
-        and <em>Steady vs Bursty</em>.
+        phone personality from four behavioral axes — <em>Day vs Night</em>,
+        <em>Conscious vs Autopilot</em>, <em>Engaged vs Escaping</em>, and
+        <em>Steady vs Bursty</em>.
       </p>
       <p>
-        16 archetypes emerge from how those axes combine. Yours is
+        16 archetypes emerge from how those axes combine. This page is for
         <strong>{{ archetype.name }}</strong>.
       </p>
     </section>
 
-    <!-- Primary CTA -->
+    <!-- CTA -->
     <section class="cta">
-      <h2>Find out yours</h2>
+      <span class="cta-eyebrow">Find out yours</span>
+      <h2 class="cta-headline">Decode your own phone personality.</h2>
       <p class="cta-sub">Free 7-day trial. iOS only.</p>
       <a href="https://apps.apple.com/app/aquora/id000000000"
          class="cta-button"
@@ -94,15 +112,14 @@
         Download Aquora
       </a>
       <p class="cta-fineprint">
-        Aquora uses Apple's Family Controls — your screen-time data
-        never leaves your device.
+        Your screen-time data never leaves your device.
+        Aquora uses Apple's Family Controls.
       </p>
     </section>
 
-    <!-- Footer with cross-links and legal -->
     <footer class="page-footer">
-      <p class="footer-tagline">aquora-app.github.io/Aquora/p/{{ archetype.code }}</p>
-      <nav class="footer-nav">
+      <p class="footer-url">aquora-app.github.io/Aquora/p/{{ archetype.code }}</p>
+      <nav class="footer-nav" aria-label="Footer">
         <a href="{{ site.baseurl }}/#privacy">Privacy</a>
         <span aria-hidden="true">·</span>
         <a href="{{ site.baseurl }}/#terms">Terms</a>

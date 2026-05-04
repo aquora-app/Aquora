@@ -1,15 +1,22 @@
 /*
- * Archetype landing page styles.
+ * Archetype landing page — visual language matched to Aquora's in-app
+ * share card and Terms/Privacy page.
  *
- * Visual language matches the in-app share card: per-archetype accent color
- * (--archetype-color, set inline by Jekyll on <body>), Aquora navy/cream as
- * neutrals, generous whitespace, system-font for fast paint.
+ * Brand vocabulary:
+ *   • Tri-color background gradient (brand-bg → archetype tint → lighter bottom)
+ *   • Emoji with radial glow halo (mirrors share card's blur effect)
+ *   • Capsule code badge with archetype-tinted border
+ *   • Frosted-glass cards with hairline archetype-color borders
+ *   • SF Pro Rounded throughout, italic tagline with elegant pull-quotes
+ *   • CTA panel uses navy with an archetype-color glow bleed at the top
  *
- * Mobile-first — 99% of traffic is from QR scans on phones. Desktop gets
- * a centered narrow column.
+ * Adaptive: light mode uses brand green as base, dark mode uses navy.
+ * Mobile-first; desktop gets a centered narrow column.
  */
 
-/* ----- Reset / base ----- */
+/* ============================================================
+ * Reset & root tokens
+ * ============================================================ */
 
 * {
   margin: 0;
@@ -18,93 +25,198 @@
 }
 
 :root {
+  /* Aquora brand */
+  --aquora-green: #61A88A;
+  --aquora-green-light: #6EB99E;
   --aquora-navy: #1D4354;
+  --aquora-navy-light: #285569;
   --aquora-cream: #F8F4EC;
-  --text-on-color: #1D4354;
-  --text-secondary: rgba(29, 67, 84, 0.72);
-  --text-faint: rgba(29, 67, 84, 0.5);
+
+  /* Light mode (default) */
+  --bg-base: var(--aquora-green);
+  --bg-light: var(--aquora-green-light);
+  --text-main: var(--aquora-navy);
+  --text-secondary: rgba(29, 67, 84, 0.66);
+  --text-faint: rgba(29, 67, 84, 0.42);
   --card-bg: rgba(255, 255, 255, 0.42);
-  --radius: 22px;
-  --radius-sm: 14px;
+  --card-bg-strong: rgba(255, 255, 255, 0.62);
+  --card-border-rgb: 29, 67, 84;
 }
 
-html, body {
-  height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-base: var(--aquora-navy);
+    --bg-light: var(--aquora-navy-light);
+    --text-main: var(--aquora-green);
+    --text-secondary: rgba(97, 168, 138, 0.7);
+    --text-faint: rgba(97, 168, 138, 0.45);
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-bg-strong: rgba(255, 255, 255, 0.10);
+    --card-border-rgb: 97, 168, 138;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  /* The accent color is the page background — gives an immediate visual
-     match between the share card a user just saw and this landing page. */
-  background: var(--archetype-color, #61A88A);
-  color: var(--text-on-color);
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded',
                'SF Pro Display', system-ui, sans-serif;
+  font-feature-settings: 'ss01', 'ss02';
+  color: var(--text-main);
   line-height: 1.6;
-  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+
+  /* Tri-stop gradient mirrors the share card's diagonal mood:
+     base brand color → archetype color tint mid → lighter base at bottom. */
+  background:
+    linear-gradient(
+      155deg,
+      var(--bg-base) 0%,
+      color-mix(in srgb, var(--archetype-color) 38%, var(--bg-base)) 50%,
+      var(--bg-light) 100%
+    );
+  background-attachment: fixed;
 }
 
-/* Slightly soften the saturated accent against the content area without
-   completely losing it as a visual anchor. */
+/* Subtle texture/depth overlay so the gradient doesn't read as flat color
+   on big screens. Pure CSS noise via radial gradients at low opacity. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(248, 244, 236, 0.4) 100%
-  );
   pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 60% 40% at 50% 0%,
+      color-mix(in srgb, var(--archetype-color) 22%, transparent) 0%,
+      transparent 70%
+    );
   z-index: 0;
 }
+
+/* ============================================================
+ * Page container
+ * ============================================================ */
 
 .archetype-page {
   position: relative;
   z-index: 1;
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto;
-  padding: 56px 24px 80px;
+  padding: 28px 22px 72px;
 }
 
-/* ----- Hero ----- */
+/* ============================================================
+ * Brand header (logo + wordmark + eyebrow)
+ * ============================================================ */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 44px;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: opacity 0.15s ease;
+}
+.brand-link:hover { opacity: 0.78; }
+
+.brand-icon {
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+ * Hero: emoji glow + name + code + axes + tagline
+ * ============================================================ */
 
 .hero {
   text-align: center;
   margin-bottom: 56px;
 }
 
-.hero .emoji {
-  font-size: 64px;
+.emoji-stage {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 8px auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-glow {
+  position: absolute;
+  inset: 12px;
+  background: var(--archetype-color);
+  border-radius: 50%;
+  filter: blur(28px);
+  opacity: 0.42;
+  z-index: 0;
+}
+
+.emoji {
+  position: relative;
+  z-index: 1;
+  font-size: 76px;
   line-height: 1;
-  margin-bottom: 18px;
-  /* Float the emoji slightly to give it visual weight without size bloat. */
-  filter: drop-shadow(0 4px 16px rgba(29, 67, 84, 0.18));
+  filter: drop-shadow(0 6px 18px rgba(29, 67, 84, 0.22));
 }
 
 .archetype-name {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-on-color);
-  margin-bottom: 10px;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  margin-bottom: 14px;
   line-height: 1.18;
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.archetype-code-row {
+  margin-bottom: 14px;
 }
 
 .archetype-code {
-  display: inline-block;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: var(--card-bg);
-  padding: 6px 14px 6px 18px; /* extra right padding compensates for letter-spacing */
+  display: inline-flex;
+  align-items: center;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  color: var(--archetype-color);
+  background: color-mix(in srgb, var(--archetype-color) 14%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--archetype-color) 40%, transparent);
+  padding: 7px 14px 7px 20px; /* extra right pad balances tracking */
   border-radius: 999px;
-  margin-bottom: 18px;
+  text-transform: uppercase;
 }
 
 .axes {
@@ -113,204 +225,349 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-bottom: 24px;
+  margin: 0 0 26px 0;
   padding: 0 8px;
 }
+
 .axes li {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.28);
+  color: var(--archetype-color);
+  background: color-mix(in srgb, var(--archetype-color) 11%, transparent);
+  border: 1px solid color-mix(in srgb, var(--archetype-color) 26%, transparent);
   padding: 5px 10px;
   border-radius: 6px;
 }
 
 .tagline {
+  position: relative;
   font-style: italic;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.5;
-  color: var(--text-on-color);
-  max-width: 32ch;
-  margin: 0 auto;
-  /* Subtle quotation feel without traditional quote marks (already in the text). */
-  border-left: 3px solid rgba(29, 67, 84, 0.3);
-  padding-left: 16px;
-  text-align: left;
+  font-weight: 400;
+  color: var(--text-main);
+  max-width: 30ch;
+  margin: 8px auto 0;
+  padding: 4px 30px 12px;
 }
 
-/* ----- Body sections (description / nudge / explainer) ----- */
+/* Big elegant pull-quotes — Georgia gives them character without
+   competing with the rounded body type. */
+.tagline::before,
+.tagline::after {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: normal;
+  font-size: 56px;
+  line-height: 1;
+  position: absolute;
+  color: var(--archetype-color);
+  opacity: 0.35;
+}
 
-section.description,
-section.nudge,
-section.explainer {
+.tagline::before {
+  content: "\201C"; /* left double quote */
+  top: -8px;
+  left: 0;
+}
+
+.tagline::after {
+  content: "\201D"; /* right double quote */
+  bottom: -22px;
+  right: 0;
+}
+
+/* ============================================================
+ * Body cards — frosted glass with archetype-tinted hairline
+ * ============================================================ */
+
+.card {
   background: var(--card-bg);
-  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--archetype-color) 18%, transparent);
+  border-radius: 22px;
   padding: 24px 22px;
-  margin-bottom: 18px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  margin-bottom: 14px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
-section.description p {
-  font-size: 17px;
-  line-height: 1.62;
-  color: var(--text-on-color);
+.card.nudge {
+  background: var(--card-bg-strong);
+  border-color: color-mix(in srgb, var(--archetype-color) 30%, transparent);
 }
 
-section.nudge {
-  background: rgba(255, 255, 255, 0.55);
-}
-
-section.nudge h2,
-section.explainer h2 {
-  font-size: 13px;
-  font-weight: 700;
+.card-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
+  color: var(--archetype-color);
   margin-bottom: 10px;
 }
 
-section.nudge p {
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--text-on-color);
+.card.description p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-main);
 }
 
-section.explainer p {
-  font-size: 15px;
-  line-height: 1.6;
+.card.nudge p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-main);
+  font-style: italic;
+}
+
+.card.explainer p {
+  font-size: 14.5px;
+  line-height: 1.65;
   color: var(--text-secondary);
   margin-bottom: 12px;
 }
-section.explainer p:last-child {
-  margin-bottom: 0;
-}
-section.explainer em {
+.card.explainer p:last-child { margin-bottom: 0; }
+
+.card.explainer em {
   font-style: normal;
   font-weight: 600;
-  color: var(--text-on-color);
-}
-section.explainer strong {
-  font-weight: 700;
-  color: var(--text-on-color);
+  color: var(--text-main);
 }
 
-/* ----- Primary CTA block ----- */
+.card.explainer strong {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ============================================================
+ * CTA — navy panel with archetype-color glow bleeding from top
+ * ============================================================ */
 
 .cta {
+  position: relative;
   text-align: center;
-  margin-top: 40px;
-  padding: 32px 22px 28px;
+  margin-top: 36px;
+  padding: 38px 26px 30px;
   background: var(--aquora-navy);
-  border-radius: var(--radius);
   color: var(--aquora-cream);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
-.cta h2 {
+/* Soft archetype-color halo bleeding in from above —
+   gives the CTA the same "lit from within" warmth as the share card. */
+.cta::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 220px;
+  background: var(--archetype-color);
+  opacity: 0.42;
+  filter: blur(64px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 236, 0.65);
+  margin-bottom: 10px;
+}
+
+.cta-headline {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  line-height: 1.28;
+  color: var(--aquora-cream);
+  margin-bottom: 8px;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-sub {
-  font-size: 14px;
-  color: rgba(248, 244, 236, 0.7);
-  margin-bottom: 22px;
+  font-size: 13px;
+  color: rgba(248, 244, 236, 0.6);
+  margin-bottom: 24px;
 }
 
 .cta-button {
   display: inline-block;
   background: var(--archetype-color);
-  color: var(--text-on-color);
-  font-size: 17px;
+  color: #1D4354;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   text-decoration: none;
-  padding: 14px 36px;
-  border-radius: var(--radius-sm);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  padding: 15px 38px;
+  border-radius: 14px;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.15s ease;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 .cta-button:hover,
 .cta-button:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 .cta-button:active {
   transform: translateY(0);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .cta-fineprint {
-  font-size: 12px;
-  color: rgba(248, 244, 236, 0.55);
-  margin-top: 18px;
-  max-width: 32ch;
+  font-size: 11.5px;
+  color: rgba(248, 244, 236, 0.5);
+  margin-top: 22px;
+  max-width: 30ch;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-/* ----- Footer ----- */
+/* ============================================================
+ * Footer
+ * ============================================================ */
 
 .page-footer {
-  margin-top: 36px;
+  margin-top: 32px;
+  padding-top: 22px;
   text-align: center;
-  font-size: 12px;
-  color: var(--text-faint);
+  border-top: 1px solid color-mix(in srgb, var(--text-main) 8%, transparent);
 }
 
-.footer-tagline {
+.footer-url {
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-  font-size: 11px;
+  font-size: 10.5px;
+  color: var(--text-faint);
   margin-bottom: 8px;
+  letter-spacing: 0.01em;
   word-break: break-all;
 }
 
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
+  font-size: 11px;
 }
 
 .footer-nav a {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.15s ease;
 }
 .footer-nav a:hover {
+  color: var(--text-main);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* ----- Larger viewports (tablet/desktop) ----- */
+.footer-nav span {
+  color: var(--text-faint);
+}
+
+/* ============================================================
+ * Larger viewports — center column, more generous spacing
+ * ============================================================ */
 
 @media (min-width: 720px) {
   .archetype-page {
-    padding: 80px 32px 120px;
+    padding: 56px 32px 100px;
+    max-width: 600px;
   }
 
-  .hero .emoji {
-    font-size: 80px;
+  .brand { margin-bottom: 64px; }
+
+  .emoji-stage {
+    width: 156px;
+    height: 156px;
+    margin-bottom: 28px;
+  }
+
+  .emoji-glow {
+    inset: 16px;
+    filter: blur(36px);
+    opacity: 0.45;
+  }
+
+  .emoji {
+    font-size: 92px;
   }
 
   .archetype-name {
-    font-size: 40px;
+    font-size: 38px;
+    margin-bottom: 18px;
   }
 
   .tagline {
-    font-size: 20px;
+    font-size: 21px;
+  }
+
+  .card {
+    padding: 28px 26px;
+    margin-bottom: 16px;
+    border-radius: 24px;
+  }
+
+  .card.description p {
+    font-size: 18px;
+  }
+
+  .cta {
+    padding: 48px 32px 36px;
+    border-radius: 24px;
+    margin-top: 44px;
+  }
+
+  .cta-headline {
+    font-size: 26px;
   }
 }
 
-/* ----- Reduced motion ----- */
+/* ============================================================
+ * Reduced motion
+ * ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  .cta-button {
+  .cta-button,
+  .brand-link,
+  .footer-nav a {
     transition: none;
   }
+  .cta-button:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+ * Selection — match brand
+ * ============================================================ */
+
+::selection {
+  background: color-mix(in srgb, var(--archetype-color) 32%, transparent);
+  color: var(--text-main);
 }
