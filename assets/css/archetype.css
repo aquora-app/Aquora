@@ -32,32 +32,26 @@
   --aquora-navy-light: #285569;
   --aquora-cream: #F8F4EC;
 
-  /* Light mode (default) */
-  --bg-base: var(--aquora-green);
-  --bg-light: var(--aquora-green-light);
-  --text-main: var(--aquora-navy);
-  --text-secondary: rgba(29, 67, 84, 0.66);
-  --text-faint: rgba(29, 67, 84, 0.42);
-  --card-bg: rgba(255, 255, 255, 0.42);
-  --card-bg-strong: rgba(255, 255, 255, 0.62);
-  --card-border-rgb: 29, 67, 84;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-base: var(--aquora-navy);
-    --bg-light: var(--aquora-navy-light);
-    --text-main: var(--aquora-green);
-    --text-secondary: rgba(97, 168, 138, 0.7);
-    --text-faint: rgba(97, 168, 138, 0.45);
-    --card-bg: rgba(255, 255, 255, 0.06);
-    --card-bg-strong: rgba(255, 255, 255, 0.10);
-    --card-border-rgb: 97, 168, 138;
-  }
+  /* Dark mode is the only mode on web — landing pages always render with
+   * navy base + brand green accents, regardless of the visitor's system
+   * `prefers-color-scheme`. Keeps the share-card → landing-page hand-off
+   * visually consistent for every visitor. */
+  --bg-base: var(--aquora-navy);
+  --bg-light: var(--aquora-navy-light);
+  --text-main: var(--aquora-green);
+  --text-secondary: rgba(97, 168, 138, 0.7);
+  --text-faint: rgba(97, 168, 138, 0.45);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-bg-strong: rgba(255, 255, 255, 0.10);
+  --card-border-rgb: 97, 168, 138;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Tell the browser this page renders in a dark color scheme — affects
+   * scrollbars, form elements, and the iOS Safari status-bar tint when
+   * `theme-color` isn't honored. */
+  color-scheme: dark;
 }
 
 body {
