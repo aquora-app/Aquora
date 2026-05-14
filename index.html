@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aquora - Terms & Privacy</title>
+<title data-en="Aquora - Terms & Privacy" data-zh="Aquora 沐汐 — 条款与隐私">Aquora - Terms & Privacy</title>
 <style>
   :root {
     --bg: #61A88A;
@@ -44,6 +44,42 @@
     max-width: 680px;
     margin: 0 auto;
     padding: 40px 20px 60px;
+  }
+
+  /* Language Switcher — top-right floating */
+  .lang-switcher {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    display: flex;
+    gap: 4px;
+    background: var(--card-surface);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 4px;
+    border-radius: 999px;
+  }
+  .lang-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+  }
+  .lang-btn.active {
+    background: var(--text-main);
+    color: var(--bg);
+    opacity: 1;
+  }
+  .lang-btn:hover:not(.active) {
+    opacity: 0.9;
   }
 
   /* Logo Header */
@@ -166,6 +202,12 @@
 </head>
 <body>
 
+<!-- Language Switcher -->
+<div class="lang-switcher" role="group" aria-label="Language">
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="zh">中文</button>
+</div>
+
 <div class="container">
 
   <!-- Logo -->
@@ -173,147 +215,187 @@
     <svg class="icon" width="32" height="32" viewBox="20 40 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M171.927 127.15C163.791 101.036 143.8 78.3544 117.426 71.2979C117.642 70.0258 117.737 68.6577 117.737 67.2896C117.737 55.5287 109.77 46 99.9304 46C90.1149 46 82.1233 55.5287 82.1233 67.2896C82.1233 68.7057 82.2433 70.0738 82.4593 71.4179C56.1806 78.5465 35.9976 101.228 27.91 127.558C23.2543 142.703 37.2216 157.032 52.5328 152.928L52.7968 152.856C61.1484 150.624 67.004 143.303 67.748 134.687C69.6199 112.845 78.4275 92.5155 90.6189 85.435C96.3786 82.0987 103.554 82.0267 109.314 85.339C121.625 92.4435 130.313 113.013 132.161 134.759C132.881 143.351 138.832 150.624 147.184 152.832C148.984 153.312 150.808 153.552 152.536 153.552C165.735 153.552 176.127 140.639 171.927 127.15Z" fill="#61A88A"/>
       <path d="M119.657 126.862C116.274 124.534 112.122 123.574 108.018 123.454C103.89 123.334 99.8103 123.814 95.8505 124.846C91.0988 126.07 86.563 128.086 82.4112 130.726C78.9074 132.959 75.5236 135.719 73.7716 139.463C72.0197 143.231 72.2837 148.2 75.3556 150.984C78.8354 154.176 84.0191 153.648 88.3629 153.408C94.1706 153.096 99.9783 152.808 105.762 152.208C111.21 151.656 116.849 150.384 121.025 146.616C123.689 144.191 125.537 140.735 125.513 137.135C125.489 133.055 123.017 129.214 119.657 126.862Z" fill="#61A88A"/>
-    </svg><span class="name">Aquora</span>
+    </svg><span class="name" data-en="Aquora" data-zh="Aquora 沐汐">Aquora</span>
   </div>
 
-  <p class="effective-date">Effective Date: April 28, 2026</p>
+  <p class="effective-date" data-en="Effective Date: April 28, 2026" data-zh="生效日期:2026 年 4 月 28 日">Effective Date: April 28, 2026</p>
 
   <!-- Tabs -->
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('terms', this)">Terms of Service</button>
-    <button class="tab-btn" onclick="switchTab('privacy', this)">Privacy Policy</button>
+    <button class="tab-btn active" onclick="switchTab('terms', this)" data-en="Terms of Service" data-zh="服务条款">Terms of Service</button>
+    <button class="tab-btn" onclick="switchTab('privacy', this)" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</button>
   </div>
 
   <!-- Terms of Service -->
   <div id="terms" class="tab-content active">
 
     <div class="card">
-      <h2>1. Acceptance of Terms</h2>
-      <p>By downloading, installing, or using Aquora ("the App"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the App.</p>
+      <h2 data-en="1. Acceptance of Terms" data-zh="1. 条款的接受">1. Acceptance of Terms</h2>
+      <p data-en='By downloading, installing, or using Aquora ("the App"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the App.'
+         data-zh="下载、安装或使用 Aquora 沐汐(以下简称"本应用")即表示您同意受本《服务条款》的约束。如不同意,请勿使用本应用。">By downloading, installing, or using Aquora ("the App"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the App.</p>
     </div>
 
     <div class="card">
-      <h2>2. Description of Service</h2>
-      <p>Aquora is a screen time management and mindfulness application that helps users build healthier digital habits. Features include:</p>
+      <h2 data-en="2. Description of Service" data-zh="2. 服务描述">2. Description of Service</h2>
+      <p data-en="Aquora is a screen time management and mindfulness application that helps users build healthier digital habits. Features include:"
+         data-zh="Aquora 沐汐是一款屏幕使用时间管理与正念应用,帮助用户养成更健康的数字习惯。功能包括:">Aquora is a screen time management and mindfulness application that helps users build healthier digital habits. Features include:</p>
       <ul>
-        <li><strong>App Limits & Group Management</strong> — group apps and configure daily/session limits</li>
-        <li><strong>Screen Time Tracking</strong> — usage statistics and session history</li>
-        <li><strong>Unlocking Quiz Challenges</strong> — answer AI-generated quiz questions across 10 categories to unlock blocked apps</li>
-        <li><strong>Meditation Sessions</strong> — guided breathing, focus, body scan, gratitude, and manifestation practices</li>
-        <li><strong>Ambient Sounds</strong> — selectable nature and noise sounds for meditation</li>
-        <li><strong>Journal & Manifestation</strong> — personal entries with goals and mood tracking</li>
-        <li><strong>Personality Archetype System</strong> — 4-axis personality assessment with monthly reports</li>
-        <li><strong>AI In-the-Moment Reminders</strong> — personalized usage reminders based on your behavior patterns</li>
-        <li><strong>No-Unlocking Challenges</strong> — commit to not unlocking specific apps for set durations</li>
-        <li><strong>Achievements & Rewards</strong> — badge system for streaks, time saved, and consistent practice</li>
-        <li><strong>Token System</strong> — earn virtual tokens through challenges, redeemable for premium access</li>
-        <li><strong>Referral Program</strong> — invite friends with codes for mutual rewards</li>
-        <li><strong>Shareable Cards</strong> — export personality and achievement cards as images</li>
-        <li><strong>Tip Jar</strong> — optional tips to support development</li>
+        <li data-en="<strong>App Limits &amp; Group Management</strong> — group apps and configure daily/session limits"
+            data-zh="<strong>应用限额与分组管理</strong> — 将应用分组并配置每日/每次使用时长限制"><strong>App Limits & Group Management</strong> — group apps and configure daily/session limits</li>
+        <li data-en="<strong>Screen Time Tracking</strong> — usage statistics and session history"
+            data-zh="<strong>屏幕使用时间追踪</strong> — 使用统计与历史记录"><strong>Screen Time Tracking</strong> — usage statistics and session history</li>
+        <li data-en="<strong>Unlocking Quiz Challenges</strong> — answer AI-generated quiz questions across 10 categories to unlock blocked apps"
+            data-zh="<strong>解锁答题挑战</strong> — 回答 10 个分类下由 AI 生成的题目以解锁被限制的应用"><strong>Unlocking Quiz Challenges</strong> — answer AI-generated quiz questions across 10 categories to unlock blocked apps</li>
+        <li data-en="<strong>Meditation Sessions</strong> — guided breathing, focus, body scan, gratitude, and manifestation practices"
+            data-zh="<strong>冥想课程</strong> — 引导式呼吸、专注、身体扫描、感恩与显化练习"><strong>Meditation Sessions</strong> — guided breathing, focus, body scan, gratitude, and manifestation practices</li>
+        <li data-en="<strong>Ambient Sounds</strong> — selectable nature and noise sounds for meditation"
+            data-zh="<strong>环境音效</strong> — 可选的自然音与白噪音,用于冥想"><strong>Ambient Sounds</strong> — selectable nature and noise sounds for meditation</li>
+        <li data-en="<strong>Journal &amp; Manifestation</strong> — personal entries with goals and mood tracking"
+            data-zh="<strong>日记与显化</strong> — 含目标设定与情绪追踪的个人记录"><strong>Journal & Manifestation</strong> — personal entries with goals and mood tracking</li>
+        <li data-en="<strong>Personality Archetype System</strong> — 4-axis personality assessment with monthly reports"
+            data-zh="<strong>人格原型系统</strong> — 四轴人格评估及月度报告"><strong>Personality Archetype System</strong> — 4-axis personality assessment with monthly reports</li>
+        <li data-en="<strong>AI In-the-Moment Reminders</strong> — personalized usage reminders based on your behavior patterns"
+            data-zh="<strong>AI 即时提醒</strong> — 基于您的行为模式生成的个性化使用提醒"><strong>AI In-the-Moment Reminders</strong> — personalized usage reminders based on your behavior patterns</li>
+        <li data-en="<strong>No-Unlocking Challenges</strong> — commit to not unlocking specific apps for set durations"
+            data-zh="<strong>不解锁挑战</strong> — 承诺在设定时长内不解锁特定应用"><strong>No-Unlocking Challenges</strong> — commit to not unlocking specific apps for set durations</li>
+        <li data-en="<strong>Achievements &amp; Rewards</strong> — badge system for streaks, time saved, and consistent practice"
+            data-zh="<strong>成就与奖励</strong> — 针对连续打卡、节省时长与持续练习的徽章系统"><strong>Achievements & Rewards</strong> — badge system for streaks, time saved, and consistent practice</li>
+        <li data-en="<strong>Token System</strong> — earn virtual tokens through challenges, redeemable for premium access"
+            data-zh="<strong>代币系统</strong> — 通过挑战获得虚拟代币,可兑换高级版权益"><strong>Token System</strong> — earn virtual tokens through challenges, redeemable for premium access</li>
+        <li data-en="<strong>Referral Program</strong> — invite friends with codes for mutual rewards"
+            data-zh="<strong>推荐计划</strong> — 通过推荐码邀请好友,双方均获得奖励"><strong>Referral Program</strong> — invite friends with codes for mutual rewards</li>
+        <li data-en="<strong>Shareable Cards</strong> — export personality and achievement cards as images"
+            data-zh="<strong>可分享卡片</strong> — 将人格与成就卡片导出为图片"><strong>Shareable Cards</strong> — export personality and achievement cards as images</li>
+        <li data-en="<strong>Tip Jar</strong> — optional tips to support development"
+            data-zh="<strong>打赏</strong> — 可选的打赏,以支持开发"><strong>Tip Jar</strong> — optional tips to support development</li>
       </ul>
 
-      <h3>Free vs Premium</h3>
-      <p>Some features have free-tier limits (e.g., 3 app limit groups, 3 quiz categories, 3 meditation sessions, 5 journal entries). Premium subscription unlocks all features without limits.</p>
+      <h3 data-en="Free vs Premium" data-zh="免费版与高级版">Free vs Premium</h3>
+      <p data-en="Some features have free-tier limits (e.g., 3 app limit groups, 3 quiz categories, 3 meditation sessions, 5 journal entries). Premium subscription unlocks all features without limits."
+         data-zh="部分功能在免费版下有使用上限(例如:3 个应用分组、3 个答题分类、3 个冥想课程、5 条日记)。订阅高级版可无限制使用全部功能。">Some features have free-tier limits (e.g., 3 app limit groups, 3 quiz categories, 3 meditation sessions, 5 journal entries). Premium subscription unlocks all features without limits.</p>
     </div>
 
     <div class="card">
-      <h2>3. Screen Time & Family Controls</h2>
-      <p>Aquora uses Apple's Screen Time API and Family Controls framework. The App requires your explicit authorization to access and manage screen time data. You may revoke this access at any time through your device settings.</p>
+      <h2 data-en="3. Screen Time &amp; Family Controls" data-zh="3. 屏幕使用时间与家庭共享">3. Screen Time & Family Controls</h2>
+      <p data-en="Aquora uses Apple's Screen Time API and Family Controls framework. The App requires your explicit authorization to access and manage screen time data. You may revoke this access at any time through your device settings."
+         data-zh="Aquora 沐汐使用 Apple 的"屏幕使用时间"API 与"家庭共享"框架。本应用需要您明确授权方可访问和管理屏幕使用时间数据。您可随时通过设备设置撤销此授权。">Aquora uses Apple's Screen Time API and Family Controls framework. The App requires your explicit authorization to access and manage screen time data. You may revoke this access at any time through your device settings.</p>
     </div>
 
     <div class="card">
-      <h2>4. Subscriptions & In-App Purchases</h2>
-      <p>Aquora offers auto-renewable subscription plans to unlock premium features. By subscribing, you agree to the following terms:</p>
+      <h2 data-en="4. Subscriptions &amp; In-App Purchases" data-zh="4. 订阅与应用内购买">4. Subscriptions & In-App Purchases</h2>
+      <p data-en="Aquora offers auto-renewable subscription plans to unlock premium features. By subscribing, you agree to the following terms:"
+         data-zh="Aquora 沐汐提供自动续期订阅以解锁高级版功能。订阅即表示您同意以下条款:">Aquora offers auto-renewable subscription plans to unlock premium features. By subscribing, you agree to the following terms:</p>
 
-      <h3>Payment & Billing</h3>
+      <h3 data-en="Payment &amp; Billing" data-zh="付款与结算">Payment & Billing</h3>
       <ul>
-        <li>Payment will be charged to your Apple ID account at confirmation of purchase.</li>
-        <li>Subscription prices are displayed in the App before purchase. Prices may vary by region.</li>
+        <li data-en="Payment will be charged to your Apple ID account at confirmation of purchase."
+            data-zh="确认购买时,款项将从您的 Apple ID 账户中扣除。">Payment will be charged to your Apple ID account at confirmation of purchase.</li>
+        <li data-en="Subscription prices are displayed in the App before purchase. Prices may vary by region."
+            data-zh="订阅价格在购买前会在本应用内显示,具体金额可能因所在地区而异。">Subscription prices are displayed in the App before purchase. Prices may vary by region.</li>
       </ul>
 
-      <h3>Auto-Renewal</h3>
+      <h3 data-en="Auto-Renewal" data-zh="自动续订">Auto-Renewal</h3>
       <ul>
-        <li>Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current billing period.</li>
-        <li>Your account will be charged for renewal within 24 hours prior to the end of the current period at the same rate.</li>
+        <li data-en="Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current billing period."
+            data-zh="除非在当前订阅期结束前至少 24 小时关闭自动续订,否则订阅将自动续期。">Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current billing period.</li>
+        <li data-en="Your account will be charged for renewal within 24 hours prior to the end of the current period at the same rate."
+            data-zh="续订款项将于当前订阅期结束前 24 小时内按原价从您的账户扣除。">Your account will be charged for renewal within 24 hours prior to the end of the current period at the same rate.</li>
       </ul>
 
-      <h3>Free Trial</h3>
+      <h3 data-en="Free Trial" data-zh="免费试用">Free Trial</h3>
       <ul>
-        <li>If a free trial is offered, any unused portion of the free trial period will be forfeited when you purchase a subscription.</li>
-        <li>After the free trial expires, you will be automatically charged the subscription price unless you cancel at least 24 hours before the trial ends.</li>
+        <li data-en="If a free trial is offered, any unused portion of the free trial period will be forfeited when you purchase a subscription."
+            data-zh="如提供免费试用,则您购买订阅时,试用期内未使用的部分将自动作废。">If a free trial is offered, any unused portion of the free trial period will be forfeited when you purchase a subscription.</li>
+        <li data-en="After the free trial expires, you will be automatically charged the subscription price unless you cancel at least 24 hours before the trial ends."
+            data-zh="试用期结束后,除非您在试用结束前至少 24 小时取消,否则将自动按订阅价格扣费。">After the free trial expires, you will be automatically charged the subscription price unless you cancel at least 24 hours before the trial ends.</li>
       </ul>
 
-      <h3>Managing & Canceling</h3>
+      <h3 data-en="Managing &amp; Canceling" data-zh="管理与取消">Managing & Canceling</h3>
       <ul>
-        <li>You can manage or cancel your subscription at any time by going to your device's <strong>Settings &gt; [Your Name] &gt; Subscriptions</strong>.</li>
-        <li>Cancellation takes effect at the end of the current billing period. You will retain access to premium features until then.</li>
+        <li data-en="You can manage or cancel your subscription at any time by going to your device's <strong>Settings &gt; [Your Name] &gt; Subscriptions</strong>."
+            data-zh='您可随时通过设备<strong>"设置 > [您的姓名] > 订阅"</strong>管理或取消订阅。'>You can manage or cancel your subscription at any time by going to your device's <strong>Settings &gt; [Your Name] &gt; Subscriptions</strong>.</li>
+        <li data-en="Cancellation takes effect at the end of the current billing period. You will retain access to premium features until then."
+            data-zh="取消订阅将在当前订阅期结束时生效,在此之前您仍可继续使用高级版功能。">Cancellation takes effect at the end of the current billing period. You will retain access to premium features until then.</li>
       </ul>
 
-      <h3>Refund Policy</h3>
-      <p>Refunds are handled by Apple in accordance with their <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store refund policy</a>.</p>
+      <h3 data-en="Refund Policy" data-zh="退款政策">Refund Policy</h3>
+      <p data-en='Refunds are handled by Apple in accordance with their <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store refund policy</a>.'
+         data-zh='退款由 Apple 依据其 <a href="https://support.apple.com/zh-cn/HT204084" target="_blank" rel="noopener">App Store 退款政策</a>处理。'>Refunds are handled by Apple in accordance with their <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store refund policy</a>.</p>
 
-      <h3>Apple's Terms</h3>
-      <p>Use of the App is also subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement (Standard EULA)</a>.</p>
+      <h3 data-en="Apple's Terms" data-zh="Apple 条款">Apple's Terms</h3>
+      <p data-en="Use of the App is also subject to Apple&#39;s <a href=&quot;https://www.apple.com/legal/internet-services/itunes/dev/stdeula/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Licensed Application End User License Agreement (Standard EULA)</a>."
+         data-zh="使用本应用还须同时遵守 Apple 的 <a href=&quot;https://www.apple.com/legal/internet-services/itunes/dev/stdeula/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>许可应用终端用户许可协议(标准 EULA)</a>。">Use of the App is also subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement (Standard EULA)</a>.</p>
     </div>
 
     <div class="card">
-      <h2>5. Tip Jar & Consumable Purchases</h2>
-      <p>Aquora offers optional one-time tip purchases (Coffee, Treat, Garden, Gem, Rocket) to support development. These are non-refundable consumable in-app purchases processed through Apple's App Store. Tips do not unlock additional features.</p>
+      <h2 data-en="5. Tip Jar &amp; Consumable Purchases" data-zh="5. 打赏与消耗型购买">5. Tip Jar & Consumable Purchases</h2>
+      <p data-en="Aquora offers optional one-time tip purchases (Coffee, Treat, Garden, Gem, Rocket) to support development. These are non-refundable consumable in-app purchases processed through Apple's App Store. Tips do not unlock additional features."
+         data-zh="Aquora 沐汐提供可选的一次性打赏(咖啡、点心、花园、宝石、火箭),以支持开发。这些是通过 Apple App Store 处理的、不可退款的消耗型应用内购买,且不会解锁额外功能。">Aquora offers optional one-time tip purchases (Coffee, Treat, Garden, Gem, Rocket) to support development. These are non-refundable consumable in-app purchases processed through Apple's App Store. Tips do not unlock additional features.</p>
     </div>
 
     <div class="card">
-      <h2>6. Token & Referral Systems</h2>
-      <h3>Virtual Tokens</h3>
-      <p>You may earn virtual tokens by completing No-Unlocking Challenges. Tokens have no monetary value, cannot be exchanged for cash, and may be redeemed within the App for one month of premium access. Token balances and transaction history are stored locally and synced via iCloud.</p>
-      <h3>Referral Codes</h3>
-      <p>You may share your referral code with others. When a new user redeems your code, both you and the new user receive premium rewards. Referral codes are stored in Apple's CloudKit public database for verification. Owner and redeemer identities are stored as anonymized hashes only.</p>
-      <p>Abuse of the referral system, including self-referrals or fraudulent redemptions, may result in revocation of rewards.</p>
+      <h2 data-en="6. Token &amp; Referral Systems" data-zh="6. 代币与推荐系统">6. Token & Referral Systems</h2>
+      <h3 data-en="Virtual Tokens" data-zh="虚拟代币">Virtual Tokens</h3>
+      <p data-en="You may earn virtual tokens by completing No-Unlocking Challenges. Tokens have no monetary value, cannot be exchanged for cash, and may be redeemed within the App for one month of premium access. Token balances and transaction history are stored locally and synced via iCloud."
+         data-zh="您可通过完成"不解锁挑战"获得虚拟代币。代币不具有货币价值、不可兑换为现金,可在本应用内兑换 1 个月的高级版使用权。代币余额与交易记录在本地存储并通过 iCloud 同步。">You may earn virtual tokens by completing No-Unlocking Challenges. Tokens have no monetary value, cannot be exchanged for cash, and may be redeemed within the App for one month of premium access. Token balances and transaction history are stored locally and synced via iCloud.</p>
+      <h3 data-en="Referral Codes" data-zh="推荐码">Referral Codes</h3>
+      <p data-en="You may share your referral code with others. When a new user redeems your code, both you and the new user receive premium rewards. Referral codes are stored in Apple's CloudKit public database for verification. Owner and redeemer identities are stored as anonymized hashes only."
+         data-zh="您可将推荐码分享给他人。当新用户兑换您的推荐码时,您与新用户均会获得高级版奖励。推荐码存储于 Apple CloudKit 公共数据库以用于校验;推荐人与兑换人身份仅以匿名哈希形式存储。">You may share your referral code with others. When a new user redeems your code, both you and the new user receive premium rewards. Referral codes are stored in Apple's CloudKit public database for verification. Owner and redeemer identities are stored as anonymized hashes only.</p>
+      <p data-en="Abuse of the referral system, including self-referrals or fraudulent redemptions, may result in revocation of rewards."
+         data-zh="滥用推荐系统(包括自我推荐或欺诈性兑换)可能导致奖励被撤销。">Abuse of the referral system, including self-referrals or fraudulent redemptions, may result in revocation of rewards.</p>
     </div>
 
     <div class="card">
-      <h2>7. Age Requirement</h2>
-      <p>You must be at least 13 years old to use Aquora. If you are under 18, you must have parental or guardian consent. Parents may use the App's Family Controls features to manage their children's device usage.</p>
+      <h2 data-en="7. Age Requirement" data-zh="7. 年龄要求">7. Age Requirement</h2>
+      <p data-en="You must be at least 13 years old to use Aquora. If you are under 18, you must have parental or guardian consent. Parents may use the App's Family Controls features to manage their children's device usage."
+         data-zh="您须年满 13 周岁方可使用 Aquora 沐汐。未满 18 周岁的用户须取得家长或监护人同意。家长可使用本应用的家庭共享功能来管理子女的设备使用。">You must be at least 13 years old to use Aquora. If you are under 18, you must have parental or guardian consent. Parents may use the App's Family Controls features to manage their children's device usage.</p>
     </div>
 
     <div class="card">
-      <h2>8. Intellectual Property</h2>
-      <p>All content, design, graphics, and code within the App are the intellectual property of Aquora and its developers. Quiz questions generated by AI, personality reports, and shareable cards are provided for personal use only and may not be redistributed or used commercially. Personal content you create (journal entries, meditation notes) remains your property.</p>
+      <h2 data-en="8. Intellectual Property" data-zh="8. 知识产权">8. Intellectual Property</h2>
+      <p data-en="All content, design, graphics, and code within the App are the intellectual property of Aquora and its developers. Quiz questions generated by AI, personality reports, and shareable cards are provided for personal use only and may not be redistributed or used commercially. Personal content you create (journal entries, meditation notes) remains your property."
+         data-zh="本应用内的所有内容、设计、图形与代码均属于 Aquora 沐汐及其开发者的知识产权。由 AI 生成的答题题目、人格报告与可分享卡片仅供个人使用,不得再分发或用于商业用途。您创建的个人内容(如日记、冥想笔记)归您所有。">All content, design, graphics, and code within the App are the intellectual property of Aquora and its developers. Quiz questions generated by AI, personality reports, and shareable cards are provided for personal use only and may not be redistributed or used commercially. Personal content you create (journal entries, meditation notes) remains your property.</p>
     </div>
 
     <div class="card">
-      <h2>9. User Conduct</h2>
-      <p>You agree not to:</p>
+      <h2 data-en="9. User Conduct" data-zh="9. 用户行为">9. User Conduct</h2>
+      <p data-en="You agree not to:" data-zh="您同意不:">You agree not to:</p>
       <ul>
-        <li>Reverse engineer, decompile, or disassemble the App</li>
-        <li>Use the App for any unlawful purpose</li>
-        <li>Attempt to circumvent any security features</li>
-        <li>Redistribute or resell the App or its content</li>
+        <li data-en="Reverse engineer, decompile, or disassemble the App" data-zh="对本应用进行逆向工程、反编译或反汇编">Reverse engineer, decompile, or disassemble the App</li>
+        <li data-en="Use the App for any unlawful purpose" data-zh="将本应用用于任何非法目的">Use the App for any unlawful purpose</li>
+        <li data-en="Attempt to circumvent any security features" data-zh="试图绕过任何安全机制">Attempt to circumvent any security features</li>
+        <li data-en="Redistribute or resell the App or its content" data-zh="再分发或转售本应用及其内容">Redistribute or resell the App or its content</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>10. Disclaimer of Warranties</h2>
-      <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. Screen time management features depend on system-level APIs and may be affected by OS updates. AI-generated content (quiz questions, reminders, personality reports) is provided for entertainment and self-reflection purposes only and should not be considered professional advice (medical, psychological, financial, etc.).</p>
+      <h2 data-en="10. Disclaimer of Warranties" data-zh="10. 免责声明">10. Disclaimer of Warranties</h2>
+      <p data-en='The App is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. Screen time management features depend on system-level APIs and may be affected by OS updates. AI-generated content (quiz questions, reminders, personality reports) is provided for entertainment and self-reflection purposes only and should not be considered professional advice (medical, psychological, financial, etc.).'
+         data-zh='本应用按"现状"提供,不附带任何形式的保证。我们不保证本应用无错误或服务不中断。屏幕使用时间管理功能依赖于系统级 API,可能受操作系统更新影响。AI 生成的内容(答题题目、提醒、人格报告)仅供娱乐与自我反思之用,不构成专业建议(医疗、心理、金融等)。'>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. Screen time management features depend on system-level APIs and may be affected by OS updates. AI-generated content (quiz questions, reminders, personality reports) is provided for entertainment and self-reflection purposes only and should not be considered professional advice (medical, psychological, financial, etc.).</p>
     </div>
 
     <div class="card">
-      <h2>11. Limitation of Liability</h2>
-      <p>To the maximum extent permitted by law, Aquora and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+      <h2 data-en="11. Limitation of Liability" data-zh="11. 责任限制">11. Limitation of Liability</h2>
+      <p data-en="To the maximum extent permitted by law, Aquora and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App."
+         data-zh="在法律允许的最大范围内,对于因您使用本应用所产生的任何间接、附带或后果性损害,Aquora 沐汐及其开发者概不负责。">To the maximum extent permitted by law, Aquora and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
     </div>
 
     <div class="card">
-      <h2>12. Governing Law</h2>
-      <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of the App shall be resolved in the jurisdiction where the developer is located.</p>
+      <h2 data-en="12. Governing Law" data-zh="12. 适用法律">12. Governing Law</h2>
+      <p data-en="These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of the App shall be resolved in the jurisdiction where the developer is located."
+         data-zh="本条款受相关适用法律管辖并依其解释。因使用本应用而产生的争议,应在开发者所在司法管辖区解决。">These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of the App shall be resolved in the jurisdiction where the developer is located.</p>
     </div>
 
     <div class="card">
-      <h2>13. Changes to Terms</h2>
-      <p>We reserve the right to modify these terms at any time. Continued use of the App after changes constitutes acceptance of the revised terms.</p>
+      <h2 data-en="13. Changes to Terms" data-zh="13. 条款变更">13. Changes to Terms</h2>
+      <p data-en="We reserve the right to modify these terms at any time. Continued use of the App after changes constitutes acceptance of the revised terms."
+         data-zh="我们保留随时修改本条款的权利。在条款变更后继续使用本应用即视为您接受修订后的条款。">We reserve the right to modify these terms at any time. Continued use of the App after changes constitutes acceptance of the revised terms.</p>
     </div>
 
     <div class="card">
-      <h2>14. Contact</h2>
-      <p>If you have questions about these Terms, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.</p>
+      <h2 data-en="14. Contact" data-zh="14. 联系方式">14. Contact</h2>
+      <p data-en='If you have questions about these Terms, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.'
+         data-zh='如对本条款有任何疑问,请联系 <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>。'>If you have questions about these Terms, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.</p>
     </div>
 
   </div>
@@ -322,149 +404,188 @@
   <div id="privacy" class="tab-content">
 
     <div class="card">
-      <h2>1. Introduction</h2>
-      <p>Your privacy is important to us. This Privacy Policy explains how Aquora collects, uses, and protects your information when you use our App.</p>
+      <h2 data-en="1. Introduction" data-zh="1. 引言">1. Introduction</h2>
+      <p data-en="Your privacy is important to us. This Privacy Policy explains how Aquora collects, uses, and protects your information when you use our App."
+         data-zh="您的隐私对我们至关重要。本《隐私政策》说明 Aquora 沐汐在您使用本应用时如何收集、使用和保护您的信息。">Your privacy is important to us. This Privacy Policy explains how Aquora collects, uses, and protects your information when you use our App.</p>
     </div>
 
     <div class="card">
-      <h2>2. Information We Collect</h2>
+      <h2 data-en="2. Information We Collect" data-zh="2. 我们收集的信息">2. Information We Collect</h2>
 
-      <h3>Sign In with Apple</h3>
-      <p>If you choose to sign in, we collect your Apple User ID, name, and email address provided by Apple. Your Apple User ID is stored securely in the device Keychain. Your name and email are stored locally on your device only.</p>
+      <h3 data-en="Sign In with Apple" data-zh="通过 Apple 登录">Sign In with Apple</h3>
+      <p data-en="If you choose to sign in, we collect your Apple User ID, name, and email address provided by Apple. Your Apple User ID is stored securely in the device Keychain. Your name and email are stored locally on your device only."
+         data-zh="如您选择登录,我们会收集 Apple 提供的 Apple User ID、姓名与电子邮件地址。Apple User ID 安全存储于设备的钥匙串中;姓名与邮箱仅存储于您本机设备。">If you choose to sign in, we collect your Apple User ID, name, and email address provided by Apple. Your Apple User ID is stored securely in the device Keychain. Your name and email are stored locally on your device only.</p>
 
-      <h3>Screen Time Data</h3>
-      <p>With your explicit permission, we access device usage data through Apple's Screen Time API and DeviceActivity framework to provide usage tracking, app limiting, and shield features. This data is processed locally on your device and never transmitted externally.</p>
+      <h3 data-en="Screen Time Data" data-zh="屏幕使用时间数据">Screen Time Data</h3>
+      <p data-en="With your explicit permission, we access device usage data through Apple's Screen Time API and DeviceActivity framework to provide usage tracking, app limiting, and shield features. This data is processed locally on your device and never transmitted externally."
+         data-zh='在您明确授权下,我们通过 Apple 的"屏幕使用时间"API 与 DeviceActivity 框架访问设备使用数据,以提供使用追踪、应用限额与屏蔽功能。该数据仅在您的设备本地处理,绝不会上传至外部。'>With your explicit permission, we access device usage data through Apple's Screen Time API and DeviceActivity framework to provide usage tracking, app limiting, and shield features. This data is processed locally on your device and never transmitted externally.</p>
 
-      <h3>User Preferences & Progress</h3>
-      <p>Settings such as your selected app limits, meditation preferences, ambient sound choices, quiz progress, reward tokens, achievements, and streak data are stored locally using UserDefaults and App Groups.</p>
+      <h3 data-en="User Preferences &amp; Progress" data-zh="用户偏好与进度">User Preferences & Progress</h3>
+      <p data-en="Settings such as your selected app limits, meditation preferences, ambient sound choices, quiz progress, reward tokens, achievements, and streak data are stored locally using UserDefaults and App Groups."
+         data-zh="您的应用限额设置、冥想偏好、环境音选择、答题进度、奖励代币、成就及连续打卡数据等,均通过 UserDefaults 与 App Groups 存储于本地。">Settings such as your selected app limits, meditation preferences, ambient sound choices, quiz progress, reward tokens, achievements, and streak data are stored locally using UserDefaults and App Groups.</p>
 
-      <h3>User-Generated Content</h3>
-      <p>Journal entries, manifestation goals, mood tracking, and meditation notes you create are stored locally on your device. We do not access, read, or transmit this content.</p>
+      <h3 data-en="User-Generated Content" data-zh="用户生成的内容">User-Generated Content</h3>
+      <p data-en="Journal entries, manifestation goals, mood tracking, and meditation notes you create are stored locally on your device. We do not access, read, or transmit this content."
+         data-zh="您创建的日记、显化目标、情绪追踪与冥想笔记仅存储于您的设备。我们不会访问、读取或传输这些内容。">Journal entries, manifestation goals, mood tracking, and meditation notes you create are stored locally on your device. We do not access, read, or transmit this content.</p>
 
-      <h3>Behavior Logs</h3>
-      <p>To power personalized features (AI Reminders, Personality Archetype, monthly reports), the App stores the following behavior logs locally with a 90-day retention period:</p>
+      <h3 data-en="Behavior Logs" data-zh="行为日志">Behavior Logs</h3>
+      <p data-en="To power personalized features (AI Reminders, Personality Archetype, monthly reports), the App stores the following behavior logs locally with a 90-day retention period:"
+         data-zh="为支持个性化功能(AI 提醒、人格原型、月度报告),本应用在本地存储以下行为日志,保留期为 90 天:">To power personalized features (AI Reminders, Personality Archetype, monthly reports), the App stores the following behavior logs locally with a 90-day retention period:</p>
       <ul>
-        <li>Quiz answers (question ID, category, correctness, response time, hour of day, app context)</li>
-        <li>Reflection responses (selected options and free-text answers, app context, timestamp)</li>
-        <li>App unlock events (app group name, unlock method, optional user-stated reason, day/hour)</li>
+        <li data-en="Quiz answers (question ID, category, correctness, response time, hour of day, app context)"
+            data-zh="答题记录(题目 ID、分类、对错、响应时长、所处时段、应用上下文)">Quiz answers (question ID, category, correctness, response time, hour of day, app context)</li>
+        <li data-en="Reflection responses (selected options and free-text answers, app context, timestamp)"
+            data-zh="反思回答(所选选项与自由文本回答、应用上下文、时间戳)">Reflection responses (selected options and free-text answers, app context, timestamp)</li>
+        <li data-en="App unlock events (app group name, unlock method, optional user-stated reason, day/hour)"
+            data-zh="应用解锁事件(应用分组名、解锁方式、可选的用户填写原因、日期/小时)">App unlock events (app group name, unlock method, optional user-stated reason, day/hour)</li>
       </ul>
-      <p>This data stays on your device and is used only for local analysis.</p>
+      <p data-en="This data stays on your device and is used only for local analysis."
+         data-zh="该数据仅保留在您的设备上,仅用于本地分析。">This data stays on your device and is used only for local analysis.</p>
 
-      <h3>Personality Archetype Data</h3>
-      <p>Your responses to the personality questionnaire and your derived 4-letter archetype code are stored locally. Monthly archetype snapshots are kept for trend tracking. To compute rarity statistics, an anonymized record (random device UUID + your archetype code only) is uploaded to Apple's CloudKit public database. This record contains no identifying information.</p>
+      <h3 data-en="Personality Archetype Data" data-zh="人格原型数据">Personality Archetype Data</h3>
+      <p data-en="Your responses to the personality questionnaire and your derived 4-letter archetype code are stored locally. Monthly archetype snapshots are kept for trend tracking. To compute rarity statistics, an anonymized record (random device UUID + your archetype code only) is uploaded to Apple's CloudKit public database. This record contains no identifying information."
+         data-zh="您对人格测试的回答以及推导出的 4 字母人格代码存储于本地。月度人格快照用于趋势追踪。为计算稀有度统计,会将一条匿名记录(仅包含随机设备 UUID 与您的人格代码)上传至 Apple CloudKit 公共数据库。该记录不包含任何可识别身份的信息。">Your responses to the personality questionnaire and your derived 4-letter archetype code are stored locally. Monthly archetype snapshots are kept for trend tracking. To compute rarity statistics, an anonymized record (random device UUID + your archetype code only) is uploaded to Apple's CloudKit public database. This record contains no identifying information.</p>
 
-      <h3>Referral Information</h3>
-      <p>When you generate or redeem a referral code, the code along with SHA-256 hashed identifiers is stored in Apple's CloudKit public database to validate redemptions and award rewards. We never store plaintext identifiers in CloudKit.</p>
+      <h3 data-en="Referral Information" data-zh="推荐信息">Referral Information</h3>
+      <p data-en="When you generate or redeem a referral code, the code along with SHA-256 hashed identifiers is stored in Apple's CloudKit public database to validate redemptions and award rewards. We never store plaintext identifiers in CloudKit."
+         data-zh="当您生成或兑换推荐码时,该码与经 SHA-256 哈希的身份标识会存储于 Apple CloudKit 公共数据库,用于校验兑换并发放奖励。我们绝不会在 CloudKit 中存储明文身份标识。">When you generate or redeem a referral code, the code along with SHA-256 hashed identifiers is stored in Apple's CloudKit public database to validate redemptions and award rewards. We never store plaintext identifiers in CloudKit.</p>
 
-      <h3>Subscription Information</h3>
-      <p>Subscription and tip purchase status is managed through Apple's StoreKit framework. We do not have access to your payment information or credit card details.</p>
+      <h3 data-en="Subscription Information" data-zh="订阅信息">Subscription Information</h3>
+      <p data-en="Subscription and tip purchase status is managed through Apple's StoreKit framework. We do not have access to your payment information or credit card details."
+         data-zh="订阅与打赏购买状态由 Apple 的 StoreKit 框架管理。我们无法访问您的支付信息或信用卡详情。">Subscription and tip purchase status is managed through Apple's StoreKit framework. We do not have access to your payment information or credit card details.</p>
 
-      <h3>Photo Library (Optional)</h3>
-      <p>If you choose to save or share personality cards or achievement badges, the App requests permission to write images to your Photo Library. We do not read existing photos.</p>
+      <h3 data-en="Photo Library (Optional)" data-zh="相册访问(可选)">Photo Library (Optional)</h3>
+      <p data-en="If you choose to save or share personality cards or achievement badges, the App requests permission to write images to your Photo Library. We do not read existing photos."
+         data-zh="若您选择保存或分享人格卡片或成就徽章,本应用会请求将图片写入相册的权限。我们不会读取相册中的现有照片。">If you choose to save or share personality cards or achievement badges, the App requests permission to write images to your Photo Library. We do not read existing photos.</p>
     </div>
 
     <div class="card">
-      <h2>3. How We Use Your Information</h2>
+      <h2 data-en="3. How We Use Your Information" data-zh="3. 我们如何使用您的信息">3. How We Use Your Information</h2>
       <ul>
-        <li>To provide screen time tracking and usage reports</li>
-        <li>To enforce app usage limits and shield blocked apps</li>
-        <li>To track your meditation, journal, and quiz progress</li>
-        <li>To manage reward tokens, achievements, and streaks</li>
-        <li>To generate personalized quiz questions via AI</li>
-        <li>To deliver in-the-moment AI reminders based on your usage patterns</li>
-        <li>To compute your personality archetype and produce monthly reports</li>
-        <li>To validate referral codes and award referral rewards</li>
-        <li>To detect habit patterns and suggest helpful interventions</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>4. Data Storage & Security</h2>
-      <p>The vast majority of user data is stored locally on your device. Data shared between the main app and extensions (Shield, Device Activity Monitor, Shield Action) uses secure App Group containers.</p>
-      <h3>iCloud Key-Value Store</h3>
-      <p>Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings.</p>
-      <h3>CloudKit Public Database</h3>
-      <p>Two types of records are stored in our CloudKit public database:</p>
-      <ul>
-        <li><strong>ReferralCode</strong> — referral code string with hashed (SHA-256) owner and redeemer identifiers</li>
-        <li><strong>ArchetypeUser</strong> — anonymous device UUID paired with your personality code, used to calculate archetype rarity (capped at 400 records per category)</li>
-      </ul>
-      <p>These records contain no personally identifiable information.</p>
-      <h3>Keychain</h3>
-      <p>Your Apple User ID is stored in the device Keychain with encryption and is not accessible to other apps.</p>
-    </div>
-
-    <div class="card">
-      <h2>5. Third-Party Services</h2>
-      <p>The App uses the following third-party services:</p>
-      <ul>
-        <li><strong>Apple Sign In</strong> — for authentication (Apple User ID verification)</li>
-        <li><strong>Apple StoreKit 2</strong> — for subscription and tip purchase management</li>
-        <li><strong>Apple Family Controls / DeviceActivity</strong> — for screen time management</li>
-        <li><strong>Apple iCloud Key-Value Store</strong> — for syncing token and subscription data</li>
-        <li><strong>Apple CloudKit</strong> — for referral code validation and anonymous archetype rarity statistics</li>
-        <li><strong>Google Gemini API</strong> — for generating quiz questions and AI reminder content. The App sends your selected question categories, device language, and recently cached question topics (to avoid duplicates). No personal data, screen time data, journal content, or identifiable information is transmitted to Google.</li>
+        <li data-en="To provide screen time tracking and usage reports" data-zh="提供屏幕使用时间追踪与使用报告">To provide screen time tracking and usage reports</li>
+        <li data-en="To enforce app usage limits and shield blocked apps" data-zh="执行应用使用限额并屏蔽受限应用">To enforce app usage limits and shield blocked apps</li>
+        <li data-en="To track your meditation, journal, and quiz progress" data-zh="追踪您的冥想、日记与答题进度">To track your meditation, journal, and quiz progress</li>
+        <li data-en="To manage reward tokens, achievements, and streaks" data-zh="管理奖励代币、成就与连续打卡">To manage reward tokens, achievements, and streaks</li>
+        <li data-en="To generate personalized quiz questions via AI" data-zh="通过 AI 生成个性化答题题目">To generate personalized quiz questions via AI</li>
+        <li data-en="To deliver in-the-moment AI reminders based on your usage patterns" data-zh="基于您的使用模式发送即时 AI 提醒">To deliver in-the-moment AI reminders based on your usage patterns</li>
+        <li data-en="To compute your personality archetype and produce monthly reports" data-zh="计算您的人格原型并生成月度报告">To compute your personality archetype and produce monthly reports</li>
+        <li data-en="To validate referral codes and award referral rewards" data-zh="校验推荐码并发放推荐奖励">To validate referral codes and award referral rewards</li>
+        <li data-en="To detect habit patterns and suggest helpful interventions" data-zh="识别习惯模式并提供有益的干预建议">To detect habit patterns and suggest helpful interventions</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>6. Tracking & Advertising</h2>
-      <p>Aquora does <strong>not</strong> use any analytics, advertising, or tracking SDKs. We do not collect your device advertising identifier (IDFA). We do not track your activity across other apps or websites. The App does not request App Tracking Transparency permission because no tracking occurs.</p>
-    </div>
-
-    <div class="card">
-      <h2>7. Notifications</h2>
-      <p>With your permission, Aquora sends local notifications including:</p>
+      <h2 data-en="4. Data Storage &amp; Security" data-zh="4. 数据存储与安全">4. Data Storage & Security</h2>
+      <p data-en="The vast majority of user data is stored locally on your device. Data shared between the main app and extensions (Shield, Device Activity Monitor, Shield Action) uses secure App Group containers."
+         data-zh="绝大部分用户数据存储于您的设备本地。主应用与扩展(Shield、Device Activity Monitor、Shield Action)之间共享的数据通过安全的 App Group 容器进行。">The vast majority of user data is stored locally on your device. Data shared between the main app and extensions (Shield, Device Activity Monitor, Shield Action) uses secure App Group containers.</p>
+      <h3 data-en="iCloud Key-Value Store" data-zh="iCloud 键值存储">iCloud Key-Value Store</h3>
+      <p data-en="Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings."
+         data-zh="代币余额、订阅状态与交易记录可通过 Apple iCloud 键值存储同步,以便您在不同设备间或重装应用后恢复数据。该数据由 Apple iCloud 基础设施加密保护。您可在设备设置中关闭 iCloud 同步。">Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings.</p>
+      <h3 data-en="CloudKit Public Database" data-zh="CloudKit 公共数据库">CloudKit Public Database</h3>
+      <p data-en="Two types of records are stored in our CloudKit public database:"
+         data-zh="我们的 CloudKit 公共数据库中存储以下两类记录:">Two types of records are stored in our CloudKit public database:</p>
       <ul>
-        <li>Shield-opened reminders when you launch a blocked app</li>
-        <li>Daily limit reached alerts</li>
-        <li>No-Unlocking Challenge warnings</li>
-        <li>AI in-the-moment reminders (at usage thresholds)</li>
-        <li>Trial expiry warnings</li>
-        <li>Welcome messages and meditation reminders</li>
+        <li data-en="<strong>ReferralCode</strong> — referral code string with hashed (SHA-256) owner and redeemer identifiers"
+            data-zh="<strong>ReferralCode</strong> — 推荐码字符串,附带经 SHA-256 哈希处理的推荐人与兑换人身份标识"><strong>ReferralCode</strong> — referral code string with hashed (SHA-256) owner and redeemer identifiers</li>
+        <li data-en="<strong>ArchetypeUser</strong> — anonymous device UUID paired with your personality code, used to calculate archetype rarity (capped at 400 records per category)"
+            data-zh="<strong>ArchetypeUser</strong> — 匿名设备 UUID 与您的人格代码配对,用于计算人格稀有度(每个分类至多保留 400 条记录)"><strong>ArchetypeUser</strong> — anonymous device UUID paired with your personality code, used to calculate archetype rarity (capped at 400 records per category)</li>
       </ul>
-      <p>All notifications are generated entirely on your device. We do not use remote push notification servers.</p>
+      <p data-en="These records contain no personally identifiable information."
+         data-zh="上述记录均不包含任何可识别身份的个人信息。">These records contain no personally identifiable information.</p>
+      <h3 data-en="Keychain" data-zh="钥匙串">Keychain</h3>
+      <p data-en="Your Apple User ID is stored in the device Keychain with encryption and is not accessible to other apps."
+         data-zh="您的 Apple User ID 经加密存储于设备的钥匙串中,其他应用无法访问。">Your Apple User ID is stored in the device Keychain with encryption and is not accessible to other apps.</p>
     </div>
 
     <div class="card">
-      <h2>8. Children's Privacy</h2>
-      <p>Aquora does not knowingly collect personal information from children under 13. The App's screen time management features may be used by parents to manage their children's device usage through Family Controls. If we learn that we have collected data from a child under 13 without parental consent, we will take steps to delete that information.</p>
-    </div>
-
-    <div class="card">
-      <h2>9. Data Retention & Deletion</h2>
-      <p><strong>Local data:</strong> Most user data is deleted when you uninstall the App. Behavior logs (quiz answers, reflections, unlock events) are automatically purged after 90 days.</p>
-      <p><strong>iCloud Key-Value Store:</strong> Token balance, subscription status, and transaction history may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>.</p>
-      <p><strong>CloudKit records:</strong> Anonymous archetype records and referral codes you have created remain in our CloudKit database. To request deletion of CloudKit records associated with your device, contact us at the email below.</p>
-    </div>
-
-    <div class="card">
-      <h2>10. Your Rights</h2>
-      <p>You have the right to:</p>
+      <h2 data-en="5. Third-Party Services" data-zh="5. 第三方服务">5. Third-Party Services</h2>
+      <p data-en="The App uses the following third-party services:" data-zh="本应用使用以下第三方服务:">The App uses the following third-party services:</p>
       <ul>
-        <li>Revoke screen time, notification, and photo library permissions at any time via device Settings</li>
-        <li>Delete all locally stored data by uninstalling the App</li>
-        <li>Remove iCloud Key-Value Store data through your iCloud settings</li>
-        <li>Request deletion of CloudKit records (referral codes, archetype) by contacting us</li>
-        <li>Revoke Sign In with Apple credentials via <strong>Settings &gt; [Your Name] &gt; Sign-In & Security</strong></li>
-        <li>Reset your personality archetype data within the App</li>
-        <li>Request information about data processing by contacting us</li>
+        <li data-en="<strong>Apple Sign In</strong> — for authentication (Apple User ID verification)"
+            data-zh="<strong>Apple 登录</strong> — 用于身份认证(校验 Apple User ID)"><strong>Apple Sign In</strong> — for authentication (Apple User ID verification)</li>
+        <li data-en="<strong>Apple StoreKit 2</strong> — for subscription and tip purchase management"
+            data-zh="<strong>Apple StoreKit 2</strong> — 用于订阅与打赏购买管理"><strong>Apple StoreKit 2</strong> — for subscription and tip purchase management</li>
+        <li data-en="<strong>Apple Family Controls / DeviceActivity</strong> — for screen time management"
+            data-zh="<strong>Apple Family Controls / DeviceActivity</strong> — 用于屏幕使用时间管理"><strong>Apple Family Controls / DeviceActivity</strong> — for screen time management</li>
+        <li data-en="<strong>Apple iCloud Key-Value Store</strong> — for syncing token and subscription data"
+            data-zh="<strong>Apple iCloud 键值存储</strong> — 用于同步代币与订阅数据"><strong>Apple iCloud Key-Value Store</strong> — for syncing token and subscription data</li>
+        <li data-en="<strong>Apple CloudKit</strong> — for referral code validation and anonymous archetype rarity statistics"
+            data-zh="<strong>Apple CloudKit</strong> — 用于校验推荐码及匿名人格稀有度统计"><strong>Apple CloudKit</strong> — for referral code validation and anonymous archetype rarity statistics</li>
+        <li data-en="<strong>Google Gemini API</strong> — for generating quiz questions and AI reminder content. The App sends your selected question categories, device language, and recently cached question topics (to avoid duplicates). No personal data, screen time data, journal content, or identifiable information is transmitted to Google."
+            data-zh="<strong>Google Gemini API</strong> — 用于生成答题题目与 AI 提醒内容。本应用会发送您选择的题目分类、设备语言以及最近缓存的题目主题(用于去重)。任何个人数据、屏幕使用时间数据、日记内容或可识别信息均不会传输至 Google。"><strong>Google Gemini API</strong> — for generating quiz questions and AI reminder content. The App sends your selected question categories, device language, and recently cached question topics (to avoid duplicates). No personal data, screen time data, journal content, or identifiable information is transmitted to Google.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>11. Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes through the App or by updating the effective date above.</p>
+      <h2 data-en="6. Tracking &amp; Advertising" data-zh="6. 追踪与广告">6. Tracking & Advertising</h2>
+      <p data-en="Aquora does <strong>not</strong> use any analytics, advertising, or tracking SDKs. We do not collect your device advertising identifier (IDFA). We do not track your activity across other apps or websites. The App does not request App Tracking Transparency permission because no tracking occurs."
+         data-zh="Aquora 沐汐<strong>不</strong>使用任何分析、广告或追踪 SDK。我们不收集您的设备广告标识符(IDFA),也不会跨其他应用或网站追踪您的活动。由于不存在追踪行为,本应用不会请求 App Tracking Transparency 权限。">Aquora does <strong>not</strong> use any analytics, advertising, or tracking SDKs. We do not collect your device advertising identifier (IDFA). We do not track your activity across other apps or websites. The App does not request App Tracking Transparency permission because no tracking occurs.</p>
     </div>
 
     <div class="card">
-      <h2>12. Contact Us</h2>
-      <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.</p>
+      <h2 data-en="7. Notifications" data-zh="7. 通知">7. Notifications</h2>
+      <p data-en="With your permission, Aquora sends local notifications including:" data-zh="经您授权,Aquora 沐汐会发送以下本地通知:">With your permission, Aquora sends local notifications including:</p>
+      <ul>
+        <li data-en="Shield-opened reminders when you launch a blocked app" data-zh="打开受限应用时的屏蔽提示">Shield-opened reminders when you launch a blocked app</li>
+        <li data-en="Daily limit reached alerts" data-zh="达到每日限额的提醒">Daily limit reached alerts</li>
+        <li data-en="No-Unlocking Challenge warnings" data-zh="不解锁挑战的警示">No-Unlocking Challenge warnings</li>
+        <li data-en="AI in-the-moment reminders (at usage thresholds)" data-zh="AI 即时提醒(在使用阈值触发时)">AI in-the-moment reminders (at usage thresholds)</li>
+        <li data-en="Trial expiry warnings" data-zh="试用到期提醒">Trial expiry warnings</li>
+        <li data-en="Welcome messages and meditation reminders" data-zh="欢迎消息与冥想提醒">Welcome messages and meditation reminders</li>
+      </ul>
+      <p data-en="All notifications are generated entirely on your device. We do not use remote push notification servers."
+         data-zh="所有通知均完全在您的设备上生成。我们不使用远程推送服务器。">All notifications are generated entirely on your device. We do not use remote push notification servers.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-en="8. Children's Privacy" data-zh="8. 未成年人隐私">8. Children's Privacy</h2>
+      <p data-en="Aquora does not knowingly collect personal information from children under 13. The App's screen time management features may be used by parents to manage their children's device usage through Family Controls. If we learn that we have collected data from a child under 13 without parental consent, we will take steps to delete that information."
+         data-zh="Aquora 沐汐不会有意收集 13 岁以下儿童的个人信息。家长可通过家庭共享使用本应用的屏幕使用时间管理功能来管理子女的设备使用。如发现未经家长同意而收集了 13 岁以下儿童的数据,我们将采取措施予以删除。">Aquora does not knowingly collect personal information from children under 13. The App's screen time management features may be used by parents to manage their children's device usage through Family Controls. If we learn that we have collected data from a child under 13 without parental consent, we will take steps to delete that information.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-en="9. Data Retention &amp; Deletion" data-zh="9. 数据保留与删除">9. Data Retention & Deletion</h2>
+      <p data-en="<strong>Local data:</strong> Most user data is deleted when you uninstall the App. Behavior logs (quiz answers, reflections, unlock events) are automatically purged after 90 days."
+         data-zh="<strong>本地数据:</strong>大部分用户数据会在您卸载应用时被删除。行为日志(答题记录、反思回答、解锁事件)在 90 天后自动清除。"><strong>Local data:</strong> Most user data is deleted when you uninstall the App. Behavior logs (quiz answers, reflections, unlock events) are automatically purged after 90 days.</p>
+      <p data-en="<strong>iCloud Key-Value Store:</strong> Token balance, subscription status, and transaction history may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>."
+         data-zh='<strong>iCloud 键值存储:</strong>代币余额、订阅状态与交易记录可能会保留在您的 iCloud 账户中,直至您通过<strong>"设置 > [您的姓名] > iCloud > 管理储存空间"</strong>手动移除。'><strong>iCloud Key-Value Store:</strong> Token balance, subscription status, and transaction history may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>.</p>
+      <p data-en="<strong>CloudKit records:</strong> Anonymous archetype records and referral codes you have created remain in our CloudKit database. To request deletion of CloudKit records associated with your device, contact us at the email below."
+         data-zh="<strong>CloudKit 记录:</strong>匿名人格记录与您创建的推荐码会保留在我们的 CloudKit 数据库中。如需删除与您设备关联的 CloudKit 记录,请通过下方邮箱联系我们。"><strong>CloudKit records:</strong> Anonymous archetype records and referral codes you have created remain in our CloudKit database. To request deletion of CloudKit records associated with your device, contact us at the email below.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-en="10. Your Rights" data-zh="10. 您的权利">10. Your Rights</h2>
+      <p data-en="You have the right to:" data-zh="您有权:">You have the right to:</p>
+      <ul>
+        <li data-en="Revoke screen time, notification, and photo library permissions at any time via device Settings"
+            data-zh="随时通过设备"设置"撤销屏幕使用时间、通知与相册权限">Revoke screen time, notification, and photo library permissions at any time via device Settings</li>
+        <li data-en="Delete all locally stored data by uninstalling the App" data-zh="通过卸载应用删除所有本地存储的数据">Delete all locally stored data by uninstalling the App</li>
+        <li data-en="Remove iCloud Key-Value Store data through your iCloud settings"
+            data-zh="通过 iCloud 设置移除 iCloud 键值存储中的数据">Remove iCloud Key-Value Store data through your iCloud settings</li>
+        <li data-en="Request deletion of CloudKit records (referral codes, archetype) by contacting us"
+            data-zh="联系我们,请求删除 CloudKit 中的记录(推荐码、人格)">Request deletion of CloudKit records (referral codes, archetype) by contacting us</li>
+        <li data-en="Revoke Sign In with Apple credentials via <strong>Settings &gt; [Your Name] &gt; Sign-In &amp; Security</strong>"
+            data-zh='通过<strong>"设置 > [您的姓名] > 登录与安全性"</strong>撤销"通过 Apple 登录"的凭证'>Revoke Sign In with Apple credentials via <strong>Settings &gt; [Your Name] &gt; Sign-In & Security</strong></li>
+        <li data-en="Reset your personality archetype data within the App" data-zh="在应用内重置您的人格原型数据">Reset your personality archetype data within the App</li>
+        <li data-en="Request information about data processing by contacting us" data-zh="联系我们,索取关于数据处理的信息">Request information about data processing by contacting us</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 data-en="11. Changes to This Policy" data-zh="11. 本政策的变更">11. Changes to This Policy</h2>
+      <p data-en="We may update this Privacy Policy from time to time. We will notify you of significant changes through the App or by updating the effective date above."
+         data-zh="我们可能会不时更新本《隐私政策》。重大变更时,我们将通过本应用或更新上方的生效日期通知您。">We may update this Privacy Policy from time to time. We will notify you of significant changes through the App or by updating the effective date above.</p>
+    </div>
+
+    <div class="card">
+      <h2 data-en="12. Contact Us" data-zh="12. 联系我们">12. Contact Us</h2>
+      <p data-en='If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.'
+         data-zh='如您对本《隐私政策》有任何疑问或顾虑,请联系 <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>。'>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.</p>
     </div>
 
   </div>
 
-  <div class="footer">
+  <div class="footer" data-en="&copy; 2026 Aquora. All rights reserved." data-zh="&copy; 2026 Aquora 沐汐。保留所有权利。">
     &copy; 2026 Aquora. All rights reserved.
   </div>
 
@@ -478,11 +599,47 @@ function switchTab(tab, btn) {
   if (btn) btn.classList.add('active');
   else document.querySelector('[onclick*="' + tab + '"]').classList.add('active');
 }
+
+// --- i18n: apply data-en / data-zh to all tagged elements ---
+function setLang(lang) {
+  document.documentElement.lang = (lang === 'zh') ? 'zh-Hans' : 'en';
+  document.querySelectorAll('[data-en]').forEach(function (el) {
+    var txt = el.getAttribute('data-' + lang);
+    if (txt !== null && txt !== undefined) {
+      // innerHTML so embedded <strong>/<a>/&amp; render correctly
+      el.innerHTML = txt;
+    }
+  });
+  // Sync <title>
+  var titleEl = document.querySelector('title');
+  if (titleEl) {
+    var t = titleEl.getAttribute('data-' + lang);
+    if (t) document.title = t;
+  }
+  // Update lang-switcher active state
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  try { localStorage.setItem('aquora_lang', lang); } catch (e) { /* private mode */ }
+}
+
+(function initLang() {
+  var saved = null;
+  try { saved = localStorage.getItem('aquora_lang'); } catch (e) {}
+  var sysLang = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
+  var detected = saved || (sysLang.indexOf('zh') === 0 ? 'zh' : 'en');
+  setLang(detected);
+  // Wire toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.lang); });
+  });
+})();
+
 // Support direct linking via #terms or #privacy
-(function() {
+(function () {
   var hash = window.location.hash.replace('#', '');
   if (hash === 'terms' || hash === 'privacy') switchTab(hash);
-})()
+})();
 </script>
 
 </body>
