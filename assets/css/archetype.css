@@ -574,3 +574,60 @@ body {
   background: color-mix(in srgb, var(--archetype-color) 32%, transparent);
   color: var(--text-main);
 }
+
+/* ============================================================
+ * Language Switcher — top-right floating pill (EN / 中文).
+ * Mirrors the Terms/Privacy page so the two surfaces feel like
+ * one site. Uses archetype.css's own --text-main / --card-bg /
+ * --bg-base vocabulary (archetype pages are always dark mode).
+ * ============================================================ */
+
+.lang-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 4px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px;
+  border-radius: 999px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.lang-btn.active {
+  background: var(--text-main);
+  color: var(--bg-base);
+  opacity: 1;
+}
+
+.lang-btn:hover:not(.active) {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .lang-switcher {
+    top: 12px;
+    right: 12px;
+    padding: 3px;
+  }
+  .lang-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}

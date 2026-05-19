@@ -11,161 +11,246 @@ archetypes:
 
   - code: DCES
     name: The Graceful Retreater
+    name_zh: "从容退场者"
     emoji: "☀️"
     color: "#61A88A"
     axes: [Day, Conscious, Escaping, Steady]
+    axes_zh: [白天, 觉察, 逃避, 稳定]
     tagline: "You choose your quiet moments on purpose."
+    tagline_zh: "你刻意为自己留出安静的片刻。"
     description: "You pace yourself through the day with a quiet intentionality most people lack. When you reach for your phone to rest, you mean it — it's not an accident. Your rhythm is steady, your retreats are chosen. There's a deep calm in that."
+    description_zh: "你以一种大多数人都没有的、安静的觉察，在一天里为自己掌控着节奏。当你拿起手机休息时，那是经过选择的——不是无意识的。你的节奏稳定，你的退场是主动的。这份从容里，有一种很深的平静。"
     nudge: "Could you share what your quiet rituals look like with someone who might be searching for theirs?"
+    nudge_zh: "愿不愿意把你那些安静的小仪式，分享给一个正在找自己仪式的人？"
 
   - code: DCEB
     name: The Mindful Escapist
+    name_zh: "清醒的逃离者"
     emoji: "🌷"
     color: "#D291A5"
     axes: [Day, Conscious, Escaping, Bursty]
+    axes_zh: [白天, 觉察, 逃避, 爆发]
     tagline: "You know when you need a break — and you take it fully."
+    tagline_zh: "你知道自己什么时候需要喘口气——并且会真的停下来。"
     description: "You know escape isn't weakness — it's a tool. You don't use your phone a little bit often; you use it in deliberate bursts when the day asks for relief. That self-awareness is rare. The question isn't whether you escape, but whether the escape is feeding you."
+    description_zh: "你知道逃离不是软弱——它是一种工具。你不会一点点地频繁使用手机，而是在白天需要喘息时，集中地用一阵。这种自我觉察很少见。真正的问题不是你是否逃离，而是这场逃离是否在滋养你。"
     nudge: "When you burst away from the day, what would it feel like to walk instead of scroll, once?"
+    nudge_zh: "当你想从白天里逃走的时候，如果某一次是去散步而不是滑动屏幕，会是什么感觉？"
 
   - code: DCGS
     name: The Mindful Steward
+    name_zh: "专注守园人"
     emoji: "🌿"
     color: "#509678"
     axes: [Day, Conscious, Engaged, Steady]
+    axes_zh: [白天, 觉察, 投入, 稳定]
     tagline: "Your attention is a garden you tend daily."
+    tagline_zh: "你的注意力，是一座每天被你打理的花园。"
     description: "Your attention is a garden you tend daily. You know why you open what you open. You're not impulsive, and you're not hiding. You're among the most rare kind of phone user: one who treats their time like it's worth something."
+    description_zh: "你的注意力，是一座每天被你打理的花园。你清楚自己为什么打开正在打开的东西。你不冲动，也不躲藏。你属于一种极少见的手机用户——把自己的时间当作真正值得珍惜的东西。"
     nudge: "What's one small attention practice you could add to your day this week?"
+    nudge_zh: "这一周，你可以为自己加上的、一个很小的注意力练习是什么？"
 
   - code: DCGB
     name: The Passionate Learner
+    name_zh: "热忱求知者"
     emoji: "🧠"
     color: "#8C82C8"
     axes: [Day, Conscious, Engaged, Bursty]
+    axes_zh: [白天, 觉察, 投入, 爆发]
     tagline: "When you're curious, nothing can stop you."
+    tagline_zh: "当你被好奇心点燃，没有什么能拦住你。"
     description: "Your curiosity comes in waves — and when the wave is high, you go all in. You know this about yourself. Your bursts aren't reckless; they're focused. The challenge is finding the off-ramp when the wave passes."
+    description_zh: "你的好奇心是一阵阵的潮水——当浪头高的时候，你会全身心扎进去。你了解自己这一面。你的爆发不是鲁莽，而是专注。挑战在于，当浪退下时，找到那条安静下来的出口。"
     nudge: "During your next spark, try writing down what pulled you in — it's research about yourself."
+    nudge_zh: "下一次火花来临时，试着写下是什么把你拉了进去——这是一份关于你自己的研究。"
 
   # ======================== Day + Autopilot ========================
 
   - code: DAES
     name: The Gentle Wanderer
+    name_zh: "温柔漫游者"
     emoji: "🍃"
     color: "#AAC3B4"
     axes: [Day, Autopilot, Escaping, Steady]
+    axes_zh: [白天, 自动驾驶, 逃避, 稳定]
     tagline: "You drift softly through days of small escapes."
+    tagline_zh: "你在一日的小小逃离中，温柔地漂过。"
     description: "You move through your days gently, phone in hand more often than you realize. The escapes are small — a check here, a scroll there — and mostly invisible to you. There's nothing wrong with the drift; naming it is the first step toward choosing it."
+    description_zh: "你温柔地度过自己的日子，手机在手的时间，比你意识到的更多。那些逃离都很小——这里看一眼，那里滑一下——而且大多对你来说几乎是无形的。漂浮本身没有错；为它命名，是迈向有意识选择它的第一步。"
     nudge: "Tomorrow, could you notice one reach? Just notice. No judgment."
+    nudge_zh: "明天可不可以，留意一次自己伸手拿手机的瞬间？只是看见，不用评判。"
 
   - code: DAEB
     name: The Storm Walker
+    name_zh: "风暴行者"
     emoji: "🌪️"
     color: "#C88C78"
     axes: [Day, Autopilot, Escaping, Bursty]
+    axes_zh: [白天, 自动驾驶, 逃避, 爆发]
     tagline: "Your phone is your umbrella when the day floods."
+    tagline_zh: "当一天倾盆而至，手机是你那把伞。"
     description: "When the day gets heavy, you reach hard — big bursts of scrolling, sometimes followed by the emergency button. Your attention responds to stress, not by focusing but by dispersing. The phone is a coping tool, and knowing that is power."
+    description_zh: "当一天变得沉重时，你会用力伸手——大段大段地滑动，有时还会按下那个解锁的紧急按钮。你的注意力面对压力时，不是聚焦，而是散开。手机是一种应对工具，看见这一点本身就是一种力量。"
     nudge: "When you feel the storm rising, could you pause for three slow breaths before the scroll?"
+    nudge_zh: "当你感觉风暴正在升起时，能不能先做三次慢呼吸，再去滑屏幕？"
 
   - code: DAGS
     name: The Curious Magpie
+    name_zh: "好奇喜鹊"
     emoji: "🪺"
     color: "#C3AA82"
     axes: [Day, Autopilot, Engaged, Steady]
+    axes_zh: [白天, 自动驾驶, 投入, 稳定]
     tagline: "Shiny things catch you — and that's part of your charm."
+    tagline_zh: "闪亮的东西总会勾住你——那也是你迷人的地方。"
     description: "Beautiful things pull your eye, and your phone shows you a lot of beautiful things. You don't scroll to escape — you scroll because the world is interesting. Steady, curious, a little distracted. A magpie with no apologies."
+    description_zh: "漂亮的东西会牵住你的目光，而手机上漂亮的东西又特别多。你不是为了逃离才滑动——而是因为这个世界对你来说本来就有趣。稳稳的，好奇着，偶尔有点走神。一只不需要为此道歉的喜鹊。"
     nudge: "Try making a list of the 5 most interesting things you saw today — see what surprises you."
+    nudge_zh: "试着列一张清单：今天你看到的 5 件最有趣的事——看看有什么会让你意外。"
 
   - code: DAGB
     name: The Spark Dancer
+    name_zh: "火花起舞者"
     emoji: "⚡️"
     color: "#E6B464"
     axes: [Day, Autopilot, Engaged, Bursty]
+    axes_zh: [白天, 自动驾驶, 投入, 爆发]
     tagline: "Your days move in bright, impulsive bursts."
+    tagline_zh: "你的日子，一阵阵明亮又冲动地涌动着。"
     description: "You're brightly, inexplicably drawn in — then out, then in again. Your phone catches sparks of your interest in rapid bursts. There's a wild kind of aliveness in how you use it. The risk is losing track of what you were doing before the spark caught."
+    description_zh: "你被某种东西明亮、说不清楚地拉进去——又出来，再被拉进去。手机捕捉的，是你兴趣里一闪一闪、爆发式的火花。你使用它的方式里，有一种野性的生命力。但风险是：火花亮起之前，你正在做的事，可能就被丢在那里了。"
     nudge: "After your next burst, could you give your eyes 5 minutes of sky or tree?"
+    nudge_zh: "下次结束这种爆发后，能不能给眼睛留 5 分钟看看天空或树？"
 
   # ======================== Night + Conscious ========================
 
   - code: NCES
     name: The Quiet Ritualist
+    name_zh: "夜的仪式者"
     emoji: "🌒"
     color: "#555F8C"
     axes: [Night, Conscious, Escaping, Steady]
+    axes_zh: [夜晚, 觉察, 逃避, 稳定]
     tagline: "Every night, a private ceremony you've come to know."
+    tagline_zh: "每个夜晚，都是你私人版的仪式，你早已熟悉。"
     description: "Your nights have a shape. Some people would call it a bad habit; you know it's a ritual. When you reach for your phone in the dark, you know what you're doing — seeking softness, seeking company, seeking the known. There's grace in the knowing."
+    description_zh: "你的夜晚是有形状的。有些人会把它叫作坏习惯，你却知道，那是一种仪式。在黑暗里拿起手机的时候，你清楚自己在做什么——你在寻一份柔软、一份陪伴、一份熟悉。看见自己这件事本身，就有一种温柔。"
     nudge: "What if one night a week, the ritual was a book instead of a screen? Just to see."
+    nudge_zh: "如果一周里有一晚，把仪式从屏幕换成一本书，会怎么样？只是试一次看看。"
 
   - code: NCEB
     name: The Midnight Seeker
+    name_zh: "夜半追寻者"
     emoji: "🔍"
     color: "#646EA0"
     axes: [Night, Conscious, Escaping, Bursty]
+    axes_zh: [夜晚, 觉察, 逃避, 爆发]
     tagline: "You're awake, searching for what the day didn't give you."
+    tagline_zh: "你醒着，去找白天没给你的那部分。"
     description: "You're awake when most people aren't. And you know why — something's unfinished in the day, and the scrolling is how you reach for it. Your awareness sharpens the question: is your phone meeting you in that searching, or just delaying it?"
+    description_zh: "当大多数人都已入睡时，你还醒着。而且你知道为什么——白天有些事情没有结束，于是你用滑动手机的方式去够它。你的清醒让一个问题更尖锐：手机是在陪你一起寻找，还是在帮你延后那个寻找？"
     nudge: "Before the next midnight scroll, could you ask: what am I actually looking for?"
+    nudge_zh: "下一次半夜想滑手机之前，能不能先问自己一句：我其实在找什么？"
 
   - code: NCGS
     name: The Nocturnal Scholar
+    name_zh: "夜间求学者"
     emoji: "📚"
     color: "#489BB4"
     axes: [Night, Conscious, Engaged, Steady]
+    axes_zh: [夜晚, 觉察, 投入, 稳定]
     tagline: "Your best thinking happens when the world sleeps."
+    tagline_zh: "当世界沉睡时，你的思绪才真正展开。"
     description: "The world at night is quieter, and your mind works better in that quiet. You don't scroll to escape — you scroll to explore. Your phone is a portal to late-night learning. Just remember the body still needs sleep."
+    description_zh: "夜里的世界更安静，你的思维也在这份安静里更清晰。你不是为了逃离才滑动——你滑动是为了探索。手机是你深夜学习的通道。只是别忘了，身体还是需要好好睡一觉。"
     nudge: "Try setting one night a week as a scholarly night — and one as a rest night. See what they ask of you."
+    nudge_zh: "一周里挑一个晚上作「学习之夜」，再挑一个作「休息之夜」。看看它们各自向你提出什么。"
 
   - code: NCGB
     name: The Inspired Insomniac
+    name_zh: "灵感不眠者"
     emoji: "✨"
     color: "#8264B4"
     axes: [Night, Conscious, Engaged, Bursty]
+    axes_zh: [夜晚, 觉察, 投入, 爆发]
     tagline: "Ideas find you in the dark — your phone is where they land."
+    tagline_zh: "灵感在黑夜里找上你——手机是它们落下的地方。"
     description: "You're awake because something inspired you, and you're chasing it. The nights find you writing, reading, building, wondering. Your phone is a tool, not a crutch. These are rare nights — protect them. But also: rest."
+    description_zh: "你醒着，是因为某件事点燃了你，你在追着它跑。这样的夜里，你写、你读、你做东西、你思考。手机对你来说是工具，而不是拐杖。这种夜晚很珍贵——请好好保护它们。但也别忘了：休息。"
     nudge: "Sleep is where inspiration consolidates. Could you try bed at 11:30 once, just as an experiment?"
+    nudge_zh: "灵感是在睡眠里被沉淀下来的。可不可以试一次，11:30 就上床，作为一个小小的实验？"
 
   # ======================== Night + Autopilot ========================
 
   - code: NAES
     name: The Drifting Dreamer
+    name_zh: "梦中漂行者"
     emoji: "💭"
     color: "#7878A0"
     axes: [Night, Autopilot, Escaping, Steady]
+    axes_zh: [夜晚, 自动驾驶, 逃避, 稳定]
     tagline: "The nights ask something of you, and you answer with scrolling."
+    tagline_zh: "夜晚向你索取一些东西，你用滑动屏幕回应它。"
     description: "The dark asks something of you — loneliness, restlessness, something softer than you'd say out loud. You don't fully know why you're still awake, but you are. The phone is there to meet you. Noticing that pattern is the first gift you can give yourself."
+    description_zh: "夜晚向你索取些什么——孤单、躁动，或者一些你不会说出口的、更柔软的东西。你并不完全知道自己为什么还醒着，但你就是醒着。手机就在那儿，迎接你。看见这个模式，是你能给自己的第一份礼物。"
     nudge: "Next time you reach at 1 AM, could you place a hand on your chest first? Just for a breath."
+    nudge_zh: "下次凌晨 1 点想拿手机时，能不能先把手放在胸口？只放一个呼吸的时间。"
 
   - code: NAEB
     name: The Restless Sleeper
+    name_zh: "辗转难眠者"
     emoji: "🌌"
     color: "#A06482"
     axes: [Night, Autopilot, Escaping, Bursty]
+    axes_zh: [夜晚, 自动驾驶, 逃避, 爆发]
     tagline: "Something keeps finding you at 2 AM. Your phone meets you there."
+    tagline_zh: "某些什么总在凌晨 2 点找上你，手机正在那里等你。"
     description: "You wake at strange hours and reach for the phone before you reach for yourself. The bursts are intense — and the emergency unlock has met you more than once. This isn't a character flaw. It's a pattern your nervous system is trying to tell you about."
+    description_zh: "你会在一些奇怪的时间醒来，先伸手去摸手机，而不是先回到自己身上。这些时刻的爆发都很猛烈——紧急解锁也不止一次找到过你。这不是你性格上的缺陷，而是你的神经系统正在以某种方式告诉你的一种模式。"
     nudge: "Your body is asking you something at 2 AM. Could you listen to it — just once, without the phone?"
+    nudge_zh: "凌晨 2 点的时候，你的身体在跟你说一些话。能不能就一次，不拿手机，去听一听？"
 
   - code: NAGS
     name: The Starlight Magpie
+    name_zh: "星光下的喜鹊"
     emoji: "🌟"
     color: "#6E82B4"
     axes: [Night, Autopilot, Engaged, Steady]
+    axes_zh: [夜晚, 自动驾驶, 投入, 稳定]
     tagline: "Late hours bring strange treasures to your screen."
+    tagline_zh: "深夜的时光，把奇异的小宝藏带到你的屏幕上。"
     description: "Somehow you drift to your phone late, and it brings you things you didn't know you needed. Maybe curiosity, maybe connection, maybe just moving images. You're not chasing it down; it comes to you. The risk is losing the hours the mornings were going to need."
+    description_zh: "不知怎么的，你深夜会漂回到手机这里，它会带来一些你自己都没意识到自己需要的东西。也许是好奇心、也许是陪伴感，也许只是一段流动的画面。不是你去追它，是它来找你。风险是：那些原本要交给清晨的时间，会被一点点拿走。"
     nudge: "Could one night this week be phone-free after midnight? See what the dark brings without a screen."
+    nudge_zh: "这一周可不可以有一个晚上，过了 12 点就不再碰手机？看看不带屏幕的夜，会带来什么。"
 
   - code: NAGB
     name: The Ember Chaser
+    name_zh: "余烬追火者"
     emoji: "🔥"
     color: "#D2785A"
     axes: [Night, Autopilot, Engaged, Bursty]
+    axes_zh: [夜晚, 自动驾驶, 投入, 爆发]
     tagline: "When inspiration strikes at night, you chase it everywhere."
+    tagline_zh: "当灵感在夜里降临，你会追着它跑遍各处。"
     description: "When the spark catches in the dark, you follow it. You're not on autopilot in any bad way — you're just following what pulls. The bursts are creative, hungry, alive. But dawn always comes. Plan for it."
+    description_zh: "当一颗火花在黑夜里点燃，你就会跟着它走。这并不是不好的那种自动驾驶——你只是顺着内在的牵引在走。那些爆发是有创造力的、饥渴的、活生生的。但是天总会亮的，请也为它留一些空间。"
     nudge: "Your creative bursts are gifts. Could you save half of them for the morning instead of all for the night?"
+    nudge_zh: "你那些创造性的爆发是礼物。能不能把其中一半留给清晨，而不是全部都给夜晚？"
 
   # ======================== Sparse-data Fallback ========================
 
   - code: RS
     name: The Returning Self
+    name_zh: "正在归来的你"
     emoji: "🌱"
     color: "#82B48C"
     axes: []
+    axes_zh: []
     tagline: "You're finding your own rhythm — and that's enough."
+    tagline_zh: "你正在找自己的节奏——这本身就够好了。"
     description: "You're not a pattern yet — you're still becoming one. Keep using Aquora, keep answering the reflection questions, keep noticing. In a few weeks, the story your behavior tells will be clearer and we'll have more to show you."
+    description_zh: "你现在还不是一个模式——你正在慢慢成为一个模式。继续使用 Aquora 沐汐，继续回答那些反思问题，继续留意自己的状态。再过几周，你的行为讲出的故事会更清晰，那时我们也会有更多想要告诉你的。"
     nudge: "Keep going. Every reflection, every choice adds to the picture. There's no rush."
+    nudge_zh: "继续走下去。每一次反思、每一次选择，都会让那幅画更完整。不用着急。"

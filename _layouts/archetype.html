@@ -14,7 +14,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ archetype.name }} — Aquora Phone Personality</title>
+  <title data-en="{{ archetype.name | escape }} — Aquora Phone Personality"
+         data-zh="{{ archetype.name_zh | escape }} — Aquora 沐汐 手机人格">{{ archetype.name }} — Aquora Phone Personality</title>
 
   <meta name="description" content="{{ archetype.tagline }} Decode your phone personality from real screen-time behavior with Aquora.">
 
@@ -34,6 +35,14 @@
 </head>
 <body style="--archetype-color: {{ archetype.color }};">
 
+  <!-- Language Switcher — same pattern as the Terms/Privacy page;
+       shares the `aquora_lang` localStorage key so the user's choice
+       persists across pages (legal ↔ archetype). -->
+  <div class="lang-switcher" role="group" aria-label="Language">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="zh">中文</button>
+  </div>
+
   <main class="archetype-page">
 
     <!-- Aquora wordmark — same SVG as the legal page for brand continuity -->
@@ -44,9 +53,9 @@
           <path d="M171.927 127.15C163.791 101.036 143.8 78.3544 117.426 71.2979C117.642 70.0258 117.737 68.6577 117.737 67.2896C117.737 55.5287 109.77 46 99.9304 46C90.1149 46 82.1233 55.5287 82.1233 67.2896C82.1233 68.7057 82.2433 70.0738 82.4593 71.4179C56.1806 78.5465 35.9976 101.228 27.91 127.558C23.2543 142.703 37.2216 157.032 52.5328 152.928L52.7968 152.856C61.1484 150.624 67.004 143.303 67.748 134.687C69.6199 112.845 78.4275 92.5155 90.6189 85.435C96.3786 82.0987 103.554 82.0267 109.314 85.339C121.625 92.4435 130.313 113.013 132.161 134.759C132.881 143.351 138.832 150.624 147.184 152.832C148.984 153.312 150.808 153.552 152.536 153.552C165.735 153.552 176.127 140.639 171.927 127.15Z" fill="currentColor"/>
           <path d="M119.657 126.862C116.274 124.534 112.122 123.574 108.018 123.454C103.89 123.334 99.8103 123.814 95.8505 124.846C91.0988 126.07 86.563 128.086 82.4112 130.726C78.9074 132.959 75.5236 135.719 73.7716 139.463C72.0197 143.231 72.2837 148.2 75.3556 150.984C78.8354 154.176 84.0191 153.648 88.3629 153.408C94.1706 153.096 99.9783 152.808 105.762 152.208C111.21 151.656 116.849 150.384 121.025 146.616C123.689 144.191 125.537 140.735 125.513 137.135C125.489 133.055 123.017 129.214 119.657 126.862Z" fill="currentColor"/>
         </svg>
-        <span class="brand-name">Aquora</span>
+        <span class="brand-name" data-en="Aquora" data-zh="Aquora 沐汐">Aquora</span>
       </a>
-      <span class="brand-eyebrow">Phone Personality</span>
+      <span class="brand-eyebrow" data-en="Phone Personality" data-zh="手机人格">Phone Personality</span>
     </header>
 
     <!-- Hero: glow halo behind emoji + name + code badge + axes + tagline -->
@@ -56,7 +65,9 @@
         <span class="emoji">{{ archetype.emoji }}</span>
       </div>
 
-      <h1 class="archetype-name">{{ archetype.name }}</h1>
+      <h1 class="archetype-name"
+          data-en="{{ archetype.name | escape }}"
+          data-zh="{{ archetype.name_zh | escape }}">{{ archetype.name }}</h1>
 
       <div class="archetype-code-row">
         <span class="archetype-code" aria-label="Archetype code">{{ archetype.code }}</span>
@@ -65,37 +76,43 @@
       {%- if archetype.axes != empty -%}
       <ul class="axes" aria-label="Axis breakdown">
         {%- for axis in archetype.axes -%}
-        <li>{{ axis }}</li>
+        <li data-en="{{ axis | escape }}"
+            data-zh="{{ archetype.axes_zh[forloop.index0] | escape }}">{{ axis }}</li>
         {%- endfor -%}
       </ul>
       {%- endif -%}
 
       <blockquote class="tagline">
-        <p>{{ archetype.tagline }}</p>
+        <p data-en="{{ archetype.tagline | escape }}"
+           data-zh="{{ archetype.tagline_zh | escape }}">{{ archetype.tagline }}</p>
       </blockquote>
     </section>
 
     <!-- Description -->
     <section class="card description">
-      <p>{{ archetype.description }}</p>
+      <p data-en="{{ archetype.description | escape }}"
+         data-zh="{{ archetype.description_zh | escape }}">{{ archetype.description }}</p>
     </section>
 
     <!-- Gentle nudge -->
     <section class="card nudge">
-      <span class="card-eyebrow">A gentle nudge</span>
-      <p>{{ archetype.nudge }}</p>
+      <span class="card-eyebrow" data-en="A gentle nudge" data-zh="一句轻轻的提醒">A gentle nudge</span>
+      <p data-en="{{ archetype.nudge | escape }}"
+         data-zh="{{ archetype.nudge_zh | escape }}">{{ archetype.nudge }}</p>
     </section>
 
     <!-- What is Aquora -->
     <section class="card explainer">
-      <span class="card-eyebrow">What is Aquora?</span>
-      <p>
+      <span class="card-eyebrow" data-en="What is Aquora?" data-zh="Aquora 是什么?">What is Aquora?</span>
+      <p data-en="Aquora reads your real screen-time behavior and decodes your phone personality from four behavioral axes — <em>Day vs Night</em>, <em>Conscious vs Autopilot</em>, <em>Engaged vs Escaping</em>, and <em>Steady vs Bursty</em>."
+         data-zh="Aquora 读取你真实的屏幕使用行为，从四条行为轴——<em>白天 vs 夜晚</em>、<em>觉察 vs 自动驾驶</em>、<em>投入 vs 逃避</em>、<em>稳定 vs 爆发</em>——解读你的手机人格。">
         Aquora reads your real screen-time behavior and decodes your
         phone personality from four behavioral axes — <em>Day vs Night</em>,
         <em>Conscious vs Autopilot</em>, <em>Engaged vs Escaping</em>, and
         <em>Steady vs Bursty</em>.
       </p>
-      <p>
+      <p data-en="16 archetypes emerge from how those axes combine. This page is for <strong>{{ archetype.name | escape }}</strong>."
+         data-zh="由这四条轴的组合，衍生出 16 种原型。本页讲的是「<strong>{{ archetype.name_zh | escape }}</strong>」。">
         16 archetypes emerge from how those axes combine. This page is for
         <strong>{{ archetype.name }}</strong>.
       </p>
@@ -103,15 +120,23 @@
 
     <!-- CTA -->
     <section class="cta">
-      <span class="cta-eyebrow">Find out yours</span>
-      <h2 class="cta-headline">Decode your own phone personality.</h2>
-      <p class="cta-sub">Free 7-day trial. iOS only.</p>
+      <span class="cta-eyebrow" data-en="Find out yours" data-zh="找到你的那一种">Find out yours</span>
+      <h2 class="cta-headline"
+          data-en="Decode your own phone personality."
+          data-zh="解码你自己的手机人格。">Decode your own phone personality.</h2>
+      <p class="cta-sub"
+         data-en="Free 7-day trial. iOS only."
+         data-zh="7 天免费试用，仅限 iOS。">Free 7-day trial. iOS only.</p>
       <a href="https://apps.apple.com/app/aquora/id000000000"
          class="cta-button"
-         aria-label="Download Aquora on the App Store">
+         aria-label="Download Aquora on the App Store"
+         data-en="Download Aquora"
+         data-zh="下载 Aquora">
         Download Aquora
       </a>
-      <p class="cta-fineprint">
+      <p class="cta-fineprint"
+         data-en="Your screen-time data never leaves your device. Aquora uses Apple's Family Controls."
+         data-zh="你的屏幕使用时间数据从不离开你的设备。Aquora 使用 Apple 的 Family Controls。">
         Your screen-time data never leaves your device.
         Aquora uses Apple's Family Controls.
       </p>
@@ -120,15 +145,50 @@
     <footer class="page-footer">
       <p class="footer-url">aquora-app.github.io/Aquora/p/{{ archetype.code }}</p>
       <nav class="footer-nav" aria-label="Footer">
-        <a href="{{ site.baseurl }}/#privacy">Privacy</a>
+        <a href="{{ site.baseurl }}/#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
         <span aria-hidden="true">·</span>
-        <a href="{{ site.baseurl }}/#terms">Terms</a>
+        <a href="{{ site.baseurl }}/#terms" data-en="Terms" data-zh="条款">Terms</a>
         <span aria-hidden="true">·</span>
-        <a href="{{ site.baseurl }}/">Aquora</a>
+        <a href="{{ site.baseurl }}/" data-en="Aquora" data-zh="Aquora 沐汐">Aquora</a>
       </nav>
     </footer>
 
   </main>
+
+  <script>
+  // i18n — mirrors the Terms/Privacy page (index.html). Shares the
+  // `aquora_lang` localStorage key so a user's language choice persists
+  // across the legal page and the archetype landing pages.
+  function setLang(lang) {
+    document.documentElement.lang = (lang === 'zh') ? 'zh-Hans' : 'en';
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var txt = el.getAttribute('data-' + lang);
+      if (txt !== null && txt !== undefined) {
+        // innerHTML so embedded <em>/<strong>/&amp; render correctly
+        el.innerHTML = txt;
+      }
+    });
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+      var t = titleEl.getAttribute('data-' + lang);
+      if (t) document.title = t;
+    }
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    try { localStorage.setItem('aquora_lang', lang); } catch (e) { /* private mode */ }
+  }
+  (function initLang() {
+    var saved = null;
+    try { saved = localStorage.getItem('aquora_lang'); } catch (e) {}
+    var sysLang = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
+    var detected = saved || (sysLang.indexOf('zh') === 0 ? 'zh' : 'en');
+    setLang(detected);
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.dataset.lang); });
+    });
+  })();
+  </script>
 
 </body>
 </html>
