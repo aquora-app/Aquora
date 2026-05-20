@@ -589,7 +589,10 @@ body {
   z-index: 10;
   display: flex;
   gap: 4px;
-  background: var(--card-bg);
+  /* --card-bg-strong matches index.html's dark-mode --card-surface
+   * (rgba(255,255,255,0.10)) exactly, so the pill reads with the same
+   * weight on the archetype pages as on the legal page. */
+  background: var(--card-bg-strong);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 4px;
@@ -620,14 +623,17 @@ body {
   opacity: 1;
 }
 
-@media (max-width: 480px) {
+/* Match index.html's mobile shrink (breakpoint + values) byte-for-byte
+ * so the pill behaves identically across the two surfaces. */
+@media (max-width: 600px) {
   .lang-switcher {
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
     padding: 3px;
+    gap: 2px;
   }
   .lang-btn {
-    font-size: 12px;
-    padding: 5px 10px;
+    font-size: 11px;
+    padding: 4px 9px;
   }
 }
