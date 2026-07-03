@@ -29,7 +29,12 @@
   <meta name="twitter:title" content="{{ archetype.name }} — {{ archetype.code }}">
   <meta name="twitter:description" content="{{ archetype.tagline }}">
 
-  <meta name="theme-color" content="{{ archetype.color }}">
+  <!-- Navy (--aquora-navy), NOT the archetype accent: Safari versions that
+       honor theme-color would otherwise paint the status-bar area in the
+       bright accent — a colored band against the page's navy top, the same
+       letterboxing problem as the black-canvas bug this pairs with. Must
+       stay in sync with --bg-base in archetype.css. -->
+  <meta name="theme-color" content="#1D4354">
 
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/archetype.css">
 </head>

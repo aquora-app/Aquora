@@ -92,6 +92,17 @@ body {
       color-mix(in srgb, var(--archetype-color) 38%, var(--bg-base)) 50%,
       var(--bg-light) 100%
     ) fixed;
+
+  /* Canvas base color — MUST come after the shorthand above (which resets
+   * background-color to transparent). Both layers are images, so without
+   * this the canvas base the browser propagates from <body> is transparent
+   * and falls back to the UA canvas — BLACK under `color-scheme: dark` —
+   * which iOS Safari then shows as black bands in the status-bar/home-
+   * indicator areas and during rubber-band overscroll. The Terms/Privacy
+   * page never had the problem because its body background is this same
+   * kind of solid color. Navy matches the gradient's base, so the bands
+   * blend into the page instead of reading as letterboxing. */
+  background-color: var(--bg-base);
 }
 
 /* ============================================================
