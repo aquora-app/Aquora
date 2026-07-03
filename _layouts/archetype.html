@@ -29,12 +29,12 @@
   <meta name="twitter:title" content="{{ archetype.name }} — {{ archetype.code }}">
   <meta name="twitter:description" content="{{ archetype.tagline }}">
 
-  <!-- NO theme-color meta, deliberately (same as the Terms/Privacy page):
-       Safari then samples the page's canvas color for the status-bar strip,
-       which archetype.css sets to the per-archetype HALO PEAK via color-mix
-       — so the glow connects through the status bar. A static meta can't
-       express that per-archetype mix, and any flat override (navy, accent)
-       visibly cuts the halo at the viewport edge. -->
+  <!-- Black on purpose — the letterbox frame is a DESIGN DECISION (see the
+       background-color note in archetype.css for the two shipped-and-
+       rejected alternatives). Explicit so every Safari version lands on
+       the same black, instead of depending on the UA dark-canvas
+       fallback. Keep in sync with body background-color in the CSS. -->
+  <meta name="theme-color" content="#000000">
 
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/archetype.css">
 </head>

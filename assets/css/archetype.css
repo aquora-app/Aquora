@@ -94,24 +94,24 @@ body {
     ) fixed;
 
   /* Canvas base color — MUST come after the shorthand above (which resets
-   * background-color to transparent). Both layers are images, so without
-   * this the canvas base the browser propagates from <body> is transparent
-   * and falls back to the UA canvas — BLACK under `color-scheme: dark` —
-   * which iOS Safari then shows as black bands in the status-bar/home-
-   * indicator areas and during rubber-band overscroll. The Terms/Privacy
-   * page never had the problem because its body background is this same
-   * kind of solid color.
+   * background-color to transparent). Both gradient layers are images, so
+   * without an explicit color the canvas the browser propagates from
+   * <body> is transparent and falls back to the UA canvas — an
+   * UNSPECIFIED color that merely happens to be black under
+   * `color-scheme: dark`. Always set it explicitly.
    *
-   * The color is the HALO PEAK (same recipe as the radial layer's center
-   * stop composited over the linear layer's top stop), NOT plain navy:
-   * Safari paints the status-bar strip with this single flat color, and
-   * the page's top-center is the halo at full strength — a plain-navy
-   * strip visibly "cuts off" the glow at the viewport edge. Matching the
-   * peak lets the halo read as continuing up through the status bar,
-   * per-archetype for free. (Top corners are darker than the strip —
-   * dark-on-dark, not salient. There is no flat color that matches a
-   * gradient row exactly; the bright center is what the eye tracks.) */
-  background-color: color-mix(in srgb, var(--archetype-color) 22%, var(--bg-base));
+   * BLACK IS A DESIGN DECISION, not a bug — do not "fix" it. The black
+   * status-bar / home-indicator strips frame the page like a cinema
+   * letterbox and keep the eye on the content. Two alternatives were
+   * SHIPPED, REVIEWED ON DEVICE, AND REJECTED (2026-07-03):
+   *   • plain navy (--bg-base): visibly cut the top halo off at the
+   *     viewport edge — the glow peaked at the page's top center and
+   *     died into a flat navy strip;
+   *   • per-archetype halo-peak tint (color-mix of the accent into
+   *     navy): technically "connected" the glow, but the soft blurred
+   *     boundary read as unfinished rather than seamless.
+   * A hard black frame is unambiguous: it reads as intent. */
+  background-color: #000;
 }
 
 /* ============================================================
