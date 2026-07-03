@@ -29,12 +29,12 @@
   <meta name="twitter:title" content="{{ archetype.name }} — {{ archetype.code }}">
   <meta name="twitter:description" content="{{ archetype.tagline }}">
 
-  <!-- Navy (--aquora-navy), NOT the archetype accent: Safari versions that
-       honor theme-color would otherwise paint the status-bar area in the
-       bright accent — a colored band against the page's navy top, the same
-       letterboxing problem as the black-canvas bug this pairs with. Must
-       stay in sync with --bg-base in archetype.css. -->
-  <meta name="theme-color" content="#1D4354">
+  <!-- NO theme-color meta, deliberately (same as the Terms/Privacy page):
+       Safari then samples the page's canvas color for the status-bar strip,
+       which archetype.css sets to the per-archetype HALO PEAK via color-mix
+       — so the glow connects through the status bar. A static meta can't
+       express that per-archetype mix, and any flat override (navy, accent)
+       visibly cuts the halo at the viewport edge. -->
 
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/archetype.css">
 </head>
