@@ -104,8 +104,8 @@ archetypes:
     axes_zh: [白天, 自动驾驶, 投入, 稳定]
     tagline: "Shiny things catch you — and that's part of your charm."
     tagline_zh: "闪亮的东西总会勾住你——那也是你迷人的地方。"
-    description: "Beautiful things pull your eye, and your phone shows you a lot of beautiful things. You don't scroll to escape — you scroll because the world is interesting. Steady, curious, a little distracted. A magpie with no apologies."
-    description_zh: "漂亮的东西会牵住你的目光，而手机上漂亮的东西又特别多。你不是为了逃离才滑动——而是因为这个世界对你来说本来就有趣。稳稳的，好奇着，偶尔有点走神。一只不需要为此道歉的喜鹊。"
+    description: "Beautiful things pull your eye, and your phone shows you a lot of beautiful things. Nothing in your pattern says you're escaping — the world just keeps being interesting. Steady, curious, a little distracted. A magpie with no apologies."
+    description_zh: "漂亮的东西会牵住你的目光，而手机上漂亮的东西又特别多。你的模式里看不到逃离的影子——只是这个世界对你来说本来就有趣。稳稳的，好奇着，偶尔有点走神。一只不需要为此道歉的喜鹊。"
     nudge: "Try making a list of the 5 most interesting things you saw today — see what surprises you."
     nudge_zh: "试着列一张清单：今天你看到的 5 件最有趣的事——看看有什么会让你意外。"
 
@@ -148,10 +148,10 @@ archetypes:
     axes_zh: [夜晚, 觉察, 逃避, 爆发]
     tagline: "You're awake, searching for what the day didn't give you."
     tagline_zh: "你醒着，去找白天没给你的那部分。"
-    description: "You're awake when most people aren't. And you know why — something's unfinished in the day, and the scrolling is how you reach for it. Your awareness sharpens the question: is your phone meeting you in that searching, or just delaying it?"
-    description_zh: "当大多数人都已入睡时，你还醒着。而且你知道为什么——白天有些事情没有结束，于是你用滑动手机的方式去够它。你的清醒让一个问题更尖锐：手机是在陪你一起寻找，还是在帮你延后那个寻找？"
-    nudge: "Before the next midnight scroll, could you ask: what am I actually looking for?"
-    nudge_zh: "下一次半夜想滑手机之前，能不能先问自己一句：我其实在找什么？"
+    description: "Your evenings run long, and you know why — something's unfinished in the day, and the scrolling is how you reach for it. Your awareness sharpens the question: is your phone meeting you in that searching, or just delaying it?"
+    description_zh: "你的夜晚总是拉得很长，而且你知道为什么——白天有些事情没有结束，于是你用滑动手机的方式去够它。你的清醒让一个问题更尖锐：手机是在陪你一起寻找，还是在帮你延后那个寻找？"
+    nudge: "Before the next late-night scroll, could you ask: what am I actually looking for?"
+    nudge_zh: "下一次深夜想滑手机之前，能不能先问自己一句：我其实在找什么？"
 
   - code: NCGS
     name: The Nocturnal Scholar
@@ -176,8 +176,8 @@ archetypes:
     axes_zh: [夜晚, 觉察, 投入, 爆发]
     tagline: "Ideas find you in the dark — your phone is where they land."
     tagline_zh: "灵感在黑夜里找上你——手机是它们落下的地方。"
-    description: "You're awake because something inspired you, and you're chasing it. The nights find you writing, reading, building, wondering. Your phone is a tool, not a crutch. These are rare nights — protect them. But also: rest."
-    description_zh: "你醒着，是因为某件事点燃了你，你在追着它跑。这样的夜里，你写、你读、你做东西、你思考。手机对你来说是工具，而不是拐杖。这种夜晚很珍贵——请好好保护它们。但也别忘了：休息。"
+    description: "Your late hours belong to whatever inspired you — you're chasing it. The nights find you writing, reading, building, wondering. Your phone is a tool, not a crutch. These are rare nights — protect them. But also: rest."
+    description_zh: "你的深夜属于点燃你的那件事——你在追着它跑。这样的夜里，你写、你读、你做东西、你思考。手机对你来说是工具，而不是拐杖。这种夜晚很珍贵——请好好保护它们。但也别忘了：休息。"
     nudge: "Sleep is where inspiration consolidates. Could you try bed at 11:30 once, just as an experiment?"
     nudge_zh: "灵感是在睡眠里被沉淀下来的。可不可以试一次，11:30 就上床，作为一个小小的实验？"
 
@@ -192,10 +192,10 @@ archetypes:
     axes_zh: [夜晚, 自动驾驶, 逃避, 稳定]
     tagline: "The nights ask something of you, and you answer with scrolling."
     tagline_zh: "夜晚向你索取一些东西，你用滑动屏幕回应它。"
-    description: "The dark asks something of you — loneliness, restlessness, something softer than you'd say out loud. You don't fully know why you're still awake, but you are. The phone is there to meet you. Noticing that pattern is the first gift you can give yourself."
-    description_zh: "夜晚向你索取些什么——孤单、躁动，或者一些你不会说出口的、更柔软的东西。你并不完全知道自己为什么还醒着，但你就是醒着。手机就在那儿，迎接你。看见这个模式，是你能给自己的第一份礼物。"
-    nudge: "Next time you reach at 1 AM, could you place a hand on your chest first? Just for a breath."
-    nudge_zh: "下次凌晨 1 点想拿手机时，能不能先把手放在胸口？只放一个呼吸的时间。"
+    description: "The dark asks something of you — loneliness, restlessness, something softer than you'd say out loud. You don't fully know why the evenings drift this way, but they do. The phone is there to meet you. Noticing that pattern is the first gift you can give yourself."
+    description_zh: "夜晚向你索取些什么——孤单、躁动，或者一些你不会说出口的、更柔软的东西。你并不完全知道夜晚为什么总是这样飘走，但它就是这样。手机就在那儿，迎接你。看见这个模式，是你能给自己的第一份礼物。"
+    nudge: "Next time you reach for the phone late at night, could you place a hand on your chest first? Just for a breath."
+    nudge_zh: "下次深夜想拿手机时，能不能先把手放在胸口？只放一个呼吸的时间。"
 
   - code: NAEB
     name: The Restless Sleeper
@@ -204,12 +204,12 @@ archetypes:
     color: "#A06482"
     axes: [Night, Autopilot, Escaping, Bursty]
     axes_zh: [夜晚, 自动驾驶, 逃避, 爆发]
-    tagline: "Something keeps finding you at 2 AM. Your phone meets you there."
-    tagline_zh: "某些什么总在凌晨 2 点找上你，手机正在那里等你。"
-    description: "You wake at strange hours and reach for the phone before you reach for yourself. The bursts are intense — and the emergency unlock has met you more than once. This isn't a character flaw. It's a pattern your nervous system is trying to tell you about."
-    description_zh: "你会在一些奇怪的时间醒来，先伸手去摸手机，而不是先回到自己身上。这些时刻的爆发都很猛烈——紧急解锁也不止一次找到过你。这不是你性格上的缺陷，而是你的神经系统正在以某种方式告诉你的一种模式。"
-    nudge: "Your body is asking you something at 2 AM. Could you listen to it — just once, without the phone?"
-    nudge_zh: "凌晨 2 点的时候，你的身体在跟你说一些话。能不能就一次，不拿手机，去听一听？"
+    tagline: "Something keeps finding you in the late hours. Your phone meets you there."
+    tagline_zh: "某些什么总在深夜找上你，手机正在那里等你。"
+    description: "The late hours find you reaching for the phone before you reach for yourself. The bursts are intense — sometimes the emergency unlock meets you there too. This isn't a character flaw. It's a pattern your nervous system is trying to tell you about. And if life right now — shift work, a newborn, a heavy season — is setting the schedule, that's circumstance, not character."
+    description_zh: "深夜时分，你常常先伸手去摸手机，而不是先回到自己身上。这些时刻的爆发很猛烈——有时，紧急解锁也会在那里遇见你。这不是你性格上的缺陷，而是你的神经系统正在以某种方式告诉你的一种模式。如果此刻是生活在替你安排作息——轮班、新生儿、或一段沉重的日子——那是处境，不是你这个人。"
+    nudge: "When the night runs late, your body is asking you something. Could you listen to it — just once, without the phone?"
+    nudge_zh: "夜深的时候，你的身体在跟你说一些话。能不能就一次，不拿手机，去听一听？"
 
   - code: NAGS
     name: The Starlight Magpie
@@ -222,8 +222,8 @@ archetypes:
     tagline_zh: "深夜的时光，把奇异的小宝藏带到你的屏幕上。"
     description: "Somehow you drift to your phone late, and it brings you things you didn't know you needed. Maybe curiosity, maybe connection, maybe just moving images. You're not chasing it down; it comes to you. The risk is losing the hours the mornings were going to need."
     description_zh: "不知怎么的，你深夜会漂回到手机这里，它会带来一些你自己都没意识到自己需要的东西。也许是好奇心、也许是陪伴感，也许只是一段流动的画面。不是你去追它，是它来找你。风险是：那些原本要交给清晨的时间，会被一点点拿走。"
-    nudge: "Could one night this week be phone-free after midnight? See what the dark brings without a screen."
-    nudge_zh: "这一周可不可以有一个晚上，过了 12 点就不再碰手机？看看不带屏幕的夜，会带来什么。"
+    nudge: "Could one late evening this week be phone-free? See what the dark brings without a screen."
+    nudge_zh: "这一周可不可以有一个晚上，早早放下手机？看看不带屏幕的夜，会带来什么。"
 
   - code: NAGB
     name: The Ember Chaser
