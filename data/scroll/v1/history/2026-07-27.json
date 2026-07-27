@@ -1,0 +1,88 @@
+{
+ "generated_at": "2026-07-27T06:53:18.891461Z",
+ "markets": {
+  "cn": {
+   "city_weather": [],
+   "data_quality": {
+    "i": {
+     "q": "fresh"
+    },
+    "macro": {
+     "q": "insufficient"
+    },
+    "pui": {
+     "q": "fresh"
+    },
+    "r": {
+     "q": "insufficient"
+    },
+    "weather_city": {
+     "q": "insufficient"
+    }
+   },
+   "degraded_legs": [
+    "v_w",
+    "z_dw",
+    "r0"
+   ],
+   "events": [],
+   "i_band": "neg_low",
+   "judged_at_local": "2026-07-27T14:53+08:00",
+   "lonely_sensitive_dates": [],
+   "macro_a": null,
+   "macro_a_72h": null,
+   "macro_v": null,
+   "macro_v_72h": null,
+   "macro_v_median_90d": null,
+   "mourning_calendar": [],
+   "pui": 39.1715,
+   "r_band": null,
+   "sub": {
+    "anx": 0.6029,
+    "bore": 0.1594,
+    "home": 0.463
+   }
+  },
+  "us": {
+   "city_weather": [],
+   "data_quality": {
+    "i": {
+     "q": "insufficient"
+    },
+    "macro": {
+     "q": "insufficient"
+    },
+    "pui": {
+     "q": "insufficient"
+    },
+    "r": {
+     "q": "insufficient"
+    },
+    "weather_city": {
+     "q": "insufficient"
+    }
+   },
+   "degraded_legs": [],
+   "events": [],
+   "i_band": null,
+   "judged_at_local": null,
+   "lonely_sensitive_dates": [],
+   "macro_a": null,
+   "macro_a_72h": null,
+   "macro_v": null,
+   "macro_v_72h": null,
+   "macro_v_median_90d": null,
+   "mourning_calendar": [],
+   "pui": null,
+   "r_band": null,
+   "sub": {
+    "anx": null,
+    "bore": null,
+    "home": null
+   }
+  }
+ },
+ "params_hash": "e10d1741d14ed533ee4e24837de1fc37d9d521af4a24c42bbfc04bf7c4093bd7",
+ "schema_version": "1.0",
+ "vintage": "backtest-y1-batch5-clean-20260726"
+}
