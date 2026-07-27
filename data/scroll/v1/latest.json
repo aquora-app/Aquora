@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T20:46:20.035284Z",
+ "generated_at": "2026-07-27T22:29:21.739421Z",
  "markets": {
   "cn": {
    "city_weather": [],
@@ -23,11 +23,13 @@
    "degraded_legs": [
     "v_w",
     "z_dw",
-    "r0"
+    "r0",
+    "tone",
+    "steam"
    ],
    "events": [],
-   "i_band": "neg_low",
-   "judged_at_local": "2026-07-27T21:23+08:00",
+   "i_band": "neutral",
+   "judged_at_local": "2026-07-28T06:29+08:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
@@ -35,11 +37,11 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 39.1715,
+   "pui": 42.3613,
    "r_band": null,
    "sub": {
-    "anx": 0.6029,
-    "bore": 0.1594,
+    "anx": 0.5542,
+    "bore": 0.2853,
     "home": 0.463
    }
   },
@@ -71,7 +73,7 @@
    ],
    "events": [],
    "i_band": "insufficient",
-   "judged_at_local": "2026-07-27T16:46-04:00",
+   "judged_at_local": "2026-07-27T18:29-04:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
