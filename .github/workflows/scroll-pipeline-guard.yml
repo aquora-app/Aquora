@@ -1,0 +1,45 @@
+# 网站仓 CI 守卫(D.4 产出;**本文件属网站仓 aquora-app/Aquora origin/main**,
+# 目标路径 .github/workflows/scroll-pipeline-guard.yml——推送归下一阶段统一做,
+# 且只准从 origin/main 的独立 worktree/clone 提交,绝不触碰 app 本地 main)。
+#
+# 职能:管线 bot 的 commit 若触碰 data/scroll/** 与 assets/og/forecast/**
+# 以外的任何路径 → fail(与 publisher 路径断言、只写 deploy key 构成三层收敛;
+# revert 单 commit 兜底)。人类提交不受本守卫约束。
+name: scroll-pipeline-guard
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}   # 只读事件负载,零权限
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bot commits must stay inside data/scroll/** and assets/og/forecast/**
+        env:
+          COMMITS: ${{ toJSON(github.event.commits) }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+
+          ALLOWED = ("data/scroll/", "assets/og/forecast/")
+          BOT_NAMES = {"aquora-scroll-pipeline"}
+          BOT_EMAILS = {"scroll-pipeline-bot@users.noreply.github.com"}
+
+          bad = []
+          for c in json.loads(os.environ["COMMITS"] or "[]"):
+              a = c.get("author") or {}
+              if a.get("name") not in BOT_NAMES and a.get("email") not in BOT_EMAILS:
+                  continue   # 人类提交不受约束
+              for key in ("added", "modified", "removed"):
+                  for p in c.get(key) or []:
+                      if not p.startswith(ALLOWED):
+                          bad.append((c.get("id", "")[:8], p))
+          if bad:
+              for cid, p in bad:
+                  print(f"::error::pipeline bot commit {cid} touched non-whitelisted path: {p}")
+              sys.exit(1)
+          print("guard OK: bot commits confined to whitelist")
+          PY
