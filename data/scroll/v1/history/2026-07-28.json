@@ -1,8 +1,44 @@
 {
- "generated_at": "2026-07-28T03:41:20.529828Z",
+ "generated_at": "2026-07-28T06:43:30.381542Z",
  "markets": {
   "cn": {
-   "city_weather": [],
+   "city_weather": [
+    {
+     "city": "shanghai",
+     "extreme": false,
+     "kind": "",
+     "run_n": 2,
+     "state": "CLOUDY"
+    },
+    {
+     "city": "beijing",
+     "extreme": false,
+     "kind": "",
+     "run_n": 1,
+     "state": "RAIN"
+    },
+    {
+     "city": "chengdu",
+     "extreme": true,
+     "kind": "wcode",
+     "run_n": 3,
+     "state": "RAIN"
+    },
+    {
+     "city": "guangzhou",
+     "extreme": true,
+     "kind": "wcode",
+     "run_n": 3,
+     "state": "RAIN"
+    },
+    {
+     "city": "shenzhen",
+     "extreme": true,
+     "kind": "wcode",
+     "run_n": 14,
+     "state": "RAIN"
+    }
+   ],
    "data_quality": {
     "i": {
      "q": "fresh"
@@ -14,20 +50,16 @@
      "q": "fresh"
     },
     "r": {
-     "q": "insufficient"
+     "q": "fresh"
     },
     "weather_city": {
-     "q": "insufficient"
+     "q": "fresh"
     }
    },
-   "degraded_legs": [
-    "v_w",
-    "z_dw",
-    "r0"
-   ],
+   "degraded_legs": [],
    "events": [],
    "i_band": "neutral",
-   "judged_at_local": "2026-07-28T11:41+08:00",
+   "judged_at_local": "2026-07-28T14:43+08:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
@@ -35,12 +67,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 47.585,
-   "r_band": null,
+   "pui": 56.7301,
+   "r_band": "hard",
    "sub": {
     "anx": 0.6589,
-    "bore": 0.3598,
-    "home": 0.463
+    "bore": 0.3975,
+    "home": 0.6586
    }
   },
   "us": {
@@ -88,7 +120,7 @@
    }
   }
  },
- "params_hash": "e10d1741d14ed533ee4e24837de1fc37d9d521af4a24c42bbfc04bf7c4093bd7",
+ "params_hash": "0c3c03614336be9453375aeb86babd66377c2b7e18972b2cacd6efd1b8a73074",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
