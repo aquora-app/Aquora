@@ -251,6 +251,59 @@ body.stale-page main { filter: saturate(0.5); }
 }
 ::selection { background: color-mix(in srgb, var(--accent) 32%, transparent); color: var(--text-main); }
 </style>
+<style id="wx-css">
+/* wx- : sky atmosphere layer (sky-atmosphere-spec v1). VISUAL ONLY — reads
+ * judged display state. DOM JS-injected: zero-JS/fetch-fail = shipped bg. */
+.wx-stage{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.wx-sky{position:absolute;inset:0;opacity:0;transition:opacity var(--wx-x,.8s) ease}
+.wx-sky.wx-on{opacity:1}
+.wx-glow,.wx-cloud,.wx-fog{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.wx-glow::before,.wx-cloud::before,.wx-fog::before{content:"";position:absolute;inset:-6% -12%;background:var(--wx-b,none);opacity:var(--wx-po,1);animation:var(--wx-a,none)}
+.wx-canvas{position:absolute;inset:0;width:100%;height:100%}
+.wx-scrim{position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(10,16,20,.18) 28%,rgba(10,16,20,.18) 72%,transparent)}
+.wx-rveil{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+@keyframes wxo{0%,100%{opacity:.625}50%{opacity:1}}
+@keyframes wxb{0%,100%{opacity:.68}50%{opacity:1}}
+@keyframes wxd{0%{transform:translateX(-4%)}100%{transform:translateX(4%)}}
+@keyframes wxf{0%{transform:translateX(-7%)}100%{transform:translateX(7%)}}
+/* neg_high — low cloud banks, slow weight (rain = canvas) */
+body[data-wx-atmo=neg_high] .wx-g1{opacity:var(--wx-gk,1);--wx-po:.8;--wx-b:radial-gradient(60% 26% at 50% 102%,rgba(140,59,59,.16),transparent 70%);--wx-a:wxo 9s ease-in-out infinite}
+body[data-wx-atmo=neg_high] .wx-g2{opacity:var(--wx-gk,1);--wx-b:radial-gradient(50% 22% at 50% -2%,rgba(248,244,236,.04),transparent 75%)}
+body[data-wx-atmo=neg_high] .wx-c1{opacity:1;--wx-b:radial-gradient(70% 34% at 28% 10%,rgba(9,14,21,.5),transparent 70%);--wx-a:wxd 140s ease-in-out infinite alternate}
+body[data-wx-atmo=neg_high] .wx-c2{opacity:1;--wx-b:radial-gradient(80% 30% at 74% 24%,rgba(12,18,26,.42),transparent 72%);--wx-a:wxd 190s ease-in-out infinite alternate-reverse}
+/* neg_low — one high cloud sheet (clear air, low roof) */
+body[data-wx-atmo=neg_low] .wx-g1{opacity:var(--wx-gk,1);--wx-b:radial-gradient(70% 40% at 50% 30%,rgba(46,74,107,.1),transparent 75%)}
+body[data-wx-atmo=neg_low] .wx-c1{opacity:1;--wx-b:linear-gradient(180deg,rgba(18,28,40,.5),rgba(18,28,40,.32) 24%,transparent 46%);--wx-a:wxd 260s ease-in-out infinite alternate}
+/* neutral — the site's everyday weather (matches shipped look) */
+body[data-wx-atmo=neutral] .wx-g1{opacity:var(--wx-gk,1);--wx-po:.8;transform:translateY(var(--wx-gy,0));--wx-b:radial-gradient(60% 40% at 50% 0%,rgba(97,168,138,.2),transparent 70%);--wx-a:wxb 14s ease-in-out infinite}
+/* positive (generic) — warm gold + brand green twin glow */
+body[data-wx-atmo=positive] .wx-g1{opacity:var(--wx-gk,1);--wx-po:.8;--wx-b:radial-gradient(64% 34% at 50% 92%,rgba(217,160,91,.14),transparent 72%);--wx-a:wxb 14s ease-in-out infinite}
+body[data-wx-atmo=positive] .wx-g2{opacity:var(--wx-gk,1);transform:translateY(var(--wx-gy,0));--wx-b:radial-gradient(60% 38% at 50% 2%,rgba(97,168,138,.12),transparent 72%)}
+/* positive.lively — counter-phase twin glow (bokeh stream = canvas) */
+body[data-wx-atmo=lively] .wx-g1{opacity:var(--wx-gk,1);--wx-po:.8;--wx-b:radial-gradient(66% 36% at 50% 94%,rgba(217,160,91,.18),transparent 72%);--wx-a:wxb 10s ease-in-out infinite}
+body[data-wx-atmo=lively] .wx-g2{opacity:var(--wx-gk,1);--wx-po:.8;transform:translateY(var(--wx-gy,0));--wx-b:radial-gradient(62% 38% at 50% 4%,rgba(97,168,138,.16),transparent 72%);--wx-a:wxb 13s ease-in-out -6.5s infinite}
+/* positive.serene — one wide green-white glow (stars = canvas, night only) */
+body[data-wx-atmo=serene] .wx-g1{opacity:var(--wx-gk,1);--wx-po:.8;transform:translateY(var(--wx-gy,0));--wx-b:radial-gradient(92% 52% at 50% 10%,rgba(179,213,197,.1),transparent 78%);--wx-a:wxb 30s ease-in-out infinite}
+/* insufficient — fog is EXCLUSIVE to this state; glow fully off */
+body[data-wx-atmo=insufficient] .wx-f1{opacity:1;--wx-b:linear-gradient(180deg,transparent 6%,rgba(255,255,255,.05) 16%,transparent 28%);--wx-a:wxf 90s ease-in-out infinite alternate}
+body[data-wx-atmo=insufficient] .wx-f2{opacity:1;--wx-b:linear-gradient(180deg,transparent 38%,rgba(255,255,255,.06) 50%,transparent 62%);--wx-a:wxf 140s ease-in-out infinite alternate-reverse}
+body[data-wx-atmo=insufficient] .wx-f3{opacity:1;--wx-b:linear-gradient(180deg,transparent 70%,rgba(255,255,255,.04) 82%,transparent 94%);--wx-a:wxf 200s ease-in-out infinite alternate}
+/* daypart moves the LIGHT only (glow position; ΔL/hue live in wxComposeSky) */
+body[data-wx-daypart=dawn] .wx-stage{--wx-gy:26%}
+body[data-wx-daypart=dusk] .wx-stage{--wx-gy:20%}
+/* mourning — fixed solemn gradient, everything stops, direct swap */
+body.mourning .wx-stage,body.mourning .wx-stage *,body.mourning .wx-stage *::before,
+.wx-stage.wx-m,.wx-stage.wx-m *,.wx-stage.wx-m *::before{animation:none!important;transition:none!important}
+.wx-stage.wx-m .wx-sky{background:linear-gradient(175deg,#14181C,#1E242A)!important}
+.wx-stage.wx-m .wx-glow,.wx-stage.wx-m .wx-cloud,.wx-stage.wx-m .wx-fog,.wx-stage.wx-m .wx-canvas,.wx-stage.wx-m .wx-rveil{opacity:0!important}
+/* stale — sky fades like an old forecast (motion halved in JS) */
+body.stale-page .wx-stage{filter:saturate(.55)}
+/* static capability tier (deviceMemory ≤ 2): colors stay, motion goes */
+.wx-stage.wx-static,.wx-stage.wx-static *,.wx-stage.wx-static *::before{animation:none!important}
+@media (prefers-reduced-motion:reduce){.wx-stage,.wx-stage *,.wx-stage *::before{animation:none!important;transition:none!important}}
+/* preview badge — honesty line, data-en/data-zh, cannot be closed */
+.wx-preview-chip{position:fixed;left:14px;bottom:14px;z-index:60;pointer-events:none;max-width:80vw;font-size:11px;font-weight:700;letter-spacing:.04em;line-height:1.4;color:var(--aquora-cream);background:rgba(10,16,20,.72);border:1px solid rgba(97,168,138,.4);padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+</style>
 </head>
 <body>
 
@@ -399,6 +452,169 @@ body.stale-page main { filter: saturate(0.5); }
     </footer>
 
   </main>
+
+<script id="wx-js">
+/* AquoraWx — sky atmosphere layer (sky-atmosphere-spec v1). Single entry AquoraWx.set();
+ * mourning>preview>insufficient>iAtmo; r/daypart modify; stale filters. Visual only. */
+(function(){
+'use strict';
+var W=window.AquoraWx={},D=document,nv=navigator,mem=nv.deviceMemory,hc=nv.hardwareConcurrency,red=!1;
+try{red=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+var tier=W.tier=(red||mem&&mem<=2)?'static':(mem&&mem<=3||hc&&hc<=4||nv.connection&&nv.connection.saveData)?'css':'full';
+/* preview — whitelist; off-list value voids the WHOLE group; mourning only ADDs */
+var pv=null;
+(function(){
+ var sp;try{sp=new URLSearchParams(location.search)}catch(e){return}
+ var p=sp.get('preview'),r=sp.get('r'),t=sp.get('t'),m=sp.get('mourning');
+ if(p===null&&r===null&&t===null&&m===null)return;
+ var ok=function(v,l){return v===null||(' '+l+' ').indexOf(' '+v+' ')>=0};
+ if(ok(p,'neg_high neg_low neutral positive lively serene insufficient')&&ok(r,'good normal hard')&&
+    ok(t,'dawn day dusk night')&&(m===null||m==='1'))pv={a:p,r:r,t:t,m:m==='1'};
+})();
+/* composer — spec table values = output truth at normal×day */
+var BASE={neg_high:['#131C26','#1D2A36','#33313B'],neg_low:['#16202B','#203040','#2A3C4C'],
+neutral:['#1D4354','#2F5D62','#285569'],positive:['#204A58','#35605F','#46695C'],
+lively:['#1F4E60','#366A68','#4E7A63'],serene:['#17394A','#235066','#2C5E70'],
+insufficient:['#262E33','#333C41','#3A4348']};
+function hx(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]}
+function hsl(c,dl,mn){
+ var r=c[0]/255,g=c[1]/255,b=c[2]/255,x=Math.max(r,g,b),n=Math.min(r,g,b),l=(x+n)/2,d=x-n,h=0,s=0;
+ if(d){s=d/(1-Math.abs(2*l-1));h=60*(x===r?((g-b)/d+6)%6:x===g?(b-r)/d+2:(r-g)/d+4)}
+ l=Math.max(mn||0,Math.min(100,l*100+dl));
+ return'hsl('+h.toFixed(1)+','+(s*100).toFixed(1)+'%,'+l.toFixed(1)+'%)'}
+function wxComposeSky(a,r,t){
+ return'linear-gradient(175deg,'+(BASE[a]||BASE.neutral).map(function(hex,i){
+  var c=hx(hex),mx=0;
+  if(i===2&&a!=='insufficient'){/* fog ignores dawn/dusk hue */
+   var m=t==='dawn'?['#C98A6B',.12]:t==='dusk'?['#B06A4F',.16]:null;
+   if(m){var f=a==='neg_high'||a==='neg_low'?m[1]/2:m[1],M=hx(m[0]);
+    c=c.map(function(v,j){return v+(M[j]-v)*f});mx=1}}
+  var dl=(i?0:-4)+(t==='dawn'?2:t==='night'?-4:t==='day'&&!i?4:0)+(r==='good'?2:r==='hard'?-3:0);
+  return !dl&&!mx?hex:hsl(c,dl,i===2&&a==='neg_high'&&r==='hard'?10:0)
+ }).join(',')+')'}
+W.composeSky=wxComposeSky;
+W.daypart=function(h){return h>=20||h<5?'night':h<8?'dawn':h<17?'day':'dusk'};
+/* DOM: 10 nodes, injected on first set (zero-JS = shipped page) */
+var stage,sA,sB,fr=0,cv,cx,rz;
+function ensure(){
+ if(stage)return;
+ stage=D.createElement('div');
+ stage.className='wx-stage'+(tier==='static'?' wx-static':'');
+ stage.setAttribute('aria-hidden','true');
+ stage.innerHTML='sky wx-a,sky wx-b,glow wx-g1,glow wx-g2,cloud wx-c1,cloud wx-c2,fog wx-f1,fog wx-f2,fog wx-f3'
+  .split(',').map(function(c){return'<div class="wx-'+c+'"></div>'}).join('')+
+  '<canvas class="wx-canvas"></canvas><div class="wx-scrim"></div><div class="wx-rveil"></div>';
+ D.body.insertBefore(stage,D.body.firstChild);
+ sA=stage.children[0];sB=stage.children[1];cv=stage.children[9];cx=cv.getContext('2d');
+ addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(size,250)})}
+/* canvas, spec 5.4: rain[1,x,y,len,v,a] bok[2,x,y,r,v,w,ph,am,grn,rare] mote[3,x,y,r,v,a,warm] star[4,x,y,r,per,a,ph] */
+var P=[],run=0,lt=0,hid=0,scp=0,scT,sf=1,vw=0,vh=0,lA,lD;
+D.addEventListener('visibilitychange',function(){hid=D.hidden});
+if(hc&&hc<=6)addEventListener('scroll',function(){
+ scp=1;clearTimeout(scT);scT=setTimeout(function(){scp=0},200)},{passive:true});
+function R(a,b){return a+Math.random()*(b-a)}
+function size(){
+ if(!cv)return;
+ var d=Math.min(mem&&mem<=4?1.5:2,devicePixelRatio||1);
+ vw=innerWidth;vh=innerHeight;cv.width=vw*d;cv.height=vh*d;cx.setTransform(d,0,0,d,0,0);
+ if(P.length)build(lA,lD)}
+function build(a,t){
+ P=[];var mb=vw<600,i,n;
+ if(a==='neg_high')for(i=0,n=mb?44:70;i<n;i++)P.push([1,R(-40,vw),R(0,vh),R(14,26),R(340,520),R(.1,.18)]);
+ else if(a==='lively')for(i=0,n=mb?16:26;i<n;i++)P.push([2,R(0,vw),R(0,vh),R(1.5,3.5),R(12,30),R(.3,.9),R(0,6.28),R(6,18),Math.random()<.4,0]);
+ else if(a==='positive'){
+  for(i=0,n=mb?8:10;i<n;i++)P.push([3,R(0,vw),R(0,vh),R(1,2),R(12,20),R(.05,.1),1]);
+  P.push([2,R(0,vw),R(vh*.3,vh),R(2,3),R(10,16),.4,R(0,6.28),10,0,1])}
+ else if(a==='neutral')for(i=0,n=mb?6:8;i<n;i++)P.push([3,R(0,vw),R(0,vh),R(1,1.8),R(2,5),R(.03,.07),0]);
+ if(t==='night'&&(a==='neutral'||a==='positive'||a==='serene'))
+  for(i=0,n=a==='serene'?14:18;i<n;i++)P.push([4,R(0,vw),R(0,vh*.55),R(.6,1.2),R(6,10),R(.25,.55),R(0,6.28)])}
+function frame(T){
+ if(!run)return;
+ requestAnimationFrame(frame);
+ var dt=Math.min(.05,(T-lt)/1000||0);lt=T;
+ if(hid||scp||!P.length)return;
+ cx.clearRect(0,0,vw,vh);
+ var s=T/1000,i,p,al;
+ for(i=0;i<P.length;i++){
+  p=P[i];cx.beginPath();
+  if(p[0]===1){
+   p[2]+=p[4]*sf*dt;p[1]+=p[4]*.213*sf*dt;
+   if(p[2]>vh+p[3]){p[2]=-p[3];p[1]=R(-40,vw)}
+   if(p[1]>vw+20)p[1]-=vw+60;
+   cx.strokeStyle='rgba(159,182,196,'+p[5]+')';cx.lineWidth=1;
+   cx.moveTo(p[1],p[2]);cx.lineTo(p[1]-p[3]*.213,p[2]-p[3]);cx.stroke();continue}
+  if(p[0]===2){
+   p[2]-=p[4]*sf*dt;
+   if(p[2]<-6){p[2]=vh+6;p[1]=R(0,vw)}
+   al=p[9]?Math.max(0,Math.sin(s*.05+p[6]))*.25:.15+.125*(1+Math.sin(s*.8+p[6]));
+   cx.fillStyle=(p[8]?'rgba(97,168,138,':'rgba(232,201,137,')+al+')';
+   cx.arc(p[1]+Math.sin(s*p[5]+p[6])*p[7],p[2],p[3],0,6.283)}
+  else if(p[0]===3){
+   p[2]-=p[4]*dt;
+   if(p[2]<-4){p[2]=vh+4;p[1]=R(0,vw)}
+   cx.fillStyle=(p[6]?'rgba(217,192,139,':'rgba(214,232,224,')+p[5]+')';
+   cx.arc(p[1],p[2],p[3],0,6.283)}
+  else{
+   al=p[5]*(.45+.55*(.5+.5*Math.sin(s*6.283/p[4]+p[6])));
+   cx.fillStyle='rgba(248,244,236,'+al+')';
+   cx.arc(p[1],p[2],p[3],0,6.283)}
+  cx.fill()}}
+function canvasFor(a,t,m){
+ if(m||tier!=='full'){P=[];run=0;if(cx)cx.clearRect(0,0,vw||innerWidth,vh||innerHeight);return}
+ if(!vw)size();
+ build(a,t);
+ if(!P.length){cx.clearRect(0,0,vw,vh);run=0;return}
+ if(!run){run=1;lt=performance.now();requestAnimationFrame(frame)}}
+var bg0='';/* cross-fade, spec 5.3 */
+function swap(bg,dur){
+ if(bg===bg0)return;
+ bg0=bg;
+ var sh=fr?sA:sB,hd=fr?sB:sA;
+ fr=fr?0:1;
+ sh.style.background=bg;
+ stage.style.setProperty('--wx-x',dur+'s');
+ if(dur)void sh.offsetWidth;
+ sh.classList.add('wx-on');hd.classList.remove('wx-on')}
+/* preview badge — honesty line, joins data-en/data-zh switcher */
+var chip=0;
+function mkChip(){
+ var c=D.createElement('div'),lg=null;
+ c.className='wx-preview-chip';
+ c.setAttribute('data-en','Preview mode — visuals only; data shown is real');
+ c.setAttribute('data-zh','预览模式 · 仅切换氛围，数据为真实数据');
+ try{lg=localStorage.getItem('aquora_lang')}catch(e){}
+ if(!lg)lg=(nv.language||'').toLowerCase().indexOf('zh')===0?'zh':'en';
+ c.textContent=c.getAttribute('data-'+lg);
+ D.body.appendChild(c)}
+var first=1,lR,li=null;
+W.set=function(inp){
+ li=inp=inp||li||{};
+ var m=!!inp.mourning||!!(pv&&pv.m);
+ var a=pv&&pv.a?pv.a:inp.iAtmo==null?'insufficient':inp.iAtmo;
+ if(!BASE[a])a='insufficient';
+ var r=pv&&pv.r?pv.r:inp.rBand||'normal';
+ if(r!=='good'&&r!=='hard')r='normal';/* R unreadable: sky doesn't lie */
+ var t=pv&&pv.t?pv.t:W.daypart(inp.daypartFn?inp.daypartFn():new Date().getHours());
+ sf=inp.stale? .5:1;
+ ensure();
+ if(pv&&!chip){chip=1;mkChip()}
+ D.body.setAttribute('data-wx-atmo',m?'mourning':a);
+ D.body.setAttribute('data-wx-daypart',t);
+ stage.classList.toggle('wx-m',m);
+ stage.style.setProperty('--wx-gk',''+(r==='hard'? .8:1)*(t==='night'? .7:1));
+ var rv=stage.children[11];
+ if(m||r==='normal')rv.style.opacity='0';
+ else{
+  rv.style.background=r==='good'?'linear-gradient(180deg,rgba(217,192,139,.06),rgba(217,192,139,0) 60%)':'rgba(8,14,20,.2)';
+  rv.style.opacity='1'}
+ var dur=m||tier==='static'?0:first? .8:a===lA&&r===lR&&t!==lD?2:1.2;
+ swap(m?'linear-gradient(175deg,#14181C,#1E242A)':wxComposeSky(a,r,t),dur);
+ first=0;lA=a;lD=t;lR=r;
+ canvasFor(a,t,m)};
+setInterval(function(){if(li)W.set(li)},9e5);/* 15-min daypart recheck */
+if(pv)W.set({});/* preview renders even without data */
+})();
+</script>
 
 <script>
 (function () {
@@ -697,6 +913,12 @@ body.stale-page main { filter: saturate(0.5); }
     var gt = (doc.generated_at || '').replace('T', ' ').slice(0, 16);
     setCopy(document.getElementById('genLine'),
             { zh: gl.zh.replace('{T}', gt), en: gl.en.replace('{T}', gt) });
+
+    /* wx sky atmosphere — visual layer only, reads display-plane state */
+    if (window.AquoraWx) window.AquoraWx.set({
+      iAtmo: iBand, rBand: rBand, mourning: mourning, stale: stale,
+      daypartFn: function () { return marketLocalHour(state.market); }
+    });
   }
 
   function renderSpark() {
