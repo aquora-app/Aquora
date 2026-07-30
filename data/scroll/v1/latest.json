@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-30T12:06:49.709534Z",
+ "generated_at": "2026-07-30T14:36:01.162191Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -88,8 +88,8 @@
      "city": "LA",
      "extreme": false,
      "kind": "",
-     "run_n": null,
-     "state": null
+     "run_n": 14,
+     "state": "SUNNY"
     },
     {
      "city": "Chicago",
@@ -136,7 +136,7 @@
    ],
    "events": [],
    "i_band": "insufficient",
-   "judged_at_local": "2026-07-30T08:06-04:00",
+   "judged_at_local": "2026-07-30T10:36-04:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
@@ -144,12 +144,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 53.5096,
+   "pui": 54.3631,
    "r_band": "normal",
    "sub": {
     "anx": 0.9198,
-    "bore": 0.2691,
-    "home": 0.5274
+    "bore": 0.2716,
+    "home": 0.5466
    }
   }
  },
