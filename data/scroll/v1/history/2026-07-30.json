@@ -1,42 +1,42 @@
 {
- "generated_at": "2026-07-30T20:37:16.373659Z",
+ "generated_at": "2026-07-30T22:29:19.852329Z",
  "markets": {
   "cn": {
    "city_weather": [
     {
      "city": "shanghai",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 1,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "beijing",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 2,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "chengdu",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 5,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "guangzhou",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 5,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "shenzhen",
      "extreme": false,
      "kind": "",
-     "run_n": 16,
-     "state": "RAIN"
+     "run_n": null,
+     "state": null
     }
    ],
    "data_quality": {
@@ -50,16 +50,22 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "insufficient"
     },
     "weather_city": {
-     "q": "fresh"
+     "q": "insufficient"
     }
    },
-   "degraded_legs": [],
+   "degraded_legs": [
+    "v_w",
+    "z_dw",
+    "r0",
+    "tone",
+    "steam"
+   ],
    "events": [],
    "i_band": "neutral",
-   "judged_at_local": "2026-07-30T11:33+08:00",
+   "judged_at_local": "2026-07-31T06:29+08:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
@@ -67,12 +73,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 56.3811,
-   "r_band": "hard",
+   "pui": 46.8595,
+   "r_band": null,
    "sub": {
-    "anx": 0.7166,
-    "bore": 0.2916,
-    "home": 0.7065
+    "anx": 0.747,
+    "bore": 0.2813,
+    "home": 0.4585
    }
   },
   "us": {
@@ -136,7 +142,7 @@
    ],
    "events": [],
    "i_band": "insufficient",
-   "judged_at_local": "2026-07-30T16:37-04:00",
+   "judged_at_local": "2026-07-30T18:29-04:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
