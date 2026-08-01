@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-01T03:54:20.677436Z",
+ "generated_at": "2026-08-01T11:36:35.096602Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -81,15 +81,15 @@
      "city": "NYC",
      "extreme": false,
      "kind": "",
-     "run_n": 1,
-     "state": "SUNNY"
+     "run_n": 3,
+     "state": "CLOUDY"
     },
     {
      "city": "LA",
      "extreme": false,
      "kind": "",
-     "run_n": 16,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Chicago",
@@ -109,8 +109,8 @@
      "city": "Houston",
      "extreme": false,
      "kind": "",
-     "run_n": 4,
-     "state": "MIXED"
+     "run_n": 5,
+     "state": "SUNNY"
     }
    ],
    "data_quality": {
@@ -132,12 +132,11 @@
    },
    "degraded_legs": [
     "hotlist_absent",
-    "za_gcam_weak",
     "c_Q"
    ],
    "events": [],
-   "i_band": "neg_high",
-   "judged_at_local": "2026-07-31T23:54-04:00",
+   "i_band": "neutral",
+   "judged_at_local": "2026-08-01T07:36-04:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
@@ -145,12 +144,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 57.1863,
-   "r_band": "good",
+   "pui": 54.3795,
+   "r_band": "normal",
    "sub": {
-    "anx": 0.87,
-    "bore": 0.3236,
-    "home": 0.6027
+    "anx": 0.7194,
+    "bore": 0.3218,
+    "home": 0.6283
    }
   }
  },
