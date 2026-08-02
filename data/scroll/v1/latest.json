@@ -1,42 +1,42 @@
 {
- "generated_at": "2026-08-02T11:36:29.078873Z",
+ "generated_at": "2026-08-02T22:13:32.923735Z",
  "markets": {
   "cn": {
    "city_weather": [
     {
      "city": "shanghai",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 4,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "beijing",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 4,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "chengdu",
      "extreme": false,
      "kind": "",
-     "run_n": 8,
-     "state": "RAIN"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "guangzhou",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 8,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "shenzhen",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 19,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     }
    ],
    "data_quality": {
@@ -44,38 +44,42 @@
      "q": "fresh"
     },
     "macro": {
-     "q": "insufficient"
+     "q": "fresh"
     },
     "pui": {
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "insufficient"
     },
     "weather_city": {
-     "q": "fresh"
+     "q": "insufficient"
     }
    },
    "degraded_legs": [
-    "tone"
+    "v_w",
+    "z_dw",
+    "r0",
+    "tone",
+    "steam"
    ],
    "events": [],
-   "i_band": "neg_low",
-   "judged_at_local": "2026-08-02T08:16+08:00",
+   "i_band": "neutral",
+   "judged_at_local": "2026-08-03T06:13+08:00",
    "lonely_sensitive_dates": [],
-   "macro_a": null,
+   "macro_a": 0.0,
    "macro_a_72h": null,
-   "macro_quiet": null,
-   "macro_v": null,
+   "macro_quiet": true,
+   "macro_v": 0.0,
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 68.2594,
-   "r_band": "hard",
+   "pui": 46.5943,
+   "r_band": null,
    "sub": {
-    "anx": 0.7584,
-    "bore": 0.5396,
-    "home": 0.7603
+    "anx": 0.776,
+    "bore": 0.2478,
+    "home": 0.463
    }
   },
   "us": {
