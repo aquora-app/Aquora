@@ -1,42 +1,42 @@
 {
- "generated_at": "2026-08-04T10:00:47.371759Z",
+ "generated_at": "2026-08-04T23:28:02.157406Z",
  "markets": {
   "cn": {
    "city_weather": [
     {
      "city": "shanghai",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 1,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "beijing",
      "extreme": false,
      "kind": "",
-     "run_n": 5,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "chengdu",
      "extreme": false,
      "kind": "",
-     "run_n": 1,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "guangzhou",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 10,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "shenzhen",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 21,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     }
    ],
    "data_quality": {
@@ -50,30 +50,36 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "insufficient"
     },
     "weather_city": {
-     "q": "fresh"
+     "q": "insufficient"
     }
    },
-   "degraded_legs": [],
+   "degraded_legs": [
+    "v_w",
+    "z_dw",
+    "r0",
+    "tone",
+    "steam"
+   ],
    "events": [],
    "i_band": "neutral",
-   "judged_at_local": "2026-08-04T11:42+08:00",
+   "judged_at_local": "2026-08-05T07:28+08:00",
    "lonely_sensitive_dates": [],
-   "macro_a": 0.8575,
-   "macro_a_72h": 0.5665985862166882,
+   "macro_a": 0.4695,
+   "macro_a_72h": 0.5119571640524632,
    "macro_quiet": false,
-   "macro_v": -0.8112,
-   "macro_v_72h": -0.5360055663428309,
+   "macro_v": 0.1562,
+   "macro_v_72h": -0.14647263853523154,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 53.8944,
-   "r_band": "normal",
+   "pui": 43.9617,
+   "r_band": null,
    "sub": {
-    "anx": 0.8178,
-    "bore": 0.2502,
-    "home": 0.6174
+    "anx": 0.6707,
+    "bore": 0.2478,
+    "home": 0.463
    }
   },
   "us": {
