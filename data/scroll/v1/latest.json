@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-07T22:57:20.898447Z",
+ "generated_at": "2026-08-07T23:50:10.043687Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -65,7 +65,7 @@
    ],
    "events": [],
    "i_band": "neutral",
-   "judged_at_local": "2026-08-08T06:57+08:00",
+   "judged_at_local": "2026-08-08T07:50+08:00",
    "lonely_sensitive_dates": [],
    "macro_a": 0.8412,
    "macro_a_72h": 0.732582375310186,
