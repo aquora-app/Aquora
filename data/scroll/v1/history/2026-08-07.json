@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-07T11:10:18.106251Z",
+ "generated_at": "2026-08-07T22:57:20.898447Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -7,36 +7,36 @@
      "city": "shanghai",
      "extreme": false,
      "kind": "",
-     "run_n": 3,
-     "state": "RAIN"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "beijing",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 7,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "chengdu",
      "extreme": false,
      "kind": "",
-     "run_n": 1,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "guangzhou",
      "extreme": false,
      "kind": "",
-     "run_n": 1,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "shenzhen",
-     "extreme": true,
-     "kind": "wcode",
-     "run_n": 1,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     }
    ],
    "data_quality": {
@@ -50,32 +50,36 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "insufficient"
     },
     "weather_city": {
-     "q": "fresh"
+     "q": "insufficient"
     }
    },
    "degraded_legs": [
-    "tone"
+    "v_w",
+    "z_dw",
+    "r0",
+    "tone",
+    "steam"
    ],
    "events": [],
    "i_band": "neutral",
-   "judged_at_local": "2026-08-07T08:17+08:00",
+   "judged_at_local": "2026-08-08T06:57+08:00",
    "lonely_sensitive_dates": [],
-   "macro_a": 0.4286,
-   "macro_a_72h": 0.5881370348961026,
+   "macro_a": 0.8412,
+   "macro_a_72h": 0.732582375310186,
    "macro_quiet": false,
-   "macro_v": -0.3232,
-   "macro_v_72h": -0.42000820560501817,
+   "macro_v": 0.6043,
+   "macro_v_72h": 0.11252939283542995,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 49.0385,
-   "r_band": "normal",
+   "pui": 51.4684,
+   "r_band": null,
    "sub": {
-    "anx": 0.6215,
-    "bore": 0.3713,
-    "home": 0.5126
+    "anx": 0.8399,
+    "bore": 0.2597,
+    "home": 0.5345
    }
   },
   "us": {
