@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-08T02:24:04.566307Z",
+ "generated_at": "2026-08-08T10:53:26.216394Z",
  "markets": {
   "cn": {
    "city_weather": [
     {
      "city": "shanghai",
      "extreme": true,
-     "kind": "wcode",
+     "kind": "thunderstorm",
      "run_n": 3,
      "state": "RAIN"
     },
@@ -39,6 +39,46 @@
      "state": "MIXED"
     }
    ],
+   "cohorts": {
+    "bands": {
+     "a1": {
+      "u_band": null
+     },
+     "a10": {
+      "u_band": null
+     },
+     "a2": {
+      "u_band": null
+     },
+     "a3": {
+      "u_band": null
+     },
+     "a4": {
+      "u_band": null
+     },
+     "a5": {
+      "u_band": null
+     },
+     "a6": {
+      "u_band": null
+     },
+     "a7": {
+      "u_band": null
+     },
+     "a8": {
+      "u_band": null
+     },
+     "a9": {
+      "u_band": null
+     }
+    },
+    "inferred_component": [
+     "a8",
+     "a9",
+     "a10"
+    ],
+    "q": "insufficient"
+   },
    "data_quality": {
     "i": {
      "q": "fresh"
@@ -58,7 +98,9 @@
    },
    "degraded_legs": [],
    "events": [],
+   "holdover": false,
    "i_band": "neutral",
+   "i_positive_sub": null,
    "judged_at_local": "2026-08-08T10:24+08:00",
    "lonely_sensitive_dates": [],
    "macro_a": 0.8515,
@@ -82,8 +124,8 @@
      "city": "NYC",
      "extreme": false,
      "kind": "",
-     "run_n": 1,
-     "state": "SUNNY"
+     "run_n": 3,
+     "state": "MIXED"
     },
     {
      "city": "LA",
@@ -96,24 +138,64 @@
      "city": "Chicago",
      "extreme": false,
      "kind": "",
-     "run_n": 3,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "DFW",
      "extreme": false,
      "kind": "",
-     "run_n": 17,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Houston",
      "extreme": false,
      "kind": "",
-     "run_n": 8,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     }
    ],
+   "cohorts": {
+    "bands": {
+     "a1": {
+      "u_band": null
+     },
+     "a10": {
+      "u_band": null
+     },
+     "a2": {
+      "u_band": null
+     },
+     "a3": {
+      "u_band": null
+     },
+     "a4": {
+      "u_band": null
+     },
+     "a5": {
+      "u_band": null
+     },
+     "a6": {
+      "u_band": null
+     },
+     "a7": {
+      "u_band": null
+     },
+     "a8": {
+      "u_band": null
+     },
+     "a9": {
+      "u_band": null
+     }
+    },
+    "inferred_component": [
+     "a8",
+     "a9",
+     "a10"
+    ],
+    "q": "insufficient"
+   },
    "data_quality": {
     "i": {
      "q": "fresh"
@@ -136,8 +218,10 @@
     "c_Q"
    ],
    "events": [],
+   "holdover": false,
    "i_band": "neutral",
-   "judged_at_local": "2026-08-07T07:10-04:00",
+   "i_positive_sub": null,
+   "judged_at_local": "2026-08-08T06:53-04:00",
    "lonely_sensitive_dates": [],
    "macro_a": null,
    "macro_a_72h": null,
@@ -146,16 +230,16 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 55.2116,
+   "pui": 54.371,
    "r_band": "normal",
    "sub": {
-    "anx": 0.6029,
-    "bore": 0.4141,
-    "home": 0.6411
+    "anx": 0.521,
+    "bore": 0.3362,
+    "home": 0.7395
    }
   }
  },
- "params_hash": "4f0b18cc7d2831bc1328ab50550221f0b980417a05d48520c8c2b0d150b7260f",
+ "params_hash": "bbec0ab3571ce7dc5f70b15162d1f93e07f4e5788632e60b1bc5363ae28926ac",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
