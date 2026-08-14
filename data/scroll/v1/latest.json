@@ -1,42 +1,42 @@
 {
- "generated_at": "2026-08-14T21:43:22.625079Z",
+ "generated_at": "2026-08-14T22:43:36.399732Z",
  "markets": {
   "cn": {
    "city_weather": [
     {
      "city": "shanghai",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "run_n": 9,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "beijing",
      "extreme": false,
      "kind": "",
-     "run_n": 3,
-     "state": "RAIN"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "chengdu",
      "extreme": false,
      "kind": "",
-     "run_n": 4,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "guangzhou",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "run_n": 1,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     },
     {
      "city": "shenzhen",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "run_n": 2,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "run_n": null,
+     "state": null
     }
    ],
    "cohorts": {
@@ -84,8 +84,7 @@
      "q": "degraded"
     },
     "i": {
-     "q": "stale",
-     "stale_since": "2026-08-14T08:01+08:00"
+     "q": "fresh"
     },
     "i_live": {
      "q": "fresh"
@@ -97,15 +96,18 @@
      "q": "fresh"
     },
     "r": {
-     "q": "stale",
-     "stale_since": "2026-08-14T08:01+08:00"
+     "q": "insufficient"
     },
     "weather_city": {
-     "q": "fresh"
+     "q": "insufficient"
     }
    },
    "degraded_legs": [
-    "tone"
+    "v_w",
+    "z_dw",
+    "r0",
+    "tone",
+    "steam"
    ],
    "event_mode": {
     "active": false,
@@ -119,10 +121,10 @@
     "valence_sign": 0
    },
    "events": [],
-   "holdover": true,
-   "i_band": "neutral",
+   "holdover": false,
+   "i_band": "neg_high",
    "i_positive_sub": null,
-   "judged_at_local": "2026-08-14T08:01+08:00",
+   "judged_at_local": "2026-08-15T06:43+08:00",
    "live": {
     "degraded_legs": [
      "v_w",
@@ -130,24 +132,24 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-15T05:43+08:00",
+    "judged_at": "2026-08-15T06:43+08:00",
     "macro_a": 0.2569,
     "macro_v": -0.2277
    },
    "lonely_sensitive_dates": [],
-   "macro_a": 0.3421,
-   "macro_a_72h": 0.4718270242088716,
+   "macro_a": 0.5942,
+   "macro_a_72h": 0.5479894706888164,
    "macro_quiet": false,
-   "macro_v": -0.2277,
-   "macro_v_72h": -0.3120336296709834,
+   "macro_v": 0.0457,
+   "macro_v_72h": -0.11038185016328994,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 54.3287,
-   "r_band": "hard",
+   "pui": 49.827,
+   "r_band": null,
    "sub": {
-    "anx": 0.7046,
-    "bore": 0.3142,
-    "home": 0.6429
+    "anx": 0.7742,
+    "bore": 0.2597,
+    "home": 0.5345
    },
    "u_type": null
   },
@@ -278,7 +280,7 @@
      "c_Q"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-14T17:43-04:00",
+    "judged_at": "2026-08-14T18:43-04:00",
     "macro_a": null,
     "macro_v": null
    },
