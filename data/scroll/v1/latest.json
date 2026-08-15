@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-15T09:44:17.866329Z",
+ "generated_at": "2026-08-15T10:42:28.671228Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -124,7 +124,7 @@
    "live": {
     "degraded_legs": [],
     "i_band": "neg_high",
-    "judged_at": "2026-08-15T17:44+08:00",
+    "judged_at": "2026-08-15T18:42+08:00",
     "macro_a": 0.7373,
     "macro_v": 0.0457
    },
@@ -151,8 +151,8 @@
      "city": "NYC",
      "extreme": false,
      "kind": "",
-     "run_n": 7,
-     "state": "MIXED"
+     "run_n": 2,
+     "state": "SUNNY"
     },
     {
      "city": "LA",
@@ -228,8 +228,7 @@
      "q": "insufficient"
     },
     "i": {
-     "q": "stale",
-     "stale_since": "2026-08-14T06:19-04:00"
+     "q": "fresh"
     },
     "i_live": {
      "q": "fresh"
@@ -241,8 +240,7 @@
      "q": "fresh"
     },
     "r": {
-     "q": "stale",
-     "stale_since": "2026-08-14T06:19-04:00"
+     "q": "fresh"
     },
     "weather_city": {
      "q": "fresh"
@@ -250,6 +248,7 @@
    },
    "degraded_legs": [
     "hotlist_absent",
+    "za_gcam_weak",
     "c_Q"
    ],
    "event_mode": {
@@ -264,21 +263,18 @@
     "valence_sign": null
    },
    "events": [],
-   "holdover": true,
-   "i_band": "neutral",
+   "holdover": false,
+   "i_band": "neg_high",
    "i_positive_sub": null,
-   "judged_at_local": "2026-08-14T06:19-04:00",
+   "judged_at_local": "2026-08-15T06:42-04:00",
    "live": {
     "degraded_legs": [
-     "v_w",
-     "z_dw",
-     "r0",
      "hotlist_absent",
      "za_gcam_weak",
      "c_Q"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-08-15T05:44-04:00",
+    "judged_at": "2026-08-15T06:42-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -290,12 +286,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 39.0091,
-   "r_band": "normal",
+   "pui": 48.7023,
+   "r_band": "good",
    "sub": {
-    "anx": 0.545,
-    "bore": 0.249,
-    "home": 0.4167
+    "anx": 0.9694,
+    "bore": 0.315,
+    "home": 0.336
    },
    "u_type": null
   }
