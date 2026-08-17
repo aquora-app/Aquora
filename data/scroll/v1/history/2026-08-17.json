@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-17T04:07:21.583043Z",
+ "generated_at": "2026-08-17T05:00:48.574782Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -124,7 +124,7 @@
    "live": {
     "degraded_legs": [],
     "i_band": "neutral",
-    "judged_at": "2026-08-17T12:07+08:00",
+    "judged_at": "2026-08-17T13:00+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -278,7 +278,7 @@
      "c_Q"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-17T00:07-04:00",
+    "judged_at": "2026-08-17T01:00-04:00",
     "macro_a": null,
     "macro_v": null
    },
