@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-18T13:59:06.208856Z",
+ "generated_at": "2026-08-18T14:55:08.948434Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -124,7 +124,7 @@
    "live": {
     "degraded_legs": [],
     "i_band": "neutral",
-    "judged_at": "2026-08-18T21:59+08:00",
+    "judged_at": "2026-08-18T22:55+08:00",
     "macro_a": 0.2162,
     "macro_v": 0.1951
    },
@@ -158,29 +158,29 @@
      "city": "LA",
      "extreme": false,
      "kind": "",
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "Chicago",
      "extreme": false,
      "kind": "",
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "CLOUDY"
     },
     {
      "city": "DFW",
      "extreme": false,
      "kind": "",
-     "run_n": null,
-     "state": null
+     "run_n": 28,
+     "state": "SUNNY"
     },
     {
      "city": "Houston",
      "extreme": false,
      "kind": "",
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "RAIN"
     }
    ],
    "cohorts": {
@@ -274,7 +274,7 @@
      "c_Q"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-08-18T09:59-04:00",
+    "judged_at": "2026-08-18T10:55-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -296,7 +296,7 @@
    "u_type": null
   }
  },
- "params_hash": "9c70f03baa2064984ae84b0b5ef55ab4e98b9318fbd6587ba835b292f778d27c",
+ "params_hash": "34eb215fbf15ac75ee00041248923345115bbb9a4ec9cace22b69b6147d5ec53",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
