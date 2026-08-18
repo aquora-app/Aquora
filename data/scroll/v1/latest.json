@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-18T18:59:55.526743Z",
+ "generated_at": "2026-08-18T19:42:53.911126Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -130,7 +130,7 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-19T02:59+08:00",
+    "judged_at": "2026-08-19T03:42+08:00",
     "macro_a": 0.2162,
     "macro_v": 0.1951
    },
@@ -276,11 +276,10 @@
    "live": {
     "degraded_legs": [
      "hotlist_absent",
-     "za_gcam_weak",
-     "c_Q"
+     "za_gcam_weak"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-08-18T14:59-04:00",
+    "judged_at": "2026-08-18T15:42-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -302,7 +301,7 @@
    "u_type": null
   }
  },
- "params_hash": "34eb215fbf15ac75ee00041248923345115bbb9a4ec9cace22b69b6147d5ec53",
+ "params_hash": "e0b8626573691341803215180b0158a6d6370ff28690d84990dd064fbc3e72e9",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
