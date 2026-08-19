@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-19T19:42:39.227729Z",
+ "generated_at": "2026-08-19T20:48:09.170285Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -135,7 +135,7 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-20T03:42+08:00",
+    "judged_at": "2026-08-20T04:48+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -283,7 +283,7 @@
      "za_gcam_weak"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-08-19T15:42-04:00",
+    "judged_at": "2026-08-19T16:48-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -305,7 +305,7 @@
    "u_type": null
   }
  },
- "params_hash": "e0b8626573691341803215180b0158a6d6370ff28690d84990dd064fbc3e72e9",
+ "params_hash": "3ffb3f09fa39471b28dab068fbf7b6204693580d0dd003960273839e0bdebc1f",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
