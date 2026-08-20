@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-20T11:45:55.003479Z",
+ "generated_at": "2026-08-20T13:14:13.180088Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -126,7 +126,7 @@
    "live": {
     "degraded_legs": [],
     "i_band": "neutral",
-    "judged_at": "2026-08-20T19:45+08:00",
+    "judged_at": "2026-08-20T21:14+08:00",
     "macro_a": 0.9118,
     "macro_v": -0.0887
    },
@@ -160,8 +160,8 @@
      "city": "LA",
      "extreme": false,
      "kind": "",
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "MIXED"
     },
     {
      "city": "Chicago",
@@ -245,7 +245,7 @@
      "q": "fresh"
     },
     "weather_city": {
-     "q": "degraded"
+     "q": "fresh"
     }
    },
    "degraded_legs": [
@@ -278,7 +278,7 @@
      "za_gcam_weak"
     ],
     "i_band": "neg_low",
-    "judged_at": "2026-08-20T07:45-04:00",
+    "judged_at": "2026-08-20T09:14-04:00",
     "macro_a": null,
     "macro_v": null
    },
