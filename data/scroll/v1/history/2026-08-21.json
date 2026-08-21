@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-21T09:54:09.194226Z",
+ "generated_at": "2026-08-21T10:50:43.846216Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -126,7 +126,7 @@
    "live": {
     "degraded_legs": [],
     "i_band": "neutral",
-    "judged_at": "2026-08-21T17:54+08:00",
+    "judged_at": "2026-08-21T18:50+08:00",
     "macro_a": 0.9215,
     "macro_v": -0.8934
    },
@@ -160,29 +160,29 @@
      "city": "LA",
      "extreme": false,
      "kind": "",
-     "run_n": 3,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Chicago",
      "extreme": false,
      "kind": "",
-     "run_n": 1,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "DFW",
      "extreme": false,
      "kind": "",
-     "run_n": 30,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Houston",
      "extreme": false,
      "kind": "",
-     "run_n": 8,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     }
    ],
    "cohorts": {
@@ -230,8 +230,7 @@
      "q": "insufficient"
     },
     "i": {
-     "q": "stale",
-     "stale_since": "2026-08-20T06:50-04:00"
+     "q": "fresh"
     },
     "i_live": {
      "q": "fresh"
@@ -243,16 +242,14 @@
      "q": "fresh"
     },
     "r": {
-     "q": "stale",
-     "stale_since": "2026-08-20T06:50-04:00"
+     "q": "fresh"
     },
     "weather_city": {
-     "q": "fresh"
+     "q": "degraded"
     }
    },
    "degraded_legs": [
-    "hotlist_absent",
-    "za_gcam_weak"
+    "hotlist_absent"
    ],
    "event_mode": {
     "active": false,
@@ -266,23 +263,20 @@
     "valence_sign": null
    },
    "events": [],
-   "holdover": true,
-   "i_band": "neg_low",
+   "holdover": false,
+   "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
-    "level": "severe",
-    "value": 8.0
+    "level": "mid",
+    "value": 4.6
    },
-   "judged_at_local": "2026-08-20T06:50-04:00",
+   "judged_at_local": "2026-08-21T06:50-04:00",
    "live": {
     "degraded_legs": [
-     "v_w",
-     "z_dw",
-     "r0",
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-21T05:54-04:00",
+    "judged_at": "2026-08-21T06:50-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -294,12 +288,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 53.7709,
-   "r_band": "good",
+   "pui": 34.1728,
+   "r_band": "normal",
    "sub": {
-    "anx": 0.7588,
-    "bore": 0.376,
-    "home": 0.541
+    "anx": 0.6195,
+    "bore": 0.2025,
+    "home": 0.2899
    },
    "u_type": null
   }
