@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T02:14:56.251392Z",
+ "generated_at": "2026-08-29T03:53:01.028093Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -234,8 +234,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "RAIN"
     },
     {
      "city": "zhengzhou",
@@ -243,8 +243,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "MIXED"
     },
     {
      "city": "wuhan",
@@ -252,8 +252,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "changsha",
@@ -261,53 +261,53 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 11,
+     "state": "RAIN"
     },
     {
      "city": "shantou",
-     "extreme": false,
-     "kind": "",
+     "extreme": true,
+     "kind": "thunderstorm",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 8,
+     "state": "RAIN"
     },
     {
      "city": "nanning",
-     "extreme": false,
-     "kind": "",
+     "extreme": true,
+     "kind": "thunderstorm",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 16,
+     "state": "RAIN"
     },
     {
      "city": "haikou",
-     "extreme": false,
-     "kind": "",
+     "extreme": true,
+     "kind": "thunderstorm",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 27,
+     "state": "RAIN"
     },
     {
      "city": "guiyang",
-     "extreme": false,
-     "kind": "",
+     "extreme": true,
+     "kind": "thunderstorm",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 10,
+     "state": "RAIN"
     },
     {
      "city": "kunming",
-     "extreme": false,
-     "kind": "",
+     "extreme": true,
+     "kind": "thunderstorm",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 13,
+     "state": "RAIN"
     },
     {
      "city": "lasa",
@@ -315,8 +315,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "CLOUDY"
     },
     {
      "city": "xian",
@@ -324,8 +324,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "lanzhou",
@@ -333,8 +333,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "xining",
@@ -342,8 +342,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "SUNNY"
     },
     {
      "city": "yinchuan",
@@ -351,8 +351,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "wulumuqi",
@@ -360,8 +360,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "SUNNY"
     }
    ],
    "cohorts": {
@@ -451,7 +451,7 @@
    "live": {
     "degraded_legs": [],
     "i_band": "neutral",
-    "judged_at": "2026-08-29T10:14+08:00",
+    "judged_at": "2026-08-29T11:53+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -525,8 +525,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "WashingtonDC",
@@ -836,7 +836,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-28T22:14-04:00",
+    "judged_at": "2026-08-28T23:53-04:00",
     "macro_a": null,
     "macro_v": null
    },
