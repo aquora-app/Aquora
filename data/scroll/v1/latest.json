@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-29T18:35:04.292796Z",
+ "generated_at": "2026-08-29T21:47:18.967419Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-30T02:35+08:00",
+    "judged_at": "2026-08-30T05:47+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -693,8 +693,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "Austin",
@@ -842,7 +842,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-29T14:35-04:00",
+    "judged_at": "2026-08-29T17:47-04:00",
     "macro_a": null,
     "macro_v": null
    },
