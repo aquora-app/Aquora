@@ -194,14 +194,14 @@
     transition: opacity 1.1s .3s ease-out;
   }
   .flap-shadow {
-    /* the closed flap's soft cast on the paper; lifts away with the flap */
+    /* the closed flap's soft cast on the paper; lifts away with the flap.
+       Drawn with SVG blur, NOT css filter+clip-path — WebKit clips the blur
+       hard (thin sharp shadow on iOS) while Blink keeps it soft */
     position: absolute; left: 0; right: 0; top: 0; height: 60%;
-    clip-path: polygon(-2% -2%, 102% -2%, 50% 103%);
-    background: rgba(0,0,0,.19);
-    filter: blur(3.5px);
-    transform: translateY(3px);
+    pointer-events: none;
     transition: opacity .65s ease-out, transform .9s ease-out;
   }
+  .flap-shadow svg { position: absolute; inset: 0; }
   .wax-remnant {
     /* the chip of wax left on the body after the seal breaks */
     position: absolute; left: 50%; top: 60%;
@@ -342,7 +342,10 @@
     50%      { transform: scale(1.035); }
   }
   .seal-half { position: absolute; inset: 0; transition: transform .5s cubic-bezier(.5,0,.85,.55), opacity .42s ease-in; }
-  .seal-half.l { clip-path: polygon(0 0, 53% 0, 47% 26%, 54% 52%, 46% 77%, 52% 100%, 0 100%); }
+  /* the left half's zigzag overlaps the right by 2% — identical content in the
+     overlap renders identical pixels, hiding the antialiasing seam iOS shows
+     between complementary clip-paths */
+  .seal-half.l { clip-path: polygon(0 0, 55% 0, 49% 26%, 56% 52%, 48% 77%, 54% 100%, 0 100%); }
   .seal-half.r { clip-path: polygon(53% 0, 100% 0, 100% 100%, 52% 100%, 46% 77%, 54% 52%, 47% 26%); }
   /* the shells fall apart — a touch of gravity, not a fade in place */
   .envelope.cracked .seal-half.l { transform: translate(-15px, 9px) rotate(-10deg) scale(.96); opacity: 0; }
@@ -712,7 +715,31 @@
               <line x1="156" y1="100" x2="78" y2="60" stroke="url(#seamLiteR)" stroke-width="0.7"/>
             </g>
           </svg>
-          <div class="flap-shadow"></div>
+          <div class="flap-shadow">
+            <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 156 60" aria-hidden="true">
+              <defs>
+                <filter id="flapSoft" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="1.0"/>
+                </filter>
+                <linearGradient id="flapDarkL" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="78" y2="60">
+                  <stop offset="0" stop-color="#000000" stop-opacity="0.34"/>
+                  <stop offset="0.55" stop-color="#000000" stop-opacity="0.44"/>
+                  <stop offset="0.86" stop-color="#000000" stop-opacity="0.20"/>
+                  <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="flapDarkR" gradientUnits="userSpaceOnUse" x1="156" y1="0" x2="78" y2="60">
+                  <stop offset="0" stop-color="#000000" stop-opacity="0.34"/>
+                  <stop offset="0.55" stop-color="#000000" stop-opacity="0.44"/>
+                  <stop offset="0.86" stop-color="#000000" stop-opacity="0.20"/>
+                  <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <g transform="translate(0,0.8)">
+                <line x1="0" y1="0" x2="78" y2="60" stroke="url(#flapDarkL)" stroke-width="2.2" filter="url(#flapSoft)"/>
+                <line x1="156" y1="0" x2="78" y2="60" stroke="url(#flapDarkR)" stroke-width="2.2" filter="url(#flapSoft)"/>
+              </g>
+            </svg>
+          </div>
           <div class="wax-remnant"></div>
           <div class="env-glow"></div>
         </div>
