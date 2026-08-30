@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T17:33:40.100534Z",
+ "generated_at": "2026-08-30T21:11:54.899134Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-31T01:33+08:00",
+    "judged_at": "2026-08-31T05:11+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -567,8 +567,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 14,
+     "state": "SUNNY"
     },
     {
      "city": "Boston",
@@ -585,8 +585,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 6,
+     "state": "MIXED"
     },
     {
      "city": "Detroit",
@@ -603,8 +603,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "MIXED"
     },
     {
      "city": "Minneapolis",
@@ -621,8 +621,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 12,
+     "state": "MIXED"
     },
     {
      "city": "Tampa",
@@ -675,8 +675,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Portland",
@@ -684,8 +684,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Pittsburgh",
@@ -693,8 +693,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "MIXED"
     },
     {
      "city": "Austin",
@@ -702,8 +702,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "LasVegas",
@@ -842,7 +842,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-30T13:33-04:00",
+    "judged_at": "2026-08-30T17:11-04:00",
     "macro_a": null,
     "macro_v": null
    },
