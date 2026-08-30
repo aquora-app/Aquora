@@ -412,6 +412,8 @@
     /* departing lines dissolve at the top edge instead of being cut off */
     -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 9%);
     mask-image: linear-gradient(180deg, transparent 0, #000 9%);
+    /* no system scrollbar in the dark room — the falling cue is the guide */
+    scrollbar-width: none;
     background:
       radial-gradient(ellipse 80% 55% at 50% 30%, rgba(8,68,86,.16), transparent 72%),
       var(--abyss);
@@ -420,6 +422,7 @@
     display: none;
     touch-action: manipulation;
   }
+  #stage2::-webkit-scrollbar { display: none; }
   #stage2.on { display: block; }
   #stage2.lit { opacity: 1; }
 
