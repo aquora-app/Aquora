@@ -405,7 +405,9 @@
     font-size: 13px; letter-spacing: .26em;
     color: rgba(248,244,236,.48);
     opacity: 0;
-    animation: hintIn 1.4s 2.7s ease-out forwards;
+    /* must be readable before the fastest plausible click (~1.2s):
+       starts as the envelope is half-arrived, settles with it */
+    animation: hintIn 1s .9s ease-out forwards;
     user-select: none;
   }
   @keyframes hintIn { to { opacity: 1; } }
