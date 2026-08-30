@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T00:24:17.073827Z",
+ "generated_at": "2026-08-30T00:43:51.191627Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -455,7 +455,7 @@
      "tone"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-30T08:24+08:00",
+    "judged_at": "2026-08-30T08:43+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -700,8 +700,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "LasVegas",
@@ -709,8 +709,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "MIXED"
     },
     {
      "city": "Cincinnati",
@@ -842,7 +842,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-08-29T20:24-04:00",
+    "judged_at": "2026-08-29T20:43-04:00",
     "macro_a": null,
     "macro_v": null
    },
