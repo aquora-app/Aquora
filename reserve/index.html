@@ -918,8 +918,8 @@
      (or a copy-the-address path inside webviews that block mailto).
      If the endpoint fails or times out (8s), it degrades to the same
      mail fallback — no reader is ever stranded. */
-  var RESERVE_ENDPOINT = '';
-  var RESERVE_EXTRA = {};
+  var RESERVE_ENDPOINT = 'https://api.web3forms.com/submit';
+  var RESERVE_EXTRA = { access_key: 'c797adb5-78f1-405b-849b-7e592b859190' };
   var RESERVE_MAILTO = 'aquora.apps@gmail.com';
 
   var LINES = [
