@@ -1338,8 +1338,8 @@
     sp.width = sp.height = 64;
     var sctx = sp.getContext('2d');
     var sg = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    sg.addColorStop(0, 'rgba(224,221,214,.40)');
-    sg.addColorStop(0.55, 'rgba(224,221,214,.15)');
+    sg.addColorStop(0, 'rgba(224,221,214,.48)');
+    sg.addColorStop(0.55, 'rgba(224,221,214,.18)');
     sg.addColorStop(1, 'rgba(224,221,214,0)');
     sctx.fillStyle = sg;
     sctx.fillRect(0, 0, 64, 64);
@@ -1358,10 +1358,10 @@
         parts.push({
           x: fx + (Math.random() * 44 - 28),
           y: y0 + Math.random() * h,
-          r: 16 + Math.random() * 18,
+          r: 18 + Math.random() * 20,
           vx: (Math.random() * 10 - 3) / 60,
           vy: -(8 + Math.random() * 12) / 60,
-          a: .04 + Math.random() * .04,
+          a: .06 + Math.random() * .05,
           life: 0,
           maxLife: 70 + Math.random() * 50,
           wob: Math.random() * 6.28
