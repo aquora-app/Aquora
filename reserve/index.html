@@ -409,6 +409,9 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     scroll-snap-type: y mandatory;
+    /* departing lines dissolve at the top edge instead of being cut off */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 9%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 9%);
     background:
       radial-gradient(ellipse 80% 55% at 50% 30%, rgba(8,68,86,.16), transparent 72%),
       var(--abyss);
@@ -426,6 +429,9 @@
   .line-sec {
     position: relative;
     height: 100vh; height: 100dvh;
+    /* JS pins this to the scroll container's exact height, so snap positions
+       can never rest a partial screen off (the "ghost of the previous line") */
+    height: var(--secH, 100dvh);
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -446,6 +452,7 @@
     position: relative;
     height: auto;
     min-height: 100vh; min-height: 100dvh;
+    min-height: var(--secH, 100dvh);
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -817,10 +824,18 @@
 (function () {
   'use strict';
 
-  /* Configure a form endpoint (e.g. Formspree) to collect emails via fetch.
+  /* ---- reservation backend ----
+     Fill in ONE of these and the button collects emails for real:
+       Web3Forms:  RESERVE_ENDPOINT = 'https://api.web3forms.com/submit';
+                   RESERVE_EXTRA    = { access_key: '<your-access-key>' };
+       Formspree:  RESERVE_ENDPOINT = 'https://formspree.io/f/<form-id>';
+                   RESERVE_EXTRA    = {};
      Left empty, the button falls back to a pre-filled mail draft
-     (or a copy-the-address path inside webviews that block mailto). */
+     (or a copy-the-address path inside webviews that block mailto).
+     If the endpoint fails or times out (8s), it degrades to the same
+     mail fallback — no reader is ever stranded. */
   var RESERVE_ENDPOINT = '';
+  var RESERVE_EXTRA = {};
   var RESERVE_MAILTO = 'aquora.apps@gmail.com';
 
   var LINES = [
@@ -851,8 +866,17 @@
   }
 
   /* ---------- scene 1 → scene 2 ---------- */
+  function sizeSections() {
+    if (stage2.clientHeight > 0) {
+      document.documentElement.style.setProperty('--secH', stage2.clientHeight + 'px');
+    }
+  }
+
   function enterStage2() {
     stage2.classList.add('on');
+    sizeSections();
+    window.addEventListener('resize', sizeSections);
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', sizeSections);
     stage2.focus({ preventScroll: true });
     stageStatus.textContent = 'The letter is open.';
   }
@@ -923,11 +947,13 @@
     started[idx] = true;
     completed[idx] = true;          /* aborts a running typist on its next tick */
     lineEls[idx].textContent = LINES[idx];
+    cues[idx].classList.remove('on');
   }
 
   function activateLine(idx) {
     if (started[idx]) return;
     for (var k = 0; k < idx; k++) fillInstant(k); /* lines scrolled past are simply written */
+    if (idx > 0) cues[idx - 1].classList.remove('on');
     started[idx] = true;
     typeLine(idx);
   }
@@ -1097,19 +1123,33 @@
     if (RESERVE_ENDPOINT) {
       var btn = form.querySelector('.want');
       btn.disabled = true;
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 8000) : null;
+      var payload = { email: value, source: 'sealed-letter' };
+      for (var k in RESERVE_EXTRA) {
+        if (Object.prototype.hasOwnProperty.call(RESERVE_EXTRA, k)) payload[k] = RESERVE_EXTRA[k];
+      }
       fetch(RESERVE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email: value, source: 'sealed-letter' })
+        body: JSON.stringify(payload),
+        signal: ctrl ? ctrl.signal : undefined
       }).then(function (res) {
+        if (timer) clearTimeout(timer);
         if (!res.ok) throw new Error('bad status');
         markConfirmed(false);
       }).catch(function () {
+        if (timer) clearTimeout(timer);
         btn.disabled = false;
-        note.classList.remove('ok');
-        note.textContent = 'The letter didn’t go through. Try once more?';
+        fallbackMail(value); /* the quiet way failed — the mail way still works */
       });
-    } else if (inAppNoMailto) {
+    } else {
+      fallbackMail(value);
+    }
+  });
+
+  function fallbackMail(value) {
+    if (inAppNoMailto) {
       /* WeChat/Weibo/QQ webviews block mailto: — offer the address instead */
       copyText(RESERVE_MAILTO).then(function () {
         note.classList.add('ok');
@@ -1125,7 +1165,7 @@
       note.classList.add('ok');
       note.textContent = 'If your mail app opened, just press send — or write to ' + RESERVE_MAILTO + '.';
     }
-  });
+  }
 })();
 </script>
 </body>
