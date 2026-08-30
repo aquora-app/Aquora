@@ -591,9 +591,17 @@
   .want:disabled { opacity: .55; cursor: default; }
 
   .form-note {
-    margin-top: 14px; font-size: 12.5px; letter-spacing: .02em;
+    margin-top: 14px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 13.5px; letter-spacing: .02em;
     color: rgba(210,120,110,.9); min-height: 1.2em;
     max-width: 480px;
+  }
+  /* the words arrive only after the thunder */
+  .form-note.storm-in { animation: noteAfterThunder .9s ease-out both; }
+  @keyframes noteAfterThunder {
+    0%, 38% { opacity: 0; }
+    100%    { opacity: 1; }
   }
   .form-note.ok { color: rgba(97,168,138,.95); }
 
@@ -730,7 +738,7 @@
     .ambient, .ring, .seal-core, .env-wrap, .envelope.pressing,
     .crack-flash, .crumb, .light-shaft, .veil, .flap-face.back::after,
     .want::before, .arrival-inner.burn, .smoke-wisp, .bolt-layer,
-    .storm-flash, .shake, #email.email-struck { animation: none !important; }
+    .storm-flash, .shake, #email.email-struck, .form-note.storm-in { animation: none !important; }
     .scroll-cue span { animation: none; opacity: .6; transform: translateY(6px); }
     #stage1 { animation: none; opacity: 1; transition: opacity .6s; }
     #stage1.entering { transform: none; }
@@ -1376,12 +1384,14 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@.]{2,}$/.test(value)) {
       strikeLightning();
       note.classList.remove('ok');
-      note.textContent = 'That doesn’t look like an email yet.';
+      note.classList.remove('storm-in'); void note.offsetWidth; note.classList.add('storm-in');
+      note.textContent = 'It can’t reach you there.';
       emailInput.setAttribute('aria-invalid', 'true');
       emailInput.focus();
       return;
     }
     emailInput.removeAttribute('aria-invalid');
+    note.classList.remove('storm-in');
     note.textContent = '';
 
     if (RESERVE_ENDPOINT) {
