@@ -1384,8 +1384,11 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@.]{2,}$/.test(value)) {
       strikeLightning();
       note.classList.remove('ok');
-      note.classList.remove('storm-in'); void note.offsetWidth; note.classList.add('storm-in');
-      note.textContent = 'It can’t reach you there.';
+      /* the storm may strike again, but words once spoken stay spoken */
+      if (note.textContent !== 'It can’t reach you there.') {
+        note.classList.remove('storm-in'); void note.offsetWidth; note.classList.add('storm-in');
+        note.textContent = 'It can’t reach you there.';
+      }
       emailInput.setAttribute('aria-invalid', 'true');
       emailInput.focus();
       return;
