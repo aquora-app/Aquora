@@ -707,12 +707,17 @@
     0% { opacity: 0; } 8% { opacity: .12; } 20% { opacity: .03; }
     32% { opacity: .08; } 100% { opacity: 0; }
   }
-  .shake { animation: formShake .45s cubic-bezier(.36,.07,.19,.97); }
+  .shake { animation: formShake .6s ease-out; }
+  /* damped oscillation — one hard kick from the bolt, then a dying tremble */
   @keyframes formShake {
-    10%, 90% { transform: translateX(-2px); }
-    20%, 80% { transform: translateX(4px); }
-    30%, 50%, 70% { transform: translateX(-7px); }
-    40%, 60% { transform: translateX(7px); }
+    0%   { transform: translate(0, 0) rotate(0); }
+    8%   { transform: translate(-9px, 1.5px) rotate(-0.4deg); }
+    20%  { transform: translate(7px, -1px) rotate(0.35deg); }
+    34%  { transform: translate(-5px, 0.5px) rotate(-0.25deg); }
+    48%  { transform: translate(3.5px, 0) rotate(0.15deg); }
+    62%  { transform: translate(-2px, 0) rotate(-0.08deg); }
+    76%  { transform: translate(1px, 0) rotate(0.04deg); }
+    100% { transform: translate(0, 0) rotate(0); }
   }
   #email.email-struck { animation: emailStruck .7s ease-out; }
   @keyframes emailStruck {
@@ -1349,7 +1354,7 @@
     stormFlash.classList.remove('strike'); void stormFlash.offsetWidth; stormFlash.classList.add('strike');
     form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake');
     emailInput.classList.remove('email-struck'); void emailInput.offsetWidth; emailInput.classList.add('email-struck');
-    if (navigator.vibrate) { try { navigator.vibrate([40, 40, 70]); } catch (e) { /* no-op */ } }
+    if (navigator.vibrate) { try { navigator.vibrate([45, 35, 25, 45, 12]); } catch (e) { /* no-op */ } }
     setTimeout(function () { boltLayer.classList.remove('strike'); boltLayer.innerHTML = ''; }, 700);
   }
 
