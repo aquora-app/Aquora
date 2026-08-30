@@ -1023,6 +1023,8 @@
   ];
 
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ?rehearse — full success/error theatre with no network, no storage: for stage rehearsals */
+  var REHEARSE = /[?&]rehearse\b/.test(location.search);
   var inAppNoMailto = /MicroMessenger|Weibo|QQ\//i.test(navigator.userAgent);
 
   if (!document.documentElement.lang) document.documentElement.lang = 'en';
@@ -1215,9 +1217,11 @@
     stage2.removeEventListener('scroll', onSectionScroll);
     if (sectionPoll) { clearInterval(sectionPoll); sectionPoll = null; }
     arrival.classList.add('show');
-    try {
-      if (localStorage.getItem('aquora_reserved') === '1') markConfirmed(true);
-    } catch (e) { /* private mode */ }
+    if (!REHEARSE) {
+      try {
+        if (localStorage.getItem('aquora_reserved') === '1') markConfirmed(true);
+      } catch (e) { /* private mode */ }
+    }
   }
 
   /* deterministic section tracking — no IntersectionObserver variance:
@@ -1277,7 +1281,7 @@
     if (!quiet) {
       note.textContent = '';
       stageStatus.textContent = 'Reserved. You will hear it first.';
-      try { localStorage.setItem('aquora_reserved', '1'); } catch (e) { /* private mode */ }
+      if (!REHEARSE) { try { localStorage.setItem('aquora_reserved', '1'); } catch (e) { /* private mode */ } }
     }
     celebrateReserved(quiet);
   }
@@ -1461,6 +1465,8 @@
     emailInput.removeAttribute('aria-invalid');
     note.classList.remove('storm-in');
     note.textContent = '';
+
+    if (REHEARSE) { markConfirmed(false); return; }
 
     if (RESERVE_ENDPOINT) {
       var btn = form.querySelector('.want');
