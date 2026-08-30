@@ -642,8 +642,8 @@
 
   /* ---- reserved: the screen burns to smoke, one word remains ---- */
   .arrival-inner.burn {
-    -webkit-mask-image: linear-gradient(100deg, transparent 46%, #000 54%);
-    mask-image: linear-gradient(100deg, transparent 46%, #000 54%);
+    -webkit-mask-image: linear-gradient(100deg, transparent 43%, #000 57%);
+    mask-image: linear-gradient(100deg, transparent 43%, #000 57%);
     -webkit-mask-size: 300% 100%;
     mask-size: 300% 100%;
     -webkit-mask-repeat: no-repeat;
@@ -1338,9 +1338,9 @@
     sp.width = sp.height = 64;
     var sctx = sp.getContext('2d');
     var sg = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    sg.addColorStop(0, 'rgba(224,219,209,.85)');
-    sg.addColorStop(0.45, 'rgba(224,219,209,.30)');
-    sg.addColorStop(1, 'rgba(224,219,209,0)');
+    sg.addColorStop(0, 'rgba(226,222,213,.55)');
+    sg.addColorStop(0.5, 'rgba(226,222,213,.22)');
+    sg.addColorStop(1, 'rgba(226,222,213,0)');
     sctx.fillStyle = sg;
     sctx.fillRect(0, 0, 64, 64);
 
@@ -1358,41 +1358,25 @@
         /* emit smoke along the advancing front */
         for (var i = 0; i < 2; i++) {
           parts.push({
-            x: fx + (Math.random() * 24 - 15),
+            x: fx + (Math.random() * 40 - 26),
             y: y0 + Math.random() * h,
-            r: 7 + Math.random() * 11,
-            vx: (Math.random() * 16 - 5) / 60,
-            vy: -(20 + Math.random() * 34) / 60,
-            a: .16 + Math.random() * .14,
+            r: 12 + Math.random() * 18,
+            vx: (Math.random() * 12 - 3) / 60,
+            vy: -(10 + Math.random() * 20) / 60,
+            a: .07 + Math.random() * .06,
             life: 0,
-            maxLife: 46 + Math.random() * 42,
+            maxLife: 58 + Math.random() * 46,
             wob: Math.random() * 6.28
           });
         }
-        /* the burning edge: ragged, flickering, faintly luminous */
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
-        var segs = 16;
-        ctx.beginPath();
-        for (var s = 0; s <= segs; s++) {
-          var yy = y0 + (h / segs) * s;
-          var xx = fx + Math.sin(yy * .12 + now * .021) * 3.2 + (Math.random() * 4 - 2);
-          if (s) ctx.lineTo(xx, yy); else ctx.moveTo(xx, yy);
-        }
-        ctx.strokeStyle = 'rgba(248,244,236,' + (0.24 + Math.random() * 0.2) + ')';
-        ctx.lineWidth = 1.3;
-        ctx.shadowColor = 'rgba(248,244,236,.8)';
-        ctx.shadowBlur = 8;
-        ctx.stroke();
-        ctx.restore();
       }
       for (var j = parts.length - 1; j >= 0; j--) {
         var p = parts[j];
         p.life++;
         if (p.life > p.maxLife) { parts.splice(j, 1); continue; }
-        p.x += p.vx + Math.sin(p.wob + p.life * .09) * .35;
+        p.x += p.vx + Math.sin(p.wob + p.life * .05) * .5;
         p.y += p.vy;
-        p.r *= 1.02;
+        p.r *= 1.013;
         var lt = p.life / p.maxLife;
         var alpha = p.a * (lt < .18 ? lt / .18 : 1 - (lt - .18) / .82);
         ctx.globalAlpha = alpha;
