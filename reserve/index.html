@@ -1287,6 +1287,18 @@
     var word = document.getElementById('reservedWord');
     if (quiet || reduced) {
       inner.style.visibility = 'hidden';
+      if (quiet) {
+        /* the word appears only once the scroll has settled on its own
+           empty screen — never while another line is still in view */
+        var settle = setInterval(function () {
+          var h = stage2.clientHeight || 1;
+          if (Math.abs(stage2.scrollTop - h * LINES.length) < 8) {
+            clearInterval(settle);
+            word.classList.add('show');
+          }
+        }, 120);
+        return;
+      }
       word.classList.add('show');
       return;
     }
