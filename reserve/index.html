@@ -597,13 +597,6 @@
   }
   .form-note.ok { color: rgba(97,168,138,.95); }
 
-  .confirmed {
-    font-family: var(--serif); font-style: italic;
-    font-size: clamp(17px, 2.2vw, 20px);
-    color: rgba(248,244,236,.9);
-  }
-  .confirmed:focus { outline: none; }
-
   .appstore {
     display: inline-flex; align-items: center; gap: 9px;
     margin-top: 5vh;
@@ -639,11 +632,100 @@
     .arrival-inner { padding-top: 14vh; padding-top: 14dvh; }
   }
 
+  /* ---- reserved: the screen burns to smoke, one word remains ---- */
+  .arrival-inner.burn {
+    -webkit-mask-image: linear-gradient(100deg, transparent 40%, #000 60%);
+    mask-image: linear-gradient(100deg, transparent 40%, #000 60%);
+    -webkit-mask-size: 300% 100%;
+    mask-size: 300% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    animation: burnWipe 1.7s cubic-bezier(.45,.05,.55,.95) forwards,
+               burnLift 1.7s ease-in forwards;
+    pointer-events: none;
+  }
+  @keyframes burnWipe {
+    from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+    to   { -webkit-mask-position: 0% 0; mask-position: 0% 0; }
+  }
+  @keyframes burnLift {
+    0%   { opacity: 1; transform: translateY(0); filter: blur(0); }
+    70%  { opacity: .9; }
+    100% { opacity: 0; transform: translateY(-16px); filter: blur(5px); }
+  }
+  .smoke-wisp {
+    position: absolute;
+    width: 90px; height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 60%, rgba(248,244,236,.16), transparent 70%);
+    filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    animation: wispRise 1.25s ease-out forwards;
+  }
+  @keyframes wispRise {
+    0%   { opacity: 0; transform: translateY(6px) scale(.8); }
+    25%  { opacity: .55; }
+    100% { opacity: 0; transform: translateY(-52px) scale(1.45); }
+  }
+  .reserved-word {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(26px, 4vw, 40px);
+    color: rgba(248,244,236,.95);
+    letter-spacing: .34em;
+    text-indent: .34em;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease-out, letter-spacing 1.5s cubic-bezier(.22,1,.36,1),
+      text-indent 1.5s cubic-bezier(.22,1,.36,1);
+  }
+  .reserved-word.show { opacity: 1; letter-spacing: .14em; text-indent: .14em; }
+  .reserved-word:focus { outline: none; }
+
+  /* ---- the storm's verdict on an empty or wrong address ---- */
+  .bolt-layer {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+  }
+  .bolt-layer.strike { animation: boltFlicker .5s ease-out; }
+  @keyframes boltFlicker {
+    0% { opacity: 0; } 6% { opacity: 1; } 18% { opacity: .25; }
+    30% { opacity: .95; } 55% { opacity: .4; } 100% { opacity: 0; }
+  }
+  .storm-flash {
+    position: fixed; inset: 0;
+    background: #F8F4EC;
+    opacity: 0; pointer-events: none; z-index: 40;
+  }
+  .storm-flash.strike { animation: stormFlash .4s ease-out; }
+  @keyframes stormFlash {
+    0% { opacity: 0; } 8% { opacity: .12; } 20% { opacity: .03; }
+    32% { opacity: .08; } 100% { opacity: 0; }
+  }
+  .shake { animation: formShake .45s cubic-bezier(.36,.07,.19,.97); }
+  @keyframes formShake {
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(4px); }
+    30%, 50%, 70% { transform: translateX(-7px); }
+    40%, 60% { transform: translateX(7px); }
+  }
+  #email.email-struck { animation: emailStruck .7s ease-out; }
+  @keyframes emailStruck {
+    0%   { border-bottom-color: rgba(248,244,236,.95); box-shadow: 0 4px 18px rgba(248,244,236,.22); }
+    100% { border-bottom-color: rgba(248,244,236,.38); box-shadow: none; }
+  }
+
   /* ================= reduced motion ================= */
   @media (prefers-reduced-motion: reduce) {
     .ambient, .ring, .seal-core, .env-wrap, .envelope.pressing,
     .crack-flash, .crumb, .light-shaft, .veil, .flap-face.back::after,
-    .want::before { animation: none !important; }
+    .want::before, .arrival-inner.burn, .smoke-wisp, .bolt-layer,
+    .storm-flash, .shake, #email.email-struck { animation: none !important; }
     .scroll-cue span { animation: none; opacity: .6; transform: translateY(6px); }
     #stage1 { animation: none; opacity: 1; transition: opacity .6s; }
     #stage1.entering { transform: none; }
@@ -858,6 +940,8 @@
     <div class="scroll-cue" id="cue3"><span></span><span></span></div>
   </section>
   <section class="arrival-sec" id="secArrival">
+    <svg class="bolt-layer" id="boltLayer" aria-hidden="true"></svg>
+    <div class="reserved-word" id="reservedWord" tabindex="-1">Reserved.</div>
     <div class="arrival-inner">
     <div id="arrival">
       <svg class="sigil rise" viewBox="22 42 156 118" aria-hidden="true">
@@ -885,6 +969,7 @@
     </div>
   </section>
 </div>
+<div class="storm-flash" id="stormFlash" aria-hidden="true"></div>
 
 <noscript>
   <style>
@@ -1183,20 +1268,96 @@
   }
 
   function markConfirmed(quiet) {
-    var zone = document.getElementById('formZone');
-    zone.innerHTML = '<p class="confirmed" tabindex="-1">You’ll hear it first.</p>';
     if (!quiet) {
-      note.classList.add('ok');
-      note.textContent = 'Reserved.';
-      zone.querySelector('.confirmed').focus({ preventScroll: true });
+      note.textContent = '';
+      stageStatus.textContent = 'Reserved. You will hear it first.';
       try { localStorage.setItem('aquora_reserved', '1'); } catch (e) { /* private mode */ }
     }
+    celebrateReserved(quiet);
+  }
+
+  /* the screen burns to smoke, left to right; one word remains */
+  function celebrateReserved(quiet) {
+    var inner = document.querySelector('.arrival-inner');
+    var word = document.getElementById('reservedWord');
+    if (quiet || reduced) {
+      inner.style.visibility = 'hidden';
+      word.classList.add('show');
+      return;
+    }
+    spawnWisps();
+    inner.classList.add('burn');
+    setTimeout(function () {
+      inner.style.visibility = 'hidden';
+      word.classList.add('show');
+      word.focus({ preventScroll: true });
+    }, 1800);
+  }
+
+  function spawnWisps() {
+    var sec = document.getElementById('secArrival');
+    var inner = document.querySelector('.arrival-inner');
+    var ib = inner.getBoundingClientRect();
+    var sb = sec.getBoundingClientRect();
+    for (var i = 0; i < 6; i++) {
+      var fx = (i + Math.random() * 0.7) / 6; /* left to right, with the wipe */
+      var w = document.createElement('div');
+      w.className = 'smoke-wisp';
+      w.style.left = (ib.left - sb.left + fx * ib.width - 45) + 'px';
+      w.style.top = (ib.top - sb.top + Math.random() * ib.height * 0.8) + 'px';
+      w.style.animationDelay = (fx * 1.15) + 's';
+      sec.appendChild(w);
+      setTimeout((function (el) { return function () { el.remove(); }; })(w), 3400);
+    }
+  }
+
+  /* the storm's verdict: a bolt to the empty address, and a tremor */
+  var boltLayer = document.getElementById('boltLayer');
+  var stormFlash = document.getElementById('stormFlash');
+  var lastStrike = 0;
+  function strikeLightning() {
+    if (reduced) return;
+    var now = performance.now();
+    if (now - lastStrike < 550) return;
+    lastStrike = now;
+    var sec = document.getElementById('secArrival');
+    var sb = sec.getBoundingClientRect();
+    var eb = emailInput.getBoundingClientRect();
+    var tx = eb.left - sb.left + eb.width * (0.25 + Math.random() * 0.5);
+    var ty = eb.top - sb.top + 2;
+    var x0 = tx + (Math.random() * 120 - 60);
+    var pts = [[x0, 0]];
+    var steps = 6;
+    for (var i = 1; i < steps; i++) {
+      var yy = (ty / steps) * i;
+      var xx = x0 + (tx - x0) * (i / steps) + (Math.random() * 44 - 22) * (1 - i / steps + 0.2);
+      pts.push([xx, yy]);
+    }
+    pts.push([tx, ty]);
+    var d = 'M' + pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' L');
+    var bi = 2 + Math.floor(Math.random() * 2);
+    var branch = 'M' + pts[bi][0].toFixed(1) + ',' + pts[bi][1].toFixed(1) +
+      ' L' + (pts[bi][0] + (Math.random() < 0.5 ? -1 : 1) * (24 + Math.random() * 26)).toFixed(1) +
+      ',' + (pts[bi][1] + 26 + Math.random() * 22).toFixed(1);
+    boltLayer.innerHTML =
+      '<defs><filter id="boltGlow" x="-60%" y="-60%" width="220%" height="220%">' +
+      '<feGaussianBlur stdDeviation="4"/></filter></defs>' +
+      '<path d="' + d + '" fill="none" stroke="rgba(97,168,138,.55)" stroke-width="7" filter="url(#boltGlow)"/>' +
+      '<path d="' + d + '" fill="none" stroke="rgba(248,244,236,.96)" stroke-width="2"/>' +
+      '<path d="' + branch + '" fill="none" stroke="rgba(248,244,236,.6)" stroke-width="1.3"/>';
+    boltLayer.classList.remove('strike'); void boltLayer.getBoundingClientRect(); boltLayer.classList.add('strike');
+    stormFlash.classList.remove('strike'); void stormFlash.offsetWidth; stormFlash.classList.add('strike');
+    form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake');
+    emailInput.classList.remove('email-struck'); void emailInput.offsetWidth; emailInput.classList.add('email-struck');
+    if (navigator.vibrate) { try { navigator.vibrate([40, 40, 70]); } catch (e) { /* no-op */ } }
+    setTimeout(function () { boltLayer.classList.remove('strike'); boltLayer.innerHTML = ''; }, 700);
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var value = (emailInput.value || '').trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@.]{2,}$/.test(value)) {
+      strikeLightning();
       note.classList.remove('ok');
       note.textContent = 'That doesn’t look like an email yet.';
       emailInput.setAttribute('aria-invalid', 'true');
