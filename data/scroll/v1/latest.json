@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-31T13:59:38.397398Z",
+ "generated_at": "2026-08-31T20:09:44.646194Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -409,7 +409,8 @@
      "q": "degraded"
     },
     "i": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-08-31T13:43+08:00"
     },
     "i_live": {
      "q": "fresh"
@@ -421,7 +422,8 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-08-31T13:43+08:00"
     },
     "weather_city": {
      "q": "fresh"
@@ -440,7 +442,7 @@
     "valence_sign": -1
    },
    "events": [],
-   "holdover": false,
+   "holdover": true,
    "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
@@ -449,10 +451,14 @@
    },
    "judged_at_local": "2026-08-31T13:43+08:00",
    "live": {
-    "degraded_legs": [],
+    "degraded_legs": [
+     "v_w",
+     "z_dw",
+     "r0"
+    ],
     "i_band": "neutral",
-    "judged_at": "2026-08-31T21:59+08:00",
-    "macro_a": 0.9113,
+    "judged_at": "2026-09-01T04:09+08:00",
+    "macro_a": 0.8848,
     "macro_v": -0.8848
    },
    "lonely_sensitive_dates": [],
@@ -836,7 +842,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-08-31T09:59-04:00",
+    "judged_at": "2026-08-31T16:09-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -858,7 +864,7 @@
    "u_type": null
   }
  },
- "params_hash": "2243befa96362de4bff8c0119de389e47ce7f511410f259ab209d3284aca94ae",
+ "params_hash": "3b9668deb56172d331f0c908708d2069c5d2d417d72db90b23cec694b18fb4ee",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
