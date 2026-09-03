@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T16:30:40.020397Z",
+ "generated_at": "2026-09-03T19:54:04.967011Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-09-04T00:30+08:00",
+    "judged_at": "2026-09-04T03:54+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -567,8 +567,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 16,
+     "state": "MIXED"
     },
     {
      "city": "Boston",
@@ -842,7 +842,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-09-03T12:30-04:00",
+    "judged_at": "2026-09-03T15:54-04:00",
     "macro_a": null,
     "macro_v": null
    },
