@@ -352,18 +352,8 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
       root.style.setProperty('--vt-x', (x / W * 100).toFixed(3) + '%');
       root.style.setProperty('--vt-y', (y / Hh * 100).toFixed(3) + '%');
       root.style.setProperty('--vt-r', (R / (Math.hypot(W, Hh) / Math.SQRT2) * 100).toFixed(3) + '%');
-      /* iOS Safari: during the reveal the old snapshot only covers the visual viewport; under the bottom toolbar the live page
-         (already re-themed) shows through as a solid block. On iPhone only, park a fixed strip in the old ground colour behind the
-         toolbar for the duration of the reveal, then remove it. (Freezing the body ground instead would put new ink on old ground inside the circle.) */
-      var cover = null;
-      if (/iPhone/.test(navigator.userAgent) && navigator.maxTouchPoints > 1) {
-        cover = document.createElement('div'); cover.setAttribute('aria-hidden', 'true');
-        cover.style.cssText = 'position:fixed;left:0;right:0;bottom:0;height:calc(env(safe-area-inset-bottom,0px) + 2px);z-index:2147483000;pointer-events:none;background:' + getComputedStyle(document.body).backgroundColor;
-        document.body.appendChild(cover);
-      }
-      var vt = document.startViewTransition(function () { paint(next, 320); });
-      var release = function () { if (cover && cover.parentNode) cover.parentNode.removeChild(cover); cover = null; };
-      if (vt && vt.finished) vt.finished.then(release, release); else setTimeout(release, 800);
+      /* On iPhone Safari the strip behind the toolbar re-themes before the circle reaches it — Safari's own presentation; Abel 2026-09-05: leave it (a cover strip was tried and reverted) */
+      document.startViewTransition(function () { paint(next, 320); });
       return;
     }
     /* Fallback ripple: the target theme's ground color (night #0B2431 / day #61A88A) scales out from the button center;
