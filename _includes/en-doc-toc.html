@@ -24,16 +24,22 @@ comments in English — the mainland build must stay byte-identical, and the ove
     cur = id; if (links[id]) links[id].classList.add('is-current');
   }
   function atBottom() { return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2; }
-  /* Clicking a contents link marks it at once and keeps the observer from overriding it until the smooth scroll settles (1.2s) —
-     otherwise the previous section, still inside the band near the landing point, would light up instead of the one clicked */
-  var lockUntil = 0;
+  /* Clicking a contents link marks it at once and keeps the observer from overriding it until the smooth scroll has *settled* —
+     otherwise the previous section, still inside the band near the landing point, would light up instead of the one clicked.
+     The lock lasts until scroll events have been quiet for 160ms (= settled) rather than a fixed 1.2s: Chrome's smooth scroll takes
+     ~1.5s for jumps beyond ~6000px, and a fixed deadline flicked the highlight to the neighbour and back over the last 200px;
+     when the anchor is already in place and no scroll event fires, the same timer started at the click unlocks; 3s hard cap. */
+  var locked = false, settleT = null, capT = null;
+  function unlock() { if (!locked) return; locked = false; clearTimeout(settleT); clearTimeout(capT); settleT = capT = null; update(); }
+  function armSettle() { clearTimeout(settleT); settleT = setTimeout(unlock, 160); }
   toc.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
     var id = a.getAttribute('href').slice(1); if (!links[id]) return;
-    mark(id); lockUntil = Date.now() + 1200; a.blur();
+    mark(id); a.blur();
+    locked = true; armSettle(); clearTimeout(capT); capT = setTimeout(unlock, 3000);
   });
   function update() {
-    if (Date.now() < lockUntil) return;
+    if (locked) return;
     if (window.scrollY < 40) { mark(secs[0].getAttribute('data-toc')); return; }   /* at the top: the first section is current */
     if (atBottom()) { mark(secs[secs.length - 1].getAttribute('data-toc')); return; }   /* bottom-of-page fallback: when the last section is too short to enter the observation band, reaching the bottom lights it up */
     var vis = secs.filter(function (s) { return s.__in; });
@@ -45,6 +51,6 @@ comments in English — the mainland build must stay byte-identical, and the ove
   }, { rootMargin: '-18% 0px -62% 0px', threshold: 0 });
   secs.forEach(function (s) { io.observe(s); });
   if (secs.length) mark(secs[0].getAttribute('data-toc'));
-  window.addEventListener('scroll', update, { passive: true });   /* leaving the bottom must immediately fall back to the first section inside the band */
+  window.addEventListener('scroll', function () { if (locked) armSettle(); update(); }, { passive: true });   /* leaving the bottom must immediately fall back to the first section inside the band; while locked every scroll event pushes the settle timer back */
 })();
 </script>

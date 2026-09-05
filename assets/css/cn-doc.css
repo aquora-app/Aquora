@@ -194,8 +194,8 @@ html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出
 .tiers li .d { grid-row: 3; }
 
 /* ===== FAQ 手风琴(支持页):首页 chips 的玻璃语言,+ 旋转 45° 成 × ===== */
-.faq { display: grid; gap: 12px; margin: 0 0 1.2em; }
-.faq-item { border-radius: 20px; background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm); transition: background .3s ease; }
+.faq { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin: 0 0 1.2em; }   /* minmax(0,…) + 卡 min-width:0:网格列宽不随卡内 min-content 走——收着的卡不参与 min-content,一张卡里若有超宽的 nowrap,打开的一瞬会把整列撑宽、八张卡同帧变宽、圆钮推出屏幕(2026-09-05 海外支持页 390 宽复核) */
+.faq-item { min-width: 0; border-radius: 20px; background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm); transition: background .3s ease; }
 .faq-item[open] { background: var(--doc-cur-bg); }
 .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 18px 20px 22px; font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--ink); border-radius: 20px; }   /* flex-start + .ic 负外距:圆钮对齐首行(钮心 = 首行中线),单行/两行问题的字形距卡顶一致(居中对齐时 30px 的钮会把 24px 的单行推低 3px;窄屏一半卡单行一半两行,两种留白并存)。上下 20 = 原 17 + 钮溢出的 3 */
 .faq-item summary .q { flex: 1 1 auto; min-width: 0; }   /* 整句问题装一个盒:句内再包 .nb 时不会被拆成两个 flex 项 */
@@ -206,7 +206,7 @@ html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出
 .faq-item .ic::before { width: 12px; height: 2px; }
 .faq-item .ic::after { width: 2px; height: 12px; }
 .faq-item[open] .ic { transform: rotate(45deg); }
-.faq-item .a { padding: 0 22px 17px; }   /* 末行半行距 4.65 + 17 ≈ 顶部字形距(24) */
+.faq-item .a { padding: 0 22px 17px; overflow-wrap: anywhere; }   /* 末行半行距 4.65 + 17 ≈ 顶部字形距(24);anywhere:长 URL / 邮箱不撑卡 */
 .faq-item .a p { font-size: 15.5px; line-height: 1.8; }
 
 /* ===== 联系卡 / 关于本站卡 ===== */
@@ -312,3 +312,7 @@ html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出
 /* 收起动画进行中:图标转回 +、卡底色回到常态,与高度动画同步(见 _includes/faq-anim.html) */
 .faq-item.closing { background: var(--doc-card); }
 .faq-item.closing .ic { transform: none; }
+.toc.closing summary .chev { transform: none; }   /* 目录卡同理:收起期间 open 仍为 true,不加这条 chevron 要等列表收完(onfinish 去 open)才开始转回,晚 ~275ms */
+/* 主题切换进行中(.theme-switching 由 cn-theme.html / en-theme.html 的开关脚本在揭幕/涟漪期间挂到 <html>):令牌驱动的颜色过渡一律关掉——
+   View Transitions 的新视图是活的,这些 .25s 过渡会在圆圈扫过之后继续在其下渐变,目录当前项 / 打开的 FAQ 卡底色会比周围晚 ~200ms 才到位 */
+.theme-switching .toc a, .theme-switching .toc a::before, .theme-switching .toc summary .chev, .theme-switching .faq-item, .theme-switching .faq-item .ic, .theme-switching .prose a { transition: none !important; }

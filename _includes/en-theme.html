@@ -36,13 +36,18 @@ Usage (brace syntax as in cn-head.html): include en-theme.html part="pre" / part
     btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
   }
   paint(cur());
+  /* Three pieces of in-flight state: 1) vt = the active reveal (a tap on the toggle during it skips the reveal so the first switch lands instantly, then reveals the way back from the button); 2) holds/.theme-switching: on <html> for the duration of the reveal or ripple, switching off the token-driven .25s colour transitions (the .theme-switching rules in home.css / cn-doc.css) — otherwise the current contents item / open FAQ card keeps fading under the circle for ~200ms after it has passed; 3) the ripple fallback's pending/paintT: its tokens switch only at 220ms, so a second tap inside that window first settles the paint still owed, or `next` would compute to the same theme */
+  var vt = null, holds = 0, pending = null, paintT = null;
+  function hold() { holds++; root.classList.add('theme-switching'); }
+  function release() { if (--holds <= 0) { holds = 0; root.classList.remove('theme-switching'); } }
   btn.addEventListener('click', function () {
+    if (paintT) { clearTimeout(paintT); paintT = null; paint(pending); }
     var next = cur() === 'dark' ? 'light' : 'dark';
     var r = btn.getBoundingClientRect();
     var x = r.left + r.width / 2, y = r.top + r.height / 2;
     var R = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));   /* button centre to the farthest viewport corner */
     try { localStorage.setItem(KEY, next); } catch (e) {}
-    if (mqReduce && mqReduce.matches) { paint(next); return; }
+    if (mqReduce && mqReduce.matches) { hold(); paint(next); void root.offsetWidth; release(); return; }   /* force one style pass while the class is on, so the tokens switch without transitions */
     if (typeof document.startViewTransition === 'function') {
       /* Centre and radius in percentages, not px: on Retina (DPR 2) Chrome's GPU compositing reads px in the clip-path of the
          ::view-transition pseudo-elements at 1/DPR (the centre lands halfway to the button, the radius halves; headless/software
@@ -52,7 +57,10 @@ Usage (brace syntax as in cn-head.html): include en-theme.html part="pre" / part
       root.style.setProperty('--vt-x', (x / W * 100).toFixed(3) + '%');
       root.style.setProperty('--vt-y', (y / Hh * 100).toFixed(3) + '%');
       root.style.setProperty('--vt-r', (R / (Math.hypot(W, Hh) / Math.SQRT2) * 100).toFixed(3) + '%');
-      document.startViewTransition(function () { paint(next); });
+      if (vt) vt.skipTransition();
+      hold();
+      var t = vt = document.startViewTransition(function () { paint(next); });
+      t.finished.finally(function () { if (vt === t) vt = null; release(); });
       return;
     }
     /* Fallback ripple: the target theme's ground colour (night #0B2431 / day #61A88A) scales out from the button centre; the tokens switch underneath at 220ms, it fades from 420ms and removes itself at 640ms */
@@ -61,9 +69,21 @@ Usage (brace syntax as in cn-head.html): include en-theme.html part="pre" / part
     document.body.appendChild(rip);
     rip.getBoundingClientRect();   /* force a layout so the transition starts from scale(0) */
     rip.classList.add('is-on');
-    setTimeout(function () { paint(next); }, 220);
-    setTimeout(function () { if (rip.parentNode) rip.parentNode.removeChild(rip); }, 640);
+    hold(); pending = next;
+    paintT = setTimeout(function () { paintT = null; paint(next); }, 220);
+    setTimeout(function () { if (rip.parentNode) rip.parentNode.removeChild(rip); release(); }, 640);
   });
+  /* While the reveal runs Chrome hit-tests only the root element: every click inside the 0.7s lands on <html> — a second tap on the toggle does not flip back, taps on nav / contents / FAQ are swallowed (pointer-events:none on the pseudo-elements makes no difference). Catch root-targeted clicks in the capture phase, land the reveal instantly, then re-dispatch the click by its coordinates to the element that was really under it */
+  document.addEventListener('click', function (e) {
+    if (!vt || e.target !== root) return;
+    var x = e.clientX, y = e.clientY, t = vt;
+    e.stopPropagation(); e.preventDefault();
+    t.skipTransition();
+    t.finished.finally(function () {
+      var el = document.elementFromPoint(x, y);
+      if (el && el !== root && el !== document.body) el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, clientX: x, clientY: y, view: window }));
+    });
+  }, true);
 })();
 </script>
 {%- endif %}

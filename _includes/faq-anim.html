@@ -1,9 +1,14 @@
 {%- comment -%}
 FAQ 手风琴与窄屏目录卡的展开/收起动画(支持页 + 隐私/协议页;大陆与海外共用)。原生 <details> 是瞬间开合(Abel 2026-09-05 反馈「瞬间切换,要柔滑一些」),
 这里接管 summary 的点击:展开 = 先 open 再从 0 高度展到实际高度(320ms),收起 = 从实际高度缩到 0 再关(260ms);
+关键帧连同外距 / 上下内距 / 上下边框一起归零(目录卡 .toc-card 在窄屏有 margin-top 10 + padding 6 + border 1×2,
+只动 height 时这 18px 会在展开首帧突然出现、收起末帧突然消失——2026-09-05 复核发现的「首尾各跳一行」);
+动画进行中再点 = 就地反向(从当前高度按剩余比例折算时长),连点不再被吞;
 prefers-reduced-motion 直接开合;无 JS 时仍是原生 details,内容可读。脚本内注释一律英文(海外产物不得含中文)。
 FAQ accordion open/close animation (support pages, both sites). Native <details> toggles instantly; this takes over the
 summary click: open = set open, then grow from 0 to the measured height (320ms); close = shrink to 0, then close (260ms).
+Margin / vertical padding are animated together with the height (border widths snap to device pixels, so the closed keyframe
+keeps them and compensates through margin-bottom), and a click mid-animation reverses in place.
 {%- endcomment -%}
 <script>
 (function () {
@@ -11,30 +16,51 @@ summary click: open = set open, then grow from 0 to the measured height (320ms);
   var items = document.querySelectorAll('details.faq-item, details.toc');
   if (!items.length || typeof Element.prototype.animate !== 'function') return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Every box property that takes up space is part of the keyframes: with border-box sizing the height alone cannot go below
+     padding + borders, and margin-top is outside the box altogether — the contents card on phones has 10 + 6 + 1 + 1 = 18px of
+     those, which used to appear in the first open frame and vanish in the last close frame as a visible hop.
+     Border widths are left alone (they snap to whole device pixels, so animating 1px → 0 holds 1px until the very end): the
+     "closed" keyframe keeps the two border lines and pulls margin-bottom up by the same amount, so the box occupies exactly 0px. */
+  function zero(full) {
+    var bt = parseFloat(full.borderTopWidth) || 0, bb = parseFloat(full.borderBottomWidth) || 0, mb = parseFloat(full.marginBottom) || 0;
+    return { height: (bt + bb) + 'px', marginTop: '0px', marginBottom: (mb - bt - bb) + 'px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 };
+  }
   [].forEach.call(items, function (d) {
     var s = d.querySelector('summary'), body = d.querySelector('.a, .toc-card');
     if (!s || !body) return;
+    function snap(op) {   /* the box as it is right now (mid-animation values come back through getComputedStyle) */
+      var cs = getComputedStyle(body);
+      return { height: body.getBoundingClientRect().height + 'px', marginTop: cs.marginTop, marginBottom: cs.marginBottom, paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom,
+               borderTopWidth: cs.borderTopWidth, borderBottomWidth: cs.borderBottomWidth, opacity: op == null ? cs.opacity : op };   /* border widths are read for zero(), not animated */
+    }
+    function clear() { body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; }
     s.addEventListener('click', function (e) {
       e.preventDefault();
       if (reduce) { d.open = !d.open; return; }
-      if (d.__anim) return;
+      /* A click while an animation is running reverses it from where it is (a tap-then-tap-again reads as "half open, then closed"
+         instead of being swallowed). While closing, open is still true, so the direction comes from the .closing marker. */
+      var running = d.__anim, wantOpen = running ? d.classList.contains('closing') : !d.open, from = null;
+      if (running) { from = snap(); running.onfinish = running.oncancel = null; running.cancel(); d.__anim = null; }
       body.style.overflow = 'hidden'; body.style.boxSizing = 'border-box';
-      if (!d.open) {
-        d.open = true;
-        var h = body.getBoundingClientRect().height;
-        var pb = getComputedStyle(body).paddingBottom;
-        d.__anim = body.animate([{ height: '0px', paddingBottom: '0px', opacity: 0 }, { height: h + 'px', paddingBottom: pb, opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.22, .61, .36, 1)' });
-        d.__anim.onfinish = d.__anim.oncancel = function () { body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; };
+      d.open = true;   /* already true when reversing; needed to measure the natural box when opening */
+      var full = snap(1), fullH = parseFloat(full.height), fromH = from ? parseFloat(from.height) : (wantOpen ? 0 : fullH);
+      var frac = fullH > 0 ? Math.min(1, Math.max(0, (wantOpen ? fullH - fromH : fromH) / fullH)) : 1;   /* remaining share of the travel → remaining share of the duration */
+      var anim;
+      if (wantOpen) {
+        d.classList.remove('closing');
+        anim = body.animate([from || zero(full), full], { duration: Math.max(80, Math.round(320 * frac)), easing: 'cubic-bezier(.22, .61, .36, 1)' });
+        anim.onfinish = anim.oncancel = function () { anim.onfinish = anim.oncancel = null; clear(); };
       } else {
-        /* close: fill 'forwards' holds the 0 height until open is removed (otherwise the content snaps back to full height for one
-           frame before disappearing); .closing lets the +/× icon and the card colour transition together with the height */
-        var h2 = body.getBoundingClientRect().height;
+        /* close: fill 'forwards' holds the zero box until open is removed (otherwise the content snaps back to full height for one
+           frame before disappearing); .closing lets the +/× icon, the chevron and the card colour transition together with the height */
         d.classList.add('closing');
-        var pb2 = getComputedStyle(body).paddingBottom;   /* padding collapses too: with border-box the height can't go below the padding, leaving a stub that then jumps away */
-        var anim = body.animate([{ height: h2 + 'px', paddingBottom: pb2, opacity: 1 }, { height: '0px', paddingBottom: '0px', opacity: 0 }], { duration: 260, easing: 'cubic-bezier(.4, 0, .2, 1)', fill: 'forwards' });
-        d.__anim = anim;
-        anim.onfinish = anim.oncancel = function () { d.open = false; d.classList.remove('closing'); anim.cancel(); body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; };
+        anim = body.animate([from || full, zero(full)], { duration: Math.max(80, Math.round(260 * frac)), easing: 'cubic-bezier(.4, 0, .2, 1)', fill: 'forwards' });
+        anim.onfinish = anim.oncancel = function () {
+          anim.onfinish = anim.oncancel = null;   /* detach first: cancel() below would otherwise queue a second run of this handler */
+          d.open = false; d.classList.remove('closing'); anim.cancel(); clear();
+        };
       }
+      d.__anim = anim;
     });
   });
 })();
