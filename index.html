@@ -27,7 +27,7 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Aquora — Phone Personality</title>
 <meta name="description" content="Decode your phone personality from real screen-time behavior. Sixteen phone personalities, a 30-day no-unlock challenge and a daily scroll forecast — no judgment, no selling anxiety, your data stays on your device.">
-<meta name="theme-color" content="#0E2C3C">
+<meta name="theme-color" content="#0B2431">
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
@@ -69,7 +69,7 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
   if (t !== 'light' && t !== 'dark') t = 'dark';   /* initial mode = night (Abel, 2026-09-04); system preference is not consulted, a manual pick persists in localStorage */
   document.documentElement.setAttribute('data-theme', t);
   var m = document.querySelector('meta[name="theme-color"]');
-  if (m) m.setAttribute('content', t === 'dark' ? '#0E2C3C' : '#6DB294');
+  if (m) m.setAttribute('content', t === 'dark' ? '#0B2431' : '#61A88A');
 })();
 </script>
 
@@ -325,7 +325,7 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
        0.2–0.3s fade lands roughly with the circle instead of jumping before it arrives. */
     if (!meta) return;
     if (metaTimer) { clearTimeout(metaTimer); metaTimer = null; }
-    var c = t === 'dark' ? '#0E2C3C' : '#6DB294';
+    var c = t === 'dark' ? '#0B2431' : '#61A88A';
     if (delay) metaTimer = setTimeout(function () { meta.setAttribute('content', c); }, delay);
     else meta.setAttribute('content', c);
   }
