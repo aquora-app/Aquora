@@ -58,7 +58,8 @@ html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出
   content: ""; grid-column: 1; grid-row: 1 / -1; z-index: -1;
   background: var(--glass); border: 1px solid var(--glass-line); border-radius: var(--r-card);
   box-shadow: inset 0 1px 0 var(--hl), var(--card-shadow);
-  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  /* 不用 backdrop-filter:纸后面只有平滑渐变,模糊与否逐像素几乎无差(实测 1440×900 仅 3 像素),
+     但纸高度一变(FAQ 展开、目录折叠)浏览器要对整张纸重算模糊,是 FAQ 动画卡顿的来源(Abel 2026-09-05) */
 }
 .paper.no-toc { grid-template-columns: minmax(0, var(--doc-paper-w)); grid-template-areas: "head" "body"; }
 .doc-head { grid-area: head; padding: var(--doc-head-pad) var(--doc-pad-x) 0; }
