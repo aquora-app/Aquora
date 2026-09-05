@@ -49,7 +49,3 @@ exclude:
   # 预约收单服务源码(部署到服务器,不是站点页面)
   - server/
   - _config_cn.yml
-  - favicon.ico
-  - favicon-192.png
-  - favicon-512.png
-  - apple-touch-icon.png
