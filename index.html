@@ -45,9 +45,9 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
 <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/og/home.png">
 <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/">
 {% include site-icons.html %}
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cn-fonts.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home-en.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cn-fonts.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home-en.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
 </head>
 <body>
 <script>
