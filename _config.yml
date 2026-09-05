@@ -17,12 +17,39 @@ defaults:
     values:
       layout: archetype
 
-# The legacy Terms/Privacy file (index.html) lives at the root and uses no
-# Jekyll features — Jekyll will serve it unchanged because it has no front
-# matter. No action needed.
+# Root index.html is the marketing home page (bilingual EN/zh, mirrors the
+# mainland cn/index.html design). The legacy Terms/Privacy page moved to
+# legal/index.html (permalink /legal/); the home page redirects old
+# #terms/#privacy deep links there so App/ASC links keep working.
+
+# Site-wide values used by the home page (the mainland overlay overrides them).
+app_store_url: https://apps.apple.com/app/id6761502736
+contact_email: aquora.apps@gmail.com
 
 # Skip files that don't need processing — keeps the build fast and avoids
 # Jekyll trying to parse README, etc.
 exclude:
   - README.md
   - "*.txt"
+  # 大陆站(aquora.cn)专属源文件,只在 --config _config.yml,_config_cn.yml 下构建。
+  # (英文首页与大陆首页共用 home.css / cn-fonts.css / assets/fonts/;英文截图在 assets/img/app/en/。)
+  - "cn/"
+  - assets/css/cn.css
+  - assets/img/wx-share.png
+  - assets/img/psb.png
+  # (逐个列出:Jekyll 的 fnmatch 不带 FNM_PATHNAME,"assets/img/app/*.jpg" 会连 app/en/light/*.jpg 一起排掉)
+  - assets/img/app/home.jpg
+  - assets/img/app/meditate.jpg
+  - assets/img/app/track.jpg
+  - assets/img/app/personality.jpg
+  - assets/img/app/me.jpg
+  - assets/img/app/dark/
+  - assets/img/app/icon-512.png
+  - tools/
+  # 预约收单服务源码(部署到服务器,不是站点页面)
+  - server/
+  - _config_cn.yml
+  - favicon.ico
+  - favicon-192.png
+  - favicon-512.png
+  - apple-touch-icon.png

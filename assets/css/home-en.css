@@ -1,0 +1,234 @@
+/* English home — direction C "letter voice" (en-vc.html). Loaded after home.css, replaces home-en.css.
+   Two voices only: Cormorant (every heading, eyebrow, lede — ledes italic) and the system sans (buttons, chips,
+   nav, footer, small body copy). No uppercase tracking, no eyebrow capsules; rhythm comes from line-height and
+   whitespace. Colour tokens, glass, day/night faces, the toggle and the phone stacks are home.css's, untouched.
+
+   Type scale (desktop → 390):
+     H1        84 → 46px   Cormorant 500, lh 1.02, ls -.015em, ≤18 chars/line, three lines
+     H2        56 → 36px   Cormorant 500, lh 1.08
+     H3 card   28 → 26px   Cormorant 600, lh 1.15
+     H3 name   19 → 18px   Cormorant 600 (archetype cards)
+     lede      22 → 19px   Cormorant italic 500, lh 1.55
+     eyebrow   18 → 17px   Cormorant italic 500, ls .02em
+     body      15px        sans, lh 1.65 (card copy, notes)
+     ui        13–14px     sans 600 (chips, tags, nav, footer)
+   Space: section gap clamp(96, 11vw, 152); head→content 56; card padding 28; grid gaps 20 / 14. */
+
+:root {
+  --gap: clamp(96px, 11vw, 152px);
+  --serif: var(--font-latin);
+}
+
+/* ---------- Voices ---------- */
+h1, h2, h3, .h-display, .h-section, .h-card {
+  font-family: var(--serif); font-weight: 500; letter-spacing: -.01em; line-height: 1.08;
+  font-feature-settings: "kern", "liga";
+}
+.h-display { font-size: clamp(46px, 5.4vw, 76px); line-height: 1.02; letter-spacing: -.015em; }   /* 76px keeps "and your phone." on one line in the mainland-width copy column at 1440 */
+.h-section { font-size: clamp(36px, 4vw, 56px); }
+.h-card { font-size: clamp(26px, 2.1vw, 28px); font-weight: 600; line-height: 1.15; letter-spacing: 0; }
+
+.lede {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: clamp(19px, 1.55vw, 22px); line-height: 1.55; letter-spacing: .005em;
+  color: var(--ink-text); text-wrap: pretty;
+}
+.eyebrow, .sec-head .eyebrow, .voice .eyebrow, .cta .eyebrow, .night-copy .eyebrow {
+  display: block; padding: 0; border: 0; background: transparent; border-radius: 0;
+  font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(17px, 1.3vw, 18px);
+  letter-spacing: .02em; text-transform: none; line-height: 1.4; color: var(--label);
+}
+.eyebrow .lat { font-style: normal; font-weight: 600; letter-spacing: .04em; font-size: inherit; }
+.hero-copy .eyebrow { display: flex; gap: 10px; margin-bottom: 26px; }
+.hero-copy .eyebrow .sep { color: var(--ink-30); font-style: normal; }
+.hero-copy .lede { margin: 24px 0 34px; max-width: 30em; }   /* mainland measure: two lines at 1440, keeps the card near the mainland height */
+.hero-note { margin-top: 18px; font-size: 13.5px; color: var(--muted); letter-spacing: .01em; }
+.hero-note .m { display: none; }
+.small { font-size: 14px; }
+.nb { white-space: nowrap; }
+
+/* ---------- Ⅰ Hero ---------- */
+.hero { padding-top: clamp(32px, 5vw, 64px); }
+/* Hero geometry stays exactly the mainland one (1.05fr/.95fr, 560px, same phone bleed) — Abel 2026-09-04: the narrower
+   phone column of the first letter-voice draft made the phones read smaller than aquora.cn's.
+   Copy block centred with equal air above and below (Abel: 卡片上下留白对称): the card has padding-top only (the phones
+   must reach its bottom edge), so the copy carries the same amount as bottom padding and align-self:center does the rest. */
+.hero-copy { padding-bottom: clamp(28px, 4vw, 56px); }
+.hero-actions .btn { font-size: 15.5px; padding: 15px 24px; }
+
+/* ---------- Section heads: a short rule, then eyebrow / title / lede, centred like a chapter opening ---------- */
+.sec-head {
+  max-width: 38em; margin-inline: auto; margin-bottom: clamp(40px, 5vw, 56px);
+  text-align: center; position: relative;
+}
+.sec-head::before { content: ""; display: block; width: 44px; height: 1px; margin: 0 auto 26px; background: var(--ink-30); }
+.sec-head .eyebrow { margin-bottom: 16px; }
+.sec-head .lede { margin: 18px auto 0; max-width: 30em; }
+
+/* ---------- Ⅱ Three postcards: screenshot window on top, words below, one row of chips at the foot ---------- */
+.trio { gap: 20px; align-items: stretch; }
+.tcard { padding: 0; min-height: 0; border-radius: var(--r-card); }
+.tcard > * { margin-left: 28px; margin-right: 28px; }
+.tcard .glow { display: none; }   /* the postcard's picture is the screenshot; the icon was a third voice */
+/* Window: a fixed-height frame, the phone rises out of its floor; a per-card halo behind it */
+.tcard .phone {
+  order: -1; position: relative; overflow: hidden; margin: 0; width: 100%; height: 300px; aspect-ratio: auto;
+  padding: 0; border-radius: 0; background: var(--glass-hi); box-shadow: inset 0 -1px 0 var(--glass-rule);
+}
+:root[data-theme="dark"] .tcard .phone { background: rgba(255, 255, 255, .04); box-shadow: inset 0 -1px 0 var(--glass-rule); }
+.tcard .phone::before {
+  content: ""; position: absolute; left: 50%; top: 62%; width: 82%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; background: radial-gradient(circle, var(--halo, rgba(201, 241, 228, .45)) 0%, transparent 66%); filter: blur(18px);
+}
+.tcard:nth-child(1) .phone { --halo: rgba(140, 130, 200, .45); }
+.tcard:nth-child(2) .phone { --halo: rgba(245, 200, 66, .32); }
+.tcard:nth-child(3) .phone { --halo: rgba(245, 200, 66, .42); }
+:root[data-theme="dark"] .tcard:nth-child(1) .phone { --halo: rgba(140, 130, 200, .22); }
+:root[data-theme="dark"] .tcard:nth-child(2) .phone { --halo: rgba(245, 200, 66, .14); }
+:root[data-theme="dark"] .tcard:nth-child(3) .phone { --halo: rgba(245, 200, 66, .18); }
+.tcard .phone .screen {
+  position: absolute; left: 50%; top: 36px; transform: translateX(-50%); width: 62%; height: auto;
+  border: 8px solid #143846; border-bottom: 0; border-radius: 34px 34px 0 0;
+  box-shadow: 0 24px 50px rgba(8, 68, 86, .35), 0 0 0 1px rgba(8, 68, 86, .4);
+}
+:root[data-theme="dark"] .tcard .phone .screen { border-color: #2B4A55; box-shadow: 0 24px 50px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .14), 0 0 0 1px rgba(0, 0, 0, .35); }
+.tcard .phone .screen::after { display: none; }
+.tcard .fact {
+  margin-top: 26px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 17px; letter-spacing: .02em;
+  color: var(--label); display: block;
+}
+.tcard .h-card { margin: 8px 28px 10px; }
+.tcard p { font-size: 15px; line-height: 1.65; max-width: none; margin-bottom: 22px; color: var(--ink-text); text-wrap: pretty; }
+.tcard .chips, .twin {
+  margin: auto 28px 28px; min-height: 0; max-width: none; gap: 6px; flex-wrap: nowrap; align-items: center;
+}
+.tcard .chips > span { padding: 6px 11px; font-size: 12.5px; font-weight: 600; letter-spacing: .01em; gap: 4px; white-space: nowrap; }
+.tcard .chips > span code { font-size: 11.5px; letter-spacing: .06em; }
+.tcard .chips > .chip-note {
+  padding: 0 0 0 4px; background: transparent; border: 0; box-shadow: none;
+  font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 15px; color: var(--muted); letter-spacing: .01em;
+}
+
+/* ---------- Ⅲ Sixteen: the legend, then 4 columns of small calling cards ---------- */
+.axes { margin: 0 0 20px; border-radius: 20px; }
+.axis { gap: 4px; padding: 14px 18px; }
+.axis .k { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 16px; letter-spacing: .01em; color: var(--label); }
+.axis .pair { font-size: 13px; }
+.grid16 { gap: 14px; }
+.cell {
+  display: grid; grid-template-columns: 44px 1fr; grid-template-areas: "em name" "em ax"; column-gap: 12px; row-gap: 3px;
+  align-items: start; align-content: start; text-align: left; padding: 16px 16px 14px; min-height: 0; border-radius: 20px;
+}
+.cell .em { grid-area: em; font-size: 28px; width: 44px; height: 44px; margin: 0; }
+.cell .em::before { inset: -8px; }
+.cell b { grid-area: name; font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.15; letter-spacing: 0; text-wrap: balance; }
+.cell .ax { grid-area: ax; margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted); letter-spacing: 0; }
+.cell .ax .l { display: block; }
+.cell code { position: absolute; right: 14px; bottom: 12px; margin: 0; font-size: 10.5px; letter-spacing: .16em; padding: 3px 7px 3px 9px; }
+.cell { position: relative; }
+.grid-foot { margin-top: 26px; }
+.grid-foot .small { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 17px; max-width: 40em; }
+.rs-link { font-style: normal; font-weight: 600; }
+.btn-ghost { font-size: 14.5px; padding: 13px 22px; }
+
+/* ---------- Ⅳ The night side ---------- */
+.night { gap: clamp(24px, 4vw, 48px); padding: clamp(40px, 5vw, 64px) clamp(28px, 5vw, 64px); }
+.night h2 { font-size: clamp(34px, 3.3vw, 46px); }
+.night-copy .eyebrow { margin-bottom: 16px; }
+.night-copy .lede { margin-top: 18px; max-width: 26em; font-size: clamp(18px, 1.4vw, 20px); }
+/* Tags become one quiet meta line under a hairline instead of four capsules */
+.night-tags { display: grid; grid-template-columns: repeat(2, max-content); gap: 8px 28px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(201, 241, 228, .18); }
+.night-tags li { padding: 0 0 0 14px; position: relative; border: 0; background: transparent; font-size: 13px; font-weight: 600; letter-spacing: .01em; color: rgba(201, 241, 228, .75); white-space: nowrap; }
+.night-tags li::before { content: ""; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: rgba(201, 241, 228, .45); }
+.dial .word { font-family: var(--serif); font-weight: 600; font-size: 36px; letter-spacing: -.01em; }   /* Cormorant sits ~20% smaller than the sans at equal size; the viewBox scaling below mirrors home.css */
+@media (max-width: 980px) { .dial .word { font-size: 38px; } }
+@media (max-width: 430px) { .dial .word { font-size: 40px; } }
+@media (max-width: 380px) { .dial .word { font-size: 42px; } }
+@media (max-width: 350px) { .dial .word { font-size: 44px; } }
+.dial-note { font-size: 12.5px; }
+
+/* ---------- Ⅴ Voice: three lines of equal breath ---------- */
+.voice .eyebrow { margin-bottom: 30px; }
+.voice-lines { gap: clamp(6px, 1.2vw, 12px); }
+.voice-lines p { font-family: var(--serif); font-weight: 500; font-size: clamp(31px, 4.6vw, 66px); line-height: 1.12; letter-spacing: -.01em; }
+.voice-sub { margin-top: 30px; max-width: 30em; font-size: clamp(18px, 1.4vw, 20px); }
+
+/* ---------- Ⅵ Seal ---------- */
+.cta .eyebrow { margin-top: 26px; }
+.cta .h-section { margin-top: 12px; font-size: clamp(34px, 3.6vw, 50px); }
+.cta .lede { margin: 16px auto 32px; max-width: 24em; }
+.cta .fine { font-size: 13px; max-width: 38em; }
+
+/* ---------- UI stays sans ---------- */
+.nav-links a { font-size: 14px; }
+.footer-icp-nav { font-size: 13px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .cell b { font-size: 18px; }
+  .cell .ax { font-size: 11.5px; }
+  /* 981–1180 (iPad landscape): four columns were too narrow — the stamp collided with the second axis line and names broke
+     into three lines; 16 cells only tile cleanly as 4×4 or 2×8, so drop to two columns (same as the ≤980 rule) */
+  .grid16 { grid-template-columns: repeat(2, 1fr); }
+  /* three columns are ~300px here: smaller fact/title so card 3 doesn't wrap, chips may wrap instead of hitting the padding */
+  .tcard .fact { font-size: 15.5px; }
+  .tcard .h-card { font-size: 25px; }
+  .tcard .chips { flex-wrap: wrap; }
+}
+@media (max-width: 980px) {
+  .hero-card { grid-template-columns: 1fr; min-height: 0; padding-bottom: 0; }
+  .hero-copy { padding-bottom: 16px; }
+  .hero-copy .lede { max-width: 30em; }
+  .trio { grid-template-columns: 1fr 1fr; }
+  .tcard:nth-child(3) { grid-column: 1 / -1; display: flex; flex-direction: column; }
+  .tcard:nth-child(3) .phone { width: 100%; margin: 0; }
+  .tcard .phone { height: 280px; }
+  .tcard .phone .screen { width: min(62%, 260px); }
+  .grid16 { grid-template-columns: repeat(2, 1fr); }
+  .axes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .night h2 { font-size: clamp(32px, 4.6vw, 42px); }
+}
+@media (max-width: 640px) {
+  .hero-card { padding: 34px 22px 0; }
+  .h-display { font-size: clamp(44px, 11.8vw, 52px); }
+  .hero-copy .eyebrow { margin-bottom: 22px; font-size: 16px; }
+  .hero-copy .lede { margin: 22px 0 30px; }
+  .sec-head { margin-bottom: 36px; }
+  .h-section { font-size: clamp(36px, 9.6vw, 40px); }
+  .trio { grid-template-columns: 1fr; }
+  .tcard > * { margin-left: 22px; margin-right: 22px; }
+  .tcard .h-card { margin-inline: 22px; }
+  .tcard .chips, .twin { margin-inline: 22px; margin-bottom: 24px; }
+  .tcard .phone { height: 250px; width: 100%; margin: 0; }
+  .tcard .phone .screen { width: min(58%, 220px); top: 30px; border-width: 7px; border-radius: 30px 30px 0 0; }
+  .tcard .fact { margin-top: 22px; font-size: 16px; }
+  .axes { grid-template-columns: 1fr; }
+  .axis { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px; }
+  .axis .k { font-size: 16px; }
+  .grid16 { grid-template-columns: 1fr; gap: 10px; }
+  .cell { grid-template-columns: 44px 1fr; grid-template-areas: "em name" "em ax"; padding: 12px 14px; border-radius: 18px; }
+  .cell .em { font-size: 26px; width: 44px; height: 44px; }
+  .cell b { font-size: 18px; }
+  .cell .ax { font-size: 12px; }
+  .cell .ax .l { display: inline; }
+  .cell .ax .l + .l::before { content: " · "; }
+  .cell code { position: static; grid-area: code; align-self: start; justify-self: end; margin-top: 2px; font-size: 10.5px; letter-spacing: .16em; }
+  .cell { grid-template-columns: 44px 1fr auto; grid-template-areas: "em name code" "em ax ax"; column-gap: 10px; }
+  .grid-foot { gap: 16px; }
+  .night { padding: 30px 22px; }
+  .night h2 { font-size: clamp(30px, 8.2vw, 34px); }
+  .night-tags { grid-template-columns: 1fr; gap: 7px; margin-top: 22px; }
+  .btn-more { display: none; }
+  .hero-note .m { display: inline; }
+  .hero-note-sep { display: none; }
+  .night-tags li { font-size: 12.5px; }
+  .voice-lines p { font-size: clamp(28px, 8vw, 34px); }
+  .voice-sub { margin-top: 24px; }
+  .cta .h-section { font-size: clamp(32px, 8.8vw, 36px); }
+}
+@media (max-width: 430px) {
+  .axis { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+
+/* The night card is navy in both themes: its eyebrow keeps the mint ink (home.css sets this; our generic .eyebrow rule above outranked it) */
+.night-copy .eyebrow { color: rgba(201, 241, 228, .75); }

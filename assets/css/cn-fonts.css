@@ -1,0 +1,13 @@
+---
+---
+/* aquora.cn 自托管字体（大陆不引用 Google Fonts）。子集由 tools/subset_fonts.py 生成；SIL OFL 1.1。
+   显示层：中文宋体 Noto Serif SC（可变字重 200–900）+ 拉丁 Cormorant Garamond（可变 300–700，含意大利体）。
+   正文仍用系统栈（PingFang SC / Hiragino Sans GB / Noto Sans CJK SC / Microsoft YaHei）。 */
+@font-face { font-family: "Aquora Serif SC"; src: url("{{ site.baseurl }}/assets/fonts/AquoraSerifSC.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "Aquora Cormorant"; src: url("{{ site.baseurl }}/assets/fonts/AquoraCormorant.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aquora Cormorant"; src: url("{{ site.baseurl }}/assets/fonts/AquoraCormorant-Italic.woff2") format("woff2"); font-weight: 300 700; font-style: italic; font-display: swap; }
+:root {
+  --font-display: "Aquora Serif SC", "Songti SC", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+  --font-latin: "Aquora Cormorant", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", system-ui, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
