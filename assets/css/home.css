@@ -324,11 +324,11 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -.01em; line-height: 1
 /* ---------- 手机外框 ---------- */
 .phone {
   position: relative; width: 100%; aspect-ratio: 9 / 18.6;
-  border-radius: var(--r-phone); padding: 10px;
+  border-radius: var(--r-phone); padding: var(--phone-pad, 10px);   /* 边框厚度随机身宽度走(手机端用 --phone-pad 缩小) */
   background: #143846;
   box-shadow: 0 30px 60px rgba(8, 68, 86, .35), inset 0 0 0 2px rgba(255, 255, 255, .06), 0 0 0 1px rgba(8, 68, 86, .4);
 }
-.phone .screen { position: relative; isolation: isolate; width: 100%; height: 100%; border-radius: calc(var(--r-phone) - 10px); overflow: hidden; background: var(--sea); }
+.phone .screen { position: relative; isolation: isolate; width: 100%; height: 100%; border-radius: calc(var(--r-phone) - var(--phone-pad, 10px)); overflow: hidden; background: var(--sea); }
 /* 截图保留真实状态栏区域与灵动岛(状态栏文字已在图片里抹去),不再用 CSS 补色带——补带与截图底色必有色差接缝 */
 /* 状态栏区:截图顶部按宽度 13.5%(=720 宽图 97px:时间/信号/真岛)整段去掉——负上边距把它顶出屏顶,clip-path 再把它抠透明
    (overflow:hidden 只裁 padding box 之外,负边距区照样可见,所以必须 clip;6.2% 按 1565 高 = 97px,三张截图同为 720×1565)。
@@ -603,7 +603,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -.01em; line-height: 1
   .brand { font-size: 16px; }
   .hero-card { padding: 30px 22px 0; border-radius: 24px; }
   .hero-phones { margin-bottom: -26%; }
-  .hero-phones .phone { width: 47%; }
+  /* 手机端两台机身只有约 165px 宽:边框 10px、圆角 44px 是按桌面 276px 机身定的,按 0.6 等比缩小,否则机身显得又胖又圆(Abel 2026-09-05 手机实拍) */
+  .hero-phones .phone { width: 47%; --phone-pad: 6px; --r-phone: 27px; }
   .tcard { padding: 26px 22px 0; }
   /* 四轴图例改单列四行「轴名左 · 字母对右」,与 .grid16 的行表同一思路;2×2 在窄屏列宽不等且 <375 溢出(T-03/D2) */
   .axes { grid-template-columns: 1fr; }

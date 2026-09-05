@@ -69,7 +69,7 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
   if (t !== 'light' && t !== 'dark') t = 'dark';   /* initial mode = night (Abel, 2026-09-04); system preference is not consulted, a manual pick persists in localStorage */
   document.documentElement.setAttribute('data-theme', t);
   var m = document.querySelector('meta[name="theme-color"]');
-  if (m) m.setAttribute('content', t === 'dark' ? '#0E2C3C' : '#1D4354');
+  if (m) m.setAttribute('content', t === 'dark' ? '#0E2C3C' : '#6DB294');
 })();
 </script>
 
@@ -318,9 +318,20 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
     var l = LABEL[lang][cur()];
     btn.setAttribute('aria-label', l); btn.setAttribute('title', l);
   }
-  function paint(t) {
+  var metaTimer = null;
+  function tint(t, delay) {
+    /* iOS Safari's status/tool bars are browser UI outside the page's reveal animation; they only follow theme-color.
+       During the reveal, delay the theme-color update to when the circle sweeps mid-screen (~320ms) so Safari's own
+       0.2–0.3s fade lands roughly with the circle instead of jumping before it arrives. */
+    if (!meta) return;
+    if (metaTimer) { clearTimeout(metaTimer); metaTimer = null; }
+    var c = t === 'dark' ? '#0E2C3C' : '#6DB294';
+    if (delay) metaTimer = setTimeout(function () { meta.setAttribute('content', c); }, delay);
+    else meta.setAttribute('content', c);
+  }
+  function paint(t, tintDelay) {
     root.setAttribute('data-theme', t);
-    if (meta) meta.setAttribute('content', t === 'dark' ? '#0E2C3C' : '#1D4354');
+    tint(t, tintDelay || 0);
     btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
     label();
   }
@@ -341,7 +352,7 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
       root.style.setProperty('--vt-x', (x / W * 100).toFixed(3) + '%');
       root.style.setProperty('--vt-y', (y / Hh * 100).toFixed(3) + '%');
       root.style.setProperty('--vt-r', (R / (Math.hypot(W, Hh) / Math.SQRT2) * 100).toFixed(3) + '%');
-      document.startViewTransition(function () { paint(next); });
+      document.startViewTransition(function () { paint(next, 320); });
       return;
     }
     /* Fallback ripple: the target theme's ground color (night #0B2431 / day #61A88A) scales out from the button center;
