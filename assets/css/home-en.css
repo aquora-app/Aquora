@@ -24,7 +24,7 @@ h1, h2, h3, .h-display, .h-section, .h-card {
   font-family: var(--serif); font-weight: 500; letter-spacing: -.01em; line-height: 1.08;
   font-feature-settings: "kern", "liga";
 }
-.h-display { font-size: clamp(46px, 5.4vw, 76px); line-height: 1.02; letter-spacing: -.015em; }   /* 76px keeps "and your phone." on one line in the mainland-width copy column at 1440 */
+.h-display { font-size: clamp(44px, 4.3vw, 60px); line-height: 1.02; letter-spacing: -.015em; }   /* 60px (was 76): Abel 2026-09-05 prefers the mainland hero's block size/position — at 1440 the card is now 578px like aquora.cn, copy 437px, air 62/78 */
 .h-section { font-size: clamp(36px, 4vw, 56px); }
 .h-card { font-size: clamp(26px, 2.1vw, 28px); font-weight: 600; line-height: 1.15; letter-spacing: 0; }
 
@@ -39,9 +39,9 @@ h1, h2, h3, .h-display, .h-section, .h-card {
   letter-spacing: .02em; text-transform: none; line-height: 1.4; color: var(--label);
 }
 .eyebrow .lat { font-style: normal; font-weight: 600; letter-spacing: .04em; font-size: inherit; }
-.hero-copy .eyebrow { display: flex; gap: 10px; margin-bottom: 26px; }
+.hero-copy .eyebrow { display: flex; gap: 10px; margin-bottom: 20px; }
 .hero-copy .eyebrow .sep { color: var(--ink-30); font-style: normal; }
-.hero-copy .lede { margin: 24px 0 34px; max-width: 30em; }   /* mainland measure: two lines at 1440, keeps the card near the mainland height */
+.hero-copy .lede { font-size: 19px; margin: 22px 0 32px; max-width: 30em; }   /* mainland rhythm: same margins as cn/index.html, 19px keeps the block close to the mainland height */
 .hero-note { margin-top: 18px; font-size: 13.5px; color: var(--muted); letter-spacing: .01em; }
 .hero-note .m { display: none; }
 .small { font-size: 14px; }
@@ -53,7 +53,7 @@ h1, h2, h3, .h-display, .h-section, .h-card {
    phone column of the first letter-voice draft made the phones read smaller than aquora.cn's.
    Copy block centred with equal air above and below (Abel: 卡片上下留白对称): the card has padding-top only (the phones
    must reach its bottom edge), so the copy carries the same amount as bottom padding and align-self:center does the rest. */
-/* (the symmetric padding-bottom and the viewport-fitted min-height now live in home.css, shared by both sites) */
+/* copy air above/below follows home.css (same 83/99-style upper bias as the mainland page — Abel prefers that placement) */
 .hero-actions .btn { font-size: 15.5px; padding: 15px 24px; }
 
 /* ---------- Section heads: a short rule, then eyebrow / title / lede, centred like a chapter opening ---------- */
