@@ -7,8 +7,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/Aquora/favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/Aquora/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/Aquora/apple-touch-icon.png">
-  <title data-en="Scroll Forecast — Aquora"
-         data-zh="刷机预报 — Aquora 沐汐">Scroll Forecast — Aquora</title>
+  <title>Scroll Forecast — Aquora</title>
 
   <meta name="description" content="Tonight's scroll forecast — a 0–100 composite index built from public macro signals. Zero Aquora user data.">
 
@@ -113,7 +112,7 @@ body.stale-page main { filter: saturate(0.5); }
   padding: 28px 22px 72px;
 }
 
-/* Switchers (lang pill mirrors archetype.css byte-for-byte; market pill same look) */
+/* Switchers (market pill only — the site is English-only, no language pill) */
 .switchers { position: fixed; top: 16px; right: 16px; z-index: 10; display: flex; gap: 8px; }
 .pill-group {
   display: flex; gap: 4px;
@@ -305,7 +304,7 @@ body.stale-page .wx-stage{filter:saturate(.55)}
 /* static capability tier (deviceMemory ≤ 2): colors stay, motion goes */
 .wx-stage.wx-static,.wx-stage.wx-static *,.wx-stage.wx-static *::before{animation:none!important}
 @media (prefers-reduced-motion:reduce){.wx-stage,.wx-stage *,.wx-stage *::before{animation:none!important;transition:none!important}}
-/* preview badge — honesty line, data-en/data-zh, cannot be closed */
+/* preview badge — honesty line, cannot be closed */
 .wx-preview-chip{position:fixed;left:14px;bottom:14px;z-index:60;pointer-events:none;max-width:80vw;font-size:11px;font-weight:700;letter-spacing:.04em;line-height:1.4;color:var(--aquora-cream);background:rgba(10,16,20,.72);border:1px solid rgba(97,168,138,.4);padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 </style>
 </head>
@@ -315,10 +314,6 @@ body.stale-page .wx-stage{filter:saturate(.55)}
     <div class="pill-group" role="group" aria-label="Market">
       <button class="pill-btn market-btn" data-market="cn">CN</button>
       <button class="pill-btn market-btn" data-market="us">US</button>
-    </div>
-    <div class="pill-group lang-switcher" role="group" aria-label="Language">
-      <button class="pill-btn lang-btn" data-lang="en">EN</button>
-      <button class="pill-btn lang-btn" data-lang="zh">中文</button>
     </div>
   </div>
 
@@ -330,9 +325,9 @@ body.stale-page .wx-stage{filter:saturate(.55)}
           <path d="M171.927 127.15C163.791 101.036 143.8 78.3544 117.426 71.2979C117.642 70.0258 117.737 68.6577 117.737 67.2896C117.737 55.5287 109.77 46 99.9304 46C90.1149 46 82.1233 55.5287 82.1233 67.2896C82.1233 68.7057 82.2433 70.0738 82.4593 71.4179C56.1806 78.5465 35.9976 101.228 27.91 127.558C23.2543 142.703 37.2216 157.032 52.5328 152.928L52.7968 152.856C61.1484 150.624 67.004 143.303 67.748 134.687C69.6199 112.845 78.4275 92.5155 90.6189 85.435C96.3786 82.0987 103.554 82.0267 109.314 85.339C121.625 92.4435 130.313 113.013 132.161 134.759C132.881 143.351 138.832 150.624 147.184 152.832C148.984 153.312 150.808 153.552 152.536 153.552C165.735 153.552 176.127 140.639 171.927 127.15Z" fill="currentColor"/>
           <path d="M119.657 126.862C116.274 124.534 112.122 123.574 108.018 123.454C103.89 123.334 99.8103 123.814 95.8505 124.846C91.0988 126.07 86.563 128.086 82.4112 130.726C78.9074 132.959 75.5236 135.719 73.7716 139.463C72.0197 143.231 72.2837 148.2 75.3556 150.984C78.8354 154.176 84.0191 153.648 88.3629 153.408C94.1706 153.096 99.9783 152.808 105.762 152.208C111.21 151.656 116.849 150.384 121.025 146.616C123.689 144.191 125.537 140.735 125.513 137.135C125.489 133.055 123.017 129.214 119.657 126.862Z" fill="currentColor"/>
         </svg>
-        <span class="brand-name" data-en="Aquora" data-zh="Aquora 沐汐">Aquora</span>
+        <span class="brand-name">Aquora</span>
       </a>
-      <span class="brand-eyebrow" data-en="Scroll Forecast" data-zh="刷机预报">Scroll Forecast</span>
+      <span class="brand-eyebrow">Scroll Forecast</span>
     </header>
 
     <!-- A1. stale note (>24h) — L1 #14 -->
@@ -345,7 +340,7 @@ body.stale-page .wx-stage{filter:saturate(.55)}
 
     <!-- B. Hero: tonight's scroll forecast -->
     <section class="hero">
-      <span class="hero-eyebrow" data-en="Tonight's Scroll Forecast" data-zh="今晚刷机预报">Tonight's Scroll Forecast</span>
+      <span class="hero-eyebrow">Tonight's Scroll Forecast</span>
       <div class="ring-stage" role="img" aria-label="Scroll index, 0 to 100">
         <svg viewBox="0 0 210 210" aria-hidden="true">
           <circle class="ring-track" cx="105" cy="105" r="96"></circle>
@@ -357,11 +352,9 @@ body.stale-page .wx-stage{filter:saturate(.55)}
           <div class="pui-scale">0–100</div>
         </div>
       </div>
-      <p class="hero-sub"
-         data-en="A 0–100 composite: higher means public macro signals point to more scrolling tonight."
-         data-zh="0–100 合成指数：数值越高，公开宏观信号越指向今晚更想刷手机。">A 0–100 composite: higher means public macro signals point to more scrolling tonight.</p>
+      <p class="hero-sub">A 0–100 composite: higher means public macro signals point to more scrolling tonight.</p>
       <div class="badge-row" id="badgeRow">
-        <span class="chip" data-en="Judged 06:00 local · updated daily" data-zh="06:00 判定 · 日更">Judged 06:00 local · updated daily</span>
+        <span class="chip">Judged 06:00 local · updated daily</span>
       </div>
       <div class="badge-row" id="dqRow"></div>
     </section>
@@ -369,7 +362,7 @@ body.stale-page .wx-stage{filter:saturate(.55)}
     <!-- B-sub. R baseline (three tiers; insufficient rendered honestly:
          weather leg not yet connected — B-2 pending, R structurally null) -->
     <section class="card r-row insufficient" id="rRow">
-      <span class="card-eyebrow" data-en="Today's baseline" data-zh="今日底色">Today's baseline</span>
+      <span class="card-eyebrow">Today's baseline</span>
       <div class="r-name" id="rName"></div>
       <div class="r-stmt" id="rStmt"></div>
       <p class="holdover-note" id="rHoldover"></p>
@@ -378,7 +371,7 @@ body.stale-page .wx-stage{filter:saturate(.55)}
     <!-- C. Internet mood field card (5 states, L1 #1–#6 verbatim; compass
          hidden while macro_v / macro_a are null — MVP ships them null) -->
     <section class="card">
-      <span class="card-eyebrow" data-en="Internet mood field" data-zh="互联网情绪场">Internet mood field</span>
+      <span class="card-eyebrow">Internet mood field</span>
       <div class="i-state" id="iState"></div>
       <p class="holdover-note" id="iHoldover"></p>
       <div class="compass" id="compass" aria-hidden="true">
@@ -392,43 +385,43 @@ body.stale-page .wx-stage{filter:saturate(.55)}
 
     <!-- D. Three components -->
     <section class="card">
-      <span class="card-eyebrow" data-en="The three components" data-zh="三个分量">The three components</span>
+      <span class="card-eyebrow">The three components</span>
       <div class="comp-row">
-        <span class="comp-name" data-en="Home-bound" data-zh="宅家">Home-bound</span>
+        <span class="comp-name">Home-bound</span>
         <div class="comp-bar"><div class="comp-fill" id="barHome"></div></div>
         <span class="comp-val" id="valHome">—</span>
       </div>
-      <p class="comp-desc" data-en="What this measures: how much people are staying in today." data-zh="这测的是：大家今天有多待在家里。">What this measures: how much people are staying in today.</p>
+      <p class="comp-desc">What this measures: how much people are staying in today.</p>
       <div class="comp-row">
-        <span class="comp-name" data-en="Boredom" data-zh="无聊">Boredom</span>
+        <span class="comp-name">Boredom</span>
         <div class="comp-bar"><div class="comp-fill" id="barBore"></div></div>
         <span class="comp-val" id="valBore">—</span>
       </div>
-      <p class="comp-desc" data-en="What this measures: how much boredom shows in public signals." data-zh="这测的是：公开信号里的无聊浓度。">What this measures: how much boredom shows in public signals.</p>
+      <p class="comp-desc">What this measures: how much boredom shows in public signals.</p>
       <div class="comp-row">
-        <span class="comp-name" data-en="Anxiety" data-zh="焦虑">Anxiety</span>
+        <span class="comp-name">Anxiety</span>
         <div class="comp-bar"><div class="comp-fill" id="barAnx"></div></div>
         <span class="comp-val" id="valAnx">—</span>
       </div>
-      <p class="comp-desc" data-en="What this measures: how much tension shows in public signals." data-zh="这测的是：公开信号里的紧张程度。">What this measures: how much tension shows in public signals.</p>
+      <p class="comp-desc">What this measures: how much tension shows in public signals.</p>
     </section>
 
     <!-- E. Last 7 days: PUI sparkline (published-history facts; missing day
          = honest gap, never interpolated) + I-band strip (insufficient =
          hollow cell; missing = blank cell) -->
     <section class="card">
-      <span class="card-eyebrow" data-en="Last 7 days" data-zh="近 7 天">Last 7 days</span>
+      <span class="card-eyebrow">Last 7 days</span>
       <div class="spark-wrap">
         <svg id="sparkSvg" viewBox="0 0 336 84" preserveAspectRatio="none" aria-hidden="true"></svg>
         <div class="band-strip" id="bandStrip"></div>
         <div class="spark-dates" id="sparkDates"></div>
         <div class="band-legend" id="bandLegend">
-          <span><i style="background:var(--band-neg-high)"></i><span data-en="heavy &amp; loud" data-zh="偏沉声浪大">heavy &amp; loud</span></span>
-          <span><i style="background:var(--band-neg-low)"></i><span data-en="low &amp; quiet" data-zh="偏低安静">low &amp; quiet</span></span>
-          <span><i style="background:var(--band-neutral)"></i><span data-en="steady" data-zh="平稳">steady</span></span>
-          <span><i style="background:var(--band-positive)"></i><span data-en="upbeat" data-zh="偏暖">upbeat</span></span>
-          <span><i style="border:1.5px dashed color-mix(in srgb, var(--accent) 45%, transparent)"></i><span data-en="can't read" data-zh="看不清">can't read</span></span>
-          <span><i style="background:rgba(255,255,255,0.06)"></i><span data-en="no record" data-zh="无记录">no record</span></span>
+          <span><i style="background:var(--band-neg-high)"></i><span>heavy &amp; loud</span></span>
+          <span><i style="background:var(--band-neg-low)"></i><span>low &amp; quiet</span></span>
+          <span><i style="background:var(--band-neutral)"></i><span>steady</span></span>
+          <span><i style="background:var(--band-positive)"></i><span>upbeat</span></span>
+          <span><i style="border:1.5px dashed color-mix(in srgb, var(--accent) 45%, transparent)"></i><span>can't read</span></span>
+          <span><i style="background:rgba(255,255,255,0.06)"></i><span>no record</span></span>
         </div>
       </div>
     </section>
@@ -441,17 +434,12 @@ body.stale-page .wx-stage{filter:saturate(.55)}
     <!-- G. Footer: attribution, privacy, disclaimer -->
     <footer class="page-footer">
       <p>
-        <span data-en="Data: " data-zh="数据：">Data: </span><a href="https://www.gdeltproject.org/" rel="noopener" target="_blank">GDELT Project</a>
-        <span data-en=" · Steam Web API (Steam is a trademark of Valve Corporation; this site is not affiliated with Valve)"
-              data-zh=" · Steam Web API（Steam 为 Valve 公司商标，本站与 Valve 无关联）"> · Steam Web API (Steam is a trademark of Valve Corporation; this site is not affiliated with Valve)</span>
-        <span data-en=" · Weibo trends history via the public justjavac GitHub archive — only composite numbers are published, never list content."
-              data-zh=" · 微博热榜历史来自 justjavac 公开 GitHub 归档——本页只发布合成数值，绝不转载榜单内容。"> · Weibo trends history via the public justjavac GitHub archive — only composite numbers are published, never list content.</span>
+        <span>Data: </span><a href="https://www.gdeltproject.org/" rel="noopener" target="_blank">GDELT Project</a>
+        <span> · Steam Web API (Steam is a trademark of Valve Corporation; this site is not affiliated with Valve)</span>
+        <span> · Weibo trends history via the public justjavac GitHub archive — only composite numbers are published, never list content.</span>
       </p>
-      <p class="privacy-line"
-         data-en="Zero Aquora user data on this page — every number is a composite of public macro signals."
-         data-zh="本页零 Aquora 用户数据——所有数值来自公开宏观信号。">Zero Aquora user data on this page — every number is a composite of public macro signals.</p>
-      <p data-en="The index is an Aquora composite and represents no institution's views. For ambience reference only — not medical, investment, or any other advice."
-         data-zh="指数为 Aquora 合成值，不代表任何机构观点。仅作氛围参考，不构成医疗、投资或其他任何建议。">The index is an Aquora composite and represents no institution's views. For ambience reference only — not medical, investment, or any other advice.</p>
+      <p class="privacy-line">Zero Aquora user data on this page — every number is a composite of public macro signals.</p>
+      <p>The index is an Aquora composite and represents no institution's views. For ambience reference only — not medical, investment, or any other advice.</p>
       <p id="genLine"></p>
     </footer>
 
@@ -579,16 +567,12 @@ function swap(bg,dur){
  stage.style.setProperty('--wx-x',dur+'s');
  if(dur)void sh.offsetWidth;
  sh.classList.add('wx-on');hd.classList.remove('wx-on')}
-/* preview badge — honesty line, joins data-en/data-zh switcher */
+/* preview badge — honesty line (English-only site) */
 var chip=0;
 function mkChip(){
- var c=D.createElement('div'),lg=null;
+ var c=D.createElement('div');
  c.className='wx-preview-chip';
- c.setAttribute('data-en','Preview mode — visuals only; data shown is real');
- c.setAttribute('data-zh','预览模式 · 仅切换氛围，数据为真实数据');
- try{lg=localStorage.getItem('aquora_lang')}catch(e){}
- if(!lg)lg=(nv.language||'').toLowerCase().indexOf('zh')===0?'zh':'en';
- c.textContent=c.getAttribute('data-'+lg);
+ c.textContent='Preview mode — visuals only; data shown is real';
  D.body.appendChild(c)}
 var first=1,lR,li=null;
 W.set=function(inp){
@@ -628,7 +612,7 @@ if(pv)W.set({});/* preview renders even without data */
    * COPY — two layers.
    * L1 = spec/l1-copy.md v1 (2026-07-27), 16 entries VERBATIM.
    *      Sole copy authority for band statements. DO NOT REWORD.
-   * UI = page furniture (headings live in HTML data-attrs; these are
+   * UI = page furniture (headings live as static HTML text; these are
    *      the JS-rendered bits). NOT L1-gated, registered for review.
    * ========================================================== */
   var L1 = {
@@ -682,34 +666,13 @@ if(pv)W.set({});/* preview renders even without data */
   };
   var DATA_BASE = '../data/scroll/v1/';
 
-  var state = { lang: 'en', market: 'cn', latest: null, history: {} };
+  var state = { market: 'us', latest: null, history: {} };
 
-  /* ---------- i18n (same mechanism as archetype.html / index.html;
-   * shares the aquora_lang localStorage key) ---------- */
-  function applyLang(lang) {
-    document.documentElement.lang = (lang === 'zh') ? 'zh-Hans' : 'en';
-    document.querySelectorAll('[data-en]').forEach(function (el) {
-      var txt = el.getAttribute('data-' + lang);
-      if (txt !== null && txt !== undefined) el.innerHTML = txt;
-    });
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-      var t = titleEl.getAttribute('data-' + lang);
-      if (t) document.title = t;
-    }
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.lang === lang);
-    });
-    try { localStorage.setItem('aquora_lang', lang); } catch (e) {}
-    state.lang = lang;
-  }
-  // Dynamic content: JS writes both data-en/data-zh, then re-applies —
-  // dynamic strings inherit the existing switcher, no second mechanism.
+  // Dynamic content: English-only site — the L1/UI dictionaries keep their
+  // zh entries (spec mirror, VERBATIM), but only the `en` side is rendered.
   function setCopy(el, pair) {
     if (!el) return;
-    el.setAttribute('data-en', pair.en);
-    el.setAttribute('data-zh', pair.zh);
-    el.innerHTML = pair[state.lang];
+    el.innerHTML = (typeof pair === 'string') ? pair : pair.en;
   }
   function setMarket(m) {
     state.market = m;
@@ -762,8 +725,7 @@ if(pv)W.set({});/* preview renders even without data */
     staleBanner.classList.toggle('show', stale);
     if (stale) {
       var s = copy('dq.stale');
-      setCopy(document.getElementById('staleText'),
-              { zh: s.zh.replace('{N}', ageH), en: s.en.replace('{N}', ageH) });
+      setCopy(document.getElementById('staleText'), s.en.replace('{N}', ageH));
     }
 
     /* mourning solemn variant — wired, structurally empty in MVP.
@@ -787,10 +749,8 @@ if(pv)W.set({});/* preview renders even without data */
       var key = atomic.wcode && atomic.gust ? 'kind.wcode+gust'
               : atomic.gust ? 'kind.gust' : 'kind.wcode';
       var kc = copy(key);
-      setCopy(document.getElementById('climateText'), {
-        zh: copy('climate.prefix').zh + kc.zh + copy('climate.suffix').zh,
-        en: copy('climate.prefix').en + kc.en + copy('climate.suffix').en
-      });
+      setCopy(document.getElementById('climateText'),
+              copy('climate.prefix').en + kc.en + copy('climate.suffix').en);
     }
 
     /* morning holdover (#16): local time <09:00, latest band insufficient,
@@ -831,7 +791,7 @@ if(pv)W.set({});/* preview renders even without data */
       span.className = 'chip q-' + q;
       var name = copy('chip.' + (ch === 'pui' ? 'pui' : ch));
       var qc = copy('chip.' + q);
-      setCopy(span, { zh: name.zh + '·' + qc.zh, en: name.en + ': ' + qc.en });
+      setCopy(span, name.en + ': ' + qc.en);
       dqRow.appendChild(span);
     });
     /* degraded sentence (#15) when the index channel reports degraded */
@@ -915,8 +875,7 @@ if(pv)W.set({});/* preview renders even without data */
     /* footer generated line */
     var gl = copy('gen.line');
     var gt = (doc.generated_at || '').replace('T', ' ').slice(0, 16);
-    setCopy(document.getElementById('genLine'),
-            { zh: gl.zh.replace('{T}', gt), en: gl.en.replace('{T}', gt) });
+    setCopy(document.getElementById('genLine'), gl.en.replace('{T}', gt));
 
     /* wx sky atmosphere — visual layer only, reads display-plane state */
     if (window.AquoraWx) window.AquoraWx.set({
@@ -994,21 +953,12 @@ if(pv)W.set({});/* preview renders even without data */
 
   /* ---------- boot ---------- */
   function boot() {
-    var savedLang = null, savedMarket = null;
-    try {
-      savedLang = localStorage.getItem('aquora_lang');
-      savedMarket = localStorage.getItem('aquora_market');
-    } catch (e) {}
-    var sys = ((navigator.language || 'en') + '').toLowerCase();
-    var lang = savedLang || (sys.indexOf('zh') === 0 ? 'zh' : 'en');
-    applyLang(lang);
-    state.market = savedMarket || (lang === 'zh' ? 'cn' : 'us');
+    var savedMarket = null;
+    try { savedMarket = localStorage.getItem('aquora_market'); } catch (e) {}
+    state.market = savedMarket || 'us';
     document.querySelectorAll('.market-btn').forEach(function (b) {
       b.classList.toggle('active', b.dataset.market === state.market);
       b.addEventListener('click', function () { setMarket(b.dataset.market); });
-    });
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.addEventListener('click', function () { applyLang(b.dataset.lang); render(); });
     });
 
     /* latest.json is the page's spine; history files fill in as they load
