@@ -1,7 +1,7 @@
 {%- comment -%}
 FAQ 手风琴的展开/收起动画(支持页;大陆与海外共用)。原生 <details> 是瞬间开合(Abel 2026-09-05 反馈「瞬间切换,要柔滑一些」),
 这里接管 summary 的点击:展开 = 先 open 再从 0 高度展到实际高度(320ms),收起 = 从实际高度缩到 0 再关(260ms);
-prefers-reduced-motion 直接开合;无 JS 时仍是原生 details,内容可读。
+prefers-reduced-motion 直接开合;无 JS 时仍是原生 details,内容可读。脚本内注释一律英文(海外产物不得含中文)。
 FAQ accordion open/close animation (support pages, both sites). Native <details> toggles instantly; this takes over the
 summary click: open = set open, then grow from 0 to the measured height (320ms); close = shrink to 0, then close (260ms).
 {%- endcomment -%}
@@ -25,11 +25,11 @@ summary click: open = set open, then grow from 0 to the measured height (320ms);
         d.__anim = body.animate([{ height: '0px', paddingBottom: '0px', opacity: 0 }, { height: h + 'px', paddingBottom: pb, opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.22, .61, .36, 1)' });
         d.__anim.onfinish = d.__anim.oncancel = function () { body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; };
       } else {
-        /* 收起:fill forwards 让终态停在 0 高度,直到 open 撤掉——否则动画一结束内容会先弹回全高再消失,就是「收起卡顿」(Abel 2026-09-05);
-           .closing 让 +/× 图标与卡底色从收起开始就一起过渡,而不是等 open 撤掉才动 */
+        /* close: fill 'forwards' holds the 0 height until open is removed (otherwise the content snaps back to full height for one
+           frame before disappearing); .closing lets the +/× icon and the card colour transition together with the height */
         var h2 = body.getBoundingClientRect().height;
         d.classList.add('closing');
-        var pb2 = getComputedStyle(body).paddingBottom;   /* 内距也一起收到 0:border-box 下 height 收不掉内距,末尾会留一截再跳没 */
+        var pb2 = getComputedStyle(body).paddingBottom;   /* padding collapses too: with border-box the height can't go below the padding, leaving a stub that then jumps away */
         var anim = body.animate([{ height: h2 + 'px', paddingBottom: pb2, opacity: 1 }, { height: '0px', paddingBottom: '0px', opacity: 0 }], { duration: 260, easing: 'cubic-bezier(.4, 0, .2, 1)', fill: 'forwards' });
         d.__anim = anim;
         anim.onfinish = anim.oncancel = function () { d.open = false; d.classList.remove('closing'); anim.cancel(); body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; };
