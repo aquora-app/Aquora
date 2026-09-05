@@ -232,3 +232,6 @@ h1, h2, h3, .h-display, .h-section, .h-card {
 
 /* The night card is navy in both themes: its eyebrow keeps the mint ink (home.css sets this; our generic .eyebrow rule above outranked it) */
 .night-copy .eyebrow { color: rgba(201, 241, 228, .75); }
+
+/* Tall viewports: home.css centres the hero in the first screen; drop this file's extra top padding there so the air above and below the card matches */
+@media (min-height: 900px) and (min-width: 981px) { .hero { padding-top: 0; } }
