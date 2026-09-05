@@ -309,3 +309,6 @@ html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出
    ②页眉引言在手机上 balance 会把 6 行匀成窄块(条款页)而 7 行的隐私页撑满,两页不一致——文档页引言改 pretty。 */
 .doc-sec > h2 + .defs > div:first-child dt, .doc-sec > h2 + .defs > div:first-child dd { padding-top: 3px; }
 .doc-head .lede { text-wrap: pretty; }
+/* 收起动画进行中:图标转回 +、卡底色回到常态,与高度动画同步(见 _includes/faq-anim.html) */
+.faq-item.closing { background: var(--doc-card); }
+.faq-item.closing .ic { transform: none; }
