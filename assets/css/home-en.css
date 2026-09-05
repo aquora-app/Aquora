@@ -53,7 +53,7 @@ h1, h2, h3, .h-display, .h-section, .h-card {
    phone column of the first letter-voice draft made the phones read smaller than aquora.cn's.
    Copy block centred with equal air above and below (Abel: 卡片上下留白对称): the card has padding-top only (the phones
    must reach its bottom edge), so the copy carries the same amount as bottom padding and align-self:center does the rest. */
-.hero-copy { padding-bottom: clamp(28px, 4vw, 56px); }
+/* (the symmetric padding-bottom and the viewport-fitted min-height now live in home.css, shared by both sites) */
 .hero-actions .btn { font-size: 15.5px; padding: 15px 24px; }
 
 /* ---------- Section heads: a short rule, then eyebrow / title / lede, centred like a chapter opening ---------- */
