@@ -1,5 +1,5 @@
 {%- comment -%}
-FAQ 手风琴的展开/收起动画(支持页;大陆与海外共用)。原生 <details> 是瞬间开合(Abel 2026-09-05 反馈「瞬间切换,要柔滑一些」),
+FAQ 手风琴与窄屏目录卡的展开/收起动画(支持页 + 隐私/协议页;大陆与海外共用)。原生 <details> 是瞬间开合(Abel 2026-09-05 反馈「瞬间切换,要柔滑一些」),
 这里接管 summary 的点击:展开 = 先 open 再从 0 高度展到实际高度(320ms),收起 = 从实际高度缩到 0 再关(260ms);
 prefers-reduced-motion 直接开合;无 JS 时仍是原生 details,内容可读。脚本内注释一律英文(海外产物不得含中文)。
 FAQ accordion open/close animation (support pages, both sites). Native <details> toggles instantly; this takes over the
@@ -7,11 +7,12 @@ summary click: open = set open, then grow from 0 to the measured height (320ms);
 {%- endcomment -%}
 <script>
 (function () {
-  var items = document.querySelectorAll('details.faq-item');
+  /* FAQ cards and the collapsible contents card on narrow screens (Abel 2026-09-05: the contents toggle on phones snapped open) */
+  var items = document.querySelectorAll('details.faq-item, details.toc');
   if (!items.length || typeof Element.prototype.animate !== 'function') return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   [].forEach.call(items, function (d) {
-    var s = d.querySelector('summary'), body = d.querySelector('.a');
+    var s = d.querySelector('summary'), body = d.querySelector('.a, .toc-card');
     if (!s || !body) return;
     s.addEventListener('click', function (e) {
       e.preventDefault();
