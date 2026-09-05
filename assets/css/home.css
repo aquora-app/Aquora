@@ -350,10 +350,10 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -.01em; line-height: 1
 .hero-card {
   position: relative; overflow: hidden;
   display: grid; grid-template-columns: 1.05fr .95fr; align-items: center;
-  /* 卡高:视口 ≤ 800 高(Mac 默认窗口、小尺寸 Windows 最大化)保持 560(+内容)不变;只在更高的视口(Windows 1080p 最大化
+  /* 卡高:视口 < 900 高(所有默认窗口、小尺寸 Windows 最大化)保持 560(+内容)不变,逐像素同旧版;只在 ≥ 900 的视口(Windows 1080p 最大化
      ≈ 950 高、Mac 全屏 ≈ 1100 高)温和长高,封顶 680,让卡底下的空带从 ≈ 250px 收到 ≈ 140px。
      2026-09-05 试过「100vh − 174,封顶 760」(默认窗口也会变),Abel 裁「改回来」;本版默认窗口逐像素不变。 */
-  min-height: clamp(560px, calc(100vh - 222px), 680px); padding: clamp(28px, 4vw, 56px) clamp(28px, 5vw, 72px) 0;
+  min-height: clamp(560px, calc(100vh - 322px), 680px); padding: clamp(28px, 4vw, 56px) clamp(28px, 5vw, 72px) 0;   /* 322:视口 < 900 高时一律 578,与居中规则同一阈值 */
 }
 .hero-copy { align-self: center; padding-bottom: clamp(40px, 5vw, 76px); }
 .hero-copy .eyebrow { margin-bottom: 20px; display: flex; align-items: center; gap: 6px; }  /* 「Aquora 沐汐」一个词空(T-07) */
