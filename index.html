@@ -15,9 +15,10 @@ Design: "letter voice" (direction C of the 2026-09-04 panel, chosen by Abel over
 
 Differences from the mainland page (by design): no ICP footer (nav · brand · © year Aquora · email), country-less
 App Store link, no wx-share image, og/twitter metadata, every asset path prefixed with site.baseurl.
-The legacy Terms & Privacy page now lives at /legal/ — the first inline script forwards old #terms / #privacy / #tos
-deep links there (App "Terms"/"Privacy" links and the ASC privacy-policy URL point at the root with those anchors).
-Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no prices anywhere.
+The legacy Terms & Privacy page was split into /privacy/ and /terms/ (+ /support/), sources en/*.html — the first inline
+script forwards old #privacy / #terms / #tos deep links there (App "Terms"/"Privacy" links and the ASC privacy-policy URL
+point at the root with those anchors; /legal/ is a forwarder for the same). Feature facts come only from en/terms.html §2
+and _data/archetypes.yml; no prices anywhere.
 {%- endcomment -%}
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
@@ -52,12 +53,11 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
 <body>
 <script>
 /* Legacy deep links: the root used to be the Terms & Privacy page (App links + ASC privacy URL use #terms / #privacy).
-   That page now lives at /legal/ — forward the old anchors there before first paint so nothing breaks. */
+   Those documents now live at /privacy/ and /terms/ — forward the old anchors there before first paint so nothing breaks. */
 (function () {
   var h = (location.hash || '').toLowerCase();
-  if (h === '#terms' || h === '#privacy' || h === '#tos') {
-    location.replace('{{ site.baseurl }}/legal/' + (h === '#tos' ? '#terms' : h));
-  }
+  if (h === '#privacy') location.replace('{{ site.baseurl }}/privacy/');
+  else if (h === '#terms' || h === '#tos') location.replace('{{ site.baseurl }}/terms/');
 })();
 </script>
 <script>
@@ -263,9 +263,9 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
         <span aria-hidden="true">·</span>
         <a href="#archetypes">Personalities</a>
         <span aria-hidden="true">·</span>
-        <a href="{{ site.baseurl }}/legal/#terms">Terms</a>
+        <a href="{{ site.baseurl }}/terms/">Terms</a>
         <span aria-hidden="true">·</span>
-        <a href="{{ site.baseurl }}/legal/#privacy">Privacy</a>
+        <a href="{{ site.baseurl }}/privacy/">Privacy</a>
       </nav>
       <p class="footer-icp-brand">Aquora</p>
       <p class="footer-icp-line">© {{ site.time | date: "%Y" }} Aquora</p>

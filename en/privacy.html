@@ -1,0 +1,280 @@
+---
+layout: null
+permalink: /privacy/
+title: Privacy Policy
+---
+{%- comment -%}
+Privacy Policy (overseas site /privacy/, English only). Abel 2026-09-05: the old one-page Terms & Privacy (legal/index.html,
+two tabs) is split into /privacy/ /terms/ /support/, on the mainland document-page design system —
+en-doc-head.html (cn-fonts.css + home.css + cn-doc.css + doc-en.css) + the home page's capsule nav and sun/moon toggle (en-theme.html).
+The body is the #privacy tab of the old page, moved section by section: every English sentence is unchanged (verified sentence by
+sentence against the HEAD legal/index.html at build time); only structure and markup changed — numbered h2 with ids, a table of
+contents (<details class="toc">), the §2 data types and §5 third-party services as record cards (their original " — " stays in the
+DOM, visually hidden), the §1 introduction and §6 no-tracking statement as callouts, and a contact card under §12.
+The only text added is chrome and labels: "Legal", "Effective Date", "Contents", "Email", nav and footer words.
+No Chinese, no ICP / registration / company lines anywhere on the overseas site. Every link and asset carries site.baseurl.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{% include en-doc-head.html title="Privacy Policy" description="How Aquora collects, uses and protects your information: the vast majority of your data stays on your device, and the App uses no analytics, advertising or tracking SDKs." %}
+</head>
+<body>
+{% include en-theme.html part="pre" %}
+
+<div class="page">
+{% include en-doc-nav.html current="privacy" %}
+
+  <main id="main" class="doc">
+    <div class="wrap">
+      <article class="paper">
+
+        <header class="doc-head">
+          <div class="doc-meta">
+            <p class="eyebrow">Legal</p>
+            <p class="dates"><span class="date">Effective Date: August 14, 2026</span></p>
+          </div>
+          <h1 class="doc-title">Privacy Policy</h1>
+        </header>
+
+        <details class="toc" open>
+          <summary><span class="eyebrow">Contents</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <div class="toc-card">
+            <ol aria-label="Contents">
+              <li><a href="#s1">1. Introduction</a></li>
+              <li><a href="#s2">2. Information We Collect</a></li>
+              <li><a href="#s3">3. How We Use Your Information</a></li>
+              <li><a href="#s4">4. Data Storage &amp; Security</a></li>
+              <li><a href="#s5">5. Third-Party Services</a></li>
+              <li><a href="#s6">6. Tracking &amp; Advertising</a></li>
+              <li><a href="#s7">7. Notifications</a></li>
+              <li><a href="#s8">8. Children's Privacy</a></li>
+              <li><a href="#s9">9. Data Retention &amp; Deletion</a></li>
+              <li><a href="#s10">10. Your Rights</a></li>
+              <li><a href="#s11">11. Changes to This Policy</a></li>
+              <li><a href="#s12">12. Contact Us</a></li>
+            </ol>
+          </div>
+        </details>
+
+        <div class="doc-body prose">
+
+          <section class="doc-sec" data-toc="s1" aria-labelledby="s1">
+            <h2 id="s1"><span class="num">1.</span> Introduction</h2>
+            <div class="callout">
+              <p>Your privacy is important to us. This Privacy Policy explains how Aquora collects, uses, and protects your information when you use our App.</p>
+            </div>
+          </section>
+
+          <section class="doc-sec" data-toc="s2" aria-labelledby="s2">
+            <h2 id="s2"><span class="num">2.</span> Information We Collect</h2>
+            <ul class="recs" aria-label="Information we collect">
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Sign In with Apple</h3></div>
+                <p>If you choose to sign in, we collect your Apple User ID, name, and email address provided by Apple. Your Apple User ID is stored securely in the device Keychain. Your name and email are stored locally on your device only.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Screen Time Data</h3></div>
+                <p>With your explicit permission, we access device usage data through Apple's Screen Time API and DeviceActivity framework to provide usage tracking, app limiting, and shield features. Raw usage data is processed locally on your device and never uploaded. If you enable AI Reminders (premium), aggregated statistics derived from it (e.g., average daily minutes, peak hours, unlock counts) are included in AI generation requests — see Section 5.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>User Preferences &amp; Progress</h3></div>
+                <p>Settings such as your selected app limits, meditation preferences, ambient sound choices, quiz progress, reward tokens, achievements, and streak data are stored locally using UserDefaults and App Groups.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>User-Generated Content</h3></div>
+                <p>Journal entries, manifestation goals, mood tracking, and meditation notes you create are stored locally on your device. We do not access, read, or transmit this content.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Behavior Logs</h3></div>
+                <p>To power personalized features (AI Reminders, Personality Archetype, monthly reports), the App stores the following behavior logs locally with a 90-day retention period:</p>
+                <ul>
+                  <li>Quiz answers (question ID, category, correctness, response time, hour of day, app context)</li>
+                  <li>Reflection responses (selected options, app context, timestamp)</li>
+                  <li>App unlock events (app group name, unlock method, optional user-stated reason, day/hour)</li>
+                  <li>Post-session feeling check-ins (worth it / neutral / regret, with timestamp)</li>
+                </ul>
+                <p>This data stays on your device and is used only for local analysis.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Personality Archetype Data</h3></div>
+                <p>Your responses to the personality questionnaire and your derived 4-letter archetype code are stored locally. Monthly archetype snapshots are kept for trend tracking. To compute rarity statistics, an anonymized record (random device UUID + your archetype code only) is uploaded to Apple's CloudKit public database. This record contains no identifying information.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Referral Information</h3></div>
+                <p>When you generate or redeem a referral code, the code along with SHA-256 hashed identifiers is stored in Apple's CloudKit public database to validate redemptions and award rewards. We never store plaintext identifiers in CloudKit.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Subscription Information</h3></div>
+                <p>Subscription and tip purchase status is managed through Apple's StoreKit framework. We do not have access to your payment information or credit card details.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Photo Library (Optional)</h3></div>
+                <p>If you choose to save or share personality cards or achievement badges, the App requests permission to write images to your Photo Library. We do not read existing photos.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Scroll Forecast Personalization (All Optional, Device-Only)</h3></div>
+                <p>The first time you open the scroll forecast, the App offers three optional inputs so the forecast can be phrased for you. Every one of them can be skipped, and every one of them stays on this device: none is ever sent to us, to any AI provider, to CloudKit, or to iCloud, and none is carried over to another device.</p>
+                <ul>
+                  <li><strong>Year of birth</strong> — the year only. We never ask for or store a full date of birth. It is used on-device to place you in an age band so the forecast can show the band's figures, and to apply a more conservative presentation if you are under 18.</li>
+                  <li><strong>Nearest city</strong> — chosen by you from a short list. The App does not use location services and has never requested location permission; this is a name you pick, not a position we measure. It is used only to pick which city's weather line to show.</li>
+                  <li><strong>Your frequent apps</strong> — a confirmation of which apps you use most, pre-filled from the limits you already created. It is stored on-device as category shares and display names.</li>
+                </ul>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Mood Check-Ins &amp; Mood Report</h3></div>
+                <p>If you tap through the mood check-in on the forecast page, the App records what you chose (how pleasant, how activated, and an optional category) and combines it over time with your post-session feelings, post-meditation mood, and journal mood into a private estimate of your own emotional pattern. That estimate and the report built from it are computed and stored entirely on this device. They are never included in any network request, never placed in an AI prompt, never written to CloudKit or iCloud, and are not carried over to another device. Deleting your account clears them along with everything else in the App's local storage.</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="doc-sec" data-toc="s3" aria-labelledby="s3">
+            <h2 id="s3"><span class="num">3.</span> How We Use Your Information</h2>
+            <ul>
+              <li>To provide screen time tracking and usage reports</li>
+              <li>To enforce app usage limits and shield blocked apps</li>
+              <li>To track your meditation, journal, and quiz progress</li>
+              <li>To manage reward tokens, achievements, and streaks</li>
+              <li>To generate personalized quiz questions via AI</li>
+              <li>To deliver in-the-moment AI reminders based on your usage patterns</li>
+              <li>To compute your personality archetype and produce monthly reports</li>
+              <li>To validate referral codes and award referral rewards</li>
+              <li>To detect habit patterns and suggest helpful interventions</li>
+            </ul>
+          </section>
+
+          <section class="doc-sec" data-toc="s4" aria-labelledby="s4">
+            <h2 id="s4"><span class="num">4.</span> Data Storage &amp; Security</h2>
+            <p>The vast majority of user data is stored locally on your device. Data shared between the main app and extensions (Shield, Device Activity Monitor, Shield Action) uses secure App Group containers.</p>
+            <h3>iCloud Key-Value Store</h3>
+            <p>Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings.</p>
+            <h3>CloudKit Public Database</h3>
+            <p>Four types of records are stored in our CloudKit public database:</p>
+            <ul>
+              <li><strong>ReferralCode</strong> — referral code string with hashed (SHA-256) owner and redeemer identifiers</li>
+              <li><strong>Redemption</strong> — one record per code redemption: the code, hashed (SHA-256) redeemer and owner identifiers, and a timestamp</li>
+              <li><strong>ArchetypeUser</strong> — anonymous device UUID paired with your personality code and an update timestamp, used to calculate archetype rarity (rarity is computed from a random sample of up to 400 records)</li>
+              <li><strong>Feedback</strong> — when you submit feedback via the in-app form, your message, feedback category, star rating, optional email, app and iOS version, and current archetype code are saved as a CloudKit record. Stored anonymously (no device ID, no user ID); only the developer reads them via the CloudKit Dashboard.</li>
+            </ul>
+            <p>These records contain no personally identifiable information.</p>
+            <h3>Keychain</h3>
+            <p>Your Apple User ID is stored in the device Keychain with encryption and is not accessible to other apps.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s5" aria-labelledby="s5">
+            <h2 id="s5"><span class="num">5.</span> Third-Party Services</h2>
+            <p>The App uses the following third-party services:</p>
+            <ul class="recs" aria-label="Third-party services">
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>Apple Sign In</strong></div><span class="dash"> — </span>
+                <span class="d">for authentication (Apple User ID verification)</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>Apple StoreKit 2</strong></div><span class="dash"> — </span>
+                <span class="d">for subscription and tip purchase management</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>Apple Family Controls / DeviceActivity</strong></div><span class="dash"> — </span>
+                <span class="d">for screen time management</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>Apple iCloud Key-Value Store</strong></div><span class="dash"> — </span>
+                <span class="d">for syncing token and subscription data</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>Apple CloudKit</strong></div><span class="dash"> — </span>
+                <span class="d">for referral code validation, anonymous archetype rarity statistics, and storing feedback submissions</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>Google Gemini API</strong></div><span class="dash"> — </span>
+                <span class="d">used to generate quiz questions and AI reminder content. Two separate request paths transmit different data: <em>(1) Quiz generation</em> sends only your selected question categories, device language, and recently cached question topics (to avoid duplicates). <em>(2) AI Reminder generation</em> sends a behavior summary derived from your local usage data — including up to your three most-unlocked group names with unlock counts (plus any groups in active no-unlock challenges), recurring habit-window times, average daily screen time and trend, peak-hour and night/morning usage ratios, your most frequent reflection answer choices, your strongest and weakest quiz categories, and your derived personality code — so Gemini can write reminders that reference your actual patterns. Never transmitted to Google: contacts, message contents, photo library contents, location, or any journal / meditation entries.</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>DeepSeek API</strong></div><span class="dash"> — </span>
+                <span class="d">an alternative AI provider used for the same two request paths with the same payloads as described for Gemini above. Requests are routed to DeepSeek by default for users on the mainland-China App Store using Chinese, and temporarily for any user while Gemini is unreachable (automatic failover, up to 6 hours). The same never-transmitted list applies.</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>GitHub Pages</strong></div><span class="dash"> — </span>
+                <span class="d">hosts the scroll forecast data file. The App downloads a single public JSON file from <em class="nb">aquora-app.github.io</em>. This is a plain GET: the request carries no user data, no account identifier, no query parameters and no custom headers, and nothing is uploaded. As with any web request, GitHub's servers see the standard connection information (such as your IP address and user agent) in their own access logs. This request is made on every tier, including Free, because the same file also decides whether an emotional weather alert is due.</span>
+              </li>
+            </ul>
+            <p>One addition to the AI reminder payload described above: the request also carries a short block describing today's public mood climate. Everything in it comes from the published forecast file: two macro figures, a few band labels, and the category codes of the day's active events. Your year of birth, your city, your frequent apps, and anything derived from your mood check-ins are never part of it — and neither is which age band you fall into: that choice is made on the device, used to pick which band's figure to read, and then discarded.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s6" aria-labelledby="s6">
+            <h2 id="s6"><span class="num">6.</span> Tracking &amp; Advertising</h2>
+            <div class="callout">
+              <p>Aquora does <strong>not</strong> use any analytics, advertising, or tracking SDKs. We do not collect your device advertising identifier (IDFA). We do not track your activity across other apps or websites. The App does not request App Tracking Transparency permission because no tracking occurs.</p>
+            </div>
+          </section>
+
+          <section class="doc-sec" data-toc="s7" aria-labelledby="s7">
+            <h2 id="s7"><span class="num">7.</span> Notifications</h2>
+            <p>With your permission, Aquora sends local notifications including:</p>
+            <ul>
+              <li>Shield-opened reminders when you launch a blocked app</li>
+              <li>Daily limit reached alerts</li>
+              <li>No-Unlocking Challenge warnings</li>
+              <li>AI in-the-moment reminders (at usage thresholds)</li>
+              <li>Trial expiry warnings</li>
+              <li>Welcome messages and meditation reminders</li>
+              <li>Emotional weather alerts on days when the public mood surges — at most one per day. On Starter and above it can be switched off on its own under AI Reminder Settings; on any tier you can turn off all Aquora notifications from the Me tab</li>
+              <li>Monthly evolution report notices</li>
+              <li>Occasional nudges to come back — for example on your first day, or when your archetype has shifted</li>
+            </ul>
+            <p>On days the App recognizes as days of public mourning, the notifications Aquora generates on its own initiative — the daily AI reminders, in-the-moment reminders, trial-expiry notices, monthly reports and come-back nudges — are withheld for that day. Alerts that fire because you opened an app you had limited are immediate feedback on a limit you set yourself, and are not withheld.</p>
+            <p>All notifications are generated entirely on your device. We do not use remote push notification servers.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s8" aria-labelledby="s8">
+            <h2 id="s8"><span class="num">8.</span> Children's Privacy</h2>
+            <p>Aquora does not knowingly collect personal information from children under 13. Aquora is designed for personal self-management and does not provide parental controls over other users' devices. If we learn that we have collected data from a child under 13 without parental consent, we will take steps to delete that information.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s9" aria-labelledby="s9">
+            <h2 id="s9"><span class="num">9.</span> Data Retention &amp; Deletion</h2>
+            <p><strong>Local data:</strong> You can delete your account and all local data directly in the App (Me tab). Uninstalling the App also removes on-device data. Behavior logs (quiz answers, reflections, unlock events) are automatically purged after 90 days.</p>
+            <p><strong>iCloud Key-Value Store:</strong> Token balance, subscription status, and transaction history may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>.</p>
+            <p><strong>CloudKit records:</strong> Deleting your account in the App removes your referral code record from our CloudKit database. Anonymized records (archetype statistics, feedback, redemption history) are retained — they contain no identifying information and cannot be linked back to you. You may also contact us at the email below with any questions about CloudKit data.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s10" aria-labelledby="s10">
+            <h2 id="s10"><span class="num wide">10.</span> Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+              <li>Revoke screen time, notification, and photo library permissions at any time via device Settings</li>
+              <li>Delete all locally stored data by uninstalling the App</li>
+              <li>Remove iCloud Key-Value Store data through your iCloud settings</li>
+              <li>Request deletion of CloudKit records (referral codes, archetype) by contacting us</li>
+              <li>Revoke Sign In with Apple credentials via <strong>Settings &gt; [Your Name] &gt; Sign-In &amp; Security</strong></li>
+              <li>Delete your account and all associated data directly within the App (Me tab)</li>
+              <li>Request information about data processing by contacting us</li>
+            </ul>
+          </section>
+
+          <section class="doc-sec" data-toc="s11" aria-labelledby="s11">
+            <h2 id="s11"><span class="num wide">11.</span> Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of significant changes through the App or by updating the effective date above.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s12" aria-labelledby="s12">
+            <h2 id="s12"><span class="num wide">12.</span> Contact Us</h2>
+            <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.</p>
+            <div class="contact-card">
+              <div><span class="label">Email</span></div>
+              <a class="btn btn-mail" href="mailto:{{ site.contact_email }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>{{ site.contact_email }}</a>
+            </div>
+          </section>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+{% include en-doc-footer.html %}
+</div>
+
+{% include en-doc-toc.html %}
+{% include en-theme.html part="toggle" %}
+</body>
+</html>

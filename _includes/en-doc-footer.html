@@ -1,0 +1,24 @@
+{%- comment -%}
+Overseas document-page footer (Privacy Policy / Terms of Service / Support): the home page's footer structure (index.html)
+wrapped in the .foot-band — nav small print (Home · Personalities · Privacy · Terms · Support), the brand line, © year Aquora,
+and the contact email. No ICP / police-registration / company lines: those belong to the mainland site only (cn-footer.html).
+Styles come from home.css (.foot-band / .footer-icp*). Every href is prefixed with site.baseurl.
+{%- endcomment -%}
+<div class="foot-band">
+  <footer class="footer-icp" role="contentinfo">
+    <nav class="footer-icp-nav" aria-label="Footer">
+      <a href="{{ site.baseurl }}/">Home</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ site.baseurl }}/#archetypes">Personalities</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ site.baseurl }}/privacy/">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ site.baseurl }}/terms/">Terms</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ site.baseurl }}/support/">Support</a>
+    </nav>
+    <p class="footer-icp-brand">Aquora</p>
+    <p class="footer-icp-line">© {{ site.time | date: "%Y" }} Aquora</p>
+    <p class="footer-icp-line footer-icp-contact"><span>Contact:</span> <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+  </footer>
+</div>

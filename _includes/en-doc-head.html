@@ -1,0 +1,36 @@
+{%- comment -%}
+Overseas "document page" <head> fragment (Privacy Policy / Terms of Service / Support), placed inside the page's own <head>.
+English twin of cn-doc-head.html: adds .js to <html> (the theme toggle only shows with JS), then the English metadata
+(og/twitter/canonical, all prefixed with site.baseurl), the shared icons and the same stylesheet stack as the mainland
+document pages — cn-fonts.css + home.css + cn-doc.css — plus doc-en.css, the English-length overrides. Zero external resources.
+Parameters: title (required; <title> becomes "Title — Aquora"), description (required).
+Usage (brace syntax as in cn-head.html): include en-doc-head.html title="Privacy Policy" description="…"
+{%- endcomment -%}
+{%- assign en_url = site.url | append: site.baseurl | append: page.url -%}
+<script>document.documentElement.className += " js"</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>{{ include.title }} — Aquora</title>
+<meta name="description" content="{{ include.description | escape }}">
+<meta name="theme-color" content="#0B2431">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aquora">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{ include.title | escape }} — Aquora">
+<meta property="og:description" content="{{ include.description | escape }}">
+<meta property="og:url" content="{{ en_url }}">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ include.title | escape }} — Aquora">
+<meta name="twitter:description" content="{{ include.description | escape }}">
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/og/home.png">
+<link rel="canonical" href="{{ en_url }}">
+{% include site-icons.html %}
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cn-fonts.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cn-doc.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/doc-en.css?v={{ site.time | date: '%Y%m%d%H%M' }}">

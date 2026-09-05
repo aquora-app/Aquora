@@ -18,9 +18,10 @@ defaults:
       layout: archetype
 
 # Root index.html is the marketing home page (bilingual EN/zh, mirrors the
-# mainland cn/index.html design). The legacy Terms/Privacy page moved to
-# legal/index.html (permalink /legal/); the home page redirects old
-# #terms/#privacy deep links there so App/ASC links keep working.
+# mainland cn/index.html design). The legacy Terms/Privacy page is split into
+# en/privacy.html (/privacy/), en/terms.html (/terms/) and en/support.html
+# (/support/); the home page redirects old #terms/#privacy deep links there and
+# legal/index.html (/legal/) forwards likewise, so App/ASC links keep working.
 
 # Site-wide values used by the home page (the mainland overlay overrides them).
 app_store_url: https://apps.apple.com/app/id6761502736

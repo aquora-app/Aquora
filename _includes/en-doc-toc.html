@@ -1,0 +1,41 @@
+{%- comment -%}
+Overseas document-page table-of-contents script (Privacy Policy / Terms of Service), placed at the end of the page before
+en-theme.html part="toggle". A verbatim copy of cn-doc-toc.html (which is language-independent) with its two inline JS
+comments in English — the mainland build must stay byte-identical, and the overseas build must ship no Chinese. Keep the two in step.
+  ① On narrow screens (<1100) the first load collapses <details class="toc"> (open by default in HTML, so without JS both
+     widths render it expanded); it opens/closes again when the breakpoint is crossed.
+  ② An IntersectionObserver watches every .doc-sec and marks the matching TOC link .is-current (a section between 18% from
+     the top and 62% from the bottom of the viewport counts as "being read"); at the page bottom the last section lights up.
+{%- endcomment -%}
+<script>
+(function () {
+  var toc = document.querySelector('details.toc'); if (!toc) return;
+  var mq = window.matchMedia ? window.matchMedia('(min-width: 1100px)') : null;
+  function fit() { if (!mq) return; toc.open = mq.matches; }
+  fit();
+  if (mq) { if (mq.addEventListener) mq.addEventListener('change', fit); else if (mq.addListener) mq.addListener(fit); }
+  if (!('IntersectionObserver' in window)) return;
+  var links = {}; [].forEach.call(toc.querySelectorAll('a[href^="#"]'), function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var secs = [].slice.call(document.querySelectorAll('.doc-sec[data-toc]'));
+  var cur = null;
+  function mark(id) {
+    if (cur === id) return;
+    if (cur && links[cur]) links[cur].classList.remove('is-current');
+    cur = id; if (links[id]) links[id].classList.add('is-current');
+  }
+  function atBottom() { return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2; }
+  function update() {
+    if (window.scrollY < 40) { mark(secs[0].getAttribute('data-toc')); return; }   /* 页顶:点亮第一节 / at the top: the first section is current */
+    if (atBottom()) { mark(secs[secs.length - 1].getAttribute('data-toc')); return; }   /* bottom-of-page fallback: when the last section is too short to enter the observation band, reaching the bottom lights it up */
+    var vis = secs.filter(function (s) { return s.__in; });
+    if (vis.length) mark(vis[0].getAttribute('data-toc'));
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { en.target.__in = en.isIntersecting; });
+    update();
+  }, { rootMargin: '-18% 0px -62% 0px', threshold: 0 });
+  secs.forEach(function (s) { io.observe(s); });
+  if (secs.length) mark(secs[0].getAttribute('data-toc'));
+  window.addEventListener('scroll', update, { passive: true });   /* leaving the bottom must immediately fall back to the first section inside the band */
+})();
+</script>

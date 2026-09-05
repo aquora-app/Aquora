@@ -1,0 +1,96 @@
+/* Overseas document pages (Privacy Policy / Terms of Service / Support) — English-length overrides.
+   Loaded after cn-fonts.css + home.css + cn-doc.css, in the spirit of home-en.css: the mainland document design system
+   (glass "paper", sticky TOC card, numbered sections, definition rows, record cards, callouts, FAQ accordion, contact card)
+   stays exactly as it is; this file only re-tunes what changes when the copy is English —
+     • the display voice: the Songti H1 becomes Aquora Cormorant (--font-latin) 500, the same serif and weight the overseas home page
+       uses for its display heading; section titles follow it at 600 so the Cormorant section numbers no longer need the 1.45em boost;
+     • measure and rhythm for Latin text: body 16px / 1.7, list and card copy a touch tighter, no CJK text-spacing;
+     • the header: five English links plus "Aquora" and the App Store button need one more tier of narrowing in the
+       641–739 band than the mainland page (cn-doc.css hides href="/" there, which never matches a /Aquora/ link);
+     • record cards that hold prose (Privacy §2 / §5) instead of definition rows, and the visually hidden " — " that keeps
+       the original list text intact inside a title / description card.
+   Labels such as "Legal", "Contents", "Effective Date", "Email" are written in the HTML, not generated here.
+   Colour tokens, glass, day/night faces and the toggle are untouched. Zero external resources. */
+
+/* ===== Display voice: Cormorant for the title and the section titles ===== */
+.doc-title {
+  font-family: var(--font-latin); font-weight: 500; letter-spacing: -.015em;   /* mirrors the overseas home page's .h-display (Cormorant 500); section h2 stays 600, the weight the home page uses at card scale */
+  font-size: clamp(46px, 5.6vw, 66px); line-height: 1.04;
+  font-feature-settings: "kern", "liga";
+}
+.doc-sec > h2 {
+  font-family: var(--font-latin); font-weight: 600; letter-spacing: -.005em;
+  font-size: clamp(28px, 2.8vw, 34px); line-height: 1.15; gap: 10px;
+}
+.doc-sec > h2 { text-wrap: balance; }   /* a two-line title ("4. Subscriptions & In-App Purchases" at 390) splits at a word, not at the hyphen of "In-App" */
+.doc-sec > h2 .num { font-size: 1em; font-weight: 600; font-style: italic; min-width: 1.35em; }   /* same face as the title now: 1em, not 1.45em; slot fits "12." */
+.doc-meta .eyebrow { letter-spacing: .16em; }
+.doc-meta .dates { letter-spacing: .01em; }
+.doc-head::after { margin-top: clamp(26px, 3.6vw, 36px); }
+
+/* ===== Latin measure ===== */
+.prose { line-height: 1.7; text-spacing-trim: normal; }
+.prose p { text-wrap: pretty; }
+.prose ul li { margin-bottom: 7px; }
+.prose ul li::before { top: .66em; }
+.prose em { white-space: nowrap; }   /* the three short ems — a hostname and two "(n) …" labels — must not hyphen-break across lines */
+.prose h3 { margin-top: 28px; font-size: 17px; letter-spacing: .005em; }
+.callout p { font-size: 16.5px; line-height: 1.7; text-wrap: pretty; }
+.doc-head .lede { max-width: 34em; }
+.toc a { line-height: 1.45; text-wrap: balance; }   /* a two-line entry ("3. How We Use Your Information") splits evenly instead of leaving a one-word orphan */
+.toc a::before { top: 13px; }
+
+/* Feature grid / tier cards: English descriptions are fragments after the hidden " — ", so the title sits closer to them */
+.feat-grid li strong, .tiers li strong { margin-bottom: 3px; }
+.feat-grid li .d, .tiers li .d { font-size: 14.5px; line-height: 1.6; }
+.tiers li .tier-sub { margin-left: 0; text-spacing-trim: normal; }   /* the mainland -.5em compensates a full-width "（"; a Latin "(" needs none */
+
+/* Record cards that carry prose (Privacy §2 data types, §5 third-party services) */
+.prose .recs > li.rec-p { padding: 18px 20px 17px; }
+.rec-p .rec-h { margin-bottom: 6px; }
+.rec-p .rec-h h3 { margin: 0; font-size: 16.5px; line-height: 1.45; letter-spacing: 0; }
+.rec-p .rec-h strong { font-size: 16.5px; }
+.rec-p p, .rec-p .d { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-text); }
+.rec-p .d { display: block; }
+.rec-p p + p, .rec-p p + ul, .rec-p ul + p { margin-top: .6em; }
+.rec-p ul { margin: .6em 0 0; }
+.rec-p ul li { font-size: 15px; line-height: 1.65; margin-bottom: 6px; }
+.rec-p ul li:last-child { margin-bottom: 0; }
+.rec .dash { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }   /* the original " — " stays in the DOM; the card's title/description layering replaces it visually */
+
+/* Support page: FAQ answers and the small about card */
+.faq-item summary { font-size: 16px; line-height: 1.45; }
+.faq-item .ic { margin: calc((1.45em - 30px) / 2) 0; }   /* keep the button centred on the first line at the new line-height */
+.faq-item .a p { font-size: 15.5px; line-height: 1.7; }
+@media (min-width: 641px) { .about-card .defs { grid-template-columns: minmax(5em, 7em) 1fr; } }   /* wide screens only: "App" / "Email" need a narrower slot than the mainland 6–8em; at ≤640 cn-doc.css stacks the rows (1fr) and this rule must not outrank it */
+
+/* ===== Header: five English links ===== */
+@media (min-width: 641px) and (max-width: 819px) {
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 8px 9px; }
+  .nav-links a.nav-home { display: none; }   /* the brand already goes home; the footer still lists every link */
+}
+@media (min-width: 641px) and (max-width: 719px) {
+  .nav-links a.nav-arch { display: none; }   /* "Personalities" is a home-page anchor, not a document; it is the widest link */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .doc-title { font-size: clamp(40px, 11vw, 48px); letter-spacing: -.01em; }
+  .doc-sec > h2 { font-size: 25px; gap: 8px; }
+  .doc-sec > h2 .num, .doc-sec > h2 .num.wide { min-width: 0; }
+  .prose { font-size: 15.5px; }
+  .prose .recs > li.rec-p { padding: 16px 16px 15px; }
+  .faq-item summary { font-size: 15.5px; }
+  .faq-item .ic { margin: calc((1.45em - 30px) / 2) 0; }
+}
+
+/* Latin reads smaller than CJK at the same px (x-height vs full em box) — Abel 2026-09-05 felt the English pages looked smaller:
+   body/definition/FAQ text +0.5–1px against the mainland values, line-height kept in step */
+.prose p { font-size: 17px; line-height: 1.7; }
+.defs dd, .rec .defs dd { font-size: 16px; line-height: 1.7; }
+.defs dt { font-size: 14px; }
+.toc a { font-size: 14px; }
+.faq-item summary { font-size: 16.5px; }
+.faq-item .a p { font-size: 16px; line-height: 1.7; }
+.callout p { font-size: 16.5px; }

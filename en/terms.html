@@ -1,0 +1,241 @@
+---
+layout: null
+permalink: /terms/
+title: Terms of Service
+---
+{%- comment -%}
+Terms of Service (overseas site /terms/, English only). Abel 2026-09-05: the old one-page Terms & Privacy (legal/index.html,
+two tabs) is split into /privacy/ /terms/ /support/, on the mainland document-page design system —
+en-doc-head.html (cn-fonts.css + home.css + cn-doc.css + doc-en.css) + the home page's capsule nav and sun/moon toggle (en-theme.html).
+The body is the #terms tab of the old page, moved section by section: every English sentence is unchanged (verified sentence by
+sentence against the HEAD legal/index.html at build time); only structure and markup changed — numbered h2 with ids, a table of
+contents (<details class="toc">), the §2 feature list as a two-column card grid and the three tiers as tier cards (their original
+" — " stays in the DOM, visually hidden), §1 and the "free forever" sentence as callouts, and a contact card under §15.
+The only text added is chrome and labels: "Legal", "Effective Date", "Contents", "Email", nav and footer words.
+No Chinese, no ICP / registration / company lines anywhere on the overseas site. Every link and asset carries site.baseurl.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{% include en-doc-head.html title="Terms of Service" description="The terms for using the Aquora iOS app: what the App does, Screen Time authorization, subscriptions and the Starter purchase, tokens and referrals, account deletion, intellectual property and governing law." %}
+</head>
+<body>
+{% include en-theme.html part="pre" %}
+
+<div class="page">
+{% include en-doc-nav.html current="terms" %}
+
+  <main id="main" class="doc">
+    <div class="wrap">
+      <article class="paper">
+
+        <header class="doc-head">
+          <div class="doc-meta">
+            <p class="eyebrow">Legal</p>
+            <p class="dates"><span class="date">Effective Date: August 14, 2026</span></p>
+          </div>
+          <h1 class="doc-title">Terms of Service</h1>
+        </header>
+
+        <details class="toc" open>
+          <summary><span class="eyebrow">Contents</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <div class="toc-card">
+            <ol aria-label="Contents">
+              <li><a href="#s1">1. Acceptance of Terms</a></li>
+              <li><a href="#s2">2. Description of Service</a></li>
+              <li><a href="#s3">3. Screen Time &amp; Family Controls</a></li>
+              <li><a href="#s4">4. Subscriptions &amp; <span class="nb">In-App</span> Purchases</a></li>
+              <li><a href="#s5">5. Tip Jar &amp; Consumable Purchases</a></li>
+              <li><a href="#s6">6. Token &amp; Referral Systems</a></li>
+              <li><a href="#s7">7. Account &amp; Account Deletion</a></li>
+              <li><a href="#s8">8. Age Requirement</a></li>
+              <li><a href="#s9">9. Intellectual Property</a></li>
+              <li><a href="#s10">10. User Conduct</a></li>
+              <li><a href="#s11">11. Disclaimer of Warranties</a></li>
+              <li><a href="#s12">12. Limitation of Liability</a></li>
+              <li><a href="#s13">13. Governing Law</a></li>
+              <li><a href="#s14">14. Changes to Terms</a></li>
+              <li><a href="#s15">15. Contact</a></li>
+            </ol>
+          </div>
+        </details>
+
+        <div class="doc-body prose">
+
+          <section class="doc-sec" data-toc="s1" aria-labelledby="s1">
+            <h2 id="s1"><span class="num">1.</span> Acceptance of Terms</h2>
+            <div class="callout">
+              <p>By downloading, installing, or using Aquora ("the App"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the App.</p>
+            </div>
+          </section>
+
+          <section class="doc-sec" data-toc="s2" aria-labelledby="s2">
+            <h2 id="s2"><span class="num">2.</span> Description of Service</h2>
+            <p>Aquora is a screen time management and mindfulness application that helps users build healthier digital habits. Features include:</p>
+            <ul class="feat-grid">
+              <li><strong>App Limits &amp; Group Management</strong><span class="dash"> — </span><span class="d">group apps and configure daily/session limits</span></li>
+              <li><strong>Screen Time Tracking</strong><span class="dash"> — </span><span class="d">usage statistics and session history</span></li>
+              <li><strong>Unlocking Quiz Challenges</strong><span class="dash"> — </span><span class="d">answer quiz questions across 19 categories to unlock blocked apps (Premium adds an AI-generated question bank)</span></li>
+              <li><strong>Meditation Sessions</strong><span class="dash"> — </span><span class="d">guided breathing, focus, body scan, gratitude, and manifestation practices</span></li>
+              <li><strong>Ambient Sounds</strong><span class="dash"> — </span><span class="d">selectable nature and noise sounds for meditation</span></li>
+              <li><strong>Journal &amp; Manifestation</strong><span class="dash"> — </span><span class="d">personal entries with goals and mood tracking</span></li>
+              <li><strong>Personality Archetype System</strong><span class="dash"> — </span><span class="d">4-axis personality assessment with monthly reports</span></li>
+              <li><strong>AI Reminders</strong><span class="dash"> — </span><span class="d">scheduled and in-the-moment personalized reminders based on your behavior patterns</span></li>
+              <li><strong>No-Unlocking Challenges</strong><span class="dash"> — </span><span class="d">commit to a 30-day challenge of not unlocking selected apps (requires Strict Mode)</span></li>
+              <li><strong>Achievements &amp; Rewards</strong><span class="dash"> — </span><span class="d">badge system for streaks, time saved, and consistent practice</span></li>
+              <li><strong>Token System</strong><span class="dash"> — </span><span class="d">earn virtual tokens through challenges, redeemable for premium access</span></li>
+              <li><strong>Referral Program</strong><span class="dash"> — </span><span class="d">invite friends with codes for mutual rewards</span></li>
+              <li><strong>Shareable Cards</strong><span class="dash"> — </span><span class="d">export personality and achievement cards as images</span></li>
+              <li><strong>Tip Jar</strong><span class="dash"> — </span><span class="d">optional tips to support development</span></li>
+              <li><strong>Daily Scroll Forecast</strong><span class="dash"> — </span><span class="d">a market-level index built from public data about how noisy and heavy the internet feels today, presented like a weather forecast (Starter tier and above)</span></li>
+              <li><strong>Mood Check-In &amp; Mood Report</strong><span class="dash"> — </span><span class="d">an optional, skippable check-in on how you feel, and a report comparing your own curve with the world's (the check-in lives inside the scroll forecast page, so it needs Starter or above; the report needs Premium)</span></li>
+              <li><strong>Emotional Weather Alerts</strong><span class="dash"> — </span><span class="d">an occasional local notification on days when the public mood surges, at most one per day; on Starter and above it can be switched off on its own under AI Reminder Settings, and on any tier you can turn off all Aquora notifications from the Me tab</span></li>
+            </ul>
+
+            <p>AI features (quiz question generation, AI reminders) are powered by third-party AI providers — Google Gemini and DeepSeek. Only anonymized, feature-specific data is sent; see the <a href="{{ site.baseurl }}/privacy/#s5">Privacy Policy</a> tab for exactly what each request contains.</p>
+
+            <h3>Free, Starter, and Premium</h3>
+            <p>Aquora has three access tiers. Higher tiers include everything in the tiers below them.</p>
+            <ul class="tiers">
+              <li><strong>Free</strong><span class="dash"> — </span><span class="d">1 app limit group, 6 quiz categories, 3 guided meditations, 2 ambient sounds (plus Silence), 1 breathing pattern, 5 journal entries, and today's session history.</span></li>
+              <li><strong>Starter</strong><span class="tier-sub"> (one-time purchase)</span><span class="dash"> — </span><span class="d">3 app limit groups, 9 quiz categories (the 6 free ones plus one of your choice in each of the 3 paid question groups, chosen once), all guided meditations, ambient sounds and breathing patterns, the daily scroll forecast, and the full personality reading.</span></li>
+              <li><strong>Premium</strong><span class="tier-sub"> (subscription)</span><span class="dash"> — </span><span class="d">unlimited app limit groups, all 19 quiz categories, the AI question bank, AI reminders (daily and in-the-moment), unlimited journal entries and session history, the personal mood report, and monthly evolution reports.</span></li>
+            </ul>
+            <p>A few caps apply on every tier: meditation history keeps your most recent 100 sessions. Where a limit changed after you already exceeded it, what you already created is kept — the App does not delete groups or entries you set up under an earlier version.</p>
+            <div class="callout">
+              <p>Your archetype code, its name, its rarity badge and the shareable card are free forever; the radar chart and the axis-by-axis reading require Starter or above.</p>
+            </div>
+          </section>
+
+          <section class="doc-sec" data-toc="s3" aria-labelledby="s3">
+            <h2 id="s3"><span class="num">3.</span> Screen Time &amp; Family Controls</h2>
+            <p>Aquora uses Apple's Screen Time API and Family Controls framework. The App requires your explicit authorization to access and manage screen time data. You may revoke this access at any time through your device settings.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s4" aria-labelledby="s4">
+            <h2 id="s4"><span class="num">4.</span> <span class="t">Subscriptions &amp; <span class="nb">In-App</span> Purchases</span></h2>
+            <p>Aquora offers two kinds of paid access: auto-renewable subscription plans (weekly, monthly, or yearly — the plans differ only in billing period, not in what they unlock), and a one-time purchase called Starter. By purchasing either, you agree to the following terms:</p>
+
+            <h3>Payment &amp; Billing</h3>
+            <ul>
+              <li>Payment will be charged to your Apple ID account at confirmation of purchase.</li>
+              <li>Subscription prices are displayed in the App before purchase. Prices may vary by region.</li>
+            </ul>
+
+            <h3>Auto-Renewal</h3>
+            <ul>
+              <li>Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current billing period.</li>
+              <li>Your account will be charged for renewal within 24 hours prior to the end of the current period at the same rate.</li>
+            </ul>
+
+            <h3>Free Trial</h3>
+            <ul>
+              <li>If a free trial is offered, any unused portion of the free trial period will be forfeited when you purchase a subscription.</li>
+              <li>After the free trial expires, you will be automatically charged the subscription price unless you cancel at least 24 hours before the trial ends.</li>
+              <li>Where a plan includes an introductory free trial, its exact length is shown on that plan before you confirm the purchase. Not every plan offers one.</li>
+              <li>Separately, new users receive a one-time 7-day in-app trial of the AI <span class="nb">features —</span> the in-app trial requires no payment method and never converts to a charge.</li>
+            </ul>
+
+            <h3>Starter (One-Time Purchase)</h3>
+            <ul>
+              <li>Starter is a non-consumable in-app purchase. You pay once; it does not renew, and there is nothing to cancel.</li>
+              <li>Starter does not expire and is not affected by starting or canceling a subscription. If you later subscribe and then cancel, you fall back to Starter rather than to Free.</li>
+              <li>Like all non-consumable purchases, Starter is tied to the Apple ID that bought it. On a new device, or after reinstalling, use <strong>Restore Purchases</strong> in the App to bring it back.</li>
+              <li>Starter includes a one-time choice: one additional quiz category in each paid question group (three groups today). That choice is made once inside the App and is not intended to be changed afterward.</li>
+            </ul>
+
+            <h3>Managing &amp; Canceling</h3>
+            <ul>
+              <li>You can manage or cancel your subscription at any time by going to your device's <strong>Settings &gt; [Your Name] &gt; Subscriptions</strong>.</li>
+              <li>Cancellation takes effect at the end of the current billing period. You will retain access to premium features until then.</li>
+            </ul>
+
+            <h3>Refund Policy</h3>
+            <p>Refunds are handled by Apple in accordance with their <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store refund policy</a>.</p>
+
+            <h3>Apple's Terms</h3>
+            <p>Use of the App is also subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Licensed Application End User License Agreement (Standard EULA)</a>.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s5" aria-labelledby="s5">
+            <h2 id="s5"><span class="num">5.</span> Tip Jar &amp; Consumable Purchases</h2>
+            <p>Aquora offers optional one-time tip purchases (Coffee, Treat, Garden, Gem, Rocket) to support development. These are non-refundable consumable in-app purchases processed through Apple's App Store. Tips do not unlock additional features.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s6" aria-labelledby="s6">
+            <h2 id="s6"><span class="num">6.</span> Token &amp; Referral Systems</h2>
+            <h3>Virtual Tokens</h3>
+            <p>You may earn virtual tokens by completing No-Unlocking Challenges. Tokens have no monetary value, cannot be exchanged for cash, and may be redeemed within the App for one month of premium access. Token balances and transaction history are stored locally and synced via iCloud. If you redeem a token while a paid subscription is active, the granted premium time is banked and applied automatically after your paid subscription ends.</p>
+            <h3>Referral Codes</h3>
+            <p>You may share your referral code with any number of friends. Each user may redeem one referral code, once: a successful redemption grants the redeemer 1 week of premium access, and you receive a one-time 1-week inviter reward the first time your code is redeemed. Codes cannot be redeemed while a paid subscription is active; rewards earned while a paid subscription is active are banked and applied after it ends. Referral codes are stored in Apple's CloudKit public database for verification. Owner and redeemer identities are stored as anonymized hashes only.</p>
+            <p>Abuse of the referral system, including self-referrals or fraudulent redemptions, may result in revocation of rewards.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s7" aria-labelledby="s7">
+            <h2 id="s7"><span class="num">7.</span> Account &amp; Account Deletion</h2>
+            <p>Signing in with Apple creates your account (used for the referral code and future features). You may delete your account at any time inside the App (Me tab). Deletion immediately and permanently removes your on-device data, your iCloud-synced token and subscription data, and your referral code record from our server. Any remaining token balance, gifted premium days, and banked premium time are forfeited and cannot be restored by signing in again. A paid App Store subscription is not cancelled by account deletion — manage it in your device Settings. Anonymized statistics records (see the <a href="{{ site.baseurl }}/privacy/#s9">Privacy Policy</a>) are retained, and privacy-free abuse-prevention markers remain on the device so one-time rewards cannot be re-earned by deleting and re-creating an account.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s8" aria-labelledby="s8">
+            <h2 id="s8"><span class="num">8.</span> Age Requirement</h2>
+            <p>You must be at least 13 years old to use Aquora. If you are under 18, you must have parental or guardian consent. Aquora is a personal self-management tool; it does not provide parental controls over other family members' devices.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s9" aria-labelledby="s9">
+            <h2 id="s9"><span class="num">9.</span> Intellectual Property</h2>
+            <p>All content, design, graphics, and code within the App are the intellectual property of Aquora and its developers. Quiz questions generated by AI, personality reports, and shareable cards are provided for personal use only and may not be redistributed or used commercially. Personal content you create (journal entries, meditation notes) remains your property.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s10" aria-labelledby="s10">
+            <h2 id="s10"><span class="num wide">10.</span> User Conduct</h2>
+            <p>You agree not to:</p>
+            <ul>
+              <li>Reverse engineer, decompile, or disassemble the App</li>
+              <li>Use the App for any unlawful purpose</li>
+              <li>Attempt to circumvent any security features</li>
+              <li>Redistribute or resell the App or its content</li>
+            </ul>
+          </section>
+
+          <section class="doc-sec" data-toc="s11" aria-labelledby="s11">
+            <h2 id="s11"><span class="num wide">11.</span> Disclaimer of Warranties</h2>
+            <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. Screen time management features depend on system-level APIs and may be affected by OS updates. AI-generated content (quiz questions, reminders, personality reports) is provided for entertainment and self-reflection purposes only and should not be considered professional advice (medical, psychological, financial, etc.).</p>
+            <p>The daily scroll forecast is an aggregate index computed from public data sources. It describes a general climate, not you, and not any individual, group, or organization. It is offered as ambient context only and does not constitute medical, psychological, financial, or any other form of advice.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s12" aria-labelledby="s12">
+            <h2 id="s12"><span class="num wide">12.</span> Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, Aquora and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s13" aria-labelledby="s13">
+            <h2 id="s13"><span class="num wide">13.</span> Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of the App shall be resolved in the jurisdiction where the developer is located.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s14" aria-labelledby="s14">
+            <h2 id="s14"><span class="num wide">14.</span> Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. Continued use of the App after changes constitutes acceptance of the revised terms.</p>
+          </section>
+
+          <section class="doc-sec" data-toc="s15" aria-labelledby="s15">
+            <h2 id="s15"><span class="num wide">15.</span> Contact</h2>
+            <p>If you have questions about these Terms, please contact us at <a href="mailto:aquora.apps@gmail.com">aquora.apps@gmail.com</a>.</p>
+            <div class="contact-card">
+              <div><span class="label">Email</span></div>
+              <a class="btn btn-mail" href="mailto:{{ site.contact_email }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>{{ site.contact_email }}</a>
+            </div>
+          </section>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+{% include en-doc-footer.html %}
+</div>
+
+{% include en-doc-toc.html %}
+{% include en-theme.html part="toggle" %}
+</body>
+</html>

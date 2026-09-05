@@ -1,0 +1,309 @@
+/* aquora.cn 「文档页」设计系统(隐私政策 / 用户协议 / 支持页)
+   叠在 home.css 之上:令牌、薄荷胶囊导航、太阳/月亮开关、玻璃卡、按钮、页脚带、主题揭幕全部沿用首页的,
+   本文件只补「读一份长文档」所需的部件——一张玻璃「纸」、目录小卡(宽屏粘性侧栏 / 窄屏折叠)、带编号的节、
+   定义行(取代裸表格)、记录卡、引言块、FAQ 手风琴、联系卡。原则同首页:组件只读令牌,不写裸色;
+   昼在 :root、夜在 :root[data-theme="dark"]、prefers-color-scheme 只作无 data-theme 的镜像。
+   字体分工:大标题用 cn-fonts.css 的宋体显示字(子集只含正文常用汉字、不含数字,所以只给纯汉字的 H1);
+   节标题沿用首页节标题的系统圆体;节序号与页眉 Aquora 走 Cormorant。零境外资源。 */
+
+/* ===== 文档令牌 ===== */
+:root {
+  --doc-accent: #2E8A6A;                       /* 引言绿线 / 当前目录项圆点:昼面玻璃上要比地色深一档才看得见(取蜡封的深绿) */
+  --doc-accent-soft: rgba(46, 138, 106, .14);
+  --doc-cur-bg: rgba(255, 255, 255, .34);      /* 目录当前项 / FAQ 展开态的底 */
+  --doc-card: var(--glass);                    /* 纸内小卡(记录卡 / FAQ / 功能卡):比纸再亮一档 */
+  --doc-card-line: var(--glass-line);
+  --doc-code-bg: rgba(255, 255, 255, .30);
+  --doc-paper-w: 832px;                       /* 1120(首页 --w)− 32 − 256:纸与目录合起来正好落在页眉胶囊的两缘之内 */
+  --doc-toc-w: 256px;
+  --doc-gap: 32px;
+  --doc-pad-x: clamp(22px, 5vw, 64px);
+  --doc-head-pad: clamp(34px, 5vw, 60px);      /* 纸顶内距 = 目录卡顶距(宽屏两者齐平) */
+  --doc-sec-gap: clamp(56px, 6vw, 76px);       /* 节距 64–80,窄屏略收 */
+}
+:root[data-theme="dark"] {
+  --doc-accent: #61A88A;
+  --doc-accent-soft: rgba(97, 168, 138, .14);
+  --doc-cur-bg: rgba(97, 168, 138, .14);
+  --doc-card: rgba(255, 255, 255, .05);
+  --doc-card-line: rgba(97, 168, 138, .20);
+  --doc-code-bg: rgba(97, 168, 138, .12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --doc-accent: #61A88A;
+    --doc-accent-soft: rgba(97, 168, 138, .14);
+    --doc-cur-bg: rgba(97, 168, 138, .14);
+    --doc-card: rgba(255, 255, 255, .05);
+    --doc-card-line: rgba(97, 168, 138, .20);
+    --doc-code-bg: rgba(97, 168, 138, .12);
+  }
+}
+
+html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出锚点落点(72 胶囊底 + 24);唯一的锚点偏移——h2 不再另设 scroll-margin-top,两者会叠加成 192 */
+.nav-links a[aria-current="page"] { background: var(--nav-hover); }
+.nav-links a, .brand { white-space: nowrap; }   /* 文档页比首页多两枚链接(5 枚):641–739 宽会把「首页」「隐私政策」逐字折成两行、胶囊增高——先禁折行,窄区间再按下方媒体块收窄 */
+
+/* ===== 一张玻璃「纸」 =====
+   .paper 是网格容器:宽屏两列(纸 832 + 目录 256 = 首页 --w 1120),玻璃只画在第一列——由 ::before 作为网格项铺满第一列全部行;
+   目录卡是第二列的粘性侧栏。窄屏(<1100)单列:标题区 → 折叠目录 → 正文,玻璃铺满。 */
+.doc { padding-top: clamp(26px, 4.5vw, 52px); }
+.paper {
+  position: relative; isolation: isolate;
+  display: grid; grid-template-columns: minmax(0, var(--doc-paper-w)) var(--doc-toc-w);
+  grid-template-areas: "head toc" "body toc";
+  column-gap: var(--doc-gap); justify-content: center;
+}
+.paper::before {
+  content: ""; grid-column: 1; grid-row: 1 / -1; z-index: -1;
+  background: var(--glass); border: 1px solid var(--glass-line); border-radius: var(--r-card);
+  box-shadow: inset 0 1px 0 var(--hl), var(--card-shadow);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+}
+.paper.no-toc { grid-template-columns: minmax(0, var(--doc-paper-w)); grid-template-areas: "head" "body"; }
+.doc-head { grid-area: head; padding: var(--doc-head-pad) var(--doc-pad-x) 0; }
+.doc-body { grid-area: body; padding: 0 var(--doc-pad-x) clamp(40px, 5vw, 64px); min-width: 0; }
+
+/* 标题区:眉标胶囊 + 日期细字 · 宋体大标题 · 一句导语 */
+.doc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.doc-meta .eyebrow { display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--pill-bg); border: 1px solid var(--pill-line); }
+.doc-meta .eyebrow .lat { font-size: 15px; }
+.doc-meta .dates { font-size: 13.5px; font-weight: 600; letter-spacing: .02em; color: var(--muted); }
+.doc-meta .dates .date { white-space: nowrap; }   /* 一个日期不拆成两行,折行只落在「·」处 */
+.doc-title {
+  margin: 20px 0 0; font-family: var(--font-display); font-weight: 560; letter-spacing: .06em;
+  font-size: clamp(38px, 5vw, 56px); line-height: 1.15; color: var(--ink);
+}
+.doc-head .lede { margin-top: 18px; max-width: 36em; }
+.doc-head::after { content: ""; display: block; height: 1px; margin-top: clamp(28px, 4vw, 40px); background: var(--glass-rule); }
+
+/* ===== 目录小卡 ===== */
+.toc { grid-area: toc; align-self: start; min-width: 0; padding-top: var(--doc-head-pad); }   /* 目录顶与纸内眉标同高 */
+.toc-card {
+  background: var(--glass-hi); border: 1px solid var(--glass-line); border-radius: 22px;
+  box-shadow: inset 0 1px 0 var(--hl-sm); padding: 8px;
+}
+.toc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px 6px; border-radius: 14px; -webkit-tap-highlight-color: transparent; }
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary .eyebrow { font-size: 12.5px; }
+.toc summary .chev { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--doc-code-bg); color: var(--ink); transition: transform .3s ease; }
+.toc summary .chev svg { width: 14px; height: 14px; }
+.toc[open] summary .chev { transform: rotate(180deg); }
+.toc ol { list-style: none; margin: 4px 0 2px; padding: 0; }
+.toc li { margin: 0; }
+.toc a {
+  position: relative; display: block; padding: 7px 12px 7px 26px; border-radius: 12px;
+  font-size: 13.5px; line-height: 1.5; font-weight: 600; color: var(--ink-text);
+  transition: background .25s ease, color .25s ease;
+}
+.toc a::before { content: ""; position: absolute; left: 11px; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-30); transition: background .25s ease, transform .25s ease; }
+.toc a:hover, .toc a:focus-visible { background: var(--nav-hover); color: var(--ink); }
+.toc a.is-current { background: var(--doc-cur-bg); color: var(--ink); font-weight: 700; }
+.toc a.is-current::before { background: var(--doc-accent); transform: scale(1.35); }
+
+/* ===== 正文 ===== */
+.prose { color: var(--ink-text); font-size: 16px; line-height: 1.85; text-spacing-trim: trim-start; }   /* 行首全角开括号/开引号收半格(Chrome 123+/Safari 18.4+,依赖字体 chws/halt;不认则原样) */
+.defs dt, .defs dd, .prose li, .rec-h .sub, .feat-grid .d, .tiers .d, .callout p, .contact-card .note, .faq-item .a p { text-wrap: pretty; }   /* 单字孤行(「统/计」「天气/行」)兜底,与 .prose p 同策略 */
+.prose a[href^="/"] { white-space: nowrap; }   /* 站内短链接「隐私政策」不跨行(下划线会断成两段);外链长标题仍可折 */
+.prose p { margin: 0 0 1em; text-wrap: pretty; }
+.rec-h .sub, .callout p, .feat-grid .d, .faq-item summary { text-wrap: balance; }   /* ≤6 行的短块与标题:两行匀分,不留 2–3 字的尾巴。必须排在 .prose p 之后:.callout p 与 .prose p 同特异性(0,1,1),写在前面会被 pretty 盖掉 */
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 700; }
+.prose em { font-style: normal; font-weight: 600; color: var(--ink); }
+.prose a { color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--ink-30); transition: border-color .25s ease; }
+.prose a:hover { border-bottom-color: var(--ink); }
+.prose ul { margin: 0 0 1.1em; padding: 0; list-style: none; }
+.prose ul li { position: relative; padding-left: 22px; margin: 0 0 8px; }
+.prose ul li::before { content: ""; position: absolute; left: 4px; top: .72em; width: 7px; height: 7px; border-radius: 50%; background: var(--doc-accent); opacity: .85; }
+.prose h3 { margin: 30px 0 10px; font-size: 17.5px; font-weight: 700; color: var(--ink); letter-spacing: 0; }
+.prose h3:first-child { margin-top: 0; }
+
+/* 节:上距 64–80、下距 20;节与节之间一条卡内细线;序号走 Cormorant */
+.doc-sec { padding-top: var(--doc-sec-gap); }
+.doc-sec + .doc-sec { border-top: 1px solid var(--glass-rule); margin-top: 36px; padding-top: calc(var(--doc-sec-gap) - 36px); }   /* 细线之上 36 + 之下 (节距−36) = 节距 */
+.doc-body > .doc-sec:first-child { padding-top: clamp(30px, 4vw, 44px); }
+.doc-body > .callout:first-child { margin-top: clamp(30px, 4vw, 44px); margin-bottom: 0; }
+.doc-body > .callout:first-child + .doc-sec { padding-top: clamp(30px, 4vw, 44px); }   /* 引言块→第 1 节 = 页眉细线→第 1 节(44 / 30),不吃默认节距 76(否则 95px,像少了一节) */
+.doc-sec > h2 {
+  display: flex; align-items: baseline; gap: 12px; margin: 0 0 20px;
+  font-size: clamp(22px, 2.4vw, 28px); line-height: 1.25; letter-spacing: -.01em; color: var(--ink);
+}
+.doc-sec > h2 .num { flex: none; font-family: var(--font-latin); font-style: italic; font-weight: 700; font-size: 1.45em; line-height: 1; letter-spacing: 0; color: var(--ink-70); min-width: 1.2em; text-align: left; }   /* Cormorant 字身小,放大到 1.45em 才与圆体标题同高;槽宽按两位数「12.」定;序号左靠——与正文左缘同线(右靠时一位数/两位数的左缘在 234–252 之间跳动),标题左缘全页一致 */
+.doc-sec > h2 .num.wide { min-width: 1.2em; }   /* 与单位数同槽(类保留给窄屏重置用) */
+
+/* 引言块:关键句,左侧绿线 */
+.callout {
+  position: relative; margin: 0 0 1.2em; padding: 16px 20px 16px 24px; border-radius: 0 18px 18px 0;
+  background: var(--doc-accent-soft); border-left: 3px solid var(--doc-accent);
+}
+.callout p { margin: 0; font-size: 16.5px; line-height: 1.8; color: var(--ink); font-weight: 500; }
+.callout p + p { margin-top: .6em; }
+
+/* ===== 定义行(取代表格):左列标签 · 右列内容;窄屏堆叠 ===== */
+.defs { margin: 0 0 1.1em; padding: 0; display: grid; grid-template-columns: minmax(8em, 11em) 1fr; }
+.defs > div:not(.defs-head) { display: contents; }   /* 列名行(.defs-head)要保留自己的盒与 6px 下距 */
+.defs dt, .defs dd { margin: 0; padding: 12px 0; border-top: 1px solid var(--glass-rule); }
+.defs > div:first-child dt, .defs > div:first-child dd { border-top: 0; }
+.defs dt { padding-right: 18px; font-size: 13.5px; font-weight: 600; letter-spacing: .02em; line-height: 1.6; color: var(--label); }
+.defs dd { font-size: 15.5px; line-height: 1.75; color: var(--ink-text); min-width: 0; overflow-wrap: anywhere; }   /* 邮箱等长串在窄屏可断 */
+.defs dd strong { color: var(--ink); }   /* 行内强调,不成块(否则句中「绝不发送」后的冒号会悬到下一行行首) */
+.defs dd .sub { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
+.defs dd p { margin: 0; }
+.defs dd p + p { margin-top: .5em; }
+.defs.wide { grid-template-columns: minmax(12em, 17em) 1fr; }   /* 左列本身是整句(第 8 节「你想做的事」)时放宽 */
+.defs.wide dt { font-size: 14.5px; color: var(--ink); }
+.defs-head { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(8em, 11em) 1fr;   /* 与 .defs 同列宽(不用 subgrid:微信 X5 不认)。字号不能落在这层:列宽的 em 要与 .defs 同在 16px 下解析,12.5px 写在容器上会让 17em 少 59.5px、「怎么做」偏离 dd 列 */ padding: 0 0 6px; font-weight: 700; color: var(--label); }
+.defs-head span { font-size: 12.5px; letter-spacing: .08em; }
+.defs-head span:first-child { padding-right: 18px; }
+.defs.wide .defs-head { grid-template-columns: minmax(12em, 17em) 1fr; }
+
+/* 记录卡:多列表格的每一行 → 一张卡(标题 = 第一列,其余列成定义行) */
+.recs { display: grid; gap: 12px; margin: 0 0 1.1em; padding: 0; list-style: none; }
+.prose .recs > li { padding: 18px 20px 6px; margin: 0; }
+.prose .recs > li::before { display: none; }
+.rec {
+  border-radius: 20px;
+  background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm);
+}
+.rec .rec-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin-bottom: 8px; }
+.rec .rec-h strong { font-size: 16.5px; color: var(--ink); }
+.rec .rec-h .sub { font-size: 14px; line-height: 1.6; color: var(--muted); }
+.rec .rec-h .sub.block { flex-basis: 100%; }
+.rec .defs { margin: 0; grid-template-columns: minmax(6em, 8.5em) 1fr; }
+.rec .defs dt, .rec .defs dd { padding: 10px 0; }
+.rec .defs dd { font-size: 15px; }
+.rec .defs > div:last-child dt, .rec .defs > div:last-child dd { padding-bottom: 12px; }
+.rec .defs > div:first-child dt, .rec .defs > div:first-child dd { border-top: 1px solid var(--glass-rule); }
+.rec .kw { font-size: 12.5px; font-weight: 700; letter-spacing: .04em; padding: 3px 9px; border-radius: 999px; background: var(--doc-code-bg); color: var(--ink); white-space: nowrap; }
+
+/* 功能卡网格(用户协议第 2 节功能清单)与档位卡 */
+.feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 1.4em !important; padding: 0 !important; list-style: none; }
+.prose .feat-grid li, .prose .tiers li { padding: 16px 18px; border-radius: 18px;   /* .prose 前缀:特异性要压过 .prose ul li 的 22px 左内距 */ background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm); margin: 0 !important; }
+.feat-grid > li:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* 17 张(奇数)时末卡通栏,网格底边齐平;单列时无副作用 */
+.feat-grid li::before, .tiers li::before { display: none; }
+.feat-grid li strong, .tiers li strong { display: block; font-size: 15.5px; color: var(--ink); margin-bottom: 4px; }
+.feat-grid li .dash, .tiers li .dash { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }  /* 破折号留在 DOM(文字不变),视觉上由卡片分层代替 */
+.feat-grid li .d, .tiers li .d { display: block; font-size: 14.5px; line-height: 1.7; color: var(--ink-text); }
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 1.4em !important; padding: 0 !important; list-style: none; }
+.prose .tiers li { display: grid; grid-template-rows: auto minmax(1.9em, auto) 1fr; align-content: start; }   /* 三行:名 / 副题(免费版空着也占位)/ 正文,三卡正文顶缘对齐 */
+.tiers li strong { grid-row: 1; font-size: 17px; margin-bottom: 0; }
+.tiers li .tier-sub { grid-row: 2; display: block; margin: 0 0 6px -.5em; font-size: 13px; font-weight: 600; color: var(--muted); line-height: 1.5; text-spacing-trim: space-all; }   /* -.5em 抵消全角「（」的左半空(自带补偿,故关掉 trim-start 免得双重收缩) */
+.tiers li .dash { grid-row: 2; }
+.tiers li .d { grid-row: 3; }
+
+/* ===== FAQ 手风琴(支持页):首页 chips 的玻璃语言,+ 旋转 45° 成 × ===== */
+.faq { display: grid; gap: 12px; margin: 0 0 1.2em; }
+.faq-item { border-radius: 20px; background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm); transition: background .3s ease; }
+.faq-item[open] { background: var(--doc-cur-bg); }
+.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 18px 20px 22px; font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--ink); border-radius: 20px; }   /* flex-start + .ic 负外距:圆钮对齐首行(钮心 = 首行中线),单行/两行问题的字形距卡顶一致(居中对齐时 30px 的钮会把 24px 的单行推低 3px;窄屏一半卡单行一半两行,两种留白并存)。上下 20 = 原 17 + 钮溢出的 3 */
+.faq-item summary .q { flex: 1 1 auto; min-width: 0; }   /* 整句问题装一个盒:句内再包 .nb 时不会被拆成两个 flex 项 */
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.faq-item .ic { flex: none; position: relative; width: 30px; height: 30px; margin: calc((1.5em - 30px) / 2) 0;   /* 外距盒收成一行高(1.5em = summary 行高:16px→24 / 窄屏 15.5px→23.25),钮心落在首行中线且不撑高 summary */ border-radius: 50%; background: var(--doc-code-bg); border: 1px solid var(--doc-card-line); transition: transform .35s cubic-bezier(.22, .61, .36, 1); }
+.faq-item .ic::before, .faq-item .ic::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--ink); border-radius: 2px; transform: translate(-50%, -50%); }
+.faq-item .ic::before { width: 12px; height: 2px; }
+.faq-item .ic::after { width: 2px; height: 12px; }
+.faq-item[open] .ic { transform: rotate(45deg); }
+.faq-item .a { padding: 0 22px 17px; }   /* 末行半行距 4.65 + 17 ≈ 顶部字形距(24) */
+.faq-item .a p { font-size: 15.5px; line-height: 1.8; }
+
+/* ===== 联系卡 / 关于本站卡 ===== */
+.contact-card {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px 24px;
+  margin: 4px 0 1.2em; padding: 20px 22px; border-radius: 22px;
+  background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm);
+}
+.contact-card .label { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; color: var(--label); }   /* 独占一格,不带下外距(否则中线比邮箱钮高 2px) */
+.contact-card .note { grid-column: 1 / -1; margin: 0; padding-top: 12px; border-top: 1px solid var(--glass-rule); font-size: 14px; line-height: 1.7; color: var(--muted); }   /* 在 DOM 里排在邮箱钮之后(与改前阅读顺序一致),整行铺在卡底 */
+.prose .btn-mail, .btn-mail { padding: 12px 20px; font-size: 15px; font-weight: 700; color: var(--btn-ink); border-bottom: 0; letter-spacing: .01em; }   /* 压过 .prose a 的墨色与下划线 */
+.btn-mail svg { width: 17px; height: 17px; }
+.about-card { padding: 7px 22px 7px; border-radius: 22px; margin: 4px 0 1.2em; background: var(--doc-card); border: 1px solid var(--doc-card-line); box-shadow: inset 0 1px 0 var(--hl-sm); }
+.about-card .defs { margin: 0; grid-template-columns: minmax(6em, 8em) 1fr; }
+
+/* ===== 响应 ===== */
+@media (max-width: 1099px) {
+  .paper { grid-template-columns: minmax(0, var(--doc-paper-w)); grid-template-areas: "head" "toc" "body"; }
+  .paper::before { grid-column: 1; }
+  .toc { padding: clamp(22px, 3vw, 28px) var(--doc-pad-x) 6px; }
+  .toc summary {   /* 收起时只剩这一枚:首页 .btn-ghost 的胶囊壳,chevron 在壳内 */
+    display: inline-flex; gap: 12px; padding: 8px 8px 8px 16px; border-radius: 999px;
+    background: var(--ghost-bg); border: 1px solid var(--ghost-line); box-shadow: inset 0 1px 0 var(--hl-sm);
+  }
+  .toc summary .chev { width: 24px; height: 24px; }
+  .toc-card { margin-top: 10px; padding: 6px; }
+  .doc-head::after { margin-top: clamp(24px, 3.5vw, 32px); }
+}
+@media (min-width: 1100px) {
+  /* 宽屏:目录卡与纸**顶缘对齐**(首页并列卡的规则;Abel 2026-09-05 问「目录要和左边的框对齐吗」——改为框对齐),
+     「目录」眉字作为卡内第一行;整张 <details> 就是玻璃卡,内层 .toc-card 退成透明 */
+  .toc {
+    position: sticky; top: 96px; padding-top: 0;
+    background: var(--glass-hi); border: 1px solid var(--glass-line); border-radius: 22px;
+    box-shadow: inset 0 1px 0 var(--hl-sm); padding: 8px;
+  }
+  .toc-card { background: none; border: 0; box-shadow: none; padding: 0; }
+  .toc summary { pointer-events: none; padding: 10px 12px 4px; }
+  .toc summary .chev { display: none; }
+}
+@media (max-width: 640px) {
+  .doc-head { padding-top: 28px; }
+  .doc-meta .dates .sep { display: none; }
+  .doc-meta .dates .date { display: block; }   /* 两日期各占一行,不留悬在行尾的「·」 */
+  .doc-title { font-size: clamp(34px, 9.5vw, 40px); letter-spacing: .04em; }
+  .doc-sec > h2 { font-size: 21px; gap: 10px; }
+  .doc-sec > h2 .num, .doc-sec > h2 .num.wide { min-width: 0; text-align: left; }   /* 窄屏不留槽,序号贴标题 */
+  .prose { font-size: 15.5px; }
+  .defs, .defs.wide, .about-card .defs { grid-template-columns: 1fr; }   /* 特异性要盖过 .about-card .defs / .defs.wide 的宽屏列宽 */
+  .defs dt { padding: 12px 0 2px; }
+  .defs.wide dt { padding-bottom: 4px; }
+  .defs dd { padding: 0 0 12px; border-top: 0; }
+  .defs > div:first-child dt { border-top: 0; }
+  .defs-head, .defs.wide .defs-head { display: flex; flex-wrap: wrap; gap: 0 6px; }   /* 窄屏两枚列名并成一行「你想做的事 → 怎么做」 */
+  .defs-head span + span::before { content: "→ "; }
+  .prose .recs > li { padding: 16px 16px 4px; }
+  .rec .defs { grid-template-columns: 1fr; }
+  .rec .defs dt { padding: 10px 0 2px; }
+  .rec .defs > div:last-child dt { padding-bottom: 2px; }   /* 宽屏末行 12px 的规则特异性更高,堆叠态要同特异性压回 */
+  .rec .defs dd { padding: 0 0 10px; border-top: 0; }
+  .rec .defs > div:first-child dt { border-top: 1px solid var(--glass-rule); }
+  .rec .defs > div:first-child dd { border-top: 0; }
+  .feat-grid, .tiers { grid-template-columns: 1fr; }
+  .feat-grid { gap: 0; }   /* 窄屏:17 张同形卡连堆失去节奏,退成细线分隔的定义行 */
+  .prose .feat-grid li { padding: 12px 0 13.5px; border: 0; border-radius: 0; background: none; box-shadow: none; border-top: 1px solid var(--glass-rule); }   /* 上 12 → 标题字形距细线 18;下 13.5 → 说明末行字形距下一条细线 18(说明行高 1.7 的半行距比标题小 1.4)。量时要排除 .dash 的隐藏文字(它的 Range 矩形会把「卡底」量偏 3px) */
+  .prose .feat-grid li:first-child { border-top: 0; padding-top: 4px; }
+  .callout { padding: 14px 16px 14px 18px; }
+  .faq-item summary { padding: 15px 14px 15px 18px; font-size: 15.5px; }   /* 钮已不撑行,15 直接就是字形距顶 18 的来源(半行距 3.875) */
+  .faq-item .a { padding: 0 18px 11px; }   /* 窄屏 summary 上距 15 → 字形距顶 18;末行半行距 4.65 + 11 ≈ 18 */
+  .contact-card { padding: 18px; grid-template-columns: 1fr; }
+  .contact-card .note { padding-top: 10px; }
+  .btn-mail { width: 100%; }
+  .about-card { padding: 7px 18px 4px; }
+}
+@media (min-width: 641px) {
+  /* 并列时 dt(13.5px×1.6=21.6 行框)与 dd(15.5px×1.75=27.125 / 记录卡 15px×1.75=26.25)的首行中心要同线:
+     dt 的上内距 = 同行 dd 的上内距 + (dd 行框 − dt 行框)/2。三处各自算,一处改行高这里要跟着改。 */
+  .defs dt { padding-top: 15px; }          /* 公式值 14.76(=12 + (27.125−21.6)/2),按 Range 实测字形中心再补 +0.25 */
+  .rec .defs dt { padding-top: 13px; }     /* 公式值 12.33(=10 + (26.25−21.6)/2),实测补 +0.69 */
+  .defs.wide dt { padding-top: 13.5px; }   /* 公式值 13.96(=12 + (27.125−23.2)/2),实测补 −0.45 */
+}
+@media (min-width: 641px) and (max-width: 860px) {
+  .tiers { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .prose .tiers li { grid-template-rows: auto auto 1fr; }   /* 堆叠后无需三卡正文对齐:副题槽收成 auto,免费版卡不再空一行 */
+  .tiers li strong { margin-bottom: 4px; }
+}
+@media (min-width: 641px) and (max-width: 739px) {
+  /* 五枚链接 + 字标 + 开关 + App Store 钮在 641–739 放不下(首页只有三枚链接,无此问题):链接收窄一档,「首页」隐去(字标本身就回首页;页脚仍有全部链接) */
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 8px 9px; }   /* 字号仍是首页的 14px,只收内距 */
+  .nav-links a[href="/"] { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .toc a, .toc a::before, .toc summary .chev, .faq-item, .faq-item .ic, .prose a { transition: none; }
+}
+
+/* QA 收尾(2026-09-05):①第 1 节 h2 直接接裸定义表时,首行 dt/dd 的 12px 上内距让标题下多空 12px——压到 3px,与其余各节 h2→p 的 20.6px 字形距一致;
+   ②页眉引言在手机上 balance 会把 6 行匀成窄块(条款页)而 7 行的隐私页撑满,两页不一致——文档页引言改 pretty。 */
+.doc-sec > h2 + .defs > div:first-child dt, .doc-sec > h2 + .defs > div:first-child dd { padding-top: 3px; }
+.doc-head .lede { text-wrap: pretty; }

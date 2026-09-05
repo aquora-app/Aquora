@@ -1,0 +1,34 @@
+{%- comment -%}
+FAQ 手风琴的展开/收起动画(支持页;大陆与海外共用)。原生 <details> 是瞬间开合(Abel 2026-09-05 反馈「瞬间切换,要柔滑一些」),
+这里接管 summary 的点击:展开 = 先 open 再从 0 高度展到实际高度(320ms),收起 = 从实际高度缩到 0 再关(260ms);
+prefers-reduced-motion 直接开合;无 JS 时仍是原生 details,内容可读。
+FAQ accordion open/close animation (support pages, both sites). Native <details> toggles instantly; this takes over the
+summary click: open = set open, then grow from 0 to the measured height (320ms); close = shrink to 0, then close (260ms).
+{%- endcomment -%}
+<script>
+(function () {
+  var items = document.querySelectorAll('details.faq-item');
+  if (!items.length || typeof Element.prototype.animate !== 'function') return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [].forEach.call(items, function (d) {
+    var s = d.querySelector('summary'), body = d.querySelector('.a');
+    if (!s || !body) return;
+    s.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (reduce) { d.open = !d.open; return; }
+      if (d.__anim) return;
+      body.style.overflow = 'hidden'; body.style.boxSizing = 'border-box';
+      if (!d.open) {
+        d.open = true;
+        var h = body.getBoundingClientRect().height;
+        d.__anim = body.animate([{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.22, .61, .36, 1)' });
+        d.__anim.onfinish = d.__anim.oncancel = function () { body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; };
+      } else {
+        var h2 = body.getBoundingClientRect().height;
+        d.__anim = body.animate([{ height: h2 + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 260, easing: 'cubic-bezier(.4, 0, .6, 1)' });
+        d.__anim.onfinish = d.__anim.oncancel = function () { d.open = false; body.style.overflow = ''; body.style.boxSizing = ''; d.__anim = null; };
+      }
+    });
+  });
+})();
+</script>

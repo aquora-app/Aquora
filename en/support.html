@@ -1,0 +1,123 @@
+---
+layout: null
+permalink: /support/
+title: Support
+---
+{%- comment -%}
+Support page (overseas site /support/, English only): FAQ + contact email (no "About" card: the overseas site has no filing details to show and the email is already in the contact card —
+no company / registration lines; those belong to the mainland site). Abel 2026-09-05.
+The FAQ is the mainland cn/support.html FAQ carried into idiomatic English, one question for one question, facts unchanged
+(Screen Time authorization, account deletion, revoking permissions, how AI reminders work, journal / mood never uploaded,
+restoring on a new phone, too many notifications, age). Two facts follow the overseas legal texts rather than the mainland ones:
+the default AI route is Gemini (DeepSeek for mainland-China App Store users using Chinese, and as failover), and the age answer
+points to the overseas Privacy Policy §8 (children under 13) instead of the mainland under-14 PIPL clause.
+Layout = the mainland document-page design system: en-doc-head.html (cn-fonts.css + home.css + cn-doc.css + doc-en.css) +
+the home page's capsule nav and sun/moon toggle (en-theme.html); the FAQ is the <details> accordion (glass chips, + rotates to ×,
+first item open). Every link and asset carries site.baseurl.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+{% include en-doc-head.html title="Support" description="Aquora help: how to authorize Screen Time, delete your account, revoke permissions, how AI reminders work, what never leaves your device, and how to reach us." %}
+</head>
+<body>
+{% include en-theme.html part="pre" %}
+
+<div class="page">
+{% include en-doc-nav.html current="support" %}
+
+  <main id="main" class="doc">
+    <div class="wrap">
+      <article class="paper no-toc">
+
+        <header class="doc-head">
+          <div class="doc-meta">
+            <p class="eyebrow">Help &amp; Contact</p>
+          </div>
+          <h1 class="doc-title">Support</h1>
+          <p class="lede">Stuck on something, or just want to talk it through? We're here.</p>
+        </header>
+
+        <div class="doc-body prose">
+
+          <section class="doc-sec" aria-labelledby="faq">
+            <h2 id="faq">Frequently asked questions</h2>
+            <div class="faq">
+              <details class="faq-item" open>
+                <summary><span class="q">Why does Aquora need Screen Time access, and how do I grant it?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>App limits, shields and usage tracking are all built on Apple's Screen Time API and the <span class="nb">Family Controls</span> framework. Without that authorization, Aquora can't see any usage data, so it can't show you your own rhythm.</p>
+                  <p>The first time you set up an app limit, the system asks for permission; tap <span class="nb">Continue</span> and confirm as prompted. Raw usage data is processed only on your device and is never uploaded. You can revoke the authorization at any time in your device's Settings.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">How do I delete my account?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>Open Aquora, go to the <span class="nb">Me tab</span>, choose delete account and confirm. Deletion is immediate and permanent: it removes your on-device data, your iCloud-synced token and subscription data, and your referral code record on our server. Any remaining token balance, gifted premium days and banked premium time are forfeited and cannot be restored by signing in again.</p>
+                  <p>Please note that deleting your account does not cancel a paid subscription in the <span class="nb">App Store</span>. To cancel, go to your device's <span class="nb">Settings › [Your Name] › Subscriptions</span>.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">How do I revoke a permission I've already granted?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>Aquora asks for only three system permissions, and each can be revoked in your device's Settings: Screen Time authorization (once revoked, limits and tracking stop working), Notifications (<span class="nb">Settings › Notifications › Aquora</span>), and the add-only Photo Library permission (<span class="nb">Settings › Privacy &amp; Security › Photos</span>).</p>
+                  <p>To revoke your Sign in with Apple credential, go to <span class="nb">Settings › [Your Name] › Sign-In &amp; Security</span>. Data in the iCloud Key-Value Store can be removed under <span class="nb">Settings › [Your Name] › iCloud › Manage Storage</span>; if you'd like us to delete your referral code or archetype records from CloudKit, send us an email.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">How do AI reminders work? What do they send about me?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>AI reminders (a Premium feature) first turn your usage data into a behavior summary on your device — for example the few groups you unlock most and how often, your recurring habit windows, your average daily screen time and its trend, your most frequent reflection answers, your strongest and weakest quiz categories, and your archetype <span class="nb">code —</span> and send that summary to an AI provider, which writes one reminder that fits your actual rhythm. The request also carries a short block of public text describing today's public mood climate.</p>
+                  <p>Requests go to Google Gemini; users on the mainland-China App Store using Chinese are routed to DeepSeek by default, and any user may be routed there temporarily while Gemini is unreachable. Whichever route is used, your contacts, message contents, photo library, location, journal and meditation notes, your year of birth, your city, your frequent apps, and anything derived from your mood check-ins are never sent. The full list is in <a href="{{ site.baseurl }}/privacy/#s5">Section 5 of the Privacy Policy</a>. You can turn AI reminders off at any time under AI Reminder Settings.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">Are my journal entries and mood check-ins uploaded?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>No. The journal entries, manifestation goals, mood tracking and meditation notes you create exist only on your device; we never access, read or transmit them. Mood check-ins and the mood report built from them are likewise computed and stored only on your device — they never enter any network request and are never placed in an AI prompt.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">I switched phones or reinstalled. How do I get my purchases back?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>Starter and subscriptions are tied to your <span class="nb">Apple ID</span>. Sign in to the <span class="nb">App Store</span> with the same <span class="nb">Apple ID</span>, then use <span class="nb">Restore Purchases</span> inside the App. Your token balance also comes back through the iCloud Key-Value Store, as long as iCloud sync is on.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">Too many notifications. How do I turn them off?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>Every notification is generated locally on your device; there is no remote push. You can turn off all Aquora notifications from the <span class="nb">Me tab</span>; on Starter and above you can also switch off just the emotional weather alerts under AI Reminder Settings. And of course you can turn them off in <span class="nb">Settings › Notifications</span>.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="q">Who is Aquora for? Is there an age requirement?</span><span class="ic" aria-hidden="true"></span></summary>
+                <div class="a">
+                  <p>You must be at least <span class="nb">13 years old</span> to use Aquora; if you are under <span class="nb">18</span>, you need parental or guardian consent. It is a personal self-management tool and does not provide parental controls over other people's devices. We do not knowingly collect personal information from children under 13 — see <a href="{{ site.baseurl }}/privacy/#s8">Section 8 of the Privacy Policy</a>.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section class="doc-sec" aria-labelledby="contact">
+            <h2 id="contact">Contact us</h2>
+            <p>Didn't find your answer above, or have a suggestion, some feedback or a complaint? Write to us. You can also leave a note through the feedback form inside the App.</p>
+            <div class="contact-card">
+              <div><span class="label">Email</span></div>
+              <a class="btn btn-mail" href="mailto:{{ site.contact_email }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>{{ site.contact_email }}</a>
+              <p class="note">Including your App version and iOS version helps us find the problem faster. Please don't send passwords or payment details by email.</p>
+            </div>
+          </section>
+
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+{% include en-doc-footer.html %}
+</div>
+
+{% include faq-anim.html %}
+{% include en-theme.html part="toggle" %}
+</body>
+</html>

@@ -1,0 +1,69 @@
+{%- comment -%}
+Overseas day/night theme script (Privacy Policy / Terms of Service / Support pages). A verbatim copy of cn-theme.html with the
+toggle's aria-label / title in English ("Switch to night" / "Switch to day") — the two scripts are otherwise identical and must
+stay in step: any change to cn-theme.html (or to the inline versions in cn/index.html / index.html) is mirrored here.
+  part="pre"    → first element in <body>: pins data-theme on <html> before first paint; no stored value → night
+  part="toggle" → at the end of the page: the header's .theme-toggle sun/moon button, View Transitions circular reveal
+                  (percentage version) → .theme-ripple fallback → reduced-motion switches directly
+Usage (brace syntax as in cn-head.html): include en-theme.html part="pre" / part="toggle"
+{%- endcomment -%}
+{%- if include.part == "pre" %}
+<script>
+/* Theme pre-paint: pin data-theme before first paint to avoid a white/black flash. Storage access is wrapped in try (private mode may throw); with no stored value, default to night. theme-color follows the theme. */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('aquora_theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = 'dark';   /* initial mode = night (Abel, 2026-09-04); system preference is not consulted, a manual pick persists in localStorage */
+  document.documentElement.setAttribute('data-theme', t);
+  var m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.setAttribute('content', t === 'dark' ? '#0B2431' : '#61A88A');
+})();
+</script>
+{%- elsif include.part == "toggle" %}
+<script>
+/* Day/night toggle: View Transitions circular reveal → .theme-ripple fallback where unsupported → reduced-motion switches directly */
+(function () {
+  var root = document.documentElement, KEY = 'aquora_theme';
+  var btn = document.querySelector('.theme-toggle'); if (!btn) return;
+  var meta = document.querySelector('meta[name="theme-color"]');
+  var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function cur() { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+  function paint(t) {
+    root.setAttribute('data-theme', t);
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#0B2431' : '#61A88A');
+    var l = t === 'dark' ? 'Switch to day' : 'Switch to night';
+    btn.setAttribute('aria-label', l); btn.setAttribute('title', l);
+    btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+  }
+  paint(cur());
+  btn.addEventListener('click', function () {
+    var next = cur() === 'dark' ? 'light' : 'dark';
+    var r = btn.getBoundingClientRect();
+    var x = r.left + r.width / 2, y = r.top + r.height / 2;
+    var R = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));   /* button centre to the farthest viewport corner */
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    if (mqReduce && mqReduce.matches) { paint(next); return; }
+    if (typeof document.startViewTransition === 'function') {
+      /* Centre and radius in percentages, not px: on Retina (DPR 2) Chrome's GPU compositing reads px in the clip-path of the
+         ::view-transition pseudo-elements at 1/DPR (the centre lands halfway to the button, the radius halves; headless/software
+         rendering is fine). Percentages resolve against the pseudo-element's own box and land on the button in both cases.
+         circle()'s percentage radius is relative to sqrt(w²+h²)/sqrt(2). */
+      var W = window.innerWidth || 1, Hh = window.innerHeight || 1;
+      root.style.setProperty('--vt-x', (x / W * 100).toFixed(3) + '%');
+      root.style.setProperty('--vt-y', (y / Hh * 100).toFixed(3) + '%');
+      root.style.setProperty('--vt-r', (R / (Math.hypot(W, Hh) / Math.SQRT2) * 100).toFixed(3) + '%');
+      document.startViewTransition(function () { paint(next); });
+      return;
+    }
+    /* Fallback ripple: the target theme's ground colour (night #0B2431 / day #61A88A) scales out from the button centre; the tokens switch underneath at 220ms, it fades from 420ms and removes itself at 640ms */
+    var rip = document.createElement('div'); rip.className = 'theme-ripple'; rip.setAttribute('aria-hidden', 'true');
+    rip.style.cssText = 'left:' + x + 'px;top:' + y + 'px;width:' + (R * 2) + 'px;height:' + (R * 2) + 'px;margin:' + (-R) + 'px 0 0 ' + (-R) + 'px;background:' + (next === 'dark' ? '#0B2431' : '#61A88A');
+    document.body.appendChild(rip);
+    rip.getBoundingClientRect();   /* force a layout so the transition starts from scale(0) */
+    rip.classList.add('is-on');
+    setTimeout(function () { paint(next); }, 220);
+    setTimeout(function () { if (rip.parentNode) rip.parentNode.removeChild(rip); }, 640);
+  });
+})();
+</script>
+{%- endif %}
