@@ -24,7 +24,16 @@ comments in English — the mainland build must stay byte-identical, and the ove
     cur = id; if (links[id]) links[id].classList.add('is-current');
   }
   function atBottom() { return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2; }
+  /* Clicking a contents link marks it at once and keeps the observer from overriding it until the smooth scroll settles (1.2s) —
+     otherwise the previous section, still inside the band near the landing point, would light up instead of the one clicked */
+  var lockUntil = 0;
+  toc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href').slice(1); if (!links[id]) return;
+    mark(id); lockUntil = Date.now() + 1200; a.blur();
+  });
   function update() {
+    if (Date.now() < lockUntil) return;
     if (window.scrollY < 40) { mark(secs[0].getAttribute('data-toc')); return; }   /* 页顶:点亮第一节 / at the top: the first section is current */
     if (atBottom()) { mark(secs[secs.length - 1].getAttribute('data-toc')); return; }   /* bottom-of-page fallback: when the last section is too short to enter the observation band, reaching the bottom lights it up */
     var vis = secs.filter(function (s) { return s.__in; });

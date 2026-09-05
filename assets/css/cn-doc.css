@@ -98,7 +98,8 @@ html { scroll-padding-top: 96px; }             /* 粘性页眉胶囊之下留出
   transition: background .25s ease, color .25s ease;
 }
 .toc a::before { content: ""; position: absolute; left: 11px; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-30); transition: background .25s ease, transform .25s ease; }
-.toc a:hover, .toc a:focus-visible { background: var(--nav-hover); color: var(--ink); }
+.toc a:hover { color: var(--ink); }   /* hover 只提亮文字,不给底色:底色专属「当前节」,鼠标停在刚点的项上不会出现第二块高亮(Abel 2026-09-05) */
+.toc a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .toc a.is-current { background: var(--doc-cur-bg); color: var(--ink); font-weight: 700; }
 .toc a.is-current::before { background: var(--doc-accent); transform: scale(1.35); }
 
