@@ -290,6 +290,21 @@ Feature facts come only from legal/index.html §2 and _data/archetypes.yml; no p
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   els.forEach(function (e) { io.observe(e); });
 })();
+/* In-page anchors: smooth-scroll without leaving #three etc. in the address bar (a reload would jump straight to that section);
+   and don't restore the previous scroll position on reload — the homepage always starts at the top */
+(function () {
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+  if (location.hash) {
+    var target = document.getElementById(location.hash.slice(1));
+    if (target) { target.scrollIntoView({ block: 'start' }); history.replaceState(null, '', location.pathname + location.search); }
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href').slice(1); var el = id && document.getElementById(id); if (!el) return;
+    e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+})();
 /* Day/night toggle: View Transitions circular reveal → .theme-ripple fallback → reduced-motion switches instantly */
 (function () {
   var root = document.documentElement, KEY = 'aquora_theme';
