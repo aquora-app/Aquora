@@ -1,0 +1,27 @@
+{%- comment -%}
+Pre-launch stand-in for a hidden page (homepage, forecast, the 17 archetype pages).
+Sends visitors to the reserve page; the two legacy hash links the app still uses
+(#privacy / #terms) keep landing on the right policy page. Remove the stubs under
+en/prelaunch/ and the three excludes in _config.yml to bring the pages back.
+{%- endcomment -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B2431">
+<title>Aquora</title>
+<script>
+(function () {
+  var b = '{{ site.baseurl }}', h = location.hash;
+  if (h === '#privacy') location.replace(b + '/privacy/');
+  else if (h === '#terms' || h === '#tos') location.replace(b + '/terms/');
+  else location.replace(b + '/reserve/');
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url={{ site.baseurl }}/reserve/"></noscript>
+<style>html,body{margin:0;min-height:100%;background:#0B2431;color:#C9F1E4;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:32rem;margin:30vh auto 0;padding:0 24px;text-align:center}a{color:#61A88A}</style>
+</head>
+<body><main><p>Aquora is getting ready. <a href="{{ site.baseurl }}/reserve/">Reserve your place</a>.</p></main></body>
+</html>

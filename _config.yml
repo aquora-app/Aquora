@@ -29,7 +29,15 @@ contact_email: aquora.apps@gmail.com
 
 # Skip files that don't need processing — keeps the build fast and avoids
 # Jekyll trying to parse README, etc.
+# Pre-launch mode (2026-09-06): only /reserve/ and the policy pages are public.
+# The homepage and the 17 /p/ pages (and the retired /forecast/) are replaced by redirect stubs
+# (en/prelaunch/, layout prelaunch-redirect). To reopen the site: set prelaunch
+# to false, delete the three excludes below marked PRELAUNCH, and exclude en/prelaunch/.
+prelaunch: true
 exclude:
+  - index.html     # PRELAUNCH
+  - p/             # PRELAUNCH
+  - forecast/      # RETIRED for good (Abel 2026-09-06): the forecast lives in the app; keep excluded after reopening (stub en/prelaunch/forecast.html then points home)
   - README.md
   - "*.txt"
   # 大陆站(aquora.cn)专属源文件,只在 --config _config.yml,_config_cn.yml 下构建。

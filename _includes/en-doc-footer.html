@@ -7,10 +7,11 @@ Styles come from home.css (.foot-band / .footer-icp*). Every href is prefixed wi
 <div class="foot-band">
   <footer class="footer-icp" role="contentinfo">
     <nav class="footer-icp-nav" aria-label="Footer">
-      <a href="{{ site.baseurl }}/">Home</a>
+{% if site.prelaunch %}      <a href="{{ site.baseurl }}/reserve/">Reserve</a>
+{% else %}      <a href="{{ site.baseurl }}/">Home</a>
       <span aria-hidden="true">·</span>
       <a href="{{ site.baseurl }}/#archetypes">Personalities</a>
-      <span aria-hidden="true">·</span>
+{% endif %}      <span aria-hidden="true">·</span>
       <a href="{{ site.baseurl }}/privacy/">Privacy</a>
       <span aria-hidden="true">·</span>
       <a href="{{ site.baseurl }}/terms/">Terms</a>

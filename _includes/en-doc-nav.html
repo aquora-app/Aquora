@@ -18,11 +18,11 @@ Nav / toggle / App Store button styles all live in home.css (.nav/.brand/.nav-li
 
 <header class="top">
   <nav class="nav" aria-label="Main">
-    <a class="brand" href="{{ site.baseurl }}/" aria-label="Aquora home"><svg fill="currentColor" aria-hidden="true"><use href="#aq-logo"/></svg><span>Aquora</span></a>
+    <a class="brand" href="{{ site.baseurl }}/{% if site.prelaunch %}reserve/{% endif %}" aria-label="Aquora {% if site.prelaunch %}reserve{% else %}home{% endif %}"><svg fill="currentColor" aria-hidden="true"><use href="#aq-logo"/></svg><span>Aquora</span></a>
     <div class="nav-links">
-      <a class="nav-home" href="{{ site.baseurl }}/">Home</a>
+{% unless site.prelaunch %}      <a class="nav-home" href="{{ site.baseurl }}/">Home</a>
       <a class="nav-arch" href="{{ site.baseurl }}/#archetypes">Personalities</a>
-      <a href="{{ site.baseurl }}/privacy/"{% if include.current == "privacy" %} aria-current="page"{% endif %}>Privacy</a>
+{% endunless %}      <a href="{{ site.baseurl }}/privacy/"{% if include.current == "privacy" %} aria-current="page"{% endif %}>Privacy</a>
       <a href="{{ site.baseurl }}/terms/"{% if include.current == "terms" %} aria-current="page"{% endif %}>Terms</a>
       <a href="{{ site.baseurl }}/support/"{% if include.current == "support" %} aria-current="page"{% endif %}>Support</a>
     </div>
@@ -31,7 +31,7 @@ Nav / toggle / App Store button styles all live in home.css (.nav/.brand/.nav-li
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
       </button>
-      <a class="nav-cta" href="{{ site.app_store_url }}" target="_blank" rel="noopener">App Store</a>
+{% if site.prelaunch %}      <a class="nav-cta" href="{{ site.baseurl }}/reserve/">Reserve</a>{% else %}      <a class="nav-cta" href="{{ site.app_store_url }}" target="_blank" rel="noopener">App Store</a>{% endif %}
     </div>
   </nav>
 </header>
