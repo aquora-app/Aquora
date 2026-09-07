@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-07T10:25:23.178787Z",
+ "generated_at": "2026-09-07T16:30:46.194679Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -409,7 +409,8 @@
      "q": "degraded"
     },
     "i": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-09-07T12:49+08:00"
     },
     "i_live": {
      "q": "fresh"
@@ -421,7 +422,8 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-09-07T12:49+08:00"
     },
     "weather_city": {
      "q": "fresh"
@@ -440,7 +442,7 @@
     "valence_sign": 0
    },
    "events": [],
-   "holdover": false,
+   "holdover": true,
    "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
@@ -449,9 +451,13 @@
    },
    "judged_at_local": "2026-09-07T12:49+08:00",
    "live": {
-    "degraded_legs": [],
+    "degraded_legs": [
+     "v_w",
+     "z_dw",
+     "r0"
+    ],
     "i_band": "neutral",
-    "judged_at": "2026-09-07T18:25+08:00",
+    "judged_at": "2026-09-08T00:30+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -489,8 +495,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "Chicago",
@@ -498,8 +504,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "DFW",
@@ -507,8 +513,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "SUNNY"
     },
     {
      "city": "Houston",
@@ -516,8 +522,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "MIXED"
     },
     {
      "city": "Atlanta",
@@ -805,7 +811,7 @@
      "q": "fresh"
     },
     "weather_city": {
-     "q": "degraded"
+     "q": "fresh"
     }
    },
    "degraded_legs": [
@@ -843,7 +849,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-09-07T06:25-04:00",
+    "judged_at": "2026-09-07T12:30-04:00",
     "macro_a": null,
     "macro_v": null
    },
