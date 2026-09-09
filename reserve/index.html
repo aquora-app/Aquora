@@ -977,17 +977,18 @@
   'use strict';
 
   /* ---- reservation backend ----
-     Fill in ONE of these and the button collects emails for real:
-       Web3Forms:  RESERVE_ENDPOINT = 'https://api.web3forms.com/submit';
-                   RESERVE_EXTRA    = { access_key: '<your-access-key>' };
-       Formspree:  RESERVE_ENDPOINT = 'https://formspree.io/f/<form-id>';
-                   RESERVE_EXTRA    = {};
-     Left empty, the button falls back to a pre-filled mail draft
-     (or a copy-the-address path inside webviews that block mailto).
-     If the endpoint fails or times out (8s), it degrades to the same
-     mail fallback — no reader is ever stranded. */
-  var RESERVE_ENDPOINT = 'https://api.web3forms.com/submit';
-  var RESERVE_EXTRA = { access_key: 'c797adb5-78f1-405b-849b-7e592b859190' };
+     POST { email, lang, source } to our own collector on aquora.cn (nginx allow-lists
+     this origin for CORS; the collector rate-limits per IP and de-duplicates by email).
+     If the request fails or times out (8s), the page degrades to the mail fallback
+     (or a copy-the-address path inside webviews that block mailto) — no reader is
+     ever stranded. */
+  var RESERVE_ENDPOINT = 'https://aquora.cn/api/reserve';   /* our own collector (CORS allow-listed for this origin) */
+  var RESERVE_LANG = 'en';
+  /* channel tag: a link like ...?from=x records the source as aquora-app.github.io/x */
+  var RESERVE_SOURCE = (function () {
+    var m = /[?&]from=([A-Za-z0-9._-]{1,24})(?:&|$)/.exec(location.search);
+    return 'aquora-app.github.io' + (m ? '/' + m[1] : '');
+  })();
   var RESERVE_MAILTO = 'aquora.apps@gmail.com';
 
   var LINES = [
@@ -1429,19 +1430,26 @@
       btn.disabled = true;
       var ctrl = ('AbortController' in window) ? new AbortController() : null;
       var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 8000) : null;
-      var payload = { email: value, source: 'sealed-letter' };
-      for (var k in RESERVE_EXTRA) {
-        if (Object.prototype.hasOwnProperty.call(RESERVE_EXTRA, k)) payload[k] = RESERVE_EXTRA[k];
-      }
+      var payload = { email: value, lang: RESERVE_LANG, source: RESERVE_SOURCE };
       fetch(RESERVE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload),
+        mode: 'cors',
+        cache: 'no-store',
         signal: ctrl ? ctrl.signal : undefined
       }).then(function (res) {
         if (timer) clearTimeout(timer);
-        if (!res.ok) throw new Error('bad status');
-        markConfirmed(false);
+        if (!res.ok) throw new Error('bad status ' + res.status);
+        /* 2xx: {ok:true, duplicate:true} also counts as reserved — someone who
+           already left their address sees the same one word, and is never told
+           "you were here before". A 2xx with ok:false (should not happen) fails. */
+        return res.text().then(function (txt) {
+          var body = null;
+          try { body = txt ? JSON.parse(txt) : null; } catch (e) { body = null; }
+          if (body && body.ok === false) throw new Error('rejected');
+          markConfirmed(false);
+        });
       }).catch(function () {
         if (timer) clearTimeout(timer);
         btn.disabled = false;
