@@ -111,7 +111,7 @@
     <section class="hero">
       <div class="emoji-stage" aria-hidden="true">
         <span class="emoji-glow"></span>
-        <span class="emoji">{{ archetype.emoji }}</span>
+        <span class="emoji"{% if archetype.emoji_fallback %} data-fb="{{ archetype.emoji_fallback }}"{% endif %}>{{ archetype.emoji }}</span>
       </div>
 
       <h1 class="archetype-name">{% if site.cn %}{{ archetype.name_zh }}{% else %}{{ archetype.name }}{% endif %}</h1>
@@ -219,5 +219,6 @@
 
   </main>
 
+{% include emoji-fallback.html %}
 </body>
 </html>

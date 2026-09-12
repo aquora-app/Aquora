@@ -99,6 +99,7 @@ archetypes:
     name: The Curious Magpie
     name_zh: "好奇喜鹊"
     emoji: "🪺"
+    emoji_fallback: "🐦"   # 🪺 is Emoji 14.0 (2021): older systems draw a box; the site swaps to this (see _includes/emoji-fallback.html)
     color: "#C3AA82"
     axes: [Day, Autopilot, Engaged, Steady]
     axes_zh: [白天, 自动驾驶, 投入, 稳定]

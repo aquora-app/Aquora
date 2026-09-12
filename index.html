@@ -187,7 +187,7 @@ and _data/archetypes.yml; no prices anywhere.
         {%- for a in site.data.archetypes.archetypes -%}
         {%- unless a.code == "RS" -%}
         <a class="cell reveal" data-d="{{ forloop.index0 | modulo: 4 }}" href="{{ site.baseurl }}/p/{{ a.code }}/" style="--c: {{ a.color }}" aria-label="{{ a.name }} ({{ a.code }})">
-          <span class="em" aria-hidden="true">{{ a.emoji }}</span>
+          <span class="em" aria-hidden="true"{% if a.emoji_fallback %} data-fb="{{ a.emoji_fallback }}"{% endif %}>{{ a.emoji }}</span>
           <b>{{ a.name }}</b>
           <code>{{ a.code }}</code>
           <span class="ax"><span class="l">{{ a.axes[0] }} · {{ a.axes[1] }}</span><span class="l">{{ a.axes[2] }} · {{ a.axes[3] }}</span></span>
@@ -368,5 +368,6 @@ and _data/archetypes.yml; no prices anywhere.
   });
 })();
 </script>
+{% include emoji-fallback.html %}
 </body>
 </html>
