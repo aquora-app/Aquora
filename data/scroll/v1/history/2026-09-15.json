@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-15T18:16:01.627218Z",
+ "generated_at": "2026-09-15T21:29:33.602482Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "r0"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-09-16T02:16+08:00",
+    "judged_at": "2026-09-16T05:29+08:00",
     "macro_a": 0.9295,
     "macro_v": 0.9295
    },
@@ -729,8 +729,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "Columbus",
@@ -738,8 +738,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "SaltLakeCity",
@@ -747,8 +747,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 10,
+     "state": "CLOUDY"
     }
    ],
    "cohorts": {
@@ -842,7 +842,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-09-15T14:16-04:00",
+    "judged_at": "2026-09-15T17:29-04:00",
     "macro_a": null,
     "macro_v": null
    },
