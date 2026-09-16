@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T17:04:34.922373Z",
+ "generated_at": "2026-09-16T20:12:08.136928Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "r0"
     ],
     "i_band": "positive",
-    "judged_at": "2026-09-17T01:04+08:00",
+    "judged_at": "2026-09-17T04:12+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -567,8 +567,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "Boston",
@@ -842,7 +842,7 @@
      "hotlist_absent"
     ],
     "i_band": "positive",
-    "judged_at": "2026-09-16T13:04-04:00",
+    "judged_at": "2026-09-16T16:12-04:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -864,7 +864,7 @@
    "u_type": null
   }
  },
- "params_hash": "3b9668deb56172d331f0c908708d2069c5d2d417d72db90b23cec694b18fb4ee",
+ "params_hash": "6292acd4ede20936f62a33a63b16d61d4785010c6284f24048ee010cac0187b4",
  "schema_version": "1.0",
  "vintage": "backtest-y1-batch5-clean-20260726"
 }
