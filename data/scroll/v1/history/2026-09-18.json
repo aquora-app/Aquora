@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T00:26:31.879189Z",
+ "generated_at": "2026-09-18T00:47:30.198466Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -456,7 +456,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-09-18T08:26+08:00",
+    "judged_at": "2026-09-18T08:47+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -674,8 +674,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "MIXED"
     },
     {
      "city": "Portland",
@@ -683,8 +683,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Pittsburgh",
@@ -692,8 +692,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "CLOUDY"
     },
     {
      "city": "Austin",
@@ -701,8 +701,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 13,
+     "state": "MIXED"
     },
     {
      "city": "LasVegas",
@@ -710,8 +710,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 16,
+     "state": "SUNNY"
     },
     {
      "city": "Cincinnati",
@@ -719,8 +719,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "KansasCity",
@@ -728,8 +728,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Columbus",
@@ -737,8 +737,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "SaltLakeCity",
@@ -746,8 +746,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 12,
+     "state": "SUNNY"
     }
    ],
    "cohorts": {
@@ -843,7 +843,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-09-17T20:26-04:00",
+    "judged_at": "2026-09-17T20:47-04:00",
     "macro_a": null,
     "macro_v": null
    },
