@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T00:38:46.202621Z",
+ "generated_at": "2026-09-19T01:14:28.363443Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -458,7 +458,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "positive",
-    "judged_at": "2026-09-19T08:38+08:00",
+    "judged_at": "2026-09-19T09:14+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -739,8 +739,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "SaltLakeCity",
@@ -748,8 +748,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 12,
+     "state": "RAIN"
     }
    ],
    "cohorts": {
@@ -845,7 +845,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-09-18T20:38-04:00",
+    "judged_at": "2026-09-18T21:14-04:00",
     "macro_a": null,
     "macro_v": null
    },
