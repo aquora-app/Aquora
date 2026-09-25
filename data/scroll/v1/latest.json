@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-25T06:36:44.629995Z",
+ "generated_at": "2026-09-25T07:54:57.591710Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -462,7 +462,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "positive",
-    "judged_at": "2026-09-25T14:36+08:00",
+    "judged_at": "2026-09-25T15:54+08:00",
     "macro_a": 0.8768,
     "macro_v": 0.8356
    },
@@ -854,7 +854,7 @@
      "za_gcam_weak"
     ],
     "i_band": "neg_low",
-    "judged_at": "2026-09-25T02:36-04:00",
+    "judged_at": "2026-09-25T03:54-04:00",
     "macro_a": null,
     "macro_v": null
    },
