@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T01:49:21.257975Z",
+ "generated_at": "2026-10-02T05:46:57.027382Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -7,8 +7,8 @@
      "city": "beijing",
      "extreme": false,
      "kind": "",
-     "l_env": 4.0,
-     "pui_c": 36,
+     "l_env": 3.4,
+     "pui_c": 33,
      "run_n": 1,
      "state": "SUNNY"
     },
@@ -16,35 +16,35 @@
      "city": "shanghai",
      "extreme": false,
      "kind": "",
-     "l_env": 2.4,
-     "pui_c": 34,
-     "run_n": 5,
-     "state": "RAIN"
+     "l_env": 3.0,
+     "pui_c": 29,
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "guangzhou",
      "extreme": true,
      "kind": "thunderstorm",
-     "l_env": 3.0,
-     "pui_c": 50,
-     "run_n": 3,
+     "l_env": 2.7,
+     "pui_c": 47,
+     "run_n": 4,
      "state": "RAIN"
     },
     {
      "city": "shenzhen",
      "extreme": true,
      "kind": "thunderstorm",
-     "l_env": 4.4,
-     "pui_c": 50,
-     "run_n": 5,
+     "l_env": 2.2,
+     "pui_c": 47,
+     "run_n": 1,
      "state": "RAIN"
     },
     {
      "city": "chengdu",
      "extreme": false,
      "kind": "",
-     "l_env": 3.5,
-     "pui_c": 36,
+     "l_env": 3.1,
+     "pui_c": 33,
      "run_n": 1,
      "state": "CLOUDY"
     },
@@ -52,80 +52,80 @@
      "city": "tianjin",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 35,
-     "run_n": 3,
+     "l_env": 3.4,
+     "pui_c": 34,
+     "run_n": 1,
      "state": "SUNNY"
     },
     {
      "city": "chongqing",
      "extreme": false,
      "kind": "",
-     "l_env": 3.9,
+     "l_env": 2.8,
      "pui_c": 31,
-     "run_n": 1,
-     "state": "RAIN"
+     "run_n": 2,
+     "state": "CLOUDY"
     },
     {
      "city": "shijiazhuang",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 36,
-     "run_n": 2,
+     "l_env": 3.4,
+     "pui_c": 33,
+     "run_n": 3,
      "state": "SUNNY"
     },
     {
      "city": "taiyuan",
      "extreme": false,
      "kind": "",
-     "l_env": 3.8,
-     "pui_c": 38,
-     "run_n": 2,
-     "state": "SUNNY"
+     "l_env": 3.4,
+     "pui_c": 34,
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "huhehaote",
      "extreme": false,
      "kind": "",
-     "l_env": 4.6,
-     "pui_c": 48,
-     "run_n": 2,
+     "l_env": 3.6,
+     "pui_c": 40,
+     "run_n": 3,
      "state": "SUNNY"
     },
     {
      "city": "shenyang",
      "extreme": false,
      "kind": "",
-     "l_env": 4.3,
-     "pui_c": 39,
-     "run_n": 2,
-     "state": "MIXED"
+     "l_env": 3.5,
+     "pui_c": 36,
+     "run_n": 3,
+     "state": "SUNNY"
     },
     {
      "city": "dalian",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 36,
-     "run_n": 2,
+     "l_env": 3.4,
+     "pui_c": 33,
+     "run_n": 3,
      "state": "SUNNY"
     },
     {
      "city": "changchun",
      "extreme": false,
      "kind": "",
-     "l_env": 4.6,
-     "pui_c": 48,
-     "run_n": 1,
+     "l_env": 3.8,
+     "pui_c": 46,
+     "run_n": 2,
      "state": "SUNNY"
     },
     {
      "city": "haerbin",
      "extreme": false,
      "kind": "",
-     "l_env": 4.6,
-     "pui_c": 48,
+     "l_env": 3.7,
+     "pui_c": 44,
      "run_n": 3,
      "state": "SUNNY"
     },
@@ -133,215 +133,215 @@
      "city": "nanjing",
      "extreme": false,
      "kind": "",
-     "l_env": 2.5,
-     "pui_c": 33,
-     "run_n": 6,
+     "l_env": 3.2,
+     "pui_c": 34,
+     "run_n": 1,
      "state": "CLOUDY"
     },
     {
      "city": "xuzhou",
      "extreme": false,
      "kind": "",
-     "l_env": 2.4,
-     "pui_c": 36,
-     "run_n": 4,
-     "state": "CLOUDY"
+     "l_env": 3.4,
+     "pui_c": 33,
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "hangzhou",
      "extreme": false,
      "kind": "",
-     "l_env": 2.7,
-     "pui_c": 32,
+     "l_env": 1.9,
+     "pui_c": 31,
      "run_n": 8,
-     "state": "RAIN"
+     "state": "CLOUDY"
     },
     {
      "city": "ningbo",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "l_env": 2.9,
-     "pui_c": 50,
-     "run_n": 5,
+     "extreme": false,
+     "kind": "",
+     "l_env": 3.0,
+     "pui_c": 30,
+     "run_n": 1,
      "state": "CLOUDY"
     },
     {
      "city": "wenzhou",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "l_env": 3.0,
-     "pui_c": 50,
+     "extreme": false,
+     "kind": "",
+     "l_env": 1.6,
+     "pui_c": 31,
      "run_n": 6,
-     "state": "RAIN"
+     "state": "CLOUDY"
     },
     {
      "city": "hefei",
      "extreme": false,
      "kind": "",
-     "l_env": 2.6,
-     "pui_c": 36,
-     "run_n": 6,
-     "state": "CLOUDY"
+     "l_env": 1.8,
+     "pui_c": 34,
+     "run_n": 7,
+     "state": "RAIN"
     },
     {
      "city": "fuzhou",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "l_env": 4.0,
-     "pui_c": 50,
-     "run_n": 2,
-     "state": "RAIN"
+     "extreme": false,
+     "kind": "",
+     "l_env": 3.1,
+     "pui_c": 33,
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "xiamen",
      "extreme": true,
      "kind": "thunderstorm",
-     "l_env": 3.3,
-     "pui_c": 50,
-     "run_n": 2,
+     "l_env": 2.2,
+     "pui_c": 47,
+     "run_n": 3,
      "state": "RAIN"
     },
     {
      "city": "nanchang",
      "extreme": false,
      "kind": "",
-     "l_env": 3.5,
-     "pui_c": 36,
-     "run_n": 1,
-     "state": "CLOUDY"
+     "l_env": 1.7,
+     "pui_c": 30,
+     "run_n": 3,
+     "state": "RAIN"
     },
     {
      "city": "jinan",
      "extreme": false,
      "kind": "",
      "l_env": 3.4,
-     "pui_c": 35,
+     "pui_c": 33,
      "run_n": 1,
-     "state": "MIXED"
+     "state": "SUNNY"
     },
     {
      "city": "qingdao",
      "extreme": false,
      "kind": "",
-     "l_env": 3.5,
-     "pui_c": 36,
+     "l_env": 3.3,
+     "pui_c": 30,
      "run_n": 1,
-     "state": "CLOUDY"
+     "state": "SUNNY"
     },
     {
      "city": "linyi",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 36,
+     "l_env": 3.4,
+     "pui_c": 33,
      "run_n": 1,
-     "state": "MIXED"
+     "state": "SUNNY"
     },
     {
      "city": "zhengzhou",
      "extreme": false,
      "kind": "",
-     "l_env": 4.0,
-     "pui_c": 36,
+     "l_env": 3.1,
+     "pui_c": 34,
      "run_n": 1,
-     "state": "CLOUDY"
+     "state": "SUNNY"
     },
     {
      "city": "wuhan",
      "extreme": false,
      "kind": "",
-     "l_env": 2.7,
-     "pui_c": 37,
+     "l_env": 1.8,
+     "pui_c": 33,
      "run_n": 3,
-     "state": "RAIN"
+     "state": "CLOUDY"
     },
     {
      "city": "changsha",
      "extreme": false,
      "kind": "",
-     "l_env": 3.3,
-     "pui_c": 33,
+     "l_env": 2.6,
+     "pui_c": 31,
      "run_n": 1,
-     "state": "RAIN"
+     "state": "CLOUDY"
     },
     {
      "city": "shantou",
      "extreme": true,
      "kind": "thunderstorm",
-     "l_env": 3.3,
-     "pui_c": 50,
-     "run_n": 2,
+     "l_env": 2.2,
+     "pui_c": 47,
+     "run_n": 3,
      "state": "RAIN"
     },
     {
      "city": "nanning",
      "extreme": false,
      "kind": "",
-     "l_env": 4.1,
-     "pui_c": 31,
-     "run_n": 1,
-     "state": "SUNNY"
+     "l_env": 3.4,
+     "pui_c": 33,
+     "run_n": 2,
+     "state": "MIXED"
     },
     {
      "city": "haikou",
      "extreme": false,
      "kind": "",
-     "l_env": 4.1,
-     "pui_c": 31,
-     "run_n": 3,
-     "state": "MIXED"
+     "l_env": 3.2,
+     "pui_c": 28,
+     "run_n": 4,
+     "state": "CLOUDY"
     },
     {
      "city": "guiyang",
      "extreme": true,
      "kind": "thunderstorm",
-     "l_env": 3.9,
-     "pui_c": 50,
-     "run_n": 1,
+     "l_env": 2.5,
+     "pui_c": 47,
+     "run_n": 2,
      "state": "RAIN"
     },
     {
      "city": "kunming",
-     "extreme": true,
-     "kind": "thunderstorm",
-     "l_env": 3.9,
-     "pui_c": 50,
-     "run_n": 1,
+     "extreme": false,
+     "kind": "",
+     "l_env": 2.2,
+     "pui_c": 37,
+     "run_n": 2,
      "state": "RAIN"
     },
     {
      "city": "lasa",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 35,
-     "run_n": 3,
+     "l_env": 3.3,
+     "pui_c": 33,
+     "run_n": 4,
      "state": "SUNNY"
     },
     {
      "city": "xian",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 36,
+     "l_env": 3.3,
+     "pui_c": 31,
      "run_n": 2,
-     "state": "MIXED"
+     "state": "CLOUDY"
     },
     {
      "city": "lanzhou",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 37,
+     "l_env": 3.4,
+     "pui_c": 34,
      "run_n": 2,
-     "state": "SUNNY"
+     "state": "MIXED"
     },
     {
      "city": "xining",
      "extreme": false,
      "kind": "",
-     "l_env": 3.9,
-     "pui_c": 42,
+     "l_env": 3.5,
+     "pui_c": 38,
      "run_n": 1,
      "state": "SUNNY"
     },
@@ -349,8 +349,8 @@
      "city": "yinchuan",
      "extreme": false,
      "kind": "",
-     "l_env": 4.1,
-     "pui_c": 38,
+     "l_env": 3.4,
+     "pui_c": 33,
      "run_n": 1,
      "state": "SUNNY"
     },
@@ -358,10 +358,10 @@
      "city": "wulumuqi",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 37,
-     "run_n": 3,
-     "state": "MIXED"
+     "l_env": 3.1,
+     "pui_c": 33,
+     "run_n": 1,
+     "state": "CLOUDY"
     }
    ],
    "cohorts": {
@@ -409,11 +409,10 @@
      "q": "degraded"
     },
     "i": {
-     "q": "stale",
-     "stale_since": "2026-10-01T14:03+08:00"
+     "q": "fresh"
     },
     "i_live": {
-     "q": "degraded"
+     "q": "fresh"
     },
     "macro": {
      "q": "degraded"
@@ -422,8 +421,7 @@
      "q": "fresh"
     },
     "r": {
-     "q": "stale",
-     "stale_since": "2026-10-01T14:03+08:00"
+     "q": "fresh"
     },
     "weather_city": {
      "q": "fresh"
@@ -441,7 +439,7 @@
     "since": null,
     "tier": null,
     "ttl_hours": null,
-    "valence_sign": 1
+    "valence_sign": 0
    },
    "events": [
     {
@@ -451,38 +449,37 @@
      "peak": "2026-10-01"
     }
    ],
-   "holdover": true,
-   "i_band": "positive",
+   "holdover": false,
+   "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
     "level": "light",
-    "value": 3.5
+    "value": 3.4
    },
-   "judged_at_local": "2026-10-01T14:03+08:00",
+   "judged_at_local": "2026-10-02T13:46+08:00",
    "live": {
     "degraded_legs": [
-     "tone",
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-10-02T09:49+08:00",
+    "judged_at": "2026-10-02T13:46+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
    "lonely_sensitive_dates": [],
-   "macro_a": 0.9092,
-   "macro_a_72h": 0.5116447413646797,
+   "macro_a": 0.0,
+   "macro_a_72h": 0.2626871690796295,
    "macro_quiet": null,
-   "macro_v": 0.8026,
-   "macro_v_72h": 0.45165647758391103,
+   "macro_v": 0.0,
+   "macro_v_72h": 0.23188816751354008,
    "macro_v_median_90d": 0.0,
    "mourning_calendar": [],
-   "pui": 41.4144,
+   "pui": 37.8552,
    "r_band": "good",
    "sub": {
-    "anx": 0.3476,
-    "bore": 0.1749,
-    "home": 0.6651
+    "anx": 0.3628,
+    "bore": 0.1215,
+    "home": 0.6133
    },
    "u_type": null
   },
@@ -804,10 +801,11 @@
      "q": "insufficient"
     },
     "i": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-10-01T09:26-04:00"
     },
     "i_live": {
-     "q": "insufficient"
+     "q": "fresh"
     },
     "macro": {
      "q": "insufficient"
@@ -816,7 +814,8 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-10-01T09:26-04:00"
     },
     "weather_city": {
      "q": "fresh"
@@ -837,7 +836,7 @@
     "valence_sign": null
    },
    "events": [],
-   "holdover": false,
+   "holdover": true,
    "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
@@ -847,12 +846,14 @@
    "judged_at_local": "2026-10-01T09:26-04:00",
    "live": {
     "degraded_legs": [
-     "tone",
+     "v_w",
+     "z_dw",
+     "r0",
      "hotlist_absent",
-     "c_S"
+     "za_gcam_weak"
     ],
-    "i_band": "insufficient",
-    "judged_at": "2026-10-01T21:49-04:00",
+    "i_band": "neg_high",
+    "judged_at": "2026-10-02T01:46-04:00",
     "macro_a": null,
     "macro_v": null
    },
