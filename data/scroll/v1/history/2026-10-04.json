@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-04T00:42:37.624446Z",
+ "generated_at": "2026-10-04T01:59:43.074997Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -465,7 +465,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "positive",
-    "judged_at": "2026-10-04T08:42+08:00",
+    "judged_at": "2026-10-04T09:59+08:00",
     "macro_a": 0.9714,
     "macro_v": 0.9033
    },
@@ -719,8 +719,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "Cincinnati",
@@ -728,8 +728,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 6,
+     "state": "SUNNY"
     },
     {
      "city": "KansasCity",
@@ -737,8 +737,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Columbus",
@@ -746,8 +746,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 6,
+     "state": "SUNNY"
     },
     {
      "city": "SaltLakeCity",
@@ -755,8 +755,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 9,
+     "state": "SUNNY"
     }
    ],
    "cohorts": {
@@ -852,7 +852,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-10-03T20:42-04:00",
+    "judged_at": "2026-10-03T21:59-04:00",
     "macro_a": null,
     "macro_v": null
    },
