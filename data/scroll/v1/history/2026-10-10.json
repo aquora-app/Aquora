@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T01:47:20.641234Z",
+ "generated_at": "2026-10-10T01:55:29.741571Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -461,7 +461,7 @@
      "c_S"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-10-10T09:47+08:00",
+    "judged_at": "2026-10-10T09:55+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -571,8 +571,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 10,
+     "state": "SUNNY"
     },
     {
      "city": "Boston",
@@ -580,8 +580,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "SanFrancisco",
@@ -589,8 +589,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "CLOUDY"
     },
     {
      "city": "Detroit",
@@ -850,7 +850,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-10-09T21:47-04:00",
+    "judged_at": "2026-10-09T21:55-04:00",
     "macro_a": null,
     "macro_v": null
    },
