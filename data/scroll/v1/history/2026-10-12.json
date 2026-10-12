@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T01:23:05.744469Z",
+ "generated_at": "2026-10-12T01:47:49.903638Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -460,7 +460,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "positive",
-    "judged_at": "2026-10-12T09:23+08:00",
+    "judged_at": "2026-10-12T09:47+08:00",
     "macro_a": 0.951,
     "macro_v": 0.951
    },
@@ -570,8 +570,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "Boston",
@@ -588,8 +588,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "Detroit",
@@ -606,8 +606,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 8,
+     "state": "SUNNY"
     },
     {
      "city": "Minneapolis",
@@ -624,8 +624,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Tampa",
@@ -687,8 +687,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "MIXED"
     },
     {
      "city": "Pittsburgh",
@@ -714,8 +714,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "CLOUDY"
     },
     {
      "city": "Cincinnati",
@@ -741,8 +741,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "SaltLakeCity",
@@ -750,8 +750,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "RAIN"
     }
    ],
    "cohorts": {
@@ -850,7 +850,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-10-11T21:23-04:00",
+    "judged_at": "2026-10-11T21:47-04:00",
     "macro_a": null,
     "macro_v": null
    },
