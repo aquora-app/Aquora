@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T11:11:05.091259Z",
+ "generated_at": "2026-10-24T14:37:11.599291Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -459,7 +459,7 @@
      "c_S"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-10-24T19:11+08:00",
+    "judged_at": "2026-10-24T22:37+08:00",
     "macro_a": 0.966,
     "macro_v": -0.7429
    },
@@ -497,8 +497,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "SUNNY"
     },
     {
      "city": "Chicago",
@@ -569,8 +569,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Boston",
@@ -587,8 +587,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Detroit",
@@ -605,8 +605,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 9,
+     "state": "CLOUDY"
     },
     {
      "city": "Minneapolis",
@@ -623,8 +623,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     },
     {
      "city": "Tampa",
@@ -641,8 +641,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "StLouis",
@@ -686,8 +686,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Pittsburgh",
@@ -695,8 +695,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 6,
+     "state": "SUNNY"
     },
     {
      "city": "Austin",
@@ -704,8 +704,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "MIXED"
     },
     {
      "city": "LasVegas",
@@ -713,8 +713,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "Cincinnati",
@@ -722,8 +722,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "MIXED"
     },
     {
      "city": "KansasCity",
@@ -731,8 +731,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "MIXED"
     },
     {
      "city": "Columbus",
@@ -740,8 +740,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 6,
+     "state": "SUNNY"
     },
     {
      "city": "SaltLakeCity",
@@ -749,8 +749,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "SUNNY"
     }
    ],
    "cohorts": {
@@ -813,7 +813,7 @@
      "q": "fresh"
     },
     "weather_city": {
-     "q": "degraded"
+     "q": "fresh"
     }
    },
    "degraded_legs": [
@@ -848,7 +848,7 @@
      "za_gcam_weak"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-10-24T07:11-04:00",
+    "judged_at": "2026-10-24T10:37-04:00",
     "macro_a": null,
     "macro_v": null
    },
