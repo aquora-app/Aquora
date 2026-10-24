@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T00:49:19.042205Z",
+ "generated_at": "2026-10-24T01:06:03.711076Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -462,7 +462,7 @@
      "c_S"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-10-24T08:49+08:00",
+    "judged_at": "2026-10-24T09:06+08:00",
     "macro_a": 0.966,
     "macro_v": -0.7429
    },
@@ -689,8 +689,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "Pittsburgh",
@@ -698,8 +698,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "Austin",
@@ -707,8 +707,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "LasVegas",
@@ -716,8 +716,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 3,
+     "state": "SUNNY"
     },
     {
      "city": "Cincinnati",
@@ -725,8 +725,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "KansasCity",
@@ -734,8 +734,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "Columbus",
@@ -743,8 +743,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 5,
+     "state": "SUNNY"
     },
     {
      "city": "SaltLakeCity",
@@ -752,8 +752,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     }
    ],
    "cohorts": {
@@ -851,7 +851,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-10-23T20:49-04:00",
+    "judged_at": "2026-10-23T21:06-04:00",
     "macro_a": null,
     "macro_v": null
    },
