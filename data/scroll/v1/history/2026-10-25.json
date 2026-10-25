@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T18:26:23.039667Z",
+ "generated_at": "2026-10-25T21:51:37.490215Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -462,7 +462,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-10-26T02:26+08:00",
+    "judged_at": "2026-10-26T05:51+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -689,8 +689,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "Pittsburgh",
@@ -849,7 +849,7 @@
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-10-25T14:26-04:00",
+    "judged_at": "2026-10-25T17:51-04:00",
     "macro_a": null,
     "macro_v": null
    },
