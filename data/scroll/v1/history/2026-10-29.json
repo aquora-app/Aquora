@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T10:06:10.041401Z",
+ "generated_at": "2026-10-29T16:57:46.377142Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -409,7 +409,8 @@
      "q": "degraded"
     },
     "i": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-10-29T10:31+08:00"
     },
     "i_live": {
      "q": "fresh"
@@ -421,7 +422,8 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-10-29T10:31+08:00"
     },
     "weather_city": {
      "q": "fresh"
@@ -442,7 +444,7 @@
     "valence_sign": 1
    },
    "events": [],
-   "holdover": false,
+   "holdover": true,
    "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
@@ -454,10 +456,13 @@
    "judged_at_local": "2026-10-29T10:31+08:00",
    "live": {
     "degraded_legs": [
+     "v_w",
+     "z_dw",
+     "r0",
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-10-29T18:06+08:00",
+    "judged_at": "2026-10-30T00:57+08:00",
     "macro_a": 0.7841,
     "macro_v": 0.7841
    },
@@ -495,8 +500,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Chicago",
@@ -504,8 +509,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "DFW",
@@ -513,8 +518,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Houston",
@@ -522,8 +527,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "MIXED"
     },
     {
      "city": "Atlanta",
@@ -811,7 +816,7 @@
      "q": "fresh"
     },
     "weather_city": {
-     "q": "degraded"
+     "q": "fresh"
     }
    },
    "degraded_legs": [
@@ -846,7 +851,7 @@
      "za_gcam_weak"
     ],
     "i_band": "neg_high",
-    "judged_at": "2026-10-29T06:06-04:00",
+    "judged_at": "2026-10-29T12:57-04:00",
     "macro_a": null,
     "macro_v": null
    },
