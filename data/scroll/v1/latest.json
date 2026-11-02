@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T00:50:06.512501Z",
+ "generated_at": "2026-11-02T01:49:53.015579Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -460,7 +460,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-02T08:50+08:00",
+    "judged_at": "2026-11-02T09:49+08:00",
     "macro_a": 0.0,
     "macro_v": 0.0
    },
@@ -534,8 +534,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "WashingtonDC",
@@ -849,7 +849,7 @@
      "c_S"
     ],
     "i_band": "insufficient",
-    "judged_at": "2026-11-01T19:50-05:00",
+    "judged_at": "2026-11-01T20:49-05:00",
     "macro_a": null,
     "macro_v": null
    },
