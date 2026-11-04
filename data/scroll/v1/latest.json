@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T02:42:31.972415Z",
+ "generated_at": "2026-11-04T06:35:21.896256Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -342,8 +342,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "yinchuan",
@@ -351,8 +351,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 7,
+     "state": "SUNNY"
     },
     {
      "city": "wulumuqi",
@@ -360,8 +360,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 9,
+     "state": "SUNNY"
     }
    ],
    "cohorts": {
@@ -457,7 +457,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-04T10:42+08:00",
+    "judged_at": "2026-11-04T14:35+08:00",
     "macro_a": 0.945,
     "macro_v": 0.5181
    },
@@ -796,7 +796,8 @@
      "q": "insufficient"
     },
     "i": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-11-03T06:21-05:00"
     },
     "i_live": {
      "q": "fresh"
@@ -808,7 +809,8 @@
      "q": "fresh"
     },
     "r": {
-     "q": "fresh"
+     "q": "stale",
+     "stale_since": "2026-11-03T06:21-05:00"
     },
     "weather_city": {
      "q": "fresh"
@@ -830,7 +832,7 @@
     "valence_sign": null
    },
    "events": [],
-   "holdover": false,
+   "holdover": true,
    "i_band": "neg_low",
    "i_positive_sub": null,
    "intensity": {
@@ -842,10 +844,13 @@
    "judged_at_local": "2026-11-03T06:21-05:00",
    "live": {
     "degraded_legs": [
+     "v_w",
+     "z_dw",
+     "r0",
      "hotlist_absent"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-03T21:42-05:00",
+    "judged_at": "2026-11-04T01:35-05:00",
     "macro_a": null,
     "macro_v": null
    },
