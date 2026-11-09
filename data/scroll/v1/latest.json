@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T12:05:40.999745Z",
+ "generated_at": "2026-11-09T13:05:50.490446Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-09T20:05+08:00",
+    "judged_at": "2026-11-09T21:05+08:00",
     "macro_a": 0.5976,
     "macro_v": 0.5976
    },
@@ -567,8 +567,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 7,
+     "state": "SUNNY"
     },
     {
      "city": "Boston",
@@ -639,8 +639,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "StLouis",
@@ -747,8 +747,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "MIXED"
     }
    ],
    "cohorts": {
@@ -844,7 +844,7 @@
      "hotlist_absent"
     ],
     "i_band": "positive",
-    "judged_at": "2026-11-09T07:05-05:00",
+    "judged_at": "2026-11-09T08:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
