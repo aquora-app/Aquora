@@ -32,7 +32,7 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
         <header class="doc-head">
           <div class="doc-meta">
             <p class="eyebrow">Legal</p>
-            <p class="dates"><span class="date">Effective Date: August 14, 2026</span></p>
+            <p class="dates"><span class="date">Effective Date: November 10, 2026</span></p>
           </div>
           <h1 class="doc-title">Privacy Policy</h1>
         </header>
@@ -82,6 +82,14 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
                 <p>Settings such as your selected app limits, meditation preferences, ambient sound choices, quiz progress, reward tokens, achievements, and streak data are stored locally using UserDefaults and App Groups.</p>
               </li>
               <li class="rec rec-p">
+                <div class="rec-h"><h3>Question Bank (Premium)</h3></div>
+                <p>On Premium, quiz questions come from a public question bank that the App downloads to your device (where it is downloaded from is described in Section 5). On Free and Starter, quizzes use only the questions built into the App, and nothing is downloaded. Downloaded questions are kept in the App's own storage on your device. Shortly after you answer a downloaded question, its text is deleted from the downloaded files; only its number is kept, so that the question is not shown to you again. The App also keeps the topic tags of the questions in your last 5 rounds, so that the next round picks other topics. If iCloud is on, this list of answered question numbers is also kept in your own iCloud (see Section 4), so your other devices skip those questions too. The list holds question numbers only: no question text, no answers, and nothing about whether you were right.</p>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><h3>Question Reports (Optional)</h3></div>
+                <p>After a quiz in which you answered a downloaded question wrong, you can tell us that it has a problem (&ldquo;Problem with a question?&rdquo;). Each report saves one record to our CloudKit public database. It contains only the question's language and number, the App version and build number, the label &ldquo;Question Report&rdquo;, and the time of the report; the other fields are left empty (the star rating is 0). It does not contain your name, email, Apple ID, a device identifier, your archetype code, your answer, or any text you typed. Because only questions you answered wrong can be reported, a report does show that this question was answered wrong on some device; it does not say which option was chosen. As with every record saved to CloudKit, Apple also attaches a random identifier for the iCloud account that saved it; this identifier exists only for Aquora and does not reveal your Apple ID, name or email, but records saved from the same iCloud account share it. The App never reads it. One device sends at most 5 reports a day; the count is kept only on the device. A report that cannot be sent (for example, while offline) is discarded, not retried.</p>
+              </li>
+              <li class="rec rec-p">
                 <div class="rec-h"><h3>User-Generated Content</h3></div>
                 <p>Journal entries, manifestation goals, mood tracking, and meditation notes you create are stored locally on your device. We do not access, read, or transmit this content.</p>
               </li>
@@ -98,7 +106,7 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><h3>Personality Archetype Data</h3></div>
-                <p>Your responses to the personality questionnaire and your derived 4-letter archetype code are stored locally. Monthly archetype snapshots are kept for trend tracking. To compute rarity statistics, an anonymized record (random device UUID + your archetype code only) is uploaded to Apple's CloudKit public database. This record contains no identifying information.</p>
+                <p>Your responses to the personality questionnaire and your derived 4-letter archetype code are stored locally. Monthly archetype snapshots are kept for trend tracking. To compute rarity statistics, a record (random device UUID + your archetype code only) is uploaded to Apple's CloudKit public database. As with every CloudKit record, Apple also attaches a random identifier for the iCloud account that saved it; this identifier exists only for Aquora and does not reveal your Apple ID, name or email, but records saved from the same iCloud account share it.</p>
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><h3>Referral Information</h3></div>
@@ -117,7 +125,7 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
                 <p>The first time you open the scroll forecast, the App offers three optional inputs so the forecast can be phrased for you. Every one of them can be skipped, and every one of them stays on this device: none is ever sent to us, to any AI provider, to CloudKit, or to iCloud, and none is carried over to another device.</p>
                 <ul>
                   <li><strong>Year of birth</strong> — the year only. We never ask for or store a full date of birth. It is used on-device to place you in an age band so the forecast can show the band's figures, and to apply a more conservative presentation if you are under 18.</li>
-                  <li><strong>Nearest city</strong> — chosen by you from a short list. The App does not use location services and has never requested location permission; this is a name you pick, not a position we measure. It is used only to pick which city's weather line to show.</li>
+                  <li><strong>Nearest city</strong> — chosen by you from a short list. If you tap the location button in the forecast intro or forecast settings, the App asks for your approximate location once and matches the nearest city on your device. It is used only to pick which city's weather line to show.</li>
                   <li><strong>Your frequent apps</strong> — a confirmation of which apps you use most, pre-filled from the limits you already created. It is stored on-device as category shares and display names.</li>
                 </ul>
               </li>
@@ -135,7 +143,8 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
               <li>To enforce app usage limits and shield blocked apps</li>
               <li>To track your meditation, journal, and quiz progress</li>
               <li>To manage reward tokens, achievements, and streaks</li>
-              <li>To generate personalized quiz questions via AI</li>
+              <li>To download quiz questions on Premium and avoid showing you a question you have already answered</li>
+              <li>To receive reports of questions that may have a problem (question language and number only)</li>
               <li>To deliver in-the-moment AI reminders based on your usage patterns</li>
               <li>To compute your personality archetype and produce monthly reports</li>
               <li>To validate referral codes and award referral rewards</li>
@@ -147,16 +156,16 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
             <h2 id="s4"><span class="num">4.</span> Data Storage &amp; Security</h2>
             <p>The vast majority of user data is stored locally on your device. Data shared between the main app and extensions (Shield, Device Activity Monitor, Shield Action) uses secure App Group containers.</p>
             <h3>iCloud Key-Value Store</h3>
-            <p>Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings.</p>
+            <p>Token balance, subscription status, and transaction history may be synced via Apple's iCloud Key-Value Store to restore your data across devices or after reinstallation. On Premium, the list of question-bank question numbers you have answered is synced the same way, so your other devices do not show you those questions again; it holds question numbers only. This data is encrypted by Apple's iCloud infrastructure. You can disable iCloud sync in your device settings.</p>
             <h3>CloudKit Public Database</h3>
             <p>Four types of records are stored in our CloudKit public database:</p>
             <ul>
               <li><strong>ReferralCode</strong> — referral code string with hashed (SHA-256) owner and redeemer identifiers</li>
               <li><strong>Redemption</strong> — one record per code redemption: the code, hashed (SHA-256) redeemer and owner identifiers, and a timestamp</li>
               <li><strong>ArchetypeUser</strong> — anonymous device UUID paired with your personality code and an update timestamp, used to calculate archetype rarity (rarity is computed from a random sample of up to 400 records)</li>
-              <li><strong>Feedback</strong> — when you submit feedback via the in-app form, your message, feedback category, star rating, optional email, app and iOS version, and current archetype code are saved as a CloudKit record. Stored anonymously (no device ID, no user ID); only the developer reads them via the CloudKit Dashboard.</li>
+              <li><strong>Feedback</strong> — when you submit feedback via the in-app form, your message, feedback category, star rating, optional email, app and iOS version, current archetype code, and the time you sent it are saved as a CloudKit record. The App adds no device ID or user ID to it (the identifier Apple attaches to every CloudKit record is described below); only the developer reads them via the CloudKit Dashboard. Question reports (see Section 2) are also saved as Feedback records, with only the fields listed there.</li>
             </ul>
-            <p>These records contain no personally identifiable information.</p>
+            <p>Besides what is listed above, Apple attaches to every CloudKit record a random identifier for the iCloud account that saved it. That identifier exists only for Aquora and does not reveal your Apple ID, name or email, but records saved from the same iCloud account share it. Feedback includes your email only if you typed one.</p>
             <h3>Keychain</h3>
             <p>Your Apple User ID is stored in the device Keychain with encryption and is not accessible to other apps.</p>
           </section>
@@ -179,23 +188,27 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><strong>Apple iCloud Key-Value Store</strong></div><span class="dash"> — </span>
-                <span class="d">for syncing token and subscription data</span>
+                <span class="d">for syncing token and subscription data, and the list of answered question-bank questions</span>
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><strong>Apple CloudKit</strong></div><span class="dash"> — </span>
-                <span class="d">for referral code validation, anonymous archetype rarity statistics, and storing feedback submissions</span>
+                <span class="d">for referral code validation, anonymous archetype rarity statistics, and storing feedback submissions and question reports</span>
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><strong>Google Gemini API</strong></div><span class="dash"> — </span>
-                <span class="d">used to generate quiz questions and AI reminder content. Two separate request paths transmit different data: <em>(1) Quiz generation</em> sends only your selected question categories, device language, and recently cached question topics (to avoid duplicates). <em>(2) AI Reminder generation</em> sends a behavior summary derived from your local usage data — including up to your three most-unlocked group names with unlock counts (plus any groups in active no-unlock challenges), recurring habit-window times, average daily screen time and trend, peak-hour and night/morning usage ratios, your most frequent reflection answer choices, your strongest and weakest quiz categories, and your derived personality code — so Gemini can write reminders that reference your actual patterns. Never transmitted to Google: contacts, message contents, photo library contents, location, or any journal / meditation entries.</span>
+                <span class="d">used to generate AI reminder content. <em>AI Reminder generation</em> sends a behavior summary derived from your local usage data — including up to your three most-unlocked group names with unlock counts (plus any groups in active no-unlock challenges), recurring habit-window times, average daily screen time and trend, peak-hour and night/morning usage ratios, your most frequent reflection answer choices, your strongest and weakest quiz categories, and your derived personality code — so Gemini can write reminders that reference your actual patterns. Under Google's Gemini API terms for paid services, Google logs prompts and responses for a limited period solely to detect and prevent violations of its usage policies, does not use them to improve its products, and may store or cache them transiently in any country where it has facilities. Quiz questions are no longer generated on request: none of your data is sent to any AI provider to make quiz questions. Never transmitted to Google: contacts, message contents, photo library contents, location, or any journal / meditation entries.</span>
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><strong>DeepSeek API</strong></div><span class="dash"> — </span>
-                <span class="d">an alternative AI provider used for the same two request paths with the same payloads as described for Gemini above. Requests are routed to DeepSeek by default for users on the mainland-China App Store using Chinese, and temporarily for any user while Gemini is unreachable (automatic failover, up to 6 hours). The same never-transmitted list applies.</span>
+                <span class="d">an alternative AI provider used for the same AI Reminder requests with the same payload as described for Gemini above. Requests are routed to DeepSeek by default for users on the mainland-China App Store using Chinese, and temporarily for any user while Gemini is unreachable (automatic failover, up to 6 hours). The same never-transmitted list applies. Under DeepSeek's open-platform privacy policy (effective November 11, 2026), DeepSeek keeps API inputs and outputs only as long as its stated purposes require and, unless otherwise agreed in writing, may use them, after encryption and de-identification, to develop, train and improve its models.</span>
               </li>
               <li class="rec rec-p">
                 <div class="rec-h"><strong>GitHub Pages</strong></div><span class="dash"> — </span>
-                <span class="d">hosts the scroll forecast data file. The App downloads a single public JSON file from <em class="nb">aquora-app.github.io</em>. This is a plain GET: the request carries no user data, no account identifier, no query parameters and no custom headers, and nothing is uploaded. As with any web request, GitHub's servers see the standard connection information (such as your IP address and user agent) in their own access logs. This request is made on every tier, including Free, because the same file also decides whether an emotional weather alert is due.</span>
+                <span class="d">hosts the scroll forecast data file and the question bank. For the forecast, the App downloads a single public JSON file from <em class="nb">aquora-app.github.io</em>. This is a plain GET: the request carries no user data, no account identifier, no query parameters and no custom headers, and nothing is uploaded. As with any web request, GitHub's servers see the standard connection information (such as your IP address and user agent) in their own access logs. This request is made on every tier, including Free, because the same file also decides whether an emotional weather alert is due. On Premium, the App also downloads the question bank from <em class="nb">aquora-app.github.io/question-bank/</em>: it checks the list of question files about once a day while the App is open (if a check fails, again the next time the App is opened at least 10 minutes later), then downloads the question files it needs, both then and when you pick new quiz categories. These are the same kind of plain GET requests, sent without cookies, and nothing is uploaded. Which question files are requested depends on your App language and the quiz categories you picked.</span>
+              </li>
+              <li class="rec rec-p">
+                <div class="rec-h"><strong>aquora.cn</strong></div><span class="dash"> — </span>
+                <span class="d">our own website, which holds a second copy of the question bank at <em class="nb">aquora.cn/question-bank/</em>. On the China mainland App Store, the App tries aquora.cn first and GitHub Pages second; everywhere else, and whenever the App cannot read the App Store country within 2 seconds, it tries GitHub Pages first and aquora.cn only when GitHub Pages does not answer or its files cannot be downloaded. The App reads your App Store country on the device only to choose this order; the country is not sent. The requests are the same plain GETs described above. Which files are requested depends on your App language and the quiz categories you picked, so the access logs show which language and categories an IP address downloaded. The server is in mainland China. Like any web server, it records standard connection information (IP address, time, requested file and user agent) in its access logs, which are kept for 30 days and then deleted.</span>
               </li>
             </ul>
             <p>One addition to the AI reminder payload described above: the request also carries a short block describing today's public mood climate. Everything in it comes from the published forecast file: two macro figures, a few band labels, and the category codes of the day's active events. Your year of birth, your city, your frequent apps, and anything derived from your mood check-ins are never part of it — and neither is which age band you fall into: that choice is made on the device, used to pick which band's figure to read, and then discarded.</p>
@@ -234,8 +247,8 @@ No Chinese, no ICP / registration / company lines anywhere on the overseas site.
           <section class="doc-sec" data-toc="s9" aria-labelledby="s9">
             <h2 id="s9"><span class="num">9.</span> Data Retention &amp; Deletion</h2>
             <p><strong>Local data:</strong> You can delete your account and all local data directly in the App (Me tab). Uninstalling the App also removes on-device data. Behavior logs (quiz answers, reflections, unlock events) are automatically purged after 90 days.</p>
-            <p><strong>iCloud Key-Value Store:</strong> Token balance, subscription status, and transaction history may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>.</p>
-            <p><strong>CloudKit records:</strong> Deleting your account in the App removes your referral code record from our CloudKit database. Anonymized records (archetype statistics, feedback, redemption history) are retained — they contain no identifying information and cannot be linked back to you. You may also contact us at the email below with any questions about CloudKit data.</p>
+            <p><strong>iCloud Key-Value Store:</strong> Token balance, subscription status, and transaction history may persist in your iCloud account until you manually remove it from <strong>Settings &gt; [Your Name] &gt; iCloud &gt; Manage Storage</strong>. The list of answered question numbers is removed from iCloud when you delete your account in the App. If another device on the same iCloud account still has Aquora on Premium, it writes its own list back to iCloud the next time a downloaded question is answered there; to remove it for good, delete your account or the App on that device too.</p>
+            <p><strong>CloudKit records:</strong> Deleting your account in the App removes your referral code record from our CloudKit database. Archetype statistics, feedback and redemption history are retained. Question reports are deleted once we have reviewed them, and are kept for at most 12 months. Besides what is listed in Sections 2 and 4, each of these records carries, as with every CloudKit record, a random identifier for the iCloud account that saved it. That identifier exists only for Aquora and does not reveal your Apple ID, name or email, but records saved from the same iCloud account share it. Feedback includes your email only if you typed one. You may also contact us at the email below with any questions about CloudKit data.</p>
           </section>
 
           <section class="doc-sec" data-toc="s10" aria-labelledby="s10">
