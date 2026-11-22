@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T00:05:42.450768Z",
+ "generated_at": "2026-11-22T01:05:56.404132Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -461,7 +461,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-22T08:05+08:00",
+    "judged_at": "2026-11-22T09:05+08:00",
     "macro_a": 0.5619,
     "macro_v": 0.5619
    },
@@ -848,15 +848,15 @@
      "hotlist_absent",
      "c_S"
     ],
-    "i_band": "neutral",
-    "i_positive_sub": null,
+    "i_band": "positive",
+    "i_positive_sub": "festive",
     "intensity": {
-     "engine_value": 3.7486,
+     "engine_value": 4.1583,
      "level": "mid",
      "scale": "T1-20261009",
-     "value": 4.1
+     "value": 4.5
     },
-    "judged_at": "2026-11-21T19:05-05:00",
+    "judged_at": "2026-11-21T20:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
