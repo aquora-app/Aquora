@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T10:18:51.862778Z",
+ "generated_at": "2026-11-22T11:02:40.019676Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-22T18:18+08:00",
+    "judged_at": "2026-11-22T19:02+08:00",
     "macro_a": 0.5619,
     "macro_v": 0.5619
    },
@@ -484,17 +484,17 @@
      "city": "NYC",
      "extreme": false,
      "kind": "",
-     "l_env": 4.0,
-     "pui_c": 38,
-     "run_n": 6,
-     "state": "CLOUDY"
+     "l_env": 3.8,
+     "pui_c": 35,
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "LA",
      "extreme": false,
      "kind": "",
-     "l_env": 5.5,
-     "pui_c": 34,
+     "l_env": 2.0,
+     "pui_c": 36,
      "run_n": 1,
      "state": "MIXED"
     },
@@ -502,35 +502,35 @@
      "city": "Chicago",
      "extreme": false,
      "kind": "",
-     "l_env": 3.7,
-     "pui_c": 36,
+     "l_env": 2.7,
+     "pui_c": 45,
      "run_n": 8,
-     "state": "SUNNY"
+     "state": "RAIN"
     },
     {
      "city": "DFW",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
+     "l_env": 2.7,
      "pui_c": 29,
-     "run_n": 4,
-     "state": "MIXED"
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Houston",
      "extreme": false,
      "kind": "",
-     "l_env": 3.0,
-     "pui_c": 27,
-     "run_n": 2,
+     "l_env": 1.4,
+     "pui_c": 25,
+     "run_n": 3,
      "state": "SUNNY"
     },
     {
      "city": "Atlanta",
      "extreme": false,
      "kind": "",
-     "l_env": 4.3,
-     "pui_c": 37,
+     "l_env": 3.4,
+     "pui_c": 27,
      "run_n": 1,
      "state": "CLOUDY"
     },
@@ -538,28 +538,28 @@
      "city": "WashingtonDC",
      "extreme": false,
      "kind": "",
-     "l_env": 4.3,
-     "pui_c": 33,
-     "run_n": 4,
-     "state": "CLOUDY"
+     "l_env": 3.5,
+     "pui_c": 28,
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "Philadelphia",
      "extreme": false,
      "kind": "",
-     "l_env": 4.0,
-     "pui_c": 37,
-     "run_n": 6,
+     "l_env": 2.7,
+     "pui_c": 30,
+     "run_n": 1,
      "state": "CLOUDY"
     },
     {
      "city": "Miami",
      "extreme": false,
      "kind": "",
-     "l_env": 3.8,
-     "pui_c": 24,
-     "run_n": 1,
-     "state": "CLOUDY"
+     "l_env": 1.6,
+     "pui_c": 26,
+     "run_n": 2,
+     "state": "SUNNY"
     },
     {
      "city": "Phoenix",
@@ -567,17 +567,17 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 5,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Boston",
      "extreme": false,
      "kind": "",
-     "l_env": 4.0,
-     "pui_c": 36,
-     "run_n": 6,
-     "state": "MIXED"
+     "l_env": 2.2,
+     "pui_c": 34,
+     "run_n": 7,
+     "state": "RAIN"
     },
     {
      "city": "SanFrancisco",
@@ -585,17 +585,17 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 3,
-     "state": "RAIN"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Detroit",
      "extreme": false,
      "kind": "",
-     "l_env": 4.3,
-     "pui_c": 44,
+     "l_env": 3.2,
+     "pui_c": 45,
      "run_n": 5,
-     "state": "SUNNY"
+     "state": "MIXED"
     },
     {
      "city": "Seattle",
@@ -603,8 +603,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 3,
-     "state": "CLOUDY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Minneapolis",
@@ -612,8 +612,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 3,
-     "state": "CLOUDY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "SanDiego",
@@ -621,17 +621,17 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 2,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Tampa",
      "extreme": false,
      "kind": "",
-     "l_env": 5.3,
-     "pui_c": 24,
+     "l_env": 2.5,
+     "pui_c": 28,
      "run_n": 1,
-     "state": "SUNNY"
+     "state": "MIXED"
     },
     {
      "city": "Denver",
@@ -639,8 +639,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 1,
-     "state": "RAIN"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "StLouis",
@@ -648,24 +648,24 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 7,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Orlando",
      "extreme": false,
      "kind": "",
-     "l_env": 5.4,
-     "pui_c": 29,
-     "run_n": 4,
+     "l_env": 2.5,
+     "pui_c": 28,
+     "run_n": 1,
      "state": "CLOUDY"
     },
     {
      "city": "Charlotte",
      "extreme": false,
      "kind": "",
-     "l_env": 3.4,
-     "pui_c": 34,
+     "l_env": 2.7,
+     "pui_c": 30,
      "run_n": 1,
      "state": "CLOUDY"
     },
@@ -675,8 +675,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 2,
-     "state": "CLOUDY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Portland",
@@ -684,16 +684,16 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 1,
-     "state": "CLOUDY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Pittsburgh",
      "extreme": false,
      "kind": "",
-     "l_env": 4.6,
-     "pui_c": 40,
-     "run_n": 3,
+     "l_env": 2.9,
+     "pui_c": 29,
+     "run_n": 4,
      "state": "CLOUDY"
     },
     {
@@ -702,8 +702,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 3,
-     "state": "CLOUDY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "LasVegas",
@@ -711,17 +711,17 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 1,
-     "state": "SUNNY"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Cincinnati",
      "extreme": false,
      "kind": "",
-     "l_env": 3.4,
-     "pui_c": 33,
+     "l_env": 1.9,
+     "pui_c": 34,
      "run_n": 7,
-     "state": "SUNNY"
+     "state": "CLOUDY"
     },
     {
      "city": "KansasCity",
@@ -729,16 +729,16 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 13,
-     "state": "MIXED"
+     "run_n": null,
+     "state": null
     },
     {
      "city": "Columbus",
      "extreme": false,
      "kind": "",
-     "l_env": 4.2,
-     "pui_c": 41,
-     "run_n": 4,
+     "l_env": 2.7,
+     "pui_c": 33,
+     "run_n": 5,
      "state": "MIXED"
     },
     {
@@ -747,8 +747,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": 1,
-     "state": "CLOUDY"
+     "run_n": null,
+     "state": null
     }
    ],
    "cohorts": {
@@ -796,8 +796,7 @@
      "q": "insufficient"
     },
     "i": {
-     "q": "stale",
-     "stale_since": "2026-11-21T06:02-05:00"
+     "q": "fresh"
     },
     "i_live": {
      "q": "fresh"
@@ -809,8 +808,7 @@
      "q": "fresh"
     },
     "r": {
-     "q": "stale",
-     "stale_since": "2026-11-21T06:02-05:00"
+     "q": "fresh"
     },
     "weather_city": {
      "q": "fresh"
@@ -831,32 +829,29 @@
     "valence_sign": null
    },
    "events": [],
-   "holdover": true,
+   "holdover": false,
    "i_band": "neutral",
    "i_positive_sub": null,
    "intensity": {
-    "engine_value": 3.9244,
-    "level": "mid",
+    "engine_value": 2.8822,
+    "level": "light",
     "scale": "T1-20261009",
-    "value": 4.3
+    "value": 2.7
    },
-   "judged_at_local": "2026-11-21T06:02-05:00",
+   "judged_at_local": "2026-11-22T06:02-05:00",
    "live": {
     "degraded_legs": [
-     "v_w",
-     "z_dw",
-     "r0",
      "hotlist_absent"
     ],
     "i_band": "positive",
     "i_positive_sub": null,
     "intensity": {
-     "engine_value": 3.028,
+     "engine_value": 3.268,
      "level": "light",
      "scale": "T1-20261009",
-     "value": 2.9
+     "value": 3.3
     },
-    "judged_at": "2026-11-22T05:18-05:00",
+    "judged_at": "2026-11-22T06:02-05:00",
     "macro_a": null,
     "macro_v": null
    },
@@ -868,12 +863,12 @@
    "macro_v_72h": null,
    "macro_v_median_90d": null,
    "mourning_calendar": [],
-   "pui": 33.9587,
+   "pui": 36.0196,
    "r_band": "normal",
    "sub": {
-    "anx": 0.1812,
-    "bore": 0.2086,
-    "home": 0.5532
+    "anx": 0.2169,
+    "bore": 0.1973,
+    "home": 0.5923
    },
    "u_type": null
   }
