@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T11:05:36.754327Z",
+ "generated_at": "2026-11-22T12:05:48.130694Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-22T19:05+08:00",
+    "judged_at": "2026-11-22T20:05+08:00",
     "macro_a": 0.5619,
     "macro_v": 0.5619
    },
@@ -612,8 +612,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "SanDiego",
@@ -648,8 +648,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 7,
+     "state": "RAIN"
     },
     {
      "city": "Orlando",
@@ -675,8 +675,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Portland",
@@ -702,8 +702,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "LasVegas",
@@ -729,8 +729,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "MIXED"
     },
     {
      "city": "Columbus",
@@ -846,12 +846,12 @@
     "i_band": "positive",
     "i_positive_sub": null,
     "intensity": {
-     "engine_value": 3.268,
+     "engine_value": 3.2211,
      "level": "light",
      "scale": "T1-20261009",
-     "value": 3.3
+     "value": 3.2
     },
-    "judged_at": "2026-11-22T06:05-05:00",
+    "judged_at": "2026-11-22T07:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
