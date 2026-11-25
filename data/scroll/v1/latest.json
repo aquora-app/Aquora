@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T12:05:41.949121Z",
+ "generated_at": "2026-11-25T13:05:41.590812Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -459,7 +459,7 @@
      "c_S"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-25T20:05+08:00",
+    "judged_at": "2026-11-25T21:05+08:00",
     "macro_a": 0.3472,
     "macro_v": 0.3472
    },
@@ -569,8 +569,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 7,
+     "state": "CLOUDY"
     },
     {
      "city": "Boston",
@@ -641,8 +641,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 2,
+     "state": "SUNNY"
     },
     {
      "city": "StLouis",
@@ -749,8 +749,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     }
    ],
    "cohorts": {
@@ -848,12 +848,12 @@
     "i_band": "positive",
     "i_positive_sub": "serene",
     "intensity": {
-     "engine_value": 4.9661,
+     "engine_value": 4.9703,
      "level": "mid",
      "scale": "T1-20261009",
      "value": 5.4
     },
-    "judged_at": "2026-11-25T07:05-05:00",
+    "judged_at": "2026-11-25T08:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
