@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T13:05:44.521286Z",
+ "generated_at": "2026-11-26T14:05:43.900650Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -457,7 +457,7 @@
      "hotlist_supply_low"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-26T21:05+08:00",
+    "judged_at": "2026-11-26T22:05+08:00",
     "macro_a": 0.8303,
     "macro_v": -0.7776
    },
@@ -585,8 +585,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "CLOUDY"
     },
     {
      "city": "Detroit",
@@ -603,8 +603,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "Minneapolis",
@@ -621,8 +621,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "Tampa",
@@ -684,8 +684,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 1,
+     "state": "RAIN"
     },
     {
      "city": "Pittsburgh",
@@ -711,8 +711,8 @@
      "kind": "",
      "l_env": null,
      "pui_c": null,
-     "run_n": null,
-     "state": null
+     "run_n": 4,
+     "state": "SUNNY"
     },
     {
      "city": "Cincinnati",
@@ -853,12 +853,12 @@
     "i_band": "positive",
     "i_positive_sub": "serene",
     "intensity": {
-     "engine_value": 5.4869,
+     "engine_value": 5.5281,
      "level": "strong",
      "scale": "T1-20261009",
      "value": 6.0
     },
-    "judged_at": "2026-11-26T08:05-05:00",
+    "judged_at": "2026-11-26T09:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
