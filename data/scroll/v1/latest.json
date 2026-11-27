@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T02:55:02.350565Z",
+ "generated_at": "2026-11-27T03:05:41.278080Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -459,7 +459,7 @@
      "c_S"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-27T10:55+08:00",
+    "judged_at": "2026-11-27T11:05+08:00",
     "macro_a": 0.8922,
     "macro_v": 0.8922
    },
@@ -855,12 +855,12 @@
     "i_band": "positive",
     "i_positive_sub": "festive",
     "intensity": {
-     "engine_value": 8.0373,
+     "engine_value": 7.9104,
      "level": "severe",
      "scale": "T1-20261009",
-     "value": 8.6
+     "value": 8.5
     },
-    "judged_at": "2026-11-26T21:55-05:00",
+    "judged_at": "2026-11-26T22:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
