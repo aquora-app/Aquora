@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28T02:05:37.786072Z",
+ "generated_at": "2026-11-28T03:05:43.990076Z",
  "markets": {
   "cn": {
    "city_weather": [
@@ -459,7 +459,7 @@
      "c_S"
     ],
     "i_band": "neutral",
-    "judged_at": "2026-11-28T10:05+08:00",
+    "judged_at": "2026-11-28T11:05+08:00",
     "macro_a": 0.9098,
     "macro_v": 0.8114
    },
@@ -860,7 +860,7 @@
      "scale": "T1-20261009",
      "value": 6.2
     },
-    "judged_at": "2026-11-27T21:05-05:00",
+    "judged_at": "2026-11-27T22:05-05:00",
     "macro_a": null,
     "macro_v": null
    },
